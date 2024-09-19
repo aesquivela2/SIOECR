@@ -1,30 +1,26 @@
 package com.olimpiadas.inscriptionsback.Models;
 
 import jakarta.persistence.*;
-
 import java.util.Set;
 
 @Entity
+@Table(name = "Time")
 public class Time {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "hour", nullable = false)
     private String hour;
+
+    @Column(name = "minutes", nullable = false)
     private String minutes;
 
-    @OneToMany(mappedBy = "time")
+    @OneToMany(mappedBy = "time", cascade = CascadeType.ALL)
     private Set<AvailableDaysTimes> availableDaysTimes;
 
-    public Time() {
-    }
-
-    public Time(Long id, String hour, String minutes, Set<AvailableDaysTimes> availableDaysTimes) {
-        this.id = id;
-        this.hour = hour;
-        this.minutes = minutes;
-        this.availableDaysTimes = availableDaysTimes;
-    }
+    // Getters and Setters
 
     public Long getId() {
         return id;

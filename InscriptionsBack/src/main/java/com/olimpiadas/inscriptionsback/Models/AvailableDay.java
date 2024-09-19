@@ -1,4 +1,5 @@
 package com.olimpiadas.inscriptionsback.Models;
+
 import jakarta.persistence.*;
 import java.util.Set;
 
@@ -7,7 +8,7 @@ import java.util.Set;
 public class AvailableDay {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  // Automatically generate primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "day_name", nullable = false)
@@ -15,6 +16,9 @@ public class AvailableDay {
 
     @OneToMany(mappedBy = "availableDay", cascade = CascadeType.ALL)
     private Set<AvailableDaysTimes> availableDaysTimes;
+
+    @OneToMany(mappedBy = "availableDay", cascade = CascadeType.ALL)
+    private Set<VolunteerAvailableDays> volunteerAvailableDays;
 
     // Getters and Setters
 
@@ -41,5 +45,12 @@ public class AvailableDay {
     public void setAvailableDaysTimes(Set<AvailableDaysTimes> availableDaysTimes) {
         this.availableDaysTimes = availableDaysTimes;
     }
-}
 
+    public Set<VolunteerAvailableDays> getVolunteerAvailableDays() {
+        return volunteerAvailableDays;
+    }
+
+    public void setVolunteerAvailableDays(Set<VolunteerAvailableDays> volunteerAvailableDays) {
+        this.volunteerAvailableDays = volunteerAvailableDays;
+    }
+}

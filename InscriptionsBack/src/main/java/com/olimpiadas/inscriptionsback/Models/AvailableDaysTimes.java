@@ -5,26 +5,20 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "Available_days_Times")
 public class AvailableDaysTimes {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "available_day_id")
+    @JoinColumn(name = "available_day_id", nullable = false)
     private AvailableDay availableDay;
 
     @ManyToOne
-    @JoinColumn(name = "time_id")
+    @JoinColumn(name = "time_id", nullable = false)
     private Time time;
 
-    public AvailableDaysTimes() {
-    }
-
-    public AvailableDaysTimes(Long id, AvailableDay availableDay, Time time) {
-        this.id = id;
-        this.availableDay = availableDay;
-        this.time = time;
-    }
+    // Getters and Setters
 
     public Long getId() {
         return id;
