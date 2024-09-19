@@ -1,6 +1,6 @@
 <form (ngSubmit)="onSubmit()" #personForm="ngForm" novalidate>
   <div>
-    <label for="name">Identificación:</label>
+    <label for="identification">Identificación:</label>
     <input type="text" id="identification" name="identification" [(ngModel)]="person.identification" #identification="ngModel" required pattern="^\d{9,}$">
     <div *ngIf="identification.invalid && identification.touched">
       <small class="error" *ngIf="identification.errors?.['required']">La identificación es requerida.</small>
@@ -56,5 +56,19 @@
       <small class="error" *ngIf="region.errors?.['required']">La región es requerida.</small>
     </div>
   </div>
+  <div>
+    <label for="type">Tipo de Inscripción:</label>
+    <select id="type" name="type" [(ngModel)]="person.type" (change)="onTypeChange()" required>
+      <option value="" disabled selected>Seleccione tipo</option>
+      <option value="Voluntario">Voluntario</option>
+      <option value="Atleta">Atleta</option>
+    </select>
+  </div>
+  <ng-container *ngIf="person.type === 'Voluntario'">
+    <app-volunteer-form></app-volunteer-form>
+  </ng-container>
+  <ng-container *ngIf="person.type === 'Atleta'">
+    <app-athlete-form></app-athlete-form>
+  </ng-container>  
   <button type="submit" [disabled]="!personForm.form.valid">Enviar</button>
 </form>

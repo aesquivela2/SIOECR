@@ -5,25 +5,24 @@ import java.util.Date;
 import com.olimpiadas.inscriptionsback.Models.Province;
 
 @Entity
-@Table(name = "person", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "email") // Asegura que el email sea único
-})
+@Table(name = "Person")
+@Inheritance(strategy = InheritanceType.JOINED)  // Agrega esta anotación para herencia JOINED
 public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Clave primaria auto-generada
     private Integer id;
 
-    @Column(name = "identification", nullable = false) // Agregando identificación como campo
+    @Column(nullable = false)
     private String identification;
 
-    @Column(name = "name", nullable = false) // No nulo
+    @Column(nullable = false)
     private String name;
 
-    @Column(name = "birthdate", nullable = false) // No nulo
+    @Column(nullable = false)
     private Date birthdate;
 
-    @Column(name = "email", nullable = false) // No nulo y único
+    @Column(nullable = false, unique = true)
     private String email;
 
     @Column(name = "phone_number") // Opcional
@@ -33,8 +32,8 @@ public class Person {
     private String nationality;
 
     // Relación con la entidad 'Region' (suponiendo que existe la clase 'Region')
-    @ManyToOne
-    @JoinColumn(name = "region_id", nullable = false, referencedColumnName = "id") // Relación con la tabla Region
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "region_id", nullable = false)
     private Region region;
 
     public Person() {
@@ -50,8 +49,6 @@ public class Person {
         this.nationality = nationality;
         this.region = region;
     }
-
-    // Getters y setters
 
     public Integer getId() {
         return id;
@@ -117,4 +114,3 @@ public class Person {
         this.region = region;
     }
 }
-

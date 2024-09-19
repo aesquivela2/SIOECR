@@ -3,14 +3,14 @@ package com.olimpiadas.inscriptionsback.Models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "province")
+@Table(name = "Province")
 public class Province {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // Generación automática del ID
     private Integer id;
 
-    @Column(name = "name", nullable = false)  // Nombre no nulo
+    @Column(nullable = false, unique = true)  // Nombre no nulo
     private String name;
 
     public Province() {
@@ -21,7 +21,6 @@ public class Province {
         this.name = name;
     }
 
-    // Getters y Setters
 
     public Integer getId() {
         return id;

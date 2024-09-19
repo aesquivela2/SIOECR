@@ -1,26 +1,30 @@
 package com.olimpiadas.inscriptionsback.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "region")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) // This will ignore lazy-loading issues
 public class Region {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // Generación automática del ID
     private Integer id;
 
-    @Column(name = "name", nullable = false)  // Nombre no nulo
+    @Column(nullable = false, unique = true)
     private String name;
 
     // Relación con la entidad 'Province'
-    @ManyToOne
-    @JoinColumn(name = "province_id", nullable = false, referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Province province;  // Llave foránea hacia Province
 
     // Relación con la entidad 'Canton'
-    @ManyToOne
-    @JoinColumn(name = "canton_id", nullable = false, referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY)  // Lazy loading to avoid unnecessary loading
+    @JsonIgnore  // Ignore the province when serializing to JSON
+    @JoinColumn(name = "canton_id", nullable = false)
     private Canton canton;  // Llave foránea hacia Canton
 
     public Region() {
@@ -32,8 +36,6 @@ public class Region {
         this.province = province;
         this.canton = canton;
     }
-
-    // Getters y Setters
 
     public Integer getId() {
         return id;

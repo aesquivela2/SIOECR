@@ -1,20 +1,35 @@
+interface Region {
+  id: number;
+  name: string;
+  province: {
+    id: number;
+    name: string;
+  };
+  canton: {
+    id: number;
+    name: string;
+  };
+}
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { PersonService } from './person.service';
 import { RegionService } from './region.service';
-import { Region } from '../app.component';
+import { VolunteerFormComponent } from '../volunteer-form/volunteer-form.component';
+import { AthleteFormComponent } from '../athlete-form/athlete-form.component';
 
 @Component({
   selector: 'app-person-form',
   standalone: true,
-  imports: [FormsModule, CommonModule],  
+  imports: [FormsModule, CommonModule, VolunteerFormComponent, AthleteFormComponent],  // Importando los formularios correctamente
   templateUrl: './person-form.component.html',
   styleUrls: ['./person-form.component.css']
 })
 export class PersonFormComponent implements OnInit {
 
-  @ViewChild('personForm') personForm!: NgForm;  
+  @ViewChild('personForm') personForm!: NgForm;
 
   person = {
     identification: '',
@@ -23,33 +38,43 @@ export class PersonFormComponent implements OnInit {
     email: '',
     phone_number: '',
     nationality: '',
-    region: null
+    region: null,
+    type: ''
   };
 
-  regions: Region[] = [];
+  regions: any[] = [];
   minDate: string = '';
   maxDate: string = '';
-  invalidDate: boolean = false;  
+  invalidDate: boolean = false;
 
   constructor(
     private personService: PersonService,
-    private regionService: RegionService
+    private regionService: RegionService,
+    private router: Router
   ) {}
 
   ngOnInit() {
-    this.loadRegions();  
-    this.minDate = '1900-01-01'; 
+    this.loadRegions();
     const today = new Date();
-    this.maxDate = today.toISOString().split('T')[0]; 
+    this.maxDate = today.toISOString().split('T')[0];
+    this.minDate = '1900-01-01';
+  }
+
+  onTypeChange() {
+    if (this.person.type === 'Voluntario') {
+      this.router.navigate(['/volunteer-form']);
+    } else if (this.person.type === 'Atleta') {
+      this.router.navigate(['/athlete-form']);
+    }
   }
 
   loadRegions() {
     this.regionService.getAllRegions().subscribe(
-      (data: Region[]) => {
-        this.regions = data;  
+      data => {
+        this.regions = data;
       },
-      (error) => {
-        console.error('Error fetching regions:', error);  
+      error => {
+        console.error('Error fetching regions:', error);
       }
     );
   }
@@ -76,16 +101,6 @@ export class PersonFormComponent implements OnInit {
       this.personService.createPerson(this.person).subscribe(
         response => {
           alert('Datos enviados correctamente.');
-          this.person = {
-            identification: '',
-            name: '',
-            birthdate: '',
-            email: '',
-            phone_number: '',
-            nationality: '',
-            region: null
-          };
-          this.personForm.resetForm();
         },
         error => {
           console.error('Error creating person:', error);

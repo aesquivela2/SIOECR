@@ -1,1 +1,12 @@
-<app-person-form></app-person-form>
+<div class="container">
+  <h1>Sistema de inscripciones a las Olimpiadas de Costa Rica</h1>
+  <h2>Seleccione la inscripción que desea realizar</h2>
+
+  <div class="options">
+    <button (click)="navigateTo('volunteer')">Voluntario</button>
+    <button (click)="navigateTo('athlete')">Atleta</button>
+  </div>
+
+  <!-- Aquí se cargarán los componentes de los formularios -->
+  <router-outlet></router-outlet>
+</div>

@@ -4,19 +4,19 @@ import jakarta.persistence.*;  // Importa las anotaciones JPA
 import com.olimpiadas.inscriptionsback.Models.Province;  // Importa la entidad Province
 
 @Entity
-@Table(name = "canton")
+@Table(name = "Canton")
 public class Canton {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // Generación automática del ID
     private Integer id;
 
-    @Column(name = "name", nullable = false)  // Nombre no nulo
+    @Column(nullable = false, unique = true) // Nombre no nulo
     private String name;
 
     // Relación con la entidad 'Province'
-    @ManyToOne
-    @JoinColumn(name = "province_id", nullable = false, referencedColumnName = "id")  // Llave foránea hacia Province
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "province_id", nullable = false)
     private Province province;
 
     public Canton() {
@@ -28,7 +28,6 @@ public class Canton {
         this.province = province;
     }
 
-    // Getters y Setters
 
     public Integer getId() {
         return id;

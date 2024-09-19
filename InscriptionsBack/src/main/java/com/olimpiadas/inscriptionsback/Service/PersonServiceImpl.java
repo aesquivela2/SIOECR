@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PersonServiceImpl implements PersonService{
+public class PersonServiceImpl implements PersonService {
     private final PersonRepository personRepository;
 
     public PersonServiceImpl(PersonRepository personRepository) {
@@ -27,12 +27,9 @@ public class PersonServiceImpl implements PersonService{
 
     @Override
     public Person findById(Integer id) {
-        Person person = personRepository.findById(id).orElseThrow(
-                ()-> {
-                    throw new ResourceNotFoundException("Persona con id " + id + " no se encuentra");
-                }
+        return personRepository.findById(id).orElseThrow(() ->
+                new ResourceNotFoundException("Persona con id " + id + " no se encuentra")
         );
-        return person;
     }
 
     @Override
@@ -44,5 +41,4 @@ public class PersonServiceImpl implements PersonService{
     public Person update(Person person) {
         return personRepository.save(person);
     }
-
 }
