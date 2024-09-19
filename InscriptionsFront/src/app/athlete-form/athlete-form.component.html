@@ -1,0 +1,25 @@
+<form (ngSubmit)="onSubmit()" #athleteForm="ngForm" novalidate>
+    <div>
+      <label for="sport">Deporte:</label>
+      <input type="text" id="sport" name="sport" [(ngModel)]="athlete.sport" #sport="ngModel" required>
+      <div *ngIf="sport.invalid && sport.touched">
+        <small class="error" *ngIf="sport.errors?.['required']">El deporte es requerido.</small>
+      </div>
+    </div>
+    <div>
+      <label for="weight">Peso (kg):</label>
+      <input type="number" id="weight" name="weight" [(ngModel)]="athlete.weight" #weight="ngModel" required>
+      <div *ngIf="weight.invalid && weight.touched">
+        <small class="error" *ngIf="weight.errors?.['required']">El peso es requerido.</small>
+      </div>
+    </div>
+    <div>
+      <label for="height">Altura (cm):</label>
+      <input type="number" id="height" name="height" [(ngModel)]="athlete.height" #height="ngModel" required>
+      <div *ngIf="height.invalid && height.touched">
+        <small class="error" *ngIf="height.errors?.['required']">La altura es requerida.</small>
+      </div>
+    </div>
+    <button type="submit" [disabled]="!athleteForm.form.valid">Enviar</button>
+  </form>
+  
