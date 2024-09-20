@@ -23,7 +23,7 @@ import { AthleteFormComponent } from '../athlete-form/athlete-form.component';
 @Component({
   selector: 'app-person-form',
   standalone: true,
-  imports: [FormsModule, CommonModule, VolunteerFormComponent, AthleteFormComponent],  // Importando los formularios correctamente
+  imports: [FormsModule, CommonModule, VolunteerFormComponent, AthleteFormComponent], 
   templateUrl: './person-form.component.html',
   styleUrls: ['./person-form.component.css']
 })

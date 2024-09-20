@@ -1,79 +1,97 @@
 <form (ngSubmit)="onSubmit()" #volunteerForm="ngForm" novalidate>
-  
-  <!-- Datos de Person -->
-  <div>
-    <label for="identification">Identificación:</label>
-    <input type="text" id="identification" name="identification" [(ngModel)]="volunteer.identification" #identification="ngModel" required>
-    <div *ngIf="identification.invalid && identification.touched">
-      <small class="error" *ngIf="identification.errors?.['required']">La identificación es requerida.</small>
-    </div>
-  </div>
-
-  <div>
-    <label for="name">Nombre:</label>
-    <input type="text" id="name" name="name" [(ngModel)]="volunteer.name" #name="ngModel" required>
-    <div *ngIf="name.invalid && name.touched">
-      <small class="error" *ngIf="name.errors?.['required']">El nombre es requerido.</small>
-    </div>
-  </div>
-
-  <div>
-    <label for="birthdate">Fecha de nacimiento:</label>
-    <input type="date" id="birthdate" name="birthdate" [(ngModel)]="volunteer.birthdate" #birthdate="ngModel" required>
-    <div *ngIf="birthdate.invalid && birthdate.touched">
-      <small class="error" *ngIf="birthdate.errors?.['required']">La fecha de nacimiento es requerida.</small>
-    </div>
-  </div>
-
-  <div>
-    <label for="email">Correo electrónico:</label>
-    <input type="email" id="email" name="email" [(ngModel)]="volunteer.email" #email="ngModel" required email>
-    <div *ngIf="email.invalid && email.touched">
-      <small class="error" *ngIf="email.errors?.['required']">El correo es requerido.</small>
-      <small class="error" *ngIf="email.errors?.['email']">El correo debe ser válido.</small>
-    </div>
-  </div>
-
-  <div>
-    <label for="phone_number">Número de teléfono:</label>
-    <input type="tel" id="phone_number" name="phone_number" [(ngModel)]="volunteer.phone_number" #phone_number="ngModel">
-  </div>
-
-  <div>
-    <label for="nationality">Nacionalidad:</label>
-    <input type="text" id="nationality" name="nationality" [(ngModel)]="volunteer.nationality" #nationality="ngModel">
-  </div>
-
-  <!-- Datos específicos del voluntario -->
-  <div>
-    <label for="sportExperience">Experiencia en deportes:</label>
-    <select id="sportExperience" name="sportExperience" [(ngModel)]="volunteer.sportExperience" #sportExperience="ngModel" required>
-      <option *ngFor="let sport of sports" [ngValue]="sport">{{ sport.name }}</option>
-    </select>
-    <div *ngIf="sportExperience.invalid && sportExperience.touched">
-      <small class="error" *ngIf="sportExperience.errors?.['required']">La experiencia en deportes es requerida.</small>
-    </div>
-  </div>
-
-  <div>
-    <label>Días disponibles:</label>
-    <div *ngFor="let day of volunteer.availableDays">
-      <input type="checkbox" id="day-{{day.id}}" [(ngModel)]="day.selected" [ngModelOptions]="{standalone: true}">
-      <label for="day-{{day.id}}">{{ day.day_name }}</label>
-    </div>
-  </div>
-
-  <div *ngIf="volunteer.availableDays.length > 0">
-    <label>Horas disponibles para cada día:</label>
-    <div *ngFor="let day of volunteer.availableDays">
-      <div>
-        <label for="time-{{day.id}}">Hora para {{ getDayName(day) }}:</label>
-        <select [(ngModel)]="volunteer.availableTimes[day.id]" [ngModelOptions]="{standalone: true}">
-          <option *ngFor="let time of availableTimesList" [ngValue]="time">{{ time.hour }}:{{ time.minutes }}</option>
-        </select>
+  <!-- Primera parte del formulario -->
+  <div *ngIf="currentStep === 1">
+    <div>
+      <label for="identification">Identificación:</label>
+      <input type="text" id="identification" name="identification" [(ngModel)]="volunteer.identification" #identification="ngModel" required pattern="^\d{9,}$">
+      <div *ngIf="identification.invalid && identification.touched">
+        <small class="error" *ngIf="identification.errors?.['required']">La identificación es requerida.</small>
+        <small class="error" *ngIf="identification.errors?.['pattern']">La identificación debe tener al menos 9 dígitos.</small>
       </div>
     </div>
+    <div>
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" name="name" [(ngModel)]="volunteer.name" #name="ngModel" required pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$">
+      <div *ngIf="name.invalid && name.touched">
+        <small class="error" *ngIf="name.errors?.['required']">El nombre es requerido.</small>
+        <small class="error" *ngIf="name.errors?.['pattern']">El nombre solo puede contener letras.</small>
+      </div>
+    </div>
+    <div>
+      <label for="birthdate">Fecha de nacimiento:</label>
+      <input type="date" id="birthdate" name="birthdate" [(ngModel)]="volunteer.birthdate" #birthdate="ngModel" required [min]="minDate" [max]="maxDate" (input)="validateBirthdate()">
+      <div *ngIf="birthdate.invalid && birthdate.touched || invalidDate">
+        <small class="error" *ngIf="birthdate.errors?.['required']">La fecha de nacimiento es requerida.</small>
+        <small class="error" *ngIf="invalidDate">La fecha de nacimiento debe estar entre {{ minDate }} y {{ maxDate }}.</small>
+      </div>
+    </div>   
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" [(ngModel)]="volunteer.email" #email="ngModel" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+      <div *ngIf="email.invalid && email.touched">
+        <small class="error" *ngIf="email.errors?.['required']">El correo es requerido.</small>
+        <small class="error" *ngIf="email.errors?.['pattern']">Correo inválido'.</small>
+      </div>
+    </div>  
+    <div>
+      <label for="phone_number">Número de teléfono:</label>
+      <input type="text" id="phone_number" name="phone_number" [(ngModel)]="volunteer.phone_number" #phone_number="ngModel" required pattern="^[0-9]{8,10}$">
+      <div *ngIf="phone_number.invalid && phone_number.touched">
+        <small class="error" *ngIf="phone_number.errors?.['required']">El número de teléfono es requerido.</small>
+        <small class="error" *ngIf="phone_number.errors?.['pattern']">Número de teléfono inválido.</small>
+      </div>
+    </div>
+    <div>
+      <label for="nationality">Nacionalidad:</label>
+      <input type="text" id="nationality" name="nationality" [(ngModel)]="volunteer.nationality" #nationality="ngModel" required pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$">
+      <div *ngIf="nationality.invalid && nationality.touched">
+        <small class="error" *ngIf="nationality.errors?.['required']">La nacionalidad es requerida.</small>
+        <small class="error" *ngIf="nationality.errors?.['pattern']">La nacionalidad no puede contener números.</small>
+      </div>
+    </div>
+    <div>
+      <label for="region">Región:</label>
+      <select id="region" name="region" [(ngModel)]="volunteer.region" #region="ngModel" required>
+        <option *ngFor="let region of regions" [ngValue]="region">{{ region.name }}</option>
+      </select>
+      <div *ngIf="region.invalid && region.touched">
+        <small class="error" *ngIf="region.errors?.['required']">La región es requerida.</small>
+      </div>
+    </div>
+    <button type="button" (click)="nextStep()">Siguiente</button>
   </div>
 
-  <button type="submit" [disabled]="!volunteerForm.form.valid">Enviar</button>
+  <!-- Segunda parte del formulario -->
+  <div *ngIf="currentStep === 2">
+    <div>
+      <label>Experiencia en deportes:</label>
+      <div *ngFor="let sport of sports">
+        <input type="checkbox" [value]="sport" (change)="onSportSelectionChange($event)" />
+        <label>{{ sport.name }}</label>
+      </div>
+    </div>        
+    <div>
+      <label>Días disponibles:</label>
+      <div *ngFor="let day of volunteer.availableDays">
+        <input type="checkbox" id="day-{{day.id}}" [(ngModel)]="day.selected" [ngModelOptions]="{standalone: true}">
+        <label for="day-{{day.id}}">{{ day.day_name }}</label>
+      </div>
+    </div>
+
+    <div *ngIf="volunteer.availableDays.length > 0">
+      <label>Horas disponibles para cada día:</label>
+      <div *ngFor="let day of volunteer.availableDays">
+        <div>
+          <label for="time-{{day.id}}">Hora para {{ getDayName(day) }}:</label>
+          <select [(ngModel)]="volunteer.availableTimes[day.id]" [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let time of availableTimesList" [ngValue]="time">{{ time.hour }}:{{ time.minutes }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" (click)="previousStep()">Anterior</button>
+    <button type="submit" [disabled]="!volunteerForm.form.valid">Enviar</button>
+  </div>
+
 </form>

@@ -3,12 +3,13 @@ import { AppComponent } from './app/app.component';
 import { importProvidersFrom } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router'; // Importar RouterModule
-import { routes } from './app/app.routes'; // Importar las rutas
+import { RouterModule } from '@angular/router';
+import { routes } from './app/app.routes';  
+
 
 bootstrapApplication(AppComponent, {
   providers: [
     importProvidersFrom(HttpClientModule, FormsModule),
-    importProvidersFrom(RouterModule.forRoot(routes))  // Configurar las rutas en el RouterModule
+    importProvidersFrom(RouterModule.forRoot(routes))  
   ],
 });
