@@ -14,8 +14,6 @@ public class Volunteer extends Person {
     @OneToMany(mappedBy = "volunteer", cascade = CascadeType.ALL)
     private Set<VolunteerAvailableDays> availableDays;
 
-    // Getters and Setters
-
     public Sport getSportExperience() {
         return sportExperience;
     }

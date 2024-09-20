@@ -39,7 +39,6 @@ public class PersonController {
 
     @PutMapping("/{id}")
     public Person updatePerson(@PathVariable Integer id, @RequestBody Person person) {
-        // Actualizamos directamente la persona
         person.setId(id);
         return personService.update(person);
     }

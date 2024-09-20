@@ -39,7 +39,6 @@ public class AthleteController {
 
     @PutMapping("/{id}")
     public Athlete updateAthlete(@PathVariable Integer id, @RequestBody Athlete athlete) {
-        // En lugar de buscar el atleta antes de actualizar, actualizamos directamente
         athlete.setId(id);
         return athleteService.update(athlete);
     }

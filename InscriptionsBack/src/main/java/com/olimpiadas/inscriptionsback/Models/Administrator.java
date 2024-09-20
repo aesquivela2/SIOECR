@@ -1,6 +1,9 @@
 package com.olimpiadas.inscriptionsback.Models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -18,8 +21,8 @@ public class Administrator {
     @Column(nullable = false)
     private String password;
 
-    // Relación con Activity (Uno a Muchos)
-    @OneToMany(mappedBy = "administrator", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "administrator", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Activity> activities;
 
     public Administrator() {

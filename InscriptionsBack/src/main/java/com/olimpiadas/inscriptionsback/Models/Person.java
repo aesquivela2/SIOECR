@@ -6,11 +6,11 @@ import com.olimpiadas.inscriptionsback.Models.Province;
 
 @Entity
 @Table(name = "Person")
-@Inheritance(strategy = InheritanceType.JOINED)  // Agrega esta anotación para herencia JOINED
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Person {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Clave primaria auto-generada
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(nullable = false)
@@ -25,13 +25,12 @@ public class Person {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(name = "phone_number") // Opcional
+    @Column(name = "phone_number")
     private String phone_number;
 
-    @Column(name = "nationality") // Opcional
+    @Column(name = "nationality")
     private String nationality;
 
-    // Relación con la entidad 'Region' (suponiendo que existe la clase 'Region')
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "region_id", nullable = false)
     private Region region;

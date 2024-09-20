@@ -39,7 +39,7 @@ public class VolunteerController {
 
     @PutMapping("/{id}")
     public Volunteer updateVolunteer(@PathVariable Integer id, @RequestBody Volunteer volunteer) {
-        volunteer.setId(id);  // Actualizamos directamente el voluntario
+        volunteer.setId(id);
         return volunteerService.update(volunteer);
     }
 }

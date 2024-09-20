@@ -39,7 +39,6 @@ public class EmergencyContactController {
 
     @PutMapping("/{id}")
     public EmergencyContact updateEmergencyContact(@PathVariable Integer id, @RequestBody EmergencyContact emergencyContact) {
-        // Actualizamos directamente el contacto de emergencia
         emergencyContact.setId(id);
         return emergencyContactService.update(emergencyContact);
     }

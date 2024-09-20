@@ -7,10 +7,10 @@ import jakarta.persistence.*;
 public class Province {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  // Generación automática del ID
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false, unique = true)  // Nombre no nulo
+    @Column(nullable = false, unique = true)
     private String name;
 
     public Province() {

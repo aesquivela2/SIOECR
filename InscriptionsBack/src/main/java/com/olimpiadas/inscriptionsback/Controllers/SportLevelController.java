@@ -39,7 +39,7 @@ public class SportLevelController {
 
     @PutMapping("/{id}")
     public SportLevel updateSportLevel(@PathVariable Integer id, @RequestBody SportLevel sportLevel) {
-        sportLevel.setId(id);  // Actualizamos directamente el nivel de deporte
+        sportLevel.setId(id);
         return sportLevelService.update(sportLevel);
     }
 }

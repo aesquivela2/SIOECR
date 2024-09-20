@@ -6,26 +6,24 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 
 @Entity
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) // This will ignore lazy-loading issues
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Region {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  // Generación automática del ID
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(nullable = false, unique = true)
     private String name;
 
-    // Relación con la entidad 'Province'
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Province province;  // Llave foránea hacia Province
+    private Province province;
 
-    // Relación con la entidad 'Canton'
-    @ManyToOne(fetch = FetchType.LAZY)  // Lazy loading to avoid unnecessary loading
-    @JsonIgnore  // Ignore the province when serializing to JSON
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     @JoinColumn(name = "canton_id", nullable = false)
-    private Canton canton;  // Llave foránea hacia Canton
+    private Canton canton;
 
     public Region() {
     }

@@ -22,7 +22,6 @@ public class VolunteerAvailableDays {
     @JoinColumn(name = "time_id", nullable = true)
     private Time time;
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

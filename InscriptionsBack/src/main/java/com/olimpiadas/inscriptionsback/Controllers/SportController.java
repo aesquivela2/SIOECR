@@ -24,7 +24,11 @@ public class SportController {
 
     @GetMapping
     public List<Sport> findAll() {
-        return sportService.findAll();
+        List<Sport> sports = sportService.findAll();
+        for (Sport sport : sports) {
+            System.out.println("Sport Type: " + sport.getType());  // Verifica que no sea null
+        }
+        return sports;
     }
 
     @GetMapping("/{id}")

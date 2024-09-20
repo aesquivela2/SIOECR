@@ -1,20 +1,22 @@
 package com.olimpiadas.inscriptionsback.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
-@Table(name = "Activity")  // Aquí se define la tabla para la jerarquía de herencia
-@Inheritance(strategy = InheritanceType.JOINED)  // Estrategia de herencia, usa SINGLE_TABLE si prefieres una sola tabla para todas las subclases
+@Table(name = "Activity")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Activity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String type;
+    @Column(name = "type", nullable = false)
+    private String typeActivity;
 
     @Column(nullable = false, unique = true)
     private String name;
@@ -35,22 +37,22 @@ public class Activity {
     @Column(name = "maximum_age")
     private Integer maximumAge;
 
-    // Relación con Administrator (Muchos a Uno)
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "administrator_id", nullable = false)
+    @JsonBackReference
     private Administrator administrator;
 
-    // Relación con State (Muchos a Uno)
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "state_id", nullable = false)
+    @JsonBackReference
     private State state;
 
     public Activity() {
     }
 
-    public Activity(Long id, String type, String name, String description, LocalDate date, LocalTime time, String duration, String modality, String location, Integer maxParticipants, Integer minimumAge, Integer maximumAge, Administrator administrator, State state) {
+    public Activity(Long id, String typeActivity, String name, String description, LocalDate date, LocalTime time, String duration, String modality, String location, Integer maxParticipants, Integer minimumAge, Integer maximumAge, Administrator administrator, State state) {
         this.id = id;
-        this.type = type;
+        this.typeActivity = typeActivity;
         this.name = name;
         this.description = description;
         this.date = date;
@@ -74,11 +76,11 @@ public class Activity {
     }
 
     public String getType() {
-        return type;
+        return typeActivity;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setType(String typeActivity) {
+        this.typeActivity = typeActivity;
     }
 
     public String getName() {

@@ -39,7 +39,7 @@ public class TimeController {
 
     @PutMapping("/{id}")
     public Time updateTime(@PathVariable Long id, @RequestBody Time time) {
-        time.setId(id);  // Actualizamos la hora con el ID proporcionado
+        time.setId(id);
         return timeService.update(time);
     }
 }

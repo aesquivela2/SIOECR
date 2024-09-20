@@ -39,7 +39,7 @@ public class VolunteerAvailableDaysController {
 
     @PutMapping("/{id}")
     public VolunteerAvailableDays updateVolunteerAvailableDays(@PathVariable Long id, @RequestBody VolunteerAvailableDays volunteerAvailableDays) {
-        volunteerAvailableDays.setId(id);  // Actualizamos los días disponibles del voluntario
+        volunteerAvailableDays.setId(id);
         return volunteerAvailableDaysService.update(volunteerAvailableDays);
     }
 

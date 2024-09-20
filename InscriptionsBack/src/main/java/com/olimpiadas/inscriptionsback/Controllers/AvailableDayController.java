@@ -39,7 +39,7 @@ public class AvailableDayController {
 
     @PutMapping("/{id}")
     public AvailableDay updateAvailableDay(@PathVariable Long id, @RequestBody AvailableDay availableDay) {
-        availableDay.setId(id);  // Actualizamos el día disponible
+        availableDay.setId(id);
         return availableDayService.update(availableDay);
     }
 }
