@@ -1,10 +1,13 @@
 package com.olimpiadas.inscriptionsback.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;  // Importa las anotaciones JPA
 import com.olimpiadas.inscriptionsback.Models.Province;  // Importa la entidad Province
 
 @Entity
-@Table(name = "Canton")
+@Table(name = "canton")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Canton {
 
     @Id
@@ -15,8 +18,9 @@ public class Canton {
     private String name;
 
     // Relación con la entidad 'Province'
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "province_id", nullable = false)
+    @JsonIgnore
     private Province province;
 
     public Canton() {

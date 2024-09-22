@@ -1,6 +1,6 @@
 package com.olimpiadas.inscriptionsback.Controllers;
 
-import com.olimpiadas.inscriptionsback.Models.AvailableDay;
+import com.olimpiadas.inscriptionsback.Models.AvailableDays;
 import com.olimpiadas.inscriptionsback.Service.AvailableDayService;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,17 +18,17 @@ public class AvailableDayController {
     }
 
     @PostMapping
-    public AvailableDay save(@RequestBody AvailableDay availableDay) {
-        return availableDayService.save(availableDay);
+    public AvailableDays save(@RequestBody AvailableDays availableDays) {
+        return availableDayService.save(availableDays);
     }
 
     @GetMapping
-    public List<AvailableDay> findAll() {
+    public List<AvailableDays> findAll() {
         return availableDayService.findAll();
     }
 
     @GetMapping("/{id}")
-    public AvailableDay findById(@PathVariable Integer id) {
+    public AvailableDays findById(@PathVariable Integer id) {
         return availableDayService.findById(id);
     }
 
@@ -38,9 +38,9 @@ public class AvailableDayController {
     }
 
     @PutMapping("/{id}")
-    public AvailableDay updateAvailableDay(@PathVariable Long id, @RequestBody AvailableDay availableDay) {
-        availableDay.setId(id);
-        return availableDayService.update(availableDay);
+    public AvailableDays updateAvailableDay(@PathVariable Long id, @RequestBody AvailableDays availableDays) {
+        availableDays.setId(id);
+        return availableDayService.update(availableDays);
     }
 }
 

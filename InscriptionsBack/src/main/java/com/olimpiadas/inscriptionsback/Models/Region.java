@@ -16,12 +16,10 @@ public class Region {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @ManyToOne(fetch = FetchType.EAGER)
     private Province province;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "canton_id", nullable = false)
     private Canton canton;
 

@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@PrimaryKeyJoinColumn(name = "id")
+@PrimaryKeyJoinColumn
 public class Sport extends Activity {
 
     @Column(nullable = false)

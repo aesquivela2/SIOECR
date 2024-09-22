@@ -1,14 +1,17 @@
 package com.olimpiadas.inscriptionsback.Models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
-@Table(name = "Activity")
+@Table(name = "activity")
 @Inheritance(strategy = InheritanceType.JOINED)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Activity {
 
     @Id
@@ -37,14 +40,13 @@ public class Activity {
     @Column(name = "maximum_age")
     private Integer maximumAge;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "administrator_id", nullable = false)
-    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "administrator_id", insertable = false, updatable = false)
     private Administrator administrator;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "state_id", nullable = false)
-    @JsonBackReference
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "administrator_id", nullable = false)
+    @JsonIgnore
     private State state;
 
     public Activity() {

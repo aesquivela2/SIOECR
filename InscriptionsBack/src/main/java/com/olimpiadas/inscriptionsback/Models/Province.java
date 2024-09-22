@@ -3,7 +3,7 @@ package com.olimpiadas.inscriptionsback.Models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Province")
+@Table(name = "province")
 public class Province {
 
     @Id

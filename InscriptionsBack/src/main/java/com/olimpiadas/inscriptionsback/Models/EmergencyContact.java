@@ -17,8 +17,8 @@ public class EmergencyContact {
     private String phoneNumber;
 
     // Foreign key to Person
-    @ManyToOne
-    @JoinColumn(name = "person_id", nullable = false, referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "person_id", nullable = false)
     private Person person;
 
     public EmergencyContact() {

@@ -1,12 +1,13 @@
 package com.olimpiadas.inscriptionsback.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.util.Date;
-import com.olimpiadas.inscriptionsback.Models.Province;
 
 @Entity
-@Table(name = "Person")
+@Table(name = "person")
 @Inheritance(strategy = InheritanceType.JOINED)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Person {
 
     @Id
@@ -31,14 +32,23 @@ public class Person {
     @Column(name = "nationality")
     private String nationality;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "region_id", nullable = false)
     private Region region;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "province_id", nullable = false)
+    private Province province;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "canton_id", nullable = false)
+    private Canton canton;
+
 
     public Person() {
     }
 
-    public Person(Integer id, String identification, String name, Date birthdate, String email, String phone_number, String nationality, Region region) {
+    public Person(Integer id, String identification, String name, Date birthdate, String email, String phone_number, String nationality, Region region, Province province, Canton canton) {
         this.id = id;
         this.identification = identification;
         this.name = name;
@@ -47,8 +57,11 @@ public class Person {
         this.phone_number = phone_number;
         this.nationality = nationality;
         this.region = region;
+        this.province = province;
+        this.canton = canton;
     }
 
+    // Getters and setters
     public Integer getId() {
         return id;
     }
@@ -111,5 +124,21 @@ public class Person {
 
     public void setRegion(Region region) {
         this.region = region;
+    }
+
+    public Province getProvince() {
+        return province;
+    }
+
+    public void setProvince(Province province) {
+        this.province = province;
+    }
+
+    public Canton getCanton() {
+        return canton;
+    }
+
+    public void setCanton(Canton canton) {
+        this.canton = canton;
     }
 }

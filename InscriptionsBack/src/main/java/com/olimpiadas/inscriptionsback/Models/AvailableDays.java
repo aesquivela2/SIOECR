@@ -1,20 +1,22 @@
 package com.olimpiadas.inscriptionsback.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "Available_days")
-public class AvailableDay {
+@Table(name = "available_days")
+public class AvailableDays {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "day_name", nullable = false)
-    private String dayName;
+    private String day_name;
 
     @OneToMany(mappedBy = "availableDay", cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set<AvailableDaysTimes> availableDaysTimes;
 
     @OneToMany(mappedBy = "availableDay", cascade = CascadeType.ALL)
@@ -30,12 +32,12 @@ public class AvailableDay {
         this.id = id;
     }
 
-    public String getDayName() {
-        return dayName;
+    public String getDay_name() {
+        return day_name;
     }
 
-    public void setDayName(String dayName) {
-        this.dayName = dayName;
+    public void setDay_name(String dayName) {
+        this.day_name = dayName;
     }
 
     public Set<AvailableDaysTimes> getAvailableDaysTimes() {

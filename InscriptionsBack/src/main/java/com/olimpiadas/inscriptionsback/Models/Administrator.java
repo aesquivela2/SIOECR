@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Administrator")
+@Table(name = "administrator")
 public class Administrator {
 
     @Id

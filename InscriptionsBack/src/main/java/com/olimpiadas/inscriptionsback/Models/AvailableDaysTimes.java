@@ -3,23 +3,22 @@ package com.olimpiadas.inscriptionsback.Models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Available_days_Times")
+@Table(name = "available_days_Times")
 public class AvailableDaysTimes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "available_day_id", nullable = false)
-    private AvailableDay availableDay;
+    private AvailableDays availableDay;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "time_id", nullable = false)
     private Time time;
 
-    // Getters and Setters
-
+    // Getters y setters
     public Long getId() {
         return id;
     }
@@ -28,14 +27,13 @@ public class AvailableDaysTimes {
         this.id = id;
     }
 
-    public AvailableDay getAvailableDay() {
+    public AvailableDays getAvailableDay() {  // Este método también debe llamarse 'getAvailableDay'
         return availableDay;
     }
 
-    public void setAvailableDay(AvailableDay availableDay) {
+    public void setAvailableDay(AvailableDays availableDay) {
         this.availableDay = availableDay;
     }
-
     public Time getTime() {
         return time;
     }

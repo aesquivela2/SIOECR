@@ -1,6 +1,6 @@
 package com.olimpiadas.inscriptionsback.Service;
 
-import com.olimpiadas.inscriptionsback.Models.AvailableDay;
+import com.olimpiadas.inscriptionsback.Models.AvailableDays;
 import com.olimpiadas.inscriptionsback.Repositories.AvailableDayRepository;
 import com.olimpiadas.inscriptionsback.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
@@ -17,17 +17,17 @@ public class AvailableDayServiceImpl implements AvailableDayService {
     }
 
     @Override
-    public AvailableDay save(AvailableDay availableDay) {
-        return availableDayRepository.save(availableDay);
+    public AvailableDays save(AvailableDays availableDays) {
+        return availableDayRepository.save(availableDays);
     }
 
     @Override
-    public List<AvailableDay> findAll() {
+    public List<AvailableDays> findAll() {
         return availableDayRepository.findAll();
     }
 
     @Override
-    public AvailableDay findById(Integer id) {
+    public AvailableDays findById(Integer id) {
         return availableDayRepository.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("AvailableDay with id " + id + " not found")
         );
@@ -39,7 +39,7 @@ public class AvailableDayServiceImpl implements AvailableDayService {
     }
 
     @Override
-    public AvailableDay update(AvailableDay availableDay) {
-        return availableDayRepository.save(availableDay);
+    public AvailableDays update(AvailableDays availableDays) {
+        return availableDayRepository.save(availableDays);
     }
 }

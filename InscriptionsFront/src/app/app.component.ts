@@ -22,3 +22,13 @@ export interface Sport {
   id: number;
   type: string;
 }
+
+export interface Province {
+  id: number;
+  name: string;
+}
+
+export interface Canton {
+  id: number;
+  name: string;
+}
