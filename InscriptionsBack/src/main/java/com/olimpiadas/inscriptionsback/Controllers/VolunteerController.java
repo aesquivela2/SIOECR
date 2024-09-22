@@ -18,12 +18,12 @@ public class VolunteerController {
     }
 
     @PostMapping
-    public Volunteer save(@RequestBody Volunteer volunteer) {
+    public void save(@RequestBody Volunteer volunteer) {
         if (volunteer.getName() == null || volunteer.getName().isEmpty()) {
             throw new IllegalArgumentException("El nombre del voluntario es requerido");
         }
         System.out.println("Volunteer received: " + volunteer.getName());
-        return volunteerService.save(volunteer);
+         volunteerService.saveVolunteer(volunteer);
     }
 
 

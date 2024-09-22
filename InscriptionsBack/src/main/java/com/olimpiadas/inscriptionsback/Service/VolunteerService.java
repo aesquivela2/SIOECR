@@ -8,6 +8,7 @@ import java.util.List;
 @Service
 public interface VolunteerService {
     Volunteer save(Volunteer volunteer);
+    void saveVolunteer(Volunteer volunteer);
     List<Volunteer> findAll();
     Volunteer findById(Integer id);
     void deleteById(Integer id);

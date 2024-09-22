@@ -17,6 +17,16 @@ public class AthleteController {
         this.athleteService = athleteService;
     }
 
+    @PostMapping
+    public void save(@RequestBody Athlete athlete) {
+        if (athlete.getName() == null || athlete.getName().isEmpty()) {
+            throw new IllegalArgumentException("El nombre del voluntario es requerido");
+        }
+        System.out.println("Athlete received: " + athlete.getName());
+
+        athleteService.save(athlete);
+    }
+
     @GetMapping
     public List<Athlete> findAll() {
         return athleteService.findAll();
@@ -37,6 +47,5 @@ public class AthleteController {
         athlete.setId(id);
         return athleteService.update(athlete);
     }
-
 }
 
