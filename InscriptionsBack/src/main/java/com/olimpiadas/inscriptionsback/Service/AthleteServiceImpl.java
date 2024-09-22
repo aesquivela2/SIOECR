@@ -17,8 +17,8 @@ public class AthleteServiceImpl implements AthleteService {
     }
 
     @Override
-    public Athlete save(Athlete athlete) {
-        return athleteRepository.save(athlete);
+    public void save(Athlete athlete) {
+        athleteRepository.saveAthlete(athlete);
     }
 
     @Override

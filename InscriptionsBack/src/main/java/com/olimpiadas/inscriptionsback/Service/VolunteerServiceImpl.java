@@ -22,6 +22,11 @@ public class VolunteerServiceImpl implements VolunteerService {
     }
 
     @Override
+    public void saveVolunteer(Volunteer volunteer) {
+        volunteerRepository.saveVolunteer(volunteer);
+    }
+
+    @Override
     public List<Volunteer> findAll() {
         return volunteerRepository.findAll();
     }

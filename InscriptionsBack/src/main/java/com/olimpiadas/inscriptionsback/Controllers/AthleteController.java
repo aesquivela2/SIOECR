@@ -18,8 +18,13 @@ public class AthleteController {
     }
 
     @PostMapping
-    public Athlete save(@RequestBody Athlete athlete) {
-        return athleteService.save(athlete);
+    public void save(@RequestBody Athlete athlete) {
+        if (athlete.getName() == null || athlete.getName().isEmpty()) {
+            throw new IllegalArgumentException("El nombre del voluntario es requerido");
+        }
+        System.out.println("Athlete received: " + athlete.getName());
+
+        athleteService.save(athlete);
     }
 
     @GetMapping

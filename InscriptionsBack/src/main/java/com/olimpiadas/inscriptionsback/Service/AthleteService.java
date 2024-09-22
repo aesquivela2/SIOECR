@@ -7,7 +7,8 @@ import java.util.List;
 
 @Service
 public interface AthleteService {
-    Athlete save(Athlete athlete);
+    void save(Athlete athlete);
+
     List<Athlete> findAll();
     Athlete findById(Integer id);
     void deleteById(Integer id);
