@@ -1,13 +1,16 @@
-import { Component } from '@angular/core'; 
-import { Router } from '@angular/router'; 
-import { RouterModule } from '@angular/router'; 
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import {NavbarComponent} from "./navbar/navbar.component";
+import {HeaderComponent} from "./header/header.component";
+import {FooterComponent} from "./footer/footer.component";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   standalone: true,
-  imports: [RouterModule] 
+  imports: [RouterModule, NavbarComponent, HeaderComponent, FooterComponent]
 })
 export class AppComponent {
   title = 'inscriptions-front';

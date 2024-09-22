@@ -1,11 +1,41 @@
-<div class="container">
-    <h1>Sistema de inscripciones a las Olimpiadas de Costa Rica</h1>
-    <h2>Seleccione la inscripción que desea realizar</h2>
-  
-    <div class="options">
-      <button (click)="navigateTo('volunteer')">Voluntario</button>
-      <button (click)="navigateTo('athlete')">Atleta</button>
-    </div>
 
+<body>
+
+
+<!-- Banner Image -->
+<section class="banner">
+  <img src="banner.jpg" alt="Banner de Olimpiadas Especiales" class="banner-image">
+  <h1>Únete a una comunidad que celebra el talento y la inclusión en Olimpiadas Especiales</h1>
+</section>
+
+<!-- Calendario Section -->
+<section class="calendario">
+  <h2>Calendario</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed diam nonummy eirmod tempor invidunt ut labore et dolore magna.</p>
+  <button class="btn-ver-mas">Ver más</button>
+</section>
+
+<!-- Registro Section -->
+<section class="registro">
+  <h2>Registro</h2>
+  <p>Elige tu tipo de registro</p>
+  <div class="registro-opciones">
+    <div class="opcion">
+      <h3>Voluntario</h3>
+      <button class="btn-registro" (click)="navigateTo('volunteer-form')" >Registrarse como voluntario</button>
+    </div>
+    <div class="opcion">
+      <h3>Atleta</h3>
+      <button class="btn-registro" (click)="navigateTo('athlete-form')">Registrarse como atleta</button>
+    </div>
   </div>
-  
+</section>
+
+<!-- Soporte Section -->
+<section class="soporte">
+  <h2>Soporte</h2>
+  <p>¿Tienes alguna pregunta? Contáctanos para obtener más información.</p>
+  <button class="btn-soporte">Obtener soporte</button>
+</section>
+
+

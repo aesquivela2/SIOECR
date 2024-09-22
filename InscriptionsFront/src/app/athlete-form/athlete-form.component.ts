@@ -3,9 +3,9 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AthleteService } from './athlete.service';
 import { RegionService } from '../services/region.service';
-import { ProvinceService } from '../services/province.service';  
-import { CantonService } from '../services/canton.service';  
-import { SportLevelService } from '../services/sport-level.service'; 
+import { ProvinceService } from '../services/province.service';
+import { CantonService } from '../services/canton.service';
+import { SportLevelService } from '../services/sport-level.service';
 import { SportService } from '../services/sport.service';
 
 @Component({
@@ -28,8 +28,8 @@ export class AthleteFormComponent implements OnInit {
     phone_number: '',
     nationality: '',
     region: null,
-    province: null,  
-    canton: null,    
+    province: null,
+    canton: null,
     sport: '',
     weight: null,
     height: null,
@@ -39,9 +39,9 @@ export class AthleteFormComponent implements OnInit {
   };
 
   regions: any[] = [];
-  provinces: any[] = [];  
-  cantons: any[] = [];   
-  sports: any[] = []; 
+  provinces: any[] = [];
+  cantons: any[] = [];
+  sports: any[] = [];
   sportLevels: any[] = []; // Lista para niveles deportivos
   minDate: string = '';
   maxDate: string = '';
@@ -50,22 +50,22 @@ export class AthleteFormComponent implements OnInit {
   constructor(
     private athleteService: AthleteService,
     private regionService: RegionService,
-    private provinceService: ProvinceService,  
+    private provinceService: ProvinceService,
     private cantonService: CantonService,
-    private sportService: SportService, 
+    private sportService: SportService,
     private sportLevelService: SportLevelService // Nuevo servicio
   ) {}
 
   ngOnInit() {
     this.loadRegions();
-    this.loadProvinces();  
-    this.loadCantons();    
+    this.loadProvinces();
+    this.loadCantons();
     this.loadSportLevels(); // Cargar niveles deportivos
     this.loadSports();
 
     const currentYear = new Date().getFullYear();
-    this.minDate = '1950-01-01'; 
-    this.maxDate = `${currentYear}-12-31`; 
+    this.minDate = '1950-01-01';
+    this.maxDate = `${currentYear}-12-31`;
   }
 
   loadSports() {
@@ -142,7 +142,7 @@ export class AthleteFormComponent implements OnInit {
       this.athleteService.createAthlete(this.athlete).subscribe(
         response => {
           alert('Datos enviados correctamente.');
-          this.athleteForm.resetForm(); 
+          this.athleteForm.resetForm();
         },
         error => {
           console.error('Error creating athlete:', error);

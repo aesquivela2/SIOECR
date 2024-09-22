@@ -1,0 +1,108 @@
+/* Hamburger Menu */
+.hamburger {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 30px;
+  height: 30px;
+  z-index: 1002;
+  cursor: pointer;
+}
+
+.hamburger ._layer {
+  background: white;
+  margin-bottom: 5px;
+  border-radius: 2px;
+  width: 28px;
+  height: 4px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.is-active .-top {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger.is-active .-mid {
+  opacity: 0;
+}
+
+.hamburger.is-active .-bottom {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Navigation Menu */
+.menuppal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 0, 0, 0.95);
+  transform: translateX(-100%);
+  transition: transform 0.35s ease-in-out;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menuppal.is_active {
+  transform: translateX(0);
+}
+
+.menu-logo img {
+  max-width: 150px;
+  margin: 40px 0;
+}
+
+.menuppal ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.menuppal ul li {
+  margin: 20px 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  position: relative;
+}
+
+.menuppal ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+}
+
+.menuppal ul li a:hover {
+  color: #ffcccc;
+}
+
+/* Submenu */
+.submenu {
+  display: none;
+  margin-top: 10px;
+}
+
+.is_submenu_active {
+  display: block;
+}
+
+.submenu li {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+.submenu li a {
+  color: white;
+  padding: 5px 15px;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.submenu li a:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}

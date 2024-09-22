@@ -17,11 +17,6 @@ public class AthleteController {
         this.athleteService = athleteService;
     }
 
-    @PostMapping
-    public Athlete save(@RequestBody Athlete athlete) {
-        return athleteService.save(athlete);
-    }
-
     @GetMapping
     public List<Athlete> findAll() {
         return athleteService.findAll();
@@ -42,5 +37,6 @@ public class AthleteController {
         athlete.setId(id);
         return athleteService.update(athlete);
     }
+
 }
 

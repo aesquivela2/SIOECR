@@ -1,3 +1,7 @@
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
 <form (ngSubmit)="onSubmit()" #volunteerForm="ngForm" novalidate>
   <!-- Primera parte del formulario -->
   <div *ngIf="currentStep === 1">
@@ -71,7 +75,7 @@
       <label for="canton">Cantón:</label>
       <select id="canton" name="canton" [(ngModel)]="volunteer.canton" #canton="ngModel" required>
         <option *ngFor="let canton of cantons" [ngValue]="canton">{{ canton.name }}</option>
-      </select>            
+      </select>
       <div *ngIf="canton.invalid && canton.touched">
         <small class="error" *ngIf="canton.errors?.['required']">El cantón es requerido.</small>
       </div>
@@ -100,13 +104,13 @@
       </div>
     </div>
 
-    <div> 
+    <div>
       <label>Días disponibles:</label>
       <div *ngFor="let day of volunteer.availableDays">
         <input type="checkbox" id="day-{{day.id}}" (change)="onDaySelectionChange(day, $event)" [checked]="day.selected">
         <label for="day-{{day.id}}">{{ day.day_name }}</label>
       </div>
-    </div>          
+    </div>
     <div *ngIf="selectedDays.length > 0">
       <label>Horas disponibles para cada día:</label>
       <div *ngFor="let day of selectedDays">
@@ -122,3 +126,4 @@
     <button type="submit" [disabled]="!volunteerForm.form.valid">Enviar</button>
   </div>
 </form>
+</body>

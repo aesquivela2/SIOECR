@@ -1,6 +1,10 @@
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
 <form (ngSubmit)="onSubmit()" #athleteForm="ngForm" novalidate>
   <!-- Step 1: Personal Information -->
-  <div *ngIf="currentStep === 1"> 
+  <div *ngIf="currentStep === 1">
     <div>
       <label for="identification">Identificación:</label>
       <input type="text" id="identification" name="identification" [(ngModel)]="athlete.identification" #identification="ngModel" required pattern="^\d{9,}$">
@@ -24,7 +28,7 @@
         <small class="error" *ngIf="birthdate.errors?.['required']">La fecha de nacimiento es requerida.</small>
         <small class="error" *ngIf="invalidDate">La fecha de nacimiento debe estar entre {{ minDate }} y {{ maxDate }}.</small>
       </div>
-    </div>   
+    </div>
     <div>
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" [(ngModel)]="athlete.email" #email="ngModel" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
@@ -32,7 +36,7 @@
         <small class="error" *ngIf="email.errors?.['required']">El correo es requerido.</small>
         <small class="error" *ngIf="email.errors?.['pattern']">Correo inválido.</small>
       </div>
-    </div>  
+    </div>
     <div>
       <label for="phone_number">Número de teléfono:</label>
       <input type="text" id="phone_number" name="phone_number" [(ngModel)]="athlete.phone_number" #phone_number="ngModel" required pattern="^[0-9]{8,10}$">
@@ -88,7 +92,7 @@
       <div *ngIf="sport.invalid && sport.touched">
         <small class="error" *ngIf="sport.errors?.['required']">El deporte es requerido.</small>
       </div>
-    </div>        
+    </div>
     <div>
       <label for="sportLevel">Nivel Deportivo:</label>
       <select id="sportLevel" name="sportLevel" [(ngModel)]="athlete.sportLevel" #sportLevel="ngModel" required>
@@ -132,3 +136,5 @@
     <button type="submit" [disabled]="!athleteForm.form.valid">Enviar</button>
   </div>
 </form>
+
+</body>

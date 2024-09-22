@@ -3,11 +3,14 @@ package com.olimpiadas.inscriptionsback.Service;
 import com.olimpiadas.inscriptionsback.Models.Athlete;
 import com.olimpiadas.inscriptionsback.Repositories.AthleteRepository;
 import com.olimpiadas.inscriptionsback.exception.ResourceNotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Transactional
+
 public class AthleteServiceImpl implements AthleteService {
 
     private final AthleteRepository athleteRepository;

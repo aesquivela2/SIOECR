@@ -3,17 +3,15 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  templateUrl: './home.component.html',   // Path to the HTML file
+  styleUrls: ['./home.component.css'],
+  standalone: true,
+  // Path to the CSS file
 })
 export class HomeComponent {
   constructor(private router: Router) {}
 
-  navigateTo(formType: string) {
-    if (formType === 'volunteer') {
-      this.router.navigate(['/volunteer-form']);
-    } else if (formType === 'athlete') {
-      this.router.navigate(['/athlete-form']);
-    }
+  navigateTo(path: string) {
+    this.router.navigate([`/${path}`]); // Navigate to the desired route
   }
 }
