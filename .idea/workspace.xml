@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/InscriptionsBack/src/test/java/com/olimpiadas/inscriptionsback/Service/AthleteServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsBack/src/test/java/com/olimpiadas/inscriptionsback/Service/CantonServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsBack/src/test/java/com/olimpiadas/inscriptionsback/Service/PersonServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsBack/src/test/java/com/olimpiadas/inscriptionsback/Service/ProvinceServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsBack/src/test/java/com/olimpiadas/inscriptionsback/Service/RegionServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsBack/src/test/java/com/olimpiadas/inscriptionsback/Service/SportLevelServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsBack/src/test/java/com/olimpiadas/inscriptionsback/Service/SportServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsBack/src/test/java/com/olimpiadas/inscriptionsback/Service/VolunteerServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "CarlosCh31"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/aesquivela2/SIOECR.git",
+    "accountId": "7fba9835-c9fb-4de1-bbe6-9a2662f8567b"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2mS4w106sYyAnVEA5Oj097X7KOU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.AthleteServiceImplTest.executor": "Run",
+    "JUnit.CantonServiceImplTest.executor": "Run",
+    "JUnit.PersonControllerTest.executor": "Run",
+    "JUnit.PersonControllerTest.testSavePerson.executor": "Run",
+    "JUnit.PersonServiceImplTest.executor": "Run",
+    "JUnit.PersonServiceImplTest.testSavePerson.executor": "Run",
+    "JUnit.ProvinceServiceImplTest.executor": "Run",
+    "JUnit.RegionServiceImplTest.executor": "Run",
+    "JUnit.SportLevelServiceImplTest.executor": "Run",
+    "JUnit.SportServiceImplTest.executor": "Run",
+    "JUnit.VolunteerServiceImplTest.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.InscriptionsBackApplication.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.olimpiadas.inscriptionsback.Controllers" />
+      <recent name="com.olimpiadas.inscriptionsback.Service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.InscriptionsBackApplication">
+    <configuration name="PersonControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="InscriptionsBack" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.olimpiadas.inscriptionsback.Controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.olimpiadas.inscriptionsback.Controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.olimpiadas.inscriptionsback.Controllers.PersonControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonControllerTest.testSavePerson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="InscriptionsBack" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.olimpiadas.inscriptionsback.Controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.olimpiadas.inscriptionsback.Controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.olimpiadas.inscriptionsback.Controllers.PersonControllerTest" />
+      <option name="METHOD_NAME" value="testSavePerson" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SportLevelServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="InscriptionsBack" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.olimpiadas.inscriptionsback.Service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.olimpiadas.inscriptionsback.Service" />
+      <option name="MAIN_CLASS_NAME" value="com.olimpiadas.inscriptionsback.Service.SportLevelServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SportServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="InscriptionsBack" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.olimpiadas.inscriptionsback.Service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.olimpiadas.inscriptionsback.Service" />
+      <option name="MAIN_CLASS_NAME" value="com.olimpiadas.inscriptionsback.Service.SportServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VolunteerServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="InscriptionsBack" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.olimpiadas.inscriptionsback.Service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.olimpiadas.inscriptionsback.Service" />
+      <option name="MAIN_CLASS_NAME" value="com.olimpiadas.inscriptionsback.Service.VolunteerServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InscriptionsBackApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="InscriptionsBack" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.olimpiadas.inscriptionsback.InscriptionsBackApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.PersonControllerTest" />
+        <item itemvalue="JUnit.PersonControllerTest.testSavePerson" />
+        <item itemvalue="JUnit.VolunteerServiceImplTest" />
+        <item itemvalue="JUnit.SportLevelServiceImplTest" />
+        <item itemvalue="JUnit.SportServiceImplTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.419" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.419" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="" />
+      <created>1727056882437</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1727056882437</updated>
+      <workItem from="1727056883932" duration="4090000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
