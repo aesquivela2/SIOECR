@@ -1,6 +1,8 @@
 package com.olimpiadas.inscriptionsback.Models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
@@ -10,6 +12,7 @@ public class Athlete extends Person {
     // Relación con SportLevel (nivel deportivo)
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sport_level_id", nullable = false)
+    @NotNull(message = "Sport level is mandatory") // Asegurarse de que este campo no sea nulo
     private SportLevel sportLevel;
 
     // Relación con ActivityResults (resultados en actividades)
@@ -18,9 +21,11 @@ public class Athlete extends Person {
 
     // Otros atributos específicos de Athlete
     @Column(name = "laterality")
+    @Size(max = 10, message = "Laterality cannot exceed 10 characters") // Validación de tamaño
     private String laterality;
 
     @Column(name = "disability_type")
+    @Size(max = 50, message = "Disability type cannot exceed 50 characters") // Validación de tamaño
     private String disabilityType;
 
     // Getters y setters para sportLevel

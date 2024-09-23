@@ -7,6 +7,7 @@ import { ProvinceService } from '../services/province.service';
 import { CantonService } from '../services/canton.service';
 import { SportLevelService } from '../services/sport-level.service';
 import { SportService } from '../services/sport.service';
+import { FormDataService } from '../services/form-data.service'; // Importar el servicio de datos compartidos
 
 @Component({
   selector: 'app-athlete-form',
@@ -53,10 +54,17 @@ export class AthleteFormComponent implements OnInit {
     private provinceService: ProvinceService,
     private cantonService: CantonService,
     private sportService: SportService,
-    private sportLevelService: SportLevelService // Nuevo servicio
+    private sportLevelService: SportLevelService, // Nuevo servicio
+    private formDataService: FormDataService // Inyectar el servicio global de datos compartidos
   ) {}
 
   ngOnInit() {
+    // Cargar los datos guardados en el servicio al iniciar el componente
+    const savedData = this.formDataService.getFormData();
+    if (savedData) {
+      this.athlete = { ...this.athlete, ...savedData }; // Mezclar datos existentes con los guardados
+    }
+
     this.loadRegions();
     this.loadProvinces();
     this.loadCantons();
@@ -139,9 +147,13 @@ export class AthleteFormComponent implements OnInit {
   // Enviar el formulario
   onSubmit() {
     if (this.athleteForm.form.valid) {
+      // Guardar los datos en el servicio compartido antes de enviarlos
+      this.formDataService.setFormData(this.athlete);
+
       this.athleteService.createAthlete(this.athlete).subscribe(
         response => {
           alert('Datos enviados correctamente.');
+          this.formDataService.resetFormData(); // Limpiar los datos después del envío
           this.athleteForm.resetForm();
         },
         error => {

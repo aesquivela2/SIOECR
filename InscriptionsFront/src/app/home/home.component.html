@@ -1,11 +1,18 @@
-
 <body>
 
+<!-- Banner Image and Form Section -->
+<section>
+  <div class="banner">
+    <!-- Text on the left -->
+    <div class="banner-text">
+      <h1>Únete a una comunidad que celebra el talento y la inclusión</h1>
+    </div>
 
-<!-- Banner Image -->
-<section class="banner">
-  <img src="banner.jpg" alt="Banner de Olimpiadas Especiales" class="banner-image">
-  <h1>Únete a una comunidad que celebra el talento y la inclusión en Olimpiadas Especiales</h1>
+    <!-- Form next to the text -->
+    <div class="banner-form">
+      <app-form></app-form> <!-- This is your Angular component for the form -->
+    </div>
+  </div>
 </section>
 
 <!-- Calendario Section -->
@@ -22,7 +29,7 @@
   <div class="registro-opciones">
     <div class="opcion">
       <h3>Voluntario</h3>
-      <button class="btn-registro" (click)="navigateTo('volunteer-form')" >Registrarse como voluntario</button>
+      <button class="btn-registro" (click)="navigateTo('volunteer-form')">Registrarse como voluntario</button>
     </div>
     <div class="opcion">
       <h3>Atleta</h3>
@@ -38,4 +45,4 @@
   <button class="btn-soporte">Obtener soporte</button>
 </section>
 
-
+</body>

@@ -4,17 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/InscriptionsBack/src/test/java/com/olimpiadas/inscriptionsback/Service/AthleteServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InscriptionsBack/src/test/java/com/olimpiadas/inscriptionsback/Service/CantonServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InscriptionsBack/src/test/java/com/olimpiadas/inscriptionsback/Service/PersonServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InscriptionsBack/src/test/java/com/olimpiadas/inscriptionsback/Service/ProvinceServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InscriptionsBack/src/test/java/com/olimpiadas/inscriptionsback/Service/RegionServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InscriptionsBack/src/test/java/com/olimpiadas/inscriptionsback/Service/SportLevelServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InscriptionsBack/src/test/java/com/olimpiadas/inscriptionsback/Service/SportServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InscriptionsBack/src/test/java/com/olimpiadas/inscriptionsback/Service/VolunteerServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+    <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="Front End&#10; - Cambios unicamente visuales &#10; - Una Pagina de inicio y siempre acceso a los formularios">
+      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/services/form-data.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/services/form-data.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Models/Athlete.java" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Models/Athlete.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,23 +36,26 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "CarlosCh31"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;CarlosCh31&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/aesquivela2/SIOECR.git",
-    "accountId": "7fba9835-c9fb-4de1-bbe6-9a2662f8567b"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/aesquivela2/SIOECR.git&quot;,
+    &quot;accountId&quot;: &quot;7fba9835-c9fb-4de1-bbe6-9a2662f8567b&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2mS4w106sYyAnVEA5Oj097X7KOU" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -62,6 +70,7 @@
     "JUnit.PersonServiceImplTest.testSavePerson.executor": "Run",
     "JUnit.ProvinceServiceImplTest.executor": "Run",
     "JUnit.RegionServiceImplTest.executor": "Run",
+    "JUnit.RegionServiceImplTest.testUpdateRegion.executor": "Run",
     "JUnit.SportLevelServiceImplTest.executor": "Run",
     "JUnit.SportServiceImplTest.executor": "Run",
     "JUnit.VolunteerServiceImplTest.executor": "Run",
@@ -76,6 +85,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\aesqu\\OneDrive\\Universidad\\Ciclo I 2024\\Progamacion IV\\Proyecto2\\SIOECR\\InscriptionsFront\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -88,7 +98,7 @@
       <recent name="com.olimpiadas.inscriptionsback.Service" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.InscriptionsBackApplication">
+  <component name="RunManager" selected="JUnit.RegionServiceImplTest.testUpdateRegion">
     <configuration name="PersonControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="InscriptionsBack" />
       <extension name="coverage">
@@ -120,6 +130,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RegionServiceImplTest.testUpdateRegion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="InscriptionsBack" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.olimpiadas.inscriptionsback.Service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.olimpiadas.inscriptionsback.Service" />
+      <option name="MAIN_CLASS_NAME" value="com.olimpiadas.inscriptionsback.Service.RegionServiceImplTest" />
+      <option name="METHOD_NAME" value="testUpdateRegion" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SportLevelServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="InscriptionsBack" />
       <extension name="coverage">
@@ -130,21 +156,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.olimpiadas.inscriptionsback.Service" />
       <option name="MAIN_CLASS_NAME" value="com.olimpiadas.inscriptionsback.Service.SportLevelServiceImplTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SportServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="InscriptionsBack" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.olimpiadas.inscriptionsback.Service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.olimpiadas.inscriptionsback.Service" />
-      <option name="MAIN_CLASS_NAME" value="com.olimpiadas.inscriptionsback.Service.SportServiceImplTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -175,11 +186,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RegionServiceImplTest.testUpdateRegion" />
         <item itemvalue="JUnit.PersonControllerTest" />
         <item itemvalue="JUnit.PersonControllerTest.testSavePerson" />
         <item itemvalue="JUnit.VolunteerServiceImplTest" />
         <item itemvalue="JUnit.SportLevelServiceImplTest" />
-        <item itemvalue="JUnit.SportServiceImplTest" />
       </list>
     </recent_temporary>
   </component>
@@ -216,5 +227,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Front End&#10; - Cambios unicamente visuales &#10; - Una Pagina de inicio y siempre acceso a los formularios" />
+    <option name="LAST_COMMIT_MESSAGE" value="Front End&#10; - Cambios unicamente visuales &#10; - Una Pagina de inicio y siempre acceso a los formularios" />
   </component>
 </project>

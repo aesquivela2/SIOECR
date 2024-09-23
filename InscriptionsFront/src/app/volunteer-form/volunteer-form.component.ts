@@ -48,8 +48,8 @@ export class VolunteerFormComponent implements OnInit {
   };
 
   regions: any[] = [];
-  provinces: Province[] = [];  // Declare provinces as an array of Province objects
-  cantons: Canton[] = [];      // Declare cantons as an array of Canton objects
+  provinces: Province[] = [];
+  cantons: Canton[] = [];
   sports: any[] = [];
   times: Time[] = [];
   minDate: string = '';
@@ -65,17 +65,19 @@ export class VolunteerFormComponent implements OnInit {
     private provinceService: ProvinceService,
     private cantonService: CantonService,
     private availableDaysService: AvailableDaysService,
-    private timeService: TimeService  // Servicio para horas
+    private timeService: TimeService,
   ) {}
 
   ngOnInit() {
+
+
     this.setDateConstraints();
     this.loadAvailableDays();
     this.loadRegions();
     this.loadProvinces();
-    this.loadCantons();  // Load all cantons on initialization
+    this.loadCantons();
     this.loadSports();
-    this.loadTimes();  // Carga las horas disponibles
+    this.loadTimes();
   }
 
   setDateConstraints() {
@@ -83,7 +85,7 @@ export class VolunteerFormComponent implements OnInit {
     const minYear = today.getFullYear() - 70;
     const maxYear = today.getFullYear() - 18;
 
-    this.minDate = `${minYear}-01-01`;  // Backticks for string interpolation
+    this.minDate = `${minYear}-01-01`;
     this.maxDate = `${maxYear}-12-31`;
   }
 
@@ -112,11 +114,10 @@ export class VolunteerFormComponent implements OnInit {
   loadCantons() {
     this.cantonService.getAllCantons().subscribe(
       (data: Canton[]) => {
-        this.cantons = data;  // Assign data directly
-        console.log('Cantons loaded:', this.cantons);  // Log to confirm data is loaded
+        this.cantons = data;
       },
       error => {
-        console.error('Error fetching cantons:', error);  // Log the error
+        console.error('Error fetching cantons:', error);
       }
     );
   }
@@ -132,26 +133,15 @@ export class VolunteerFormComponent implements OnInit {
 
   loadAvailableDays() {
     this.availableDaysService.getAllAvailableDays().subscribe(
-      data => {
-        this.volunteer.availableDays = data;
-        console.log('Available days:', this.volunteer.availableDays);  // Debugging line
-      },
-      error => {
-        console.error('Error fetching available days:', error);
-      }
+      data => { this.volunteer.availableDays = data; },
+      error => { console.error('Error fetching available days:', error); }
     );
   }
 
-
   loadTimes() {
     this.timeService.getAllTimes().subscribe(
-      data => {
-        this.times = data;  // Assign data to times array
-        console.log('Times loaded:', this.times);
-      },
-      error => {
-        console.error('Error fetching times:', error);  // Log the error
-      }
+      data => { this.times = data; },
+      error => { console.error('Error fetching times:', error); }
     );
   }
 
@@ -159,32 +149,6 @@ export class VolunteerFormComponent implements OnInit {
     return array.filter((item, index, self) =>
       index === self.findIndex((t) => t[key] === item[key])
     );
-  }
-
-  onSportSelectionChange(event: any) {
-    const selectedSportId = event.target.value;
-
-    if (event.target.checked) {
-      this.volunteer.sportExperience.push({ sportId: selectedSportId });
-    } else {
-      this.volunteer.sportExperience = this.volunteer.sportExperience.filter(
-        sport => sport.sportId !== selectedSportId
-      );
-    }
-  }
-
-  onDaySelectionChange(day: AvailableDay, event: any) {
-    if (event.target.checked) {
-      this.selectedDays.push(day);
-      this.volunteer.availableTimes[day.id] = []; // Inicializa las horas para el día seleccionado
-    } else {
-      this.selectedDays = this.selectedDays.filter(d => d.id !== day.id);
-      delete this.volunteer.availableTimes[day.id];
-    }
-  }
-
-  getDayName(day: AvailableDay): string {
-    return day.day_name;
   }
 
   nextStep() {
@@ -201,20 +165,22 @@ export class VolunteerFormComponent implements OnInit {
 
   isFormComplete(): boolean {
     return !!this.volunteer.identification && !!this.volunteer.name && !!this.volunteer.birthdate &&
-           !!this.volunteer.email && !!this.volunteer.phone_number && !!this.volunteer.nationality &&
-           !!this.volunteer.region && !!this.volunteer.province && !!this.volunteer.canton;
+      !!this.volunteer.email && !!this.volunteer.phone_number && !!this.volunteer.nationality &&
+      !!this.volunteer.region && !!this.volunteer.province && !!this.volunteer.canton;
   }
 
   onSubmit() {
     if (this.volunteerForm.form.valid && this.isFormComplete()) {
-      // Convertir el birthdate a tipo Date antes de enviar
+      // Guardar los datos en el servicio antes de enviarlos
+      //this.formDataService.setFormData(this.volunteer);
+
       const volunteerToSend = { ...this.volunteer };
       volunteerToSend.birthdate = new Date(this.volunteer.birthdate as string);
 
-      console.log('Datos del voluntario enviados:', volunteerToSend);
       this.volunteerService.createVolunteer(volunteerToSend).subscribe(
         response => {
           alert('Datos enviados correctamente.');
+          //this.formDataService.resetFormData(); // Limpiar los datos después de enviarlos
           this.volunteerForm.resetForm();
         },
         error => {
@@ -226,6 +192,4 @@ export class VolunteerFormComponent implements OnInit {
       alert('Por favor, completa todos los campos correctamente.');
     }
   }
-
-
 }
