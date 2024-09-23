@@ -1,0 +1,15 @@
+svg {
+  width: 100%;
+  height: auto;
+}
+
+path {
+  fill: #cccccc; /* Color de relleno por defecto */
+  stroke: #333333; /* Color del borde */
+  stroke-width: 1px; /* Grosor del borde */
+}
+
+path:hover {
+  fill: #ff0000; /* Cambia el color al pasar el ratón por encima */
+  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+}

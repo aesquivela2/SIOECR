@@ -8,6 +8,7 @@ import {RegionService} from "../services/region.service";
 import {CantonService} from "../services/canton.service";
 import {SportService} from "../services/sport.service";
 import {SportLevelService} from "../services/sport-level.service";
+import {FormService} from "./form.service";
 
 interface Province {
   id: number;
@@ -55,7 +56,7 @@ export class FormComponent implements OnInit {
 
   constructor(
     private router: Router, // Inject the router for navigation
-    private athleteService: AthleteService,
+    private formService: FormService,
     private regionService: RegionService,
     private provinceService: ProvinceService,
     private cantonService: CantonService,
@@ -113,15 +114,28 @@ export class FormComponent implements OnInit {
     this.router.navigate([`/${type}-form`], { queryParams: { ...this.registration } });
   }
 
+
   onSubmit() {
     if (this.registrationForm.form.valid) {
-      // Process form submission
-      console.log('Form data:', this.registration);
+      // Guardar los datos en el servicio compartido antes de enviarlos
+
+
+      this.formService.createAthlete(this.registration).subscribe(
+        response => {
+          alert('Datos enviados correctamente.');
+          this.registrationForm.resetForm();
+        },
+        error => {
+          console.error('Error creating person:', error);
+          alert('Ocurrió un error al enviar los datos.');
+        }
+      );
     } else {
       alert('Por favor, completa todos los campos correctamente.');
     }
   }
-  loadRegions() {
+
+  private loadRegions() {
     this.regionService.getAllRegions().subscribe(
       data => { this.regions = data; },
       error => { console.error('Error fetching regions:', error); }

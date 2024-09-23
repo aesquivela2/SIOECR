@@ -89,29 +89,8 @@
       </div>
     </div>
 
-    <button type="button" (click)="nextStep()">Siguiente</button>
+    <button type="button" (click)="onSubmit()">Registrarse</button>
   </div>
-
-  <!-- Segunda parte del formulario: Selección del tipo de inscripción -->
-  <div *ngIf="currentStep === 2" class="tipo-inscripcion-container">
-    <label >Seleccione el tipo de inscripción:</label>
-    <!-- Descripciones de cada opción -->
-    <div class="opciones-inscripcion">
-      <div class="opcion-inscripcion">
-        <button type="button" (click)="navigateTo('athlete')">Atleta</button>
-        <p></p>
-      </div>
-      <div class="opcion-inscripcion">
-        <button type="button" (click)="navigateTo('family')">Familia</button>
-        <p></p>
-      </div>
-      <div class="opcion-inscripcion">
-        <button type="button" (click)="navigateTo('volunteer')">Voluntario</button>
-        <p></p>
-      </div>
-    </div>
-  </div>
-
 
 </form>
 
