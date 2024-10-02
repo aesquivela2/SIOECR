@@ -7,12 +7,14 @@ import { ProvinceService } from '../services/province.service';
 import { CantonService } from '../services/canton.service';
 import { SportLevelService } from '../services/sport-level.service';
 import { SportService } from '../services/sport.service';
-import { FormDataService } from '../services/form-data.service'; // Importar el servicio de datos compartidos
+import { FormDataService } from '../services/form-data.service';
+import {HeaderComponent} from "../header/header.component";
+import {FormComponent} from "../form/form.component"; // Importar el servicio de datos compartidos
 
 @Component({
   selector: 'app-athlete-form',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, HeaderComponent, FormComponent],
   templateUrl: './athlete-form.component.html',
   styleUrls: ['./athlete-form.component.css']
 })
@@ -47,6 +49,8 @@ export class AthleteFormComponent implements OnInit {
   minDate: string = '';
   maxDate: string = '';
   invalidDate = false;
+
+
 
   constructor(
     private athleteService: AthleteService,
