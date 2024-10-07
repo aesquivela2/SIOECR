@@ -20,7 +20,7 @@ public class PersonController {
         this.externalApiService = externalApiService;
     }
 
-    @PostMapping
+    @PostMapping("/cedula")
     public Person save(@RequestBody Person person) {
         return personService.save(person);
     }

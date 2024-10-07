@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="Registro general / salvar emergencia">
-      <change afterPath="$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Controllers/ExternalApiController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Service/ExternalApiService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/confirmation-dialog/confirmation-dialog.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/confirmation-dialog/confirmation-dialog.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/confirmation-dialog/confirmation-dialog.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/confirmation-dialog/confirmation-dialog.component.ts" afterDir="false" />
+    <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="Registro general 100% pulido">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Controllers/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Controllers/PersonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsBack/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsBack/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/services/form-data.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/services/form-data.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +217,7 @@
       <workItem from="1727056883932" duration="4090000" />
       <workItem from="1727457423926" duration="9619000" />
       <workItem from="1727824710106" duration="7497000" />
-      <workItem from="1728316766869" duration="15846000" />
+      <workItem from="1728316766869" duration="19074000" />
     </task>
     <task id="LOCAL-00001" summary="Front End&#10; - Cambios unicamente visuales &#10; - Una Pagina de inicio y siempre acceso a los formularios formulario general">
       <option name="closed" value="true" />
@@ -253,7 +243,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727830389041</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Registro general 100% pulido">
+      <option name="closed" value="true" />
+      <created>1728333416764</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1728333416764</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,7 +274,8 @@
     <MESSAGE value="Front End&#10; - Cambios unicamente visuales &#10; - Una Pagina de inicio y siempre acceso a los formularios formulario general" />
     <MESSAGE value="Registro general" />
     <MESSAGE value="Registro general / salvar emergencia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Registro general / salvar emergencia" />
+    <MESSAGE value="Registro general 100% pulido" />
+    <option name="LAST_COMMIT_MESSAGE" value="Registro general 100% pulido" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -290,6 +289,11 @@
           <url>file://$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Controllers/PersonController.java</url>
           <line>50</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Controllers/PersonController.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

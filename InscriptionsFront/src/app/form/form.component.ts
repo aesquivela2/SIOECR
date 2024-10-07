@@ -245,8 +245,21 @@ export class FormComponent implements OnInit {
 
     this.applyIdentificationFormat();
 
+    let registration;
     if (this.registrationForm.form.valid) {
-      this.formService.createAthlete(this.registration).subscribe(
+      registration = {
+        identification: this.registration.identification || '',  // Inicializa a una cadena vacía si no hay valor
+        name: this.registration.name || '',                      // Inicializa a una cadena vacía si no hay valor
+        birthdate: this.registration.birthdate || null,          // Inicializa a null si no hay valor
+        email: this.registration.email || '',                    // Inicializa a una cadena vacía si no hay valor
+        phone_number: this.registration.phone_number || '',      // Inicializa a una cadena vacía si no hay valor
+        nationality: this.registration.nationality || '',        // Inicializa a una cadena vacía si no hay valor
+        region: this.registration.region || null,                // Inicializa a null si no hay valor
+        province: this.registration.province || null,            // Inicializa a null si no hay valor
+        canton: this.registration.canton || null                 // Inicializa a null si no hay valor
+      };
+
+      this.formService.createAthlete(registration).subscribe(
         response => {
           alert('Datos enviados correctamente.');
           this.registrationForm.resetForm();
