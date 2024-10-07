@@ -42,16 +42,6 @@
     </div>
 
     <div>
-      <label for="province">Provincia:</label>
-      <select id="province" name="province" [(ngModel)]="registration.province" #province="ngModel" required>
-        <option *ngFor="let province of provinces" [ngValue]="province">{{ province.name }}</option>
-      </select>
-      <div *ngIf="province.invalid && province.touched">
-        <small class="error" *ngIf="province.errors?.['required']">La provincia es requerida.</small>
-      </div>
-    </div>
-
-    <div>
       <label for="phone_number">Número de teléfono:</label>
       <input type="text" id="phone_number" name="phone_number" [(ngModel)]="registration.phone_number" #phone_number="ngModel" required pattern="^[0-9]{8,10}$">
       <div *ngIf="phone_number.invalid && phone_number.touched">
@@ -70,14 +60,25 @@
     </div>
 
     <div>
+      <label for="province">Provincia:</label>
+      <select id="province" name="province" [(ngModel)]="registration.province" #province="ngModel" required (change)="onProvinceChange()">
+        <option *ngFor="let province of provinces" [ngValue]="province">{{ province.name }}</option>
+      </select>
+      <div *ngIf="province.invalid && province.touched">
+        <small class="error" *ngIf="province.errors?.['required']">La provincia es requerida.</small>
+      </div>
+    </div>
+    
+    <div>
       <label for="canton">Cantón:</label>
       <select id="canton" name="canton" [(ngModel)]="registration.canton" #canton="ngModel" required>
-        <option *ngFor="let canton of cantons" [ngValue]="canton">{{ canton.name }}</option>
+        <option *ngFor="let canton of filteredCantons" [ngValue]="canton">{{ canton.name }}</option>
       </select>
       <div *ngIf="canton.invalid && canton.touched">
         <small class="error" *ngIf="canton.errors?.['required']">El cantón es requerido.</small>
-      </div>
+      </div>      
     </div>
+    
 
     <div>
       <label for="region">Región:</label>

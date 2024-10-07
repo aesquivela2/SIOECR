@@ -17,6 +17,7 @@ interface Province {
 interface Canton {
   id: number;
   name: string;
+  provinceId: number;
 }
 
 interface Region {
@@ -48,7 +49,7 @@ export class FormComponent implements OnInit {
   };
   cantons: Canton[] = []; // You may want to load these based on selected province
   regions: Region[] = []; // Load all regions
-
+  filteredCantons: Canton[] = [];
   provinces: Province[] = [];
   minDate: string = '';
   maxDate: string = '';
@@ -95,6 +96,16 @@ export class FormComponent implements OnInit {
     );
   }
 
+  onProvinceChange() {
+    if (this.registration.province) {
+      // Filtrar los cantones que pertenecen a la provincia seleccionada
+      this.filteredCantons = this.cantons.filter(canton => canton.provinceId === this.registration.province?.id);
+      console.log('Cantones filtrados:', this.filteredCantons);  // Verifica el resultado
+    } else {
+      this.filteredCantons = [];
+    }
+  }
+  
 
 
   nextStep() {
@@ -102,12 +113,18 @@ export class FormComponent implements OnInit {
       this.currentStep++;
     }
   }
+
   loadCantons() {
     this.cantonService.getAllCantons().subscribe(
-      data => { this.cantons = data; },
+      data => { 
+        this.cantons = data; 
+        console.log('Cantones cargados:', this.cantons);  // Verifica el contenido
+      },
       error => { console.error('Error fetching cantons:', error); }
     );
   }
+  
+
 
   navigateTo(type: string) {
     // Pass selected information as a query parameter to the next page

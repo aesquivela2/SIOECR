@@ -4,7 +4,10 @@ import com.olimpiadas.inscriptionsback.Models.Canton;
 import com.olimpiadas.inscriptionsback.Service.CantonService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/cantons")
@@ -18,13 +21,26 @@ public class CantonController {
     }
 
     @GetMapping
-    public List<Canton> getAllCantons() {
-        return cantonService.findAll();
+    public List<Map<String, Object>> getAllCantons() {
+        return cantonService.findAll().stream()
+                .map(canton -> {
+                    Map<String, Object> cantonData = new HashMap<>();
+                    cantonData.put("id", canton.getId());
+                    cantonData.put("name", canton.getName());
+                    cantonData.put("provinceId", canton.getProvinceId());
+                    return cantonData;
+                })
+                .collect(Collectors.toList());
     }
 
     @GetMapping("/{id}")
-    public Canton getCantonById(@PathVariable Integer id) {
-        return cantonService.findById(id);
+    public Map<String, Object> getCantonById(@PathVariable Integer id) {
+        Canton canton = cantonService.findById(id);
+        Map<String, Object> cantonData = new HashMap<>();
+        cantonData.put("id", canton.getId());
+        cantonData.put("name", canton.getName());
+        cantonData.put("provinceId", canton.getProvinceId());
+        return cantonData;
     }
 
     @PostMapping
