@@ -53,6 +53,10 @@ public class Canton {
         return province;
     }
 
+    public Integer getProvinceId() {
+        return this.province != null ? this.province.getId() : null;
+    }
+
     public void setProvince(Province province) {
         this.province = province;
     }
