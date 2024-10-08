@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {FormComponent} from "../form/form.component";
-import {MapaComponent} from "../mapa/mapa.component";
+
 
 @Component({
   selector: 'app-home',
@@ -10,7 +10,7 @@ import {MapaComponent} from "../mapa/mapa.component";
   standalone: true,
   imports: [
     FormComponent,
-    MapaComponent
+
   ],
   // Path to the CSS file
 })

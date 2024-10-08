@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MapaComponent } from './mapa.component';
+import { PingPongFormComponent } from './ping-pong-form.component';
 
-describe('MapaComponent', () => {
-  let component: MapaComponent;
-  let fixture: ComponentFixture<MapaComponent>;
+describe('PingPongFormComponent', () => {
+  let component: PingPongFormComponent;
+  let fixture: ComponentFixture<PingPongFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MapaComponent]
+      imports: [PingPongFormComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MapaComponent);
+    fixture = TestBed.createComponent(PingPongFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

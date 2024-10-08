@@ -1,20 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { AthleteService } from './athlete.service';
-import { RegionService } from '../services/region.service';
-import { ProvinceService } from '../services/province.service';
-import { CantonService } from '../services/canton.service';
-import { SportLevelService } from '../services/sport-level.service';
-import { SportService } from '../services/sport.service';
-import { FormDataService } from '../services/form-data.service';
-import {HeaderComponent} from "../header/header.component";
-import {FormComponent} from "../form/form.component"; // Importar el servicio de datos compartidos
+import {CommonModule, NgOptimizedImage} from '@angular/common';
+import { FormComponent } from '../form/form.component';
+import { PingPongFormComponent } from '../ping-pong-form/ping-pong-form.component';
+import { SwimmingFormComponent } from '../swimming-form/swimming-form.component';
 
 @Component({
   selector: 'app-athlete-form',
   standalone: true,
-  imports: [FormsModule, CommonModule, HeaderComponent, FormComponent],
+  imports: [FormsModule, CommonModule, FormComponent, PingPongFormComponent, SwimmingFormComponent, NgOptimizedImage],
   templateUrl: './athlete-form.component.html',
   styleUrls: ['./athlete-form.component.css']
 })
@@ -22,151 +16,55 @@ export class AthleteFormComponent implements OnInit {
   @ViewChild('athleteForm') athleteForm!: NgForm;
   currentStep = 1;
 
-  // Datos del atleta
-  athlete = {
-    identification: '',
-    name: '',
-    birthdate: '',
-    email: '',
-    phone_number: '',
-    nationality: '',
-    region: null,
-    province: null,
-    canton: null,
-    sport: '',
-    weight: null,
-    height: null,
-    sportLevel: null, // Nuevo campo
-    laterality: '',   // Nuevo campo
-    disabilityType: '' // Nuevo campo
+  sports = ['Natación', 'Ping Pong', 'Fútbol'];
+
+  // Centralized JSON structure for form data
+  athleteData: any = {
+    personalInfo: {},
+    sportInfo: {},
+    additionalInfo: {}
   };
 
-  regions: any[] = [];
-  provinces: any[] = [];
-  cantons: any[] = [];
-  sports: any[] = [];
-  sportLevels: any[] = []; // Lista para niveles deportivos
-  minDate: string = '';
-  maxDate: string = '';
-  invalidDate = false;
+  selectedSportComponent: any = null;
 
+  constructor() {}
 
+  ngOnInit() {}
 
-  constructor(
-    private athleteService: AthleteService,
-    private regionService: RegionService,
-    private provinceService: ProvinceService,
-    private cantonService: CantonService,
-    private sportService: SportService,
-    private sportLevelService: SportLevelService, // Nuevo servicio
-    private formDataService: FormDataService // Inyectar el servicio global de datos compartidos
-  ) {}
-
-  ngOnInit() {
-    // Cargar los datos guardados en el servicio al iniciar el componente
-    const savedData = this.formDataService.getFormData();
-    if (savedData) {
-      this.athlete = { ...this.athlete, ...savedData }; // Mezclar datos existentes con los guardados
-    }
-
-    this.loadRegions();
-    this.loadProvinces();
-    this.loadCantons();
-    this.loadSportLevels(); // Cargar niveles deportivos
-    this.loadSports();
-
-    const currentYear = new Date().getFullYear();
-    this.minDate = '1950-01-01';
-    this.maxDate = `${currentYear}-12-31`;
+  // Handling sport change to display correct child form
+  onSportChange(sport: string) {
+    this.athleteData.sportInfo.sport = sport;
   }
 
-  loadSports() {
-    this.sportService.getAllSports().subscribe(
-      data => {
-        this.sports = data.filter((sport, index, self) =>
-          index === self.findIndex(s => s.type === sport.type)
-        );
-      },
-      error => {
-        console.error('Error fetching sports:', error);
-      }
-    );
-  }
-
-  // Validar la fecha de nacimiento
-  validateBirthdate() {
-    const birthdate = new Date(this.athlete.birthdate);
-    const minBirthdate = new Date(this.minDate);
-    const maxBirthdate = new Date(this.maxDate);
-
-    this.invalidDate = !(birthdate >= minBirthdate && birthdate <= maxBirthdate);
-  }
-
-  // Cargar las regiones
-  loadRegions() {
-    this.regionService.getAllRegions().subscribe(
-      data => { this.regions = data; },
-      error => { console.error('Error fetching regions:', error); }
-    );
-  }
-
-  // Cargar las provincias
-  loadProvinces() {
-    this.provinceService.getAllProvinces().subscribe(
-      data => { this.provinces = data; },
-      error => { console.error('Error fetching provinces:', error); }
-    );
-  }
-
-  // Cargar los cantones
-  loadCantons() {
-    this.cantonService.getAllCantons().subscribe(
-      data => { this.cantons = data; },
-      error => { console.error('Error fetching cantons:', error); }
-    );
-  }
-
-  // Cargar los niveles deportivos
-  loadSportLevels() {
-    this.sportLevelService.getAllSportLevelsDescriptions().subscribe(
-      data => { this.sportLevels = data; },
-      error => { console.error('Error fetching sport levels:', error); }
-    );
-  }
-
-  // Avanzar al siguiente paso
+  // Moving to the next step
   nextStep() {
-    if (this.currentStep < 2) {
+    if (this.currentStep < 3) {
       this.currentStep++;
     }
   }
 
-  // Retroceder al paso anterior
+  // Moving to the previous step
   previousStep() {
     if (this.currentStep > 1) {
       this.currentStep--;
     }
   }
 
-  // Enviar el formulario
+  // Handling submission
   onSubmit() {
     if (this.athleteForm.form.valid) {
-      // Guardar los datos en el servicio compartido antes de enviarlos
-      this.formDataService.setFormData(this.athlete);
-
-      this.athleteService.createAthlete(this.athlete).subscribe(
-        response => {
-          alert('Datos enviados correctamente.');
-          this.formDataService.resetFormData(); // Limpiar los datos después del envío
-          this.athleteForm.resetForm();
-        },
-        error => {
-          console.error('Error creating athlete:', error);
-          alert('Ocurrió un error al enviar los datos.');
-        }
-      );
+      console.log('Athlete Data JSON:', JSON.stringify(this.athleteData));
     } else {
-      alert('Por favor, completa todos los campos correctamente.');
+      alert('Por favor, complete todos los campos.');
     }
   }
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    if (file && file.type === 'application/pdf') {
+      this.athleteData.sportInfo.disabilityProof = file;
+    } else {
+      alert('Por favor, suba un archivo PDF válido.');
+    }
+  }
+
 }

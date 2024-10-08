@@ -4,11 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="Registro general 100% pulido">
+    <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="Registro general era mentira faltan detalles">
+      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/ping-pong-form/ping-pong-form.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/ping-pong-form/ping-pong-form.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/ping-pong-form/ping-pong-form.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/ping-pong-form/ping-pong-form.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/swimming-form/swimming-form.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/swimming-form/swimming-form.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/swimming-form/swimming-form.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Controllers/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Controllers/PersonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/Assets/SO_CostaRica-16.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/assets/logo.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/mapa/mapa.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/mapa/mapa.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/mapa/mapa.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/swimming-form/swimming-form.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/mapa/mapa.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +109,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "ts.external.directory.path": "C:\\Users\\aesqu\\OneDrive\\Universidad\\Ciclo I 2024\\Progamacion IV\\Proyecto2\\SIOECR\\InscriptionsFront\\node_modules\\typescript\\lib",
+    "ts.rename.search.for.js.occurrences": "false",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -96,6 +119,9 @@
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aesqu\OneDrive\Universidad\Ciclo I 2024\Progamacion IV\Proyecto2\SIOECR\InscriptionsFront\src" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.olimpiadas.inscriptionsback.Controllers" />
@@ -217,7 +243,7 @@
       <workItem from="1727056883932" duration="4090000" />
       <workItem from="1727457423926" duration="9619000" />
       <workItem from="1727824710106" duration="7497000" />
-      <workItem from="1728316766869" duration="19074000" />
+      <workItem from="1728316766869" duration="37142000" />
     </task>
     <task id="LOCAL-00001" summary="Front End&#10; - Cambios unicamente visuales &#10; - Una Pagina de inicio y siempre acceso a los formularios formulario general">
       <option name="closed" value="true" />
@@ -251,7 +277,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728333416764</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Registro general era mentira faltan detalles">
+      <option name="closed" value="true" />
+      <created>1728336455206</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1728336455206</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,7 +309,8 @@
     <MESSAGE value="Registro general" />
     <MESSAGE value="Registro general / salvar emergencia" />
     <MESSAGE value="Registro general 100% pulido" />
-    <option name="LAST_COMMIT_MESSAGE" value="Registro general 100% pulido" />
+    <MESSAGE value="Registro general era mentira faltan detalles" />
+    <option name="LAST_COMMIT_MESSAGE" value="Registro general era mentira faltan detalles" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

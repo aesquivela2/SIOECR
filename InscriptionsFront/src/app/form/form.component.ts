@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, NgModule, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Input, NgModule, OnInit, Output, ViewChild} from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -35,27 +35,12 @@ interface Region {
 export class FormComponent implements OnInit {
 
   @ViewChild('registrationForm', { static: false }) registrationForm!: NgForm;
-
+  @Output() formSubmit = new EventEmitter<any>();
+  @Input() personalData: any = {};
   currentStep = 1;
 
   // Form model with initial values
-  registration = {
-    identification: '',
-    name: '',
-    birthdate: '' as string | Date,
-    canton: null as Canton | null | undefined,
-    citizenship: undefined as string | undefined,
-    email: '',
-    idType: 'cedula',
-    nationality: '',
-    phone_number: '',
-    province: null as Province | null | undefined,
-    region: null as Region | null | undefined,
-    worldRegion: null as string | null | undefined, // Added worldRegion
-    country: undefined as string | null | undefined,
-    district: undefined,
-    lastname: ''
-  };
+
   loading = false;
   showConfirmation = false;
   confirmationMessage = '';
@@ -130,8 +115,8 @@ export class FormComponent implements OnInit {
     this.loadLatinAmericanCountries();
 
     // Si ya tienes un valor de identificación, aplícale el formato correcto
-    if (this.registration.identification) {
-      this.updateIdentification(this.registration.identification);
+    if (this.personalData.identification) {
+      this.updateIdentification(this.personalData.identification);
     }
   }
 
@@ -236,7 +221,7 @@ export class FormComponent implements OnInit {
 
   onSubmit() {
     const validationMessage = this.validateIdentification();
-    this.registration.identification += this.registration.identification;
+    this.personalData.identification += this.personalData.identification;
 
     if (validationMessage) {
       alert(validationMessage);
@@ -248,15 +233,15 @@ export class FormComponent implements OnInit {
     let registration;
     if (this.registrationForm.form.valid) {
       registration = {
-        identification: this.registration.identification || '',  // Inicializa a una cadena vacía si no hay valor
-        name: this.registration.name || '',                      // Inicializa a una cadena vacía si no hay valor
-        birthdate: this.registration.birthdate || null,          // Inicializa a null si no hay valor
-        email: this.registration.email || '',                    // Inicializa a una cadena vacía si no hay valor
-        phone_number: this.registration.phone_number || '',      // Inicializa a una cadena vacía si no hay valor
-        nationality: this.registration.nationality || '',        // Inicializa a una cadena vacía si no hay valor
-        region: this.registration.region || null,                // Inicializa a null si no hay valor
-        province: this.registration.province || null,            // Inicializa a null si no hay valor
-        canton: this.registration.canton || null                 // Inicializa a null si no hay valor
+        identification: this.personalData.identification || '',  // Inicializa a una cadena vacía si no hay valor
+        name: this.personalData.name || '',                      // Inicializa a una cadena vacía si no hay valor
+        birthdate: this.personalData.birthdate || null,          // Inicializa a null si no hay valor
+        email: this.personalData.email || '',                    // Inicializa a una cadena vacía si no hay valor
+        phone_number: this.personalData.phone_number || '',      // Inicializa a una cadena vacía si no hay valor
+        nationality: this.personalData.nationality || '',        // Inicializa a una cadena vacía si no hay valor
+        region: this.personalData.region || null,                // Inicializa a null si no hay valor
+        province: this.personalData.province || null,            // Inicializa a null si no hay valor
+        canton: this.personalData.canton || null                 // Inicializa a null si no hay valor
       };
 
       this.formService.createAthlete(registration).subscribe(
@@ -275,27 +260,27 @@ export class FormComponent implements OnInit {
   }
 
   onCitizenshipChange() {
-    if (this.registration.citizenship === 'nacional') {
-      this.registration.region = null;
-      this.registration.country = undefined;
+    if (this.personalData.citizenship === 'nacional') {
+      this.personalData.region = null;
+      this.personalData.country = undefined;
     }
   }
 
   onRegionChange() {
-    if (this.registration.worldRegion) {
-      this.latinAmericanCountries = this.worldRegions[this.registration.worldRegion] || [];
-      this.registration.country = null;
+    if (this.personalData.worldRegion) {
+      this.latinAmericanCountries = this.worldRegions[this.personalData.worldRegion] || [];
+      this.personalData.country = null;
     }
   }
   onProvinceChange() {
     this.cantons = [];
     this.districts = [];
-    this.loadCantonsByProvince(this.registration.province); // Función para cargar cantones basados en la provincia
+    this.loadCantonsByProvince(this.personalData.province); // Función para cargar cantones basados en la provincia
   }
 
 
   getIdentificationPattern() {
-    switch (this.registration.idType) {
+    switch (this.personalData.idType) {
       case 'física':
         return '\\d{1}-\\d{4}-\\d{4}';
       case 'dimex':
@@ -310,7 +295,7 @@ export class FormComponent implements OnInit {
   }
 
   validateIdentification() {
-    const rawIdentification = this.registration.identification.replace(/-/g, '');
+    const rawIdentification = this.personalData.identification.replace(/-/g, '');
     const pattern = new RegExp(this.getIdentificationPattern());
 
     if (!pattern.test(rawIdentification)) {
@@ -320,7 +305,7 @@ export class FormComponent implements OnInit {
   }
 
   getIdentificationPlaceholder() {
-    switch (this.registration.idType) {
+    switch (this.personalData.idType) {
       case 'física':
         return '1-XXXX-XXXX';
       case 'juridica':
@@ -335,31 +320,31 @@ export class FormComponent implements OnInit {
   }
 
   applyIdentificationFormat() {
-    const idType = this.registration.idType;
-    let value = this.registration.identification.replace(/\D/g, '');
+    const idType = this.personalData.idType;
+    let value = this.personalData.identification.replace(/\D/g, '');
 
     if (idType === 'física' && value.length === 9) {
-      this.registration.identification = `${value.slice(0, 1)}-${value.slice(1, 5)}-${value.slice(5, 9)}`;
+      this.personalData.identification = `${value.slice(0, 1)}-${value.slice(1, 5)}-${value.slice(5, 9)}`;
     } else if (idType === 'dimex' && (value.length === 11 || value.length === 12)) {
       if (value.length === 11) {
-        this.registration.identification = `${value.slice(0, 4)}-${value.slice(4, 10)}-${value.slice(10)}`;
+        this.personalData.identification = `${value.slice(0, 4)}-${value.slice(4, 10)}-${value.slice(10)}`;
       } else if (value.length === 12) {
-        this.registration.identification = `${value.slice(0, 4)}-${value.slice(4, 10)}-${value.slice(10, 12)}`;
+        this.personalData.identification = `${value.slice(0, 4)}-${value.slice(4, 10)}-${value.slice(10, 12)}`;
       }
     } else if (idType === 'pasaporte' && value.length >= 5 && value.length <= 10) {
-      this.registration.identification = value.toUpperCase();
+      this.personalData.identification = value.toUpperCase();
     }
     if (idType === 'juridica' && value.length === 10) {
-      this.registration.identification = `${value.slice(0, 1)}-${value.slice(1, 4)}-${value.slice(4, 10)}`;
+      this.personalData.identification = `${value.slice(0, 1)}-${value.slice(1, 4)}-${value.slice(4, 10)}`;
     } else if (idType === 'juridica' && value.length === 10) {
-  this.registration.identification = `${value.slice(0, 1)}-${value.slice(1, 4)}-${value.slice(4)}`;
+  this.personalData.identification = `${value.slice(0, 1)}-${value.slice(1, 4)}-${value.slice(4)}`;
 }
 
 
 }
 
   updateIdentification(value: string) {
-    this.registration.identification = this.removeIdentificationFormat(value);
+    this.personalData.identification = this.removeIdentificationFormat(value);
     this.applyIdentificationFormat();
   }
 
@@ -368,7 +353,7 @@ export class FormComponent implements OnInit {
   }
 
   validatePhoneNumber() {
-    const rawPhoneNumber = this.registration.phone_number.replace(/\D/g, '');
+    const rawPhoneNumber = this.personalData.phone_number.replace(/\D/g, '');
 
     if (rawPhoneNumber.length !== 8) {
       return 'El número de teléfono debe tener 8 dígitos.';
@@ -411,9 +396,9 @@ export class FormComponent implements OnInit {
     }
   }
   searchByCedula() {
-    if (this.registration.identification) {
-      const cedula = this.registration.identification.replace(/-/g, '');
-      const tipoCedula = this.registration.idType;
+    if (this.personalData.identification) {
+      const cedula = this.personalData.identification.replace(/-/g, '');
+      const tipoCedula = this.personalData.idType;
       this.loading = true; // Set loading to true
 
       this.formService.searchByCedula(cedula, tipoCedula).subscribe(
@@ -424,11 +409,11 @@ export class FormComponent implements OnInit {
             const personData = response.results[0];
 
             // Fill form fields
-            this.registration.name = `${personData.firstname1} ${personData.firstname2}`.trim();
-            this.registration.lastname = `${personData.lastname1} ${personData.lastname2}`.trim();
+            this.personalData.name = `${personData.firstname1} ${personData.firstname2}`.trim();
+            this.personalData.lastname = `${personData.lastname1} ${personData.lastname2}`.trim();
 
             // Show confirmation dialog
-            this.confirmationMessage = `¿El nombre ${this.registration.name} corresponde a tu identificación?`;
+            this.confirmationMessage = `¿El nombre ${this.personalData.name} corresponde a tu identificación?`;
             this.showConfirmation = true;
 
             this.cdr.detectChanges(); // Ensure Angular updates the form
@@ -452,8 +437,8 @@ export class FormComponent implements OnInit {
       // Continúa con el flujo normal
       console.log('Name confirmed');
     } else {
-      this.registration.name = '';
-      this.registration.lastname = '';
+      this.personalData.name = '';
+      this.personalData.lastname = '';
 
     }
   }
@@ -464,13 +449,13 @@ export class FormComponent implements OnInit {
 
   }
   applyPhoneNumberMask() {
-    let value = this.registration.phone_number.replace(/\D/g, ''); // Remover caracteres no numéricos
+    let value = this.personalData.phone_number.replace(/\D/g, ''); // Remover caracteres no numéricos
     if (value.length >= 8) {
-      this.registration.phone_number = `+506 ${value.slice(0, 4)}-${value.slice(4, 8)}`;
+      this.personalData.phone_number = `+506 ${value.slice(0, 4)}-${value.slice(4, 8)}`;
     }
   }
   private async verifyIdentification(id: string) {
-    const user =  this.registration.identification;
+    const user =  this.personalData.identification;
 
     if (!user) {
       this.showErrorDialog("No se encontró a la persona en el sistema.");
