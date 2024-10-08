@@ -16,7 +16,7 @@ export class SportLevelService {
   constructor(private http: HttpClient) { }
 
   // Obtener la descripción de todos los niveles deportivos
-  getAllSportLevelsDescriptions(): Observable<string[]> {
-    return this.http.get<string[]>(`${this.apiUrl}/descriptions`);
+  getAllSportLevelsDescriptions(): Observable<SportLevel[]> {
+    return this.http.get<SportLevel[]>(`${this.apiUrl}`);
   }
 }

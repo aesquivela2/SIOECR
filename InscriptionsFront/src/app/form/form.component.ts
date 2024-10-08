@@ -446,7 +446,7 @@ export class FormComponent implements OnInit {
 
 
   private loadCantonsByProvince(province: Province | null | undefined) {
-
+    
   }
   applyPhoneNumberMask() {
     let value = this.personalData.phone_number.replace(/\D/g, ''); // Remover caracteres no numéricos
