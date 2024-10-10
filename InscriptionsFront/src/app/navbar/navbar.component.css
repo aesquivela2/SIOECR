@@ -54,6 +54,11 @@
   max-width: 150px;
   margin: 40px 0;
 }
+.banner {
+  margin: auto;
+  max-width: 20%;
+
+}
 
 .menuppal ul {
   list-style: none;

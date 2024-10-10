@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {FormComponent} from "../form/form.component";
+
 
 
 @Component({
@@ -9,7 +9,7 @@ import {FormComponent} from "../form/form.component";
   styleUrls: ['./home.component.css'],
   standalone: true,
   imports: [
-    FormComponent,
+
 
   ],
   // Path to the CSS file

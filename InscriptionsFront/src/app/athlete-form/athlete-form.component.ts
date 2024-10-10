@@ -5,6 +5,8 @@ import { Sport } from '../app.component';
 import {FormComponent} from "../form/form.component";
 import {FormsModule} from "@angular/forms";
 import {NgForOf, NgIf} from "@angular/common";
+import {SwimmingFormComponent} from "../swimming-form/swimming-form.component";
+import {PingPongFormComponent} from "../ping-pong-form/ping-pong-form.component";
 
 @Component({
   selector: 'app-athlete-form',
@@ -15,7 +17,9 @@ import {NgForOf, NgIf} from "@angular/common";
     FormComponent,
     FormsModule,
     NgForOf,
-    NgIf
+    NgIf,
+    SwimmingFormComponent,
+    PingPongFormComponent
   ]
 })
 export class AthleteFormComponent implements OnInit {
@@ -23,7 +27,12 @@ export class AthleteFormComponent implements OnInit {
   sports: Sport[] = []; // Lista de deportes
   selectedSport: Sport | null = null; // Deporte seleccionado
   loading = false;
-  athleteData: any = {};
+  athleteData: any = {
+    sportInfo: {
+      disability: '',
+      sport: ''
+    }
+  };
 
   constructor(
     protected formService: FormService,
@@ -36,7 +45,6 @@ export class AthleteFormComponent implements OnInit {
     this.loadSports();  // Load sports data on init
   }
 
-  // Verifica si el combo box ya está disponible
   checkAndFillComboBox() {
     if (this.sportComboBox && this.sportComboBox.nativeElement) {
       this.fillComboBox();  // Llama a la función para llenar el combo box
@@ -68,6 +76,8 @@ export class AthleteFormComponent implements OnInit {
         this.loading = false;
       }
     );
+    console.log("Hay algo" + this.sports.values());
+    console.log(this.sports.values())
   }
 
 
@@ -94,14 +104,22 @@ export class AthleteFormComponent implements OnInit {
     });
   }
 
-
   onSportChange(event: Event) {
     const selectElement = event.target as HTMLSelectElement;
     const sportId = selectElement.value;  // Obtener el valor seleccionado
 
+    console.log("Elemento seleccionado: ", selectElement);
+    console.log("ID del deporte seleccionado: ", sportId);
+
     const selectedId = parseInt(sportId, 10);  // Convertir string a número
-    this.selectedSport = this.sports.find(sport => sport.id === selectedId) || null;
+
+    // Buscando el deporte en la lista
+    this.selectedSport = this.sports.find(sport => sport.sport.id === selectedId ) || null;
+
+    console.log("Deporte encontrado: ", this.selectedSport);
   }
+
+
 
   // Control step navigation
   nextStep() {
@@ -125,4 +143,16 @@ export class AthleteFormComponent implements OnInit {
   onSubmit() {
 
   }
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    if (file && file.type === 'application/pdf') {
+      this.athleteData.sportInfo.disabilityProof = file;
+    } else {
+      alert('Por favor, suba un archivo PDF válido.');
+    }
+  }
+  trackBySportId(index: number, sport: Sport): number {
+    return sport.id;
+  }
+
 }

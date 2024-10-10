@@ -1,0 +1,63 @@
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+select, input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border-radius: 2%;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  background-color: #b22222;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #a51d1d;
+}
+
+button:disabled {
+  background-color: #ccc;
+}
+
+.btn-secondary {
+  background-color: #ccc;
+  color: black;
+}
+
+.btn-secondary:hover {
+  background-color: #b3b3b3;
+}
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+input:focus, select:focus {
+  outline: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Darker shadow on focus */
+}

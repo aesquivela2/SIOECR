@@ -1,6 +1,5 @@
 <body>
 <header>
-  <h1>Registro de Atleta</h1>
   <img src="assets/logo.jpg" alt="Logo" fill>
 </header>
 
@@ -23,24 +22,40 @@
       <label for="sport">Deporte:</label>
       <select #sportComboBox id="sport" name="sport" required (change)="onSportChange($event)">
         <option value="" disabled selected>Seleccione un deporte</option>
+        <option *ngFor="let sport of sports; trackBy: trackBySportId" [value]="sport.id">{{ sport.sport.name }}</option>
       </select>
 
       <!-- Mostrar un mensaje de error si no se selecciona un deporte -->
       <div *ngIf="selectedSport === null">
         <small class="error">El deporte es requerido.</small>
       </div>
-
-
       <!-- Mostrar el deporte seleccionado -->
-      <div *ngIf="selectedSport">
-        Has seleccionado: {{ selectedSport.name }}
+
+      <!-- Type of Disability -->
+      <div class="form-group">
+        <label for="disability">Tipo de discapacidad:</label>
+        <select id="disability" name="disability" [(ngModel)]="athleteData.sportInfo.disability">
+          <option value="">Seleccione discapacidad (opcional)</option>
+          <option value="visual">Visual</option>
+          <option value="auditory">Auditiva</option>
+          <option value="physical">Física</option>
+          <option value="none">Ninguna</option>
+        </select>
       </div>
 
-      <div class="button-group">
-        <button type="button" (click)="previousStep()">Anterior</button>
-        <button type="submit" [disabled]="!athleteForm.form.valid">Enviar</button>
+      <!-- Upload Disability Proof -->
+      <div class="form-group">
+        <label for="disabilityProof">Subir comprobante de discapacidad (PDF):</label>
+        <input type="file" id="disabilityProof" name="disabilityProof" (change)="onFileSelected($event)" accept="application/pdf">
       </div>
+
+      <!-- Inject ping pong form if sport is ping pong -->
+      <app-ping-pong-form *ngIf="selectedSport?.sport.name === 'Soccer'"
+      ></app-ping-pong-form>
+
+
     </div>
+
   </form>
 </div>
 </body>
