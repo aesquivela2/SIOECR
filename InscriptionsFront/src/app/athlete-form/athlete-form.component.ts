@@ -1,70 +1,128 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
-import {CommonModule, NgOptimizedImage} from '@angular/common';
-import { FormComponent } from '../form/form.component';
-import { PingPongFormComponent } from '../ping-pong-form/ping-pong-form.component';
-import { SwimmingFormComponent } from '../swimming-form/swimming-form.component';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, OnInit, ViewChild } from '@angular/core';
+import { SportService } from '../services/sport.service';
+import { FormService } from '../form/form.service';
+import { Sport } from '../app.component';
+import {FormComponent} from "../form/form.component";
+import {FormsModule} from "@angular/forms";
+import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-athlete-form',
   standalone: true,
-  imports: [FormsModule, CommonModule, FormComponent, PingPongFormComponent, SwimmingFormComponent, NgOptimizedImage],
   templateUrl: './athlete-form.component.html',
-  styleUrls: ['./athlete-form.component.css']
+  styleUrls: ['./athlete-form.component.css'],
+  imports: [
+    FormComponent,
+    FormsModule,
+    NgForOf,
+    NgIf
+  ]
 })
 export class AthleteFormComponent implements OnInit {
-  @ViewChild('athleteForm') athleteForm!: NgForm;
-  currentStep = 1;
+  @ViewChild('sportComboBox', { static: false }) sportComboBox!: ElementRef;
+  sports: Sport[] = []; // Lista de deportes
+  selectedSport: Sport | null = null; // Deporte seleccionado
+  loading = false;
+  athleteData: any = {};
 
-  sports = ['Natación', 'Ping Pong', 'Fútbol'];
+  constructor(
+    protected formService: FormService,
+    private sportService: SportService,
+    private cdRef: ChangeDetectorRef
+  ) {}
 
-  // Centralized JSON structure for form data
-  athleteData: any = {
-    personalInfo: {},
-    sportInfo: {},
-    additionalInfo: {}
-  };
+  ngOnInit() {
 
-  selectedSportComponent: any = null;
-
-  constructor() {}
-
-  ngOnInit() {}
-
-  // Handling sport change to display correct child form
-  onSportChange(sport: string) {
-    this.athleteData.sportInfo.sport = sport;
+    this.loadSports();  // Load sports data on init
   }
 
-  // Moving to the next step
+  // Verifica si el combo box ya está disponible
+  checkAndFillComboBox() {
+    if (this.sportComboBox && this.sportComboBox.nativeElement) {
+      this.fillComboBox();  // Llama a la función para llenar el combo box
+    } else {
+      // Si no está disponible, esperamos 100 ms y verificamos nuevamente
+      setTimeout(() => this.checkAndFillComboBox(), 100);
+    }
+  }
+
+  loadSports() {
+    this.loading = true;
+    this.sportService.getAllSports().subscribe(
+      (response: any) => {
+        console.log('Datos recibidos:', response);  // Verifica la estructura del objeto
+
+        if (Array.isArray(response)) {
+          this.sports = response;
+        } else if (response && typeof response === 'object') {
+          this.sports = [response];  // Convertir response a array si es un objeto
+        }
+
+        this.loading = false;  // Los datos ya se han cargado
+
+        // Intenta llenar el combo box una vez que el DOM esté listo
+        this.checkAndFillComboBox();
+      },
+      (error) => {
+        console.error('Error fetching sports:', error);
+        this.loading = false;
+      }
+    );
+  }
+
+
+
+  fillComboBox() {
+    const selectElement = this.sportComboBox.nativeElement as HTMLSelectElement;
+
+    // Limpiar las opciones existentes
+    selectElement.innerHTML = '<option value="" disabled selected>Seleccione un deporte</option>';
+
+    // Rellenar las opciones accediendo a la propiedad anidada 'sport'
+    this.sports.forEach((item) => {
+      const sport = item.sport;  // Accede a la propiedad anidada 'sport'
+
+      // Verifica que 'sport' tenga las propiedades 'id' y 'name' (u otra propiedad que desees usar)
+      if (sport && sport.id && sport.name) {
+        const option = document.createElement('option');
+        option.value = sport.id.toString();
+        option.text = sport.name;  // Accede a la propiedad 'name' dentro de 'sport'
+        selectElement.appendChild(option);
+      } else {
+        console.error('El objeto sport no tiene las propiedades adecuadas:', sport);
+      }
+    });
+  }
+
+
+  onSportChange(event: Event) {
+    const selectElement = event.target as HTMLSelectElement;
+    const sportId = selectElement.value;  // Obtener el valor seleccionado
+
+    const selectedId = parseInt(sportId, 10);  // Convertir string a número
+    this.selectedSport = this.sports.find(sport => sport.id === selectedId) || null;
+  }
+
+  // Control step navigation
   nextStep() {
-    if (this.currentStep < 3) {
-      this.currentStep++;
+    if (this.formService.currentStep === 1) {
+      this.athleteData = this.formService.getFormData();
+      // Verificar si los datos se están transfiriendo correctamente
+      console.log('Athlete Data:', this.athleteData);
+
+    }
+    if (this.formService.currentStep < 3) {
+      this.formService.currentStep++;
     }
   }
 
-  // Moving to the previous step
   previousStep() {
-    if (this.currentStep > 1) {
-      this.currentStep--;
+    if (this.formService.currentStep > 1) {
+      this.formService.currentStep--;
     }
   }
 
-  // Handling submission
   onSubmit() {
-    if (this.athleteForm.form.valid) {
-      console.log('Athlete Data JSON:', JSON.stringify(this.athleteData));
-    } else {
-      alert('Por favor, complete todos los campos.');
-    }
-  }
-  onFileSelected(event: any) {
-    const file = event.target.files[0];
-    if (file && file.type === 'application/pdf') {
-      this.athleteData.sportInfo.disabilityProof = file;
-    } else {
-      alert('Por favor, suba un archivo PDF válido.');
-    }
-  }
 
+  }
 }

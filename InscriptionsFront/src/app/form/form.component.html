@@ -1,11 +1,11 @@
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-<div>
+
 <!-- Tipo de identificación -->
 <div>
-  <label for="idType">Tipo de Identificación:</label>
-  <select id="idType" name="idType" [(ngModel)]="personalData.idType" #idType="ngModel" required>
+  <label name="idType">Tipo de Identificación:</label>
+  <select id="idType" name="idType" [(ngModel)]="registration.idType" #idType="ngModel" required (blur)="onIdTypeChange($event)">
     <option value="física">Cédula Física</option>
     <option value="juridica">Cédula Jurídica</option>
     <option value="dimex">DIMEX</option>
@@ -18,12 +18,12 @@
 
 <!-- Identificación -->
 <div>
-  <label for="identification">Identificación:</label>
+  <label name="identification">Identificación:</label>
   <input
     type="text"
     id="identification"
     name="identification"
-    [(ngModel)]="personalData.identification"
+    [(ngModel)]="registration.identification"
     #identification="ngModel"
     required
     [pattern]="getIdentificationPattern()"
@@ -41,19 +41,20 @@
 
 <!-- Indicador de carga -->
 <div *ngIf="loading" class="loading-indicator">
-  <p>Cargando...</p> <!-- Puedes cambiar esto por un spinner o indicador gráfico -->
+  <p>Cargando...</p>
 </div>
 
 <!-- Nombre (deshabilitado cuando está cargando) -->
 <div>
-  <label for="name">Nombre:</label>
+  <label name="name">Nombre:</label>
   <input
     type="text"
     id="name"
     name="name"
-    [(ngModel)]="personalData.name"
+    [(ngModel)]="registration.name"
     required
     [disabled]="loading"
+    (ngModelChange)="onNameChange($event)"
   />
 </div>
 
@@ -64,26 +65,26 @@
   (confirmed)="onConfirmation($event)">
 </app-confirmation-dialog>
 
-
 <!-- Campo de apellidos -->
 <div>
-  <label for="lastname">Apellidos:</label>
+  <label name="lastname">Apellidos:</label>
   <input
     type="text"
     id="lastname"
     name="lastname"
-    [(ngModel)]="personalData.lastname"
+    [(ngModel)]="registration.lastname"
     required
+    (ngModelChange)="onLastNameChange($event)"
   />
 </div>
 
 <!-- Fecha de nacimiento -->
-<label for="birthdate-day">Fecha de Nacimiento:</label>
+<label name="birthdate-day">Fecha de Nacimiento:</label>
 <div class="container-birthdate">
   <span>
     <!-- Día -->
-    <label for="birthdate-day"> Día </label>
-    <select id="birthdate-day" [(ngModel)]="selectedDay" required>
+    <label name="birthdate-day"> Día </label>
+    <select id="birthdate-day" [(ngModel)]="selectedDay" required (ngModelChange)="onDayChange($event)">
       <option value="" disabled>Dia</option>
       <option *ngFor="let day of days" [value]="day">{{ day }}</option>
     </select>
@@ -91,8 +92,8 @@
 
   <!-- Mes -->
   <span>
-    <label for="birthdate-month"> Mes </label>
-    <select id="birthdate-month" [(ngModel)]="selectedMonth" required>
+    <label name="birthdate-month"> Mes </label>
+    <select id="birthdate-month" [(ngModel)]="selectedMonth" required (ngModelChange)="onMonthChange($event)">
       <option value="" disabled>Mes</option>
       <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
     </select>
@@ -100,7 +101,7 @@
 
   <!-- Año -->
   <span>
-    <label for="birthdate-year"> Año </label>
+    <label name="birthdate-year"> Año </label>
     <select id="birthdate-year" [(ngModel)]="selectedYear" (change)="onYearChange()" required>
       <option value="" disabled>Año</option>
       <option *ngFor="let year of years" [value]="year">{{ year }}</option>
@@ -113,32 +114,29 @@
 </div>
 
 <!-- Email -->
-<div>
-  <label for="email">Email:</label>
-  <input
-    type="email"
-    id="email"
-    name="email"
-    [(ngModel)]="personalData.email"
-    #email="ngModel"
-    required
-    pattern="^[a-zA-Z0-9._%+]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-    autocomplete="email"
-  >
-  <div *ngIf="email.invalid && email.touched">
-    <small class="error" *ngIf="email.errors?.['required']">El correo es requerido.</small>
-    <small class="error" *ngIf="email.errors?.['pattern']">Correo inválido.</small>
+  <div>
+    <label name="email">Email:</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      [(ngModel)]="registration.email"
+      required
+      pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+      autocomplete="email"
+      (ngModelChange)="onEmailChange($event)"
+    >
   </div>
-</div>
+
 
 <!-- Número de teléfono con máscara -->
 <div>
-  <label for="phone_number">Número de teléfono:</label>
+  <label name="phone_number">Número de teléfono:</label>
   <input
     type="text"
     id="phone_number"
     name="phone_number"
-    [(ngModel)]="personalData.phone_number"
+    [(ngModel)]="registration.phone_number"
     (input)="applyPhoneNumberMask()"
     #phone_number="ngModel"
     required
@@ -153,8 +151,8 @@
 
 <!-- Nacionalidad -->
 <div>
-  <label for="citizenship">Nacionalidad:</label>
-  <select id="citizenship" name="citizenship" [(ngModel)]="personalData.citizenship" (change)="onCitizenshipChange()" #citizenship="ngModel" required>
+  <label name="citizenship">Nacionalidad:</label>
+  <select id="citizenship" name="citizenship" [(ngModel)]="registration.citizenship" (change)="onCitizenshipChange()" #citizenship="ngModel" required>
     <option value="nacional">Nacional</option>
     <option value="extranjero">Extranjero</option>
   </select>
@@ -164,11 +162,11 @@
 </div>
 
 <!-- Información específica de Costa Rica -->
-<div *ngIf="personalData.citizenship === 'nacional'">
+<div *ngIf="registration.citizenship === 'nacional'">
   <!-- Provincia -->
   <div>
-    <label for="province">Provincia:</label>
-    <select id="province" name="province" [(ngModel)]="personalData.province" #province="ngModel" required>
+    <label name="province">Provincia:</label>
+    <select id="province" name="province" [(ngModel)]="registration.province" #province="ngModel" required (ngModelChange)="onProvinceChange($event)">
       <option *ngFor="let province of provinces" [ngValue]="province">{{ province.name }}</option>
     </select>
     <div *ngIf="province.invalid && province.touched">
@@ -178,8 +176,8 @@
 
   <!-- Cantón -->
   <div>
-    <label for="canton">Cantón:</label>
-    <select id="canton" name="canton" [(ngModel)]="personalData.canton" #canton="ngModel" required>
+    <label name="canton">Cantón:</label>
+    <select id="canton" name="canton" [(ngModel)]="registration.canton" #canton="ngModel" required (ngModelChange)="onCantonChange($event)">
       <option *ngFor="let canton of cantons" [ngValue]="canton">{{ canton.name }}</option>
     </select>
     <div *ngIf="canton.invalid && canton.touched">
@@ -189,8 +187,8 @@
 
   <!-- Región -->
   <div>
-    <label for="region">Región:</label>
-    <select id="region" name="region" [(ngModel)]="personalData.region" #region="ngModel" required>
+    <label name="region">Región:</label>
+    <select id="region" name="region" [(ngModel)]="registration.region" #region="ngModel" required (ngModelChange)="onRegionChange($event)">
       <option *ngFor="let region of regions" [ngValue]="region">{{ region.name }}</option>
     </select>
     <div *ngIf="region.invalid && region.touched">
@@ -200,10 +198,10 @@
 </div>
 
 <!-- Región Global y País si es Extranjero -->
-<div *ngIf="personalData.citizenship === 'extranjero'">
+<div *ngIf="registration.citizenship === 'extranjero'">
   <div>
-    <label for="worldRegion">Región Global:</label>
-    <select id="worldRegion" name="worldRegion" [(ngModel)]="personalData.worldRegion" (change)="onRegionChange()" #worldRegion="ngModel" required>
+    <label name="worldRegion">Región Global:</label>
+    <select id="worldRegion" name="worldRegion" [(ngModel)]="registration.worldRegion" (change)="onRegionChange($event)" #worldRegion="ngModel" required>
       <option *ngFor="let region of worldRegions | keyvalue" [ngValue]="region.key">{{ region.key }}</option>
     </select>
     <div *ngIf="worldRegion.invalid && worldRegion.touched">
@@ -212,9 +210,9 @@
   </div>
 
   <!-- País -->
-  <div *ngIf="personalData.worldRegion">
-    <label for="country">País:</label>
-    <select id="country" name="country" [(ngModel)]="personalData.country" #country="ngModel" required>
+  <div *ngIf="registration.worldRegion">
+    <label name="country">País:</label>
+    <select id="country" name="country" [(ngModel)]="registration.country" #country="ngModel" required (ngModelChange)="onCountryChange($event)">
       <option *ngFor="let country of latinAmericanCountries" [ngValue]="country">{{ country }}</option>
     </select>
     <div *ngIf="country.invalid && country.touched">
@@ -222,5 +220,8 @@
     </div>
   </div>
 </div>
-
+<form #registrationForm="ngForm">
+<div class="button-group">
+  <button type="button" (click)="collectFormData()">Siguiente</button>
 </div>
+</form>

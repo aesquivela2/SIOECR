@@ -5,29 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="Registro general era mentira faltan detalles">
-      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/ping-pong-form/ping-pong-form.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/ping-pong-form/ping-pong-form.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/ping-pong-form/ping-pong-form.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/ping-pong-form/ping-pong-form.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/swimming-form/swimming-form.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/swimming-form/swimming-form.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/swimming-form/swimming-form.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/cycling-form/cycling-form.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/cycling-form/cycling-form.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/cycling-form/cycling-form.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/cycling-form/cycling-form.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/Assets/SO_CostaRica-16.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/assets/logo.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/mapa/mapa.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/mapa/mapa.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/mapa/mapa.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/swimming-form/swimming-form.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/mapa/mapa.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/services/canton.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/services/canton.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/services/province.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/services/province.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/services/sport-level.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/services/sport-level.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/services/sport.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/services/sport.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.ts" afterDir="false" />
@@ -61,10 +54,10 @@
     &quot;accountId&quot;: &quot;7fba9835-c9fb-4de1-bbe6-9a2662f8567b&quot;
   }
 }</component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 3
@@ -97,6 +90,7 @@
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.InscriptionsBackApplication.executor": "Run",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
@@ -111,6 +105,11 @@
     "ts.external.directory.path": "C:\\Users\\aesqu\\OneDrive\\Universidad\\Ciclo I 2024\\Progamacion IV\\Proyecto2\\SIOECR\\InscriptionsFront\\node_modules\\typescript\\lib",
     "ts.rename.search.for.js.occurrences": "false",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -243,7 +242,8 @@
       <workItem from="1727056883932" duration="4090000" />
       <workItem from="1727457423926" duration="9619000" />
       <workItem from="1727824710106" duration="7497000" />
-      <workItem from="1728316766869" duration="37142000" />
+      <workItem from="1728316766869" duration="37249000" />
+      <workItem from="1728357332540" duration="34834000" />
     </task>
     <task id="LOCAL-00001" summary="Front End&#10; - Cambios unicamente visuales &#10; - Una Pagina de inicio y siempre acceso a los formularios formulario general">
       <option name="closed" value="true" />
@@ -285,7 +285,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728336455206</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Registro general era mentira faltan detalles">
+      <option name="closed" value="true" />
+      <created>1728357190843</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1728357190843</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

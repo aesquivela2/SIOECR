@@ -1,5 +1,5 @@
-import {ChangeDetectorRef, Component, EventEmitter, Input, NgModule, OnInit, Output, ViewChild} from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import {ChangeDetectorRef, Component, NgModule, OnInit, ViewChild} from '@angular/core';
+import {FormBuilder, FormsModule, NgForm} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { ProvinceService } from '../services/province.service';
@@ -8,6 +8,7 @@ import { CantonService } from '../services/canton.service';  // Corrected path
 import { FormService } from './form.service';
 import axios from 'axios';
 import {ConfirmationDialogComponent} from "../confirmation-dialog/confirmation-dialog.component";
+import {FormDataService} from "../services/form-data.service";
 
 // Interfaces for province, canton, and region
 interface Province {
@@ -35,12 +36,27 @@ interface Region {
 export class FormComponent implements OnInit {
 
   @ViewChild('registrationForm', { static: false }) registrationForm!: NgForm;
-  @Output() formSubmit = new EventEmitter<any>();
-  @Input() personalData: any = {};
+
   currentStep = 1;
 
   // Form model with initial values
-
+  registration = {
+    identification: '',
+    name: '',
+    birthdate: '' as string | Date,
+    canton: null as Canton | null | undefined,
+    citizenship: undefined as string | undefined,
+    email: '',
+    idType: 'cedula',
+    nationality: '',
+    phone_number: '',
+    province: null as Province | null | undefined,
+    region: null as Region | null | undefined,
+    worldRegion: null as string | null | undefined, // Added worldRegion
+    country: undefined as string | null | undefined,
+    district: undefined,
+    lastname: ''
+  };
   loading = false;
   showConfirmation = false;
   confirmationMessage = '';
@@ -101,9 +117,12 @@ export class FormComponent implements OnInit {
     private formService: FormService,
     private regionService: RegionService,
     private provinceService: ProvinceService,
-    private cantonService: CantonService
-  ) {}
+    private cantonService: CantonService,
+    private formDataService: FormDataService, // Inyectamos el servicio
+    private fb: FormBuilder
 
+
+) {}
 
   ngOnInit() {
     this.populateYears();
@@ -115,8 +134,8 @@ export class FormComponent implements OnInit {
     this.loadLatinAmericanCountries();
 
     // Si ya tienes un valor de identificación, aplícale el formato correcto
-    if (this.personalData.identification) {
-      this.updateIdentification(this.personalData.identification);
+    if (this.registration.identification) {
+      this.updateIdentification(this.registration.identification);
     }
   }
 
@@ -189,98 +208,18 @@ export class FormComponent implements OnInit {
     }
   }
 
-
-
-
-  loadProvinces() {
-    this.provinceService.getAllProvinces().subscribe(
-      data => { this.provinces = data; },
-      error => { console.error('Error fetching provinces:', error); }
-    );
-  }
-
-  loadCantons() {
-    this.cantonService.getAllCantons().subscribe(
-      data => { this.cantons = data; },
-      error => { console.error('Error fetching cantons:', error); }
-    );
-  }
-
-  private loadRegions() {
-    this.regionService.getAllRegions().subscribe(
-      data => { this.regions = data; },
-      error => { console.error('Error fetching regions:', error); }
-    );
-  }
-
-  nextStep() {
-    if (this.currentStep < 2) {
-      this.currentStep++;
-    }
-  }
-
-  onSubmit() {
-    const validationMessage = this.validateIdentification();
-    this.personalData.identification += this.personalData.identification;
-
-    if (validationMessage) {
-      alert(validationMessage);
-      return;
-    }
-
-    this.applyIdentificationFormat();
-
-    let registration;
-    if (this.registrationForm.form.valid) {
-      registration = {
-        identification: this.personalData.identification || '',  // Inicializa a una cadena vacía si no hay valor
-        name: this.personalData.name || '',                      // Inicializa a una cadena vacía si no hay valor
-        birthdate: this.personalData.birthdate || null,          // Inicializa a null si no hay valor
-        email: this.personalData.email || '',                    // Inicializa a una cadena vacía si no hay valor
-        phone_number: this.personalData.phone_number || '',      // Inicializa a una cadena vacía si no hay valor
-        nationality: this.personalData.nationality || '',        // Inicializa a una cadena vacía si no hay valor
-        region: this.personalData.region || null,                // Inicializa a null si no hay valor
-        province: this.personalData.province || null,            // Inicializa a null si no hay valor
-        canton: this.personalData.canton || null                 // Inicializa a null si no hay valor
-      };
-
-      this.formService.createAthlete(registration).subscribe(
-        response => {
-          alert('Datos enviados correctamente.');
-          this.registrationForm.resetForm();
-        },
-        error => {
-          console.error('Error creating person:', error);
-          alert('Ocurrió un error al enviar los datos.');
-        }
-      );
-    } else {
-      alert('Por favor, completa todos los campos correctamente.');
-    }
-  }
-
   onCitizenshipChange() {
-    if (this.personalData.citizenship === 'nacional') {
-      this.personalData.region = null;
-      this.personalData.country = undefined;
+    if (this.registration.citizenship === 'nacional') {
+      this.registration.region = null;
+      this.registration.country = undefined;
     }
   }
 
-  onRegionChange() {
-    if (this.personalData.worldRegion) {
-      this.latinAmericanCountries = this.worldRegions[this.personalData.worldRegion] || [];
-      this.personalData.country = null;
-    }
-  }
-  onProvinceChange() {
-    this.cantons = [];
-    this.districts = [];
-    this.loadCantonsByProvince(this.personalData.province); // Función para cargar cantones basados en la provincia
-  }
+
 
 
   getIdentificationPattern() {
-    switch (this.personalData.idType) {
+    switch (this.registration.idType) {
       case 'física':
         return '\\d{1}-\\d{4}-\\d{4}';
       case 'dimex':
@@ -295,7 +234,7 @@ export class FormComponent implements OnInit {
   }
 
   validateIdentification() {
-    const rawIdentification = this.personalData.identification.replace(/-/g, '');
+    const rawIdentification = this.registration.identification.replace(/-/g, '');
     const pattern = new RegExp(this.getIdentificationPattern());
 
     if (!pattern.test(rawIdentification)) {
@@ -305,7 +244,7 @@ export class FormComponent implements OnInit {
   }
 
   getIdentificationPlaceholder() {
-    switch (this.personalData.idType) {
+    switch (this.registration.idType) {
       case 'física':
         return '1-XXXX-XXXX';
       case 'juridica':
@@ -320,31 +259,29 @@ export class FormComponent implements OnInit {
   }
 
   applyIdentificationFormat() {
-    const idType = this.personalData.idType;
-    let value = this.personalData.identification.replace(/\D/g, '');
-
+    const idType = this.registration.idType;
+    let value = this.registration.identification.replace(/\D/g, '');
+    this.formService.setFormData({dType: this.registration.idType});
     if (idType === 'física' && value.length === 9) {
-      this.personalData.identification = `${value.slice(0, 1)}-${value.slice(1, 5)}-${value.slice(5, 9)}`;
+      this.registration.identification = `${value.slice(0, 1)}-${value.slice(1, 5)}-${value.slice(5, 9)}`;
     } else if (idType === 'dimex' && (value.length === 11 || value.length === 12)) {
       if (value.length === 11) {
-        this.personalData.identification = `${value.slice(0, 4)}-${value.slice(4, 10)}-${value.slice(10)}`;
+        this.registration.identification = `${value.slice(0, 4)}-${value.slice(4, 10)}-${value.slice(10)}`;
       } else if (value.length === 12) {
-        this.personalData.identification = `${value.slice(0, 4)}-${value.slice(4, 10)}-${value.slice(10, 12)}`;
+        this.registration.identification = `${value.slice(0, 4)}-${value.slice(4, 10)}-${value.slice(10, 12)}`;
       }
     } else if (idType === 'pasaporte' && value.length >= 5 && value.length <= 10) {
-      this.personalData.identification = value.toUpperCase();
+      this.registration.identification = value.toUpperCase();
     }
     if (idType === 'juridica' && value.length === 10) {
-      this.personalData.identification = `${value.slice(0, 1)}-${value.slice(1, 4)}-${value.slice(4, 10)}`;
+      this.registration.identification = `${value.slice(0, 1)}-${value.slice(1, 4)}-${value.slice(4, 10)}`;
     } else if (idType === 'juridica' && value.length === 10) {
-  this.personalData.identification = `${value.slice(0, 1)}-${value.slice(1, 4)}-${value.slice(4)}`;
-}
+      this.registration.identification = `${value.slice(0, 1)}-${value.slice(1, 4)}-${value.slice(4)}`;
+    }
 
-
-}
-
+  }
   updateIdentification(value: string) {
-    this.personalData.identification = this.removeIdentificationFormat(value);
+    this.registration.identification = this.removeIdentificationFormat(value);
     this.applyIdentificationFormat();
   }
 
@@ -353,7 +290,7 @@ export class FormComponent implements OnInit {
   }
 
   validatePhoneNumber() {
-    const rawPhoneNumber = this.personalData.phone_number.replace(/\D/g, '');
+    const rawPhoneNumber = this.registration.phone_number.replace(/\D/g, '');
 
     if (rawPhoneNumber.length !== 8) {
       return 'El número de teléfono debe tener 8 dígitos.';
@@ -385,20 +322,11 @@ export class FormComponent implements OnInit {
 
     return { nombreCompleto, fechaNacimiento };
   }
-  onIdentificationChange(value: string) {
-    // Elimina cualquier formato antes de realizar la validación
-    const rawIdentification = value.replace(/-/g, ''); // Remover guiones
-    const pattern = new RegExp(this.getIdentificationPattern());
 
-    // Si la identificación es válida según el patrón, aplica el formato correcto
-    if (pattern.test(rawIdentification)) {
-      this.applyIdentificationFormat();
-    }
-  }
   searchByCedula() {
-    if (this.personalData.identification) {
-      const cedula = this.personalData.identification.replace(/-/g, '');
-      const tipoCedula = this.personalData.idType;
+    if (this.registration.identification) {
+      const cedula = this.registration.identification.replace(/-/g, '');
+      const tipoCedula = this.registration.idType;
       this.loading = true; // Set loading to true
 
       this.formService.searchByCedula(cedula, tipoCedula).subscribe(
@@ -409,11 +337,14 @@ export class FormComponent implements OnInit {
             const personData = response.results[0];
 
             // Fill form fields
-            this.personalData.name = `${personData.firstname1} ${personData.firstname2}`.trim();
-            this.personalData.lastname = `${personData.lastname1} ${personData.lastname2}`.trim();
+            this.registration.name = `${personData.firstname1} ${personData.firstname2}`.trim();
+            this.registration.lastname = `${personData.lastname1} ${personData.lastname2}`.trim();
+
+            // Actualiza los datos del formulario en el servicio
+            this.formService.setFormData({ name: this.registration.name, lastname: this.registration.lastname });
 
             // Show confirmation dialog
-            this.confirmationMessage = `¿El nombre ${this.personalData.name} corresponde a tu identificación?`;
+            this.confirmationMessage = `¿El nombre ${this.registration.name} corresponde a tu identificación?`;
             this.showConfirmation = true;
 
             this.cdr.detectChanges(); // Ensure Angular updates the form
@@ -429,6 +360,7 @@ export class FormComponent implements OnInit {
     }
   }
 
+
   // Handle confirmation
   onConfirmation(confirmed: boolean) {
     this.showConfirmation = false;  // Cierra el modal
@@ -437,25 +369,23 @@ export class FormComponent implements OnInit {
       // Continúa con el flujo normal
       console.log('Name confirmed');
     } else {
-      this.personalData.name = '';
-      this.personalData.lastname = '';
+      this.registration.name = '';
+      this.registration.lastname = '';
 
     }
   }
 
-
-
   private loadCantonsByProvince(province: Province | null | undefined) {
-    
+
   }
   applyPhoneNumberMask() {
-    let value = this.personalData.phone_number.replace(/\D/g, ''); // Remover caracteres no numéricos
+    let value = this.registration.phone_number.replace(/\D/g, ''); // Remover caracteres no numéricos
     if (value.length >= 8) {
-      this.personalData.phone_number = `+506 ${value.slice(0, 4)}-${value.slice(4, 8)}`;
+      this.registration.phone_number = `+506 ${value.slice(0, 4)}-${value.slice(4, 8)}`;
     }
   }
   private async verifyIdentification(id: string) {
-    const user =  this.personalData.identification;
+    const user =  this.registration.identification;
 
     if (!user) {
       this.showErrorDialog("No se encontró a la persona en el sistema.");
@@ -484,6 +414,175 @@ export class FormComponent implements OnInit {
     });
   }
 
+  onIdentificationChange() {
+    this.formDataService.setFormData({ identification: this.registration.identification });
+  }
+
+  onNameChange($event: any) {
+    this.formService.setFormData({ name: this.registration.name });
+  }
+
+  onLastNameChange($event: any) {
+    this.formService.setFormData({ lastname: this.registration.lastname });
+  }
+
+
+  onBirthdateChange($event: any) {
+    this.formDataService.setFormData({ birthdate: this.registration.birthdate });
+  }
+
+  onEmailChange($event: any) {
+    this.formDataService.setFormData({ email: this.registration.email });
+  }
+
+  onPhoneNumberChange($event: any) {
+    this.formDataService.setFormData({ phone_number: this.registration.phone_number });
+  }
+
+  onNationalityChange($event: any) {
+    this.formDataService.setFormData({ nationality: this.registration.nationality });
+  }
+
+  onProvinceChange($event: any) {
+    this.formDataService.setFormData({ province: this.registration.province });
+  }
+
+  onRegionChange($event: any) {
+    if (this.registration.worldRegion) {
+      this.latinAmericanCountries = this.worldRegions[this.registration.worldRegion] || [];
+      this.registration.country = null;
+      this.formDataService.setFormData({ region: this.registration.region });
+    }
+
+
+  }
+
+  onWorldRegionChange($event: any) {
+    this.formDataService.setFormData({ worldRegion: this.registration.worldRegion });
+  }
+
+  onCountryChange($event: any) {
+    this.formDataService.setFormData({ country: this.registration.country });
+  }
+
+
+
+  // Cargar provincias, cantones, etc. desde los servicios correspondientes
+  loadProvinces() {
+    this.formService.getProvinces().subscribe(
+      data => {
+        this.provinces = data;  // Almacena las provincias en la variable
+
+        // Si tienes una provincia seleccionada, guárdala en el servicio
+        if (this.registration.province) {
+          this.formService.setFormData({ province: this.registration.province });
+        }
+      },
+      error => {
+        console.error('Error al cargar las provincias:', error);
+      }
+    );
+  }
+
+
+  // Método para cargar cantones
+  loadCantons() {
+    this.formService.getCantons().subscribe(
+      data => {
+        this.cantons = data;  // Almacena los cantones en la variable
+
+        // Si tienes un cantón seleccionado, guárdalo en el servicio
+        if (this.registration.canton) {
+          this.formService.setFormData({ canton: this.registration.canton });
+        }
+      },
+      error => {
+        console.error('Error al cargar los cantones:', error);
+      }
+    );
+  }
+
+
+  // Método para cargar regiones
+  loadRegions() {
+    this.formService.getRegions().subscribe(
+      data => {
+        this.regions = data;  // Almacena las regiones en la variable
+      },
+      error => {
+        console.error('Error al cargar las regiones:', error);
+      }
+    );
+  }
+  onCantonChange($event: any) {
+    this.formDataService.setFormData({ canton: this.registration.canton });
+  }
+
+  onDayChange($event: any) {
+
+    this.formDataService.setFormData({ birthdate: this.registration.birthdate });
+
+  }
+
+  onIdTypeChange($event: FocusEvent) {
+    this.formDataService.setFormData({ identification: this.registration.identification });
+  }
+
+  nextStep() {
+    if (this.formService.currentStep === 1) {
+
+    }
+    if (this.formService.currentStep < 3) {
+      this.formService.currentStep++;
+    }
+  }
+
+  previousStep() {
+    if (this.formService.currentStep > 1) {
+      this.formService.currentStep--;
+    }
+  }
+
+  onMonthChange($event: any) {
+
+  }
+  collectFormData() {
+    // Verifica si registrationForm está inicializado antes de continuar
+    if (!this.registrationForm) {
+      console.error('Formulario no inicializado');
+      return;
+    }
+
+    // Recoge todos los datos del formulario
+    const formData = {
+      identification: this.registration.identification,
+      idType: this.registration.idType,
+      name: this.registration.name,
+      lastname: this.registration.lastname,
+      birthdate: this.registration.birthdate,
+      email: this.registration.email,
+      phone_number: this.registration.phone_number,
+      citizenship: this.registration.citizenship,
+      province: this.registration.province,
+      canton: this.registration.canton,
+      region: this.registration.region,
+      worldRegion: this.registration.worldRegion,
+      country: this.registration.country
+    };
+
+    // Valida si el formulario es válido
+    if (this.registrationForm.valid) {
+      // Envía los datos al servicio para almacenarlos
+      this.formDataService.setFormData(formData);
+      console.log(formData)
+      // Avanza al siguiente paso
+      this.nextStep();
+    } else {
+      // Muestra un error si el formulario no es válido
+      console.error('El formulario contiene errores o está incompleto');
+    }
+  }
 
 
 }
+

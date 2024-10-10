@@ -12,11 +12,15 @@ export interface Canton {
   providedIn: 'root'
 })
 export class CantonService {
-  private apiUrl = 'http://localhost:8080/api/cantons'; 
-  
+  private apiUrl = 'http://localhost:8080/api/cantons';
+
   constructor(private http: HttpClient) {}
 
   getAllCantons(): Observable<Canton[]> {
     return this.http.get<Canton[]>(this.apiUrl);  // Returns the list of all cantons
+  }
+
+  getCantonsByProvince(provinceId: number): Observable<Canton[]> {
+    return this.http.get<Canton[]>(`${this.apiUrl}?provinceId=${provinceId}`);  // Use the proper http client
   }
 }

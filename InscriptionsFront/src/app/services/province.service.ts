@@ -16,6 +16,6 @@ export class ProvinceService {
   constructor(private http: HttpClient) {}
 
   getAllProvinces(): Observable<Province[]> {
-    return this.http.get<Province[]>(this.apiUrl);
+    return this.http.get<Province[]>(this.apiUrl);  // Use the proper HttpClient instance
   }
 }

@@ -22,6 +22,7 @@ export interface Region {
 }
 
 export interface Sport {
+  sport: any;
   id: number;
   type: string;
 }
@@ -34,4 +35,38 @@ export interface Province {
 export interface Canton {
   id: number;
   name: string;
+}
+export interface SportAdministrator {
+  id: number;
+  email: string;
+  password: string;
+}
+
+export interface SportLevel {
+  id: number;
+  level: string;
+  sport: Sport;
+}
+
+export interface Sport {
+  id: number;
+  name: string;
+  description: string;
+  difficulty: string;
+  duration: string;
+  date: string;
+  time: string;
+  location: string;
+  maxParticipants: number;
+  minimumAge: number;
+  maximumAge: number;
+  modality: string;
+  needsSpecialEquipment: boolean;
+  specifications: string;
+  administrator: SportAdministrator;
+  sportLevels: SportLevel[];
+}
+
+export interface SportsResponse {
+  sports: Sport[];
 }

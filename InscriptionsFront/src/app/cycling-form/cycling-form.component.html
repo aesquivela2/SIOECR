@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="section">
+    <h2>Registro de Información - Ciclismo</h2>
+
+    <!-- Nivel de Participación -->
+    <div class="form-group">
+      <label for="nivel">Nivel en el que va a participar:</label>
+      <select id="nivel" name="nivel" [(ngModel)]="cyclingData.nivel" required>
+        <option value="">Seleccione un nivel</option>
+        <option value="nivel1">Nivel 1</option>
+        <option value="nivel2">Nivel 2</option>
+      </select>
+    </div>
+
+    <!-- Elegir Máximo dos opciones -->
+    <div class="form-group">
+        <label>Seleccione máximo dos opciones:</label>
+          <input type="checkbox" [checked]="isOptionSelected('500mts')" (change)="onOptionSelect('500mts')"> 500mts contra reloj
+          <input type="checkbox" [checked]="isOptionSelected('1km')" (change)="onOptionSelect('1km')"> 1km contra reloj
+          <input type="checkbox" [checked]="isOptionSelected('2km')" (change)="onOptionSelect('2km')"> 2km contra reloj
+      <div *ngIf="maxSelectionError" class="error">
+
+        Por favor seleccione hasta dos opciones.
+      </div>
+    </div>
+  </div>
+</div>
