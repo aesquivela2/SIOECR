@@ -66,6 +66,7 @@ export class FormComponent implements OnInit {
 
   // Data to be populated from services
   cantons: Canton[] = [];
+  allCantons: Canton[] = [];
   regions: Region[] = [];
   provinces: Province[] = [];
   latinAmericanCountries: string[] = []; // Added latinAmericanCountries array
@@ -215,9 +216,6 @@ export class FormComponent implements OnInit {
       this.registration.country = undefined;
     }
   }
-
-
-
 
   getIdentificationPattern() {
     switch (this.registration.idType) {
@@ -445,15 +443,13 @@ export class FormComponent implements OnInit {
   }
 
   onProvinceChange(province: Province | null) {
-    // If a province is selected, filter the cantons based on the selected province's id
     if (province) {
-      this.cantons = this.cantons.filter(canton => canton.provinceId === province.id);
+      this.cantons = this.allCantons.filter(canton => canton.provinceId === province.id);
     } else {
-      // If no province is selected, clear the cantons list
+      // Reset to an empty list if no province is selected
       this.cantons = [];
     }
-  
-    // Update the form data service with the selected province
+
     this.formDataService.setFormData({ province: this.registration.province });
   }
   
@@ -499,7 +495,8 @@ export class FormComponent implements OnInit {
   loadCantons() {
     this.formService.getCantons().subscribe(
       data => {
-        this.cantons = data;  // Almacena los cantones en la variable
+        this.allCantons = data;  // Almacena los cantones en la variable
+        this.cantons = [...this.allCantons];
 
         // Si tienes un cantón seleccionado, guárdalo en el servicio
         if (this.registration.canton) {
