@@ -7,6 +7,7 @@ import {FormsModule} from "@angular/forms";
 import {NgForOf, NgIf} from "@angular/common";
 import {SwimmingFormComponent} from "../swimming-form/swimming-form.component";
 import {PingPongFormComponent} from "../ping-pong-form/ping-pong-form.component";
+import {AthleteService} from "./athlete.service";
 
 @Component({
   selector: 'app-athlete-form',
@@ -37,7 +38,8 @@ export class AthleteFormComponent implements OnInit {
   constructor(
     protected formService: FormService,
     private sportService: SportService,
-    private cdRef: ChangeDetectorRef
+    private cdRef: ChangeDetectorRef,
+    private athleteService: AthleteService,
   ) {}
 
   ngOnInit() {
@@ -141,8 +143,9 @@ export class AthleteFormComponent implements OnInit {
   }
 
   onSubmit() {
-
+  this.athleteService.createAthlete(this.formService.getFormData()).subscribe()
   }
+
   onFileSelected(event: any) {
     const file = event.target.files[0];
     if (file && file.type === 'application/pdf') {

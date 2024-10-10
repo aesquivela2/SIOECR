@@ -20,7 +20,7 @@ public class AthleteController {
     @PostMapping
     public void save(@RequestBody Athlete athlete) {
         if (athlete.getName() == null || athlete.getName().isEmpty()) {
-            throw new IllegalArgumentException("El nombre del voluntario es requerido");
+            throw new IllegalArgumentException("El nombre del atleta es requerido");
         }
         System.out.println("Athlete received: " + athlete.getName());
 

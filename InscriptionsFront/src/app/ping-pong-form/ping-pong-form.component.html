@@ -1,23 +1,24 @@
 <div class="container">
-  <h2>Deporte: Tenis de mesa</h2>
-  <form #athleteForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="header-container compact-header">
+  </div>
+  <form #athleteForm="ngForm" >
     <!-- Nivel de equipo -->
 
     <label for="level">Nivel del Equipo:</label>
-    <select id="level" [(ngModel)]="athleteData.level" name="level" required>
+    <select id="level" [(ngModel)]="athleteData.level" name="level" (ngModelChange)="onChangeNivel($event)" required>
       <option value="" disabled selected>Seleccione un nivel</option>
       <option *ngFor="let level of levels" [value]="level">{{ level }}</option>
     </select>
 
     <!-- Tipo de prueba (solo tenis de mesa y tenis de campo) -->
-    <label for="testType">Tipo de Prueba (Tenis de Mesa/Tenis de Campo):</label>
-    <select id="testType" [(ngModel)]="athleteData.testType" name="testType" required>
+    <div>
+    <label for="testType">Tipo de Prueba :</label>
+    <select id="testType" [(ngModel)]="athleteData.testType" name="testType" (ngModelChange)="onTestType($event)"  required >
       <option value="" disabled selected>Seleccione un tipo de prueba</option>
       <option *ngFor="let testType of testTypes" [value]="testType">{{ testType }}</option>
     </select>
-
-    <div class="button-group">
-      <button type="submit" [disabled]="!athleteForm.form.valid">Enviar</button>
     </div>
+<div>
+</div>>
   </form>
 </div>

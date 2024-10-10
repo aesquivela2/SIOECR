@@ -1,8 +1,15 @@
+
 <body>
 <header>
-  <img src="assets/logo.jpg" alt="Logo" fill>
+  <div class="header-content">
+    <img src="assets/logo.jpg" alt="Logo" class="logo">
+    <!-- Saludo personalizado -->
+  </div>
 </header>
+<div class="header-container" *ngIf="formService.currentStep === 2" >
+    <h2 class="header-form">Hola {{ formService.getFormData().name }}, ¿A qué deporte te quieres inscribir?</h2>
 
+</div>
 <div class="container">
   <form #athleteForm="ngForm" (ngSubmit)="onSubmit()">
     <!-- Step 1: Personal Information -->
@@ -15,25 +22,24 @@
 
     <!-- Step 2: Athletic Information -->
     <div *ngIf="formService.currentStep === 2" class="section">
-      <!-- Saludo personalizado -->
-      <h2>Hola {{ formService.getFormData().name }}, ¿A qué deporte te quieres inscribir?</h2>
-
       <!-- Mostrar el selector de deportes cuando los datos estén cargados -->
-      <label for="sport">Deporte:</label>
-      <select #sportComboBox id="sport" name="sport" required (change)="onSportChange($event)">
-        <option value="" disabled selected>Seleccione un deporte</option>
-        <option *ngFor="let sport of sports; trackBy: trackBySportId" [value]="sport.id">{{ sport.sport.name }}</option>
-      </select>
-
+      <div>
+        <label for="sport">Deporte:</label>
+        <select #sportComboBox id="sport" name="sport" required (change)="onSportChange($event)">
+          <option value="" disabled selected>Seleccione un deporte</option>
+          <option *ngFor="let sport of sports; trackBy: trackBySportId" [value]="sport.id">{{ sport.sport.name }}</option>
+        </select>
+      </div>
+      <div>
       <!-- Mostrar un mensaje de error si no se selecciona un deporte -->
       <div *ngIf="selectedSport === null">
         <small class="error">El deporte es requerido.</small>
       </div>
-      <!-- Mostrar el deporte seleccionado -->
-
+      </div>
       <!-- Type of Disability -->
       <div class="form-group">
         <label for="disability">Tipo de discapacidad:</label>
+        <div>
         <select id="disability" name="disability" [(ngModel)]="athleteData.sportInfo.disability">
           <option value="">Seleccione discapacidad (opcional)</option>
           <option value="visual">Visual</option>
@@ -41,6 +47,7 @@
           <option value="physical">Física</option>
           <option value="none">Ninguna</option>
         </select>
+        </div>
       </div>
 
       <!-- Upload Disability Proof -->
@@ -49,13 +56,19 @@
         <input type="file" id="disabilityProof" name="disabilityProof" (change)="onFileSelected($event)" accept="application/pdf">
       </div>
 
-      <!-- Inject ping pong form if sport is ping pong -->
-      <app-ping-pong-form *ngIf="selectedSport?.sport.name === 'Soccer'"
-      ></app-ping-pong-form>
+      <!-- Ping Pong form for specific sports -->
+      <app-ping-pong-form *ngIf="selectedSport?.sport.name === 'Soccer'"></app-ping-pong-form>
 
-
+      <!-- Buttons -->
+      <div class="button-group">
+        <div>
+        <button  class="btn-secondary" type="button" (click)="previousStep()">Anterior</button>
+        </div>
+        <div>
+          <button  type="submit" [disabled]="!athleteForm.form.valid">Enviar</button>
+        </div>
+        </div>
     </div>
-
   </form>
 </div>
 </body>
