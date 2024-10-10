@@ -18,6 +18,7 @@ interface Province {
 interface Canton {
   id: number;
   name: string;
+  provinceId: number;
 }
 interface Region {
   id: number;
@@ -443,10 +444,19 @@ export class FormComponent implements OnInit {
     this.formDataService.setFormData({ nationality: this.registration.nationality });
   }
 
-  onProvinceChange($event: any) {
+  onProvinceChange(province: Province | null) {
+    // If a province is selected, filter the cantons based on the selected province's id
+    if (province) {
+      this.cantons = this.cantons.filter(canton => canton.provinceId === province.id);
+    } else {
+      // If no province is selected, clear the cantons list
+      this.cantons = [];
+    }
+  
+    // Update the form data service with the selected province
     this.formDataService.setFormData({ province: this.registration.province });
   }
-
+  
   onRegionChange($event: any) {
     if (this.registration.worldRegion) {
       this.latinAmericanCountries = this.worldRegions[this.registration.worldRegion] || [];
@@ -518,6 +528,7 @@ export class FormComponent implements OnInit {
     this.formDataService.setFormData({ canton: this.registration.canton });
   }
 
+  
   onDayChange($event: any) {
 
     this.formDataService.setFormData({ birthdate: this.registration.birthdate });
