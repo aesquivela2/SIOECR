@@ -168,7 +168,7 @@ button:disabled {
 }
 
 .btn-secondary {
-  background-color: #ccc;
+  background-color: #ccccccc5;
   color: black;
   border: 1px solid rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
@@ -176,7 +176,7 @@ button:disabled {
 }
 
 .btn-secondary:hover {
-  background-color: #b3b3b3;
+  background-color: #b3b3b3e4;
 }
 
 .btn-secondary:focus {
@@ -281,4 +281,10 @@ input[type="file"]::file-selector-button:hover {
 /* file upload button active state */
 input[type="file"]::file-selector-button:active {
   background-color: #e5e7eb;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between; /* Align buttons on opposite sides */
+  margin-top: 20px;
 }
