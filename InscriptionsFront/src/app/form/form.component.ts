@@ -156,11 +156,6 @@ export class FormComponent implements OnInit {
     this.days = Array.from({ length: daysInMonth }, (_, i) => i + 1); // Days from 1 to daysInMonth
   }
 
-  // Handle changes in the year (used for leap years)
-  onYearChange() {
-    this.populateDays();
-    this.validateBirthdate();
-  }
 
   // Get the correct number of days in a month
 
@@ -211,7 +206,7 @@ export class FormComponent implements OnInit {
   onCitizenshipChange() {
     if (this.registration.citizenship === 'nacional') {
       this.registration.region = null;
-      this.registration.country = undefined;
+      this.registration.country = "Costa Rica";
     }
   }
 
@@ -340,8 +335,7 @@ export class FormComponent implements OnInit {
             this.registration.name = `${personData.firstname1} ${personData.firstname2}`.trim();
             this.registration.lastname = `${personData.lastname1} ${personData.lastname2}`.trim();
 
-            // Actualiza los datos del formulario en el servicio
-            this.formService.setFormData({ name: this.registration.name, lastname: this.registration.lastname });
+
 
             // Show confirmation dialog
             this.confirmationMessage = `¿El nombre ${this.registration.name} corresponde a tu identificación?`;
@@ -451,18 +445,10 @@ export class FormComponent implements OnInit {
     if (this.registration.worldRegion) {
       this.latinAmericanCountries = this.worldRegions[this.registration.worldRegion] || [];
       this.registration.country = null;
-      this.formDataService.setFormData({ region: this.registration.region });
+
     }
 
 
-  }
-
-  onWorldRegionChange($event: any) {
-    this.formDataService.setFormData({ worldRegion: this.registration.worldRegion });
-  }
-
-  onCountryChange($event: any) {
-    this.formDataService.setFormData({ country: this.registration.country });
   }
 
 
@@ -514,19 +500,6 @@ export class FormComponent implements OnInit {
       }
     );
   }
-  onCantonChange($event: any) {
-    this.formDataService.setFormData({ canton: this.registration.canton });
-  }
-
-  onDayChange($event: any) {
-
-    this.formDataService.setFormData({ birthdate: this.registration.birthdate });
-
-  }
-
-  onIdTypeChange($event: FocusEvent) {
-    this.formDataService.setFormData({ identification: this.registration.identification });
-  }
 
   nextStep() {
     if (this.formService.currentStep === 1) {
@@ -543,9 +516,6 @@ export class FormComponent implements OnInit {
     }
   }
 
-  onMonthChange($event: any) {
-
-  }
   collectFormData() {
     // Verifica si registrationForm está inicializado antes de continuar
     if (!this.registrationForm) {
@@ -553,28 +523,27 @@ export class FormComponent implements OnInit {
       return;
     }
 
-    // Recoge todos los datos del formulario
-    const formData = {
-      identification: this.registration.identification,
-      idType: this.registration.idType,
-      name: this.registration.name,
-      lastname: this.registration.lastname,
-      birthdate: this.registration.birthdate,
-      email: this.registration.email,
-      phone_number: this.registration.phone_number,
-      citizenship: this.registration.citizenship,
-      province: this.registration.province,
-      canton: this.registration.canton,
-      region: this.registration.region,
-      worldRegion: this.registration.worldRegion,
-      country: this.registration.country
-    };
-
     // Valida si el formulario es válido
     if (this.registrationForm.valid) {
-      // Envía los datos al servicio para almacenarlos
-      this.formDataService.setFormData(formData);
-      console.log(formData)
+      // Envía todos los campos en una única llamada a setFormData
+      this.formService.setFormData({
+        identification: this.registration.identification,
+        idType: this.registration.idType,
+        name: this.registration.name,
+        lastname: this.registration.lastname,
+        birthdate: this.registration.birthdate,
+        email: this.registration.email,
+        phone_number: this.registration.phone_number,
+        citizenship: this.registration.citizenship,
+        province: this.registration.province,
+        canton: this.registration.canton,
+        region: this.registration.region,
+        worldRegion: this.registration.worldRegion,
+        country: this.registration.country
+      });
+
+      console.log("Información enviada:", this.registration);
+
       // Avanza al siguiente paso
       this.nextStep();
     } else {
@@ -583,6 +552,29 @@ export class FormComponent implements OnInit {
     }
   }
 
+
+  onDayChange($event: any) {
+    this.selectedDay = $event;
+    this.updateBirthdate();
+  }
+
+  onMonthChange($event: any) {
+    this.selectedMonth = $event;
+    this.updateBirthdate();
+  }
+
+  onYearChange($event: any) {
+    this.selectedYear = $event;
+    this.updateBirthdate();
+  }
+
+  updateBirthdate() {
+    if (this.selectedDay && this.selectedMonth && this.selectedYear) {
+      this.registration.birthdate = new Date(this.selectedYear, this.selectedMonth - 1, this.selectedDay);
+      this.formService.setFormData({ birthdate: this.registration.birthdate });
+      console.log("Fecha de nacimiento actualizada:", this.registration.birthdate);
+    }
+  }
 
 }
 
