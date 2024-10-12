@@ -192,7 +192,7 @@ export class FormComponent implements OnInit {
       const minDate = new Date(currentDate.getFullYear() - 70, 0, 1);  // Hace 70 años
       const maxDate = new Date(currentDate.getFullYear() - 18, 11, 31); // Hace 18 años
 
-      // Comparar la fecha seleccionada con los límites permitidos
+      //  Comparar la fecha seleccionada con los límites permitidos
       if (selectedDate < minDate || selectedDate > maxDate) {
         this.birthdateError = `La fecha seleccionada está fuera del rango permitido (${minDate.getFullYear()} - ${maxDate.getFullYear()}).`;
         this.invalidDate = true;

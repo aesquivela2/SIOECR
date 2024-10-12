@@ -26,7 +26,7 @@
       <div>
         <label for="sport">Deporte:</label>
         <select #sportComboBox id="sport" name="sport" required (change)="onSportChange($event)">
-          <option value="" disabled selected>Seleccione un deporte</option>
+          <option value="" disabled selected> Seleccione un deporte</option>
           <option *ngFor="let sport of sports; trackBy: trackBySportId" [value]="sport.id">{{ sport.sport.name }}</option>
         </select>
       </div>
