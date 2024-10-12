@@ -143,8 +143,16 @@ export class AthleteFormComponent implements OnInit {
   }
 
   onSubmit() {
-  this.athleteService.createAthlete(this.formService.getFormData()).subscribe()
+    this.athleteService.createAthlete(this.formService.getFormData()).subscribe({
+      next: () => {
+        alert('Atleta guardado correctamente!');
+      },
+      error: (error: { field: string, errorMessage: string }) => {
+        alert('Ocurrió un error en el campo: ' + error.field + '. ' + error.errorMessage);
+      }
+    });
   }
+
 
   onFileSelected(event: any) {
     const file = event.target.files[0];

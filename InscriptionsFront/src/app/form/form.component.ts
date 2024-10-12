@@ -24,6 +24,8 @@ interface Region {
   id: number;
   name: string;
 }
+var errorMessage;
+var errorField ;
 
 @Component({
   selector: 'app-form',
@@ -452,7 +454,7 @@ export class FormComponent implements OnInit {
 
     this.formDataService.setFormData({ province: this.registration.province });
   }
-  
+
   onRegionChange($event: any) {
     if (this.registration.worldRegion) {
       this.latinAmericanCountries = this.worldRegions[this.registration.worldRegion] || [];
@@ -525,7 +527,7 @@ export class FormComponent implements OnInit {
     this.formDataService.setFormData({ canton: this.registration.canton });
   }
 
-  
+
   onDayChange($event: any) {
 
     this.formDataService.setFormData({ birthdate: this.registration.birthdate });
