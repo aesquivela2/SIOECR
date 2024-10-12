@@ -135,7 +135,7 @@ export class AthleteFormComponent implements OnInit {
 
     this.formService.setFormData({laterality: this.athleteData.laterality});
 
-    console.log("Lo que se envia ", this.formService.getFormData());
+    console.log("Lo que se e nvia ", this.formService.getFormData());
   this.athleteService.createAthlete(this.formService.getFormData()).subscribe()
   }
 
@@ -144,7 +144,7 @@ export class AthleteFormComponent implements OnInit {
     if (file && file.type === 'application/pdf') {
       this.athleteData.sportInfo.disabilityProof = file;
     } else {
-      alert('Por favor, suba un archivo PDF válido.');
+      alert('Por favor, suba  un archivo PDF válido.');
     }
   }
   trackBySportId(index: number, sport: Sport): number {

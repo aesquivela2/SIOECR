@@ -13,7 +13,7 @@ export class FormService {
   constructor(private http: HttpClient) {}
   currentStep = 1;
 
-  // Métodos para manejar el formData
+   // Métodos para manejar el formData
   setFormData(data: any) {
     console.log('Guardando datos en formData:', data);
     this.formData = { ...this.formData, ...data };  // Mezcla los nuevos datos con los existentes
