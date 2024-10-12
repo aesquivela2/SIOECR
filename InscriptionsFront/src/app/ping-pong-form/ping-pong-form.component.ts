@@ -32,8 +32,6 @@ export class PingPongFormComponent {
 
   athleteData = {
     level: '',
-    laterality: '',
-    disability: '',
     disabilityProof: null,
     testType: ''
   };
@@ -65,6 +63,6 @@ export class PingPongFormComponent {
     }
   }
   onTestType($event: any) {
-
+    //this.formService.setFormData({level: this.athleteData.testType});
   }
 }

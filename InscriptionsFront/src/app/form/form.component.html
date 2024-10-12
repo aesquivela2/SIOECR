@@ -5,7 +5,7 @@
 <!-- Tipo de identificación -->
 <div>
   <label name="idType">Tipo de Identificación:</label>
-  <select id="idType" name="idType" [(ngModel)]="registration.idType" #idType="ngModel" required (blur)="onIdTypeChange($event)">
+  <select id="idType" name="idType" [(ngModel)]="registration.idType" #idType="ngModel" required >
     <option value="física">Cédula Física</option>
     <option value="juridica">Cédula Jurídica</option>
     <option value="dimex">DIMEX</option>
@@ -84,7 +84,7 @@
   <span>
     <!-- Día -->
     <label name="birthdate-day"> Día </label>
-    <select id="birthdate-day" [(ngModel)]="selectedDay" required (ngModelChange)="onDayChange($event)">
+    <select id="birthdate-day" [(ngModel)]="selectedDay" required  (ngModelChange)="onDayChange($event)" >
       <option value="" disabled>Dia</option>
       <option *ngFor="let day of days" [value]="day">{{ day }}</option>
     </select>
@@ -93,7 +93,7 @@
   <!-- Mes -->
   <span>
     <label name="birthdate-month"> Mes </label>
-    <select id="birthdate-month" [(ngModel)]="selectedMonth" required (ngModelChange)="onMonthChange($event)">
+    <select id="birthdate-month" [(ngModel)]="selectedMonth" required  (ngModelChange)="onMonthChange($event)" >
       <option value="" disabled>Mes</option>
       <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
     </select>
@@ -102,7 +102,7 @@
   <!-- Año -->
   <span>
     <label name="birthdate-year"> Año </label>
-    <select id="birthdate-year" [(ngModel)]="selectedYear" (change)="onYearChange()" required>
+    <select id="birthdate-year" [(ngModel)]="selectedYear"  required (ngModelChange)="onYearChange($event)">
       <option value="" disabled>Año</option>
       <option *ngFor="let year of years" [value]="year">{{ year }}</option>
     </select>
@@ -166,7 +166,7 @@
   <!-- Provincia -->
   <div>
     <label name="province">Provincia:</label>
-    <select id="province" name="province" [(ngModel)]="registration.province" #province="ngModel" required (ngModelChange)="onProvinceChange($event)">
+    <select id="province" name="province" [(ngModel)]="registration.province" #province="ngModel" required >
       <option *ngFor="let province of provinces" [ngValue]="province">{{ province.name }}</option>
     </select>
     <div *ngIf="province.invalid && province.touched">
@@ -177,7 +177,7 @@
   <!-- Cantón -->
   <div>
     <label name="canton">Cantón:</label>
-    <select id="canton" name="canton" [(ngModel)]="registration.canton" #canton="ngModel" required (ngModelChange)="onCantonChange($event)">
+    <select id="canton" name="canton" [(ngModel)]="registration.canton" #canton="ngModel" required >
       <option *ngFor="let canton of cantons" [ngValue]="canton">{{ canton.name }}</option>
     </select>
     <div *ngIf="canton.invalid && canton.touched">
@@ -188,7 +188,7 @@
   <!-- Región -->
   <div>
     <label name="region">Región:</label>
-    <select id="region" name="region" [(ngModel)]="registration.region" #region="ngModel" required (ngModelChange)="onRegionChange($event)">
+    <select id="region" name="region" [(ngModel)]="registration.region" #region="ngModel" required >
       <option *ngFor="let region of regions" [ngValue]="region">{{ region.name }}</option>
     </select>
     <div *ngIf="region.invalid && region.touched">
@@ -201,7 +201,7 @@
 <div *ngIf="registration.citizenship === 'extranjero'">
   <div>
     <label name="worldRegion">Región Global:</label>
-    <select id="worldRegion" name="worldRegion" [(ngModel)]="registration.worldRegion" (change)="onRegionChange($event)" #worldRegion="ngModel" required>
+    <select id="worldRegion" name="worldRegion" [(ngModel)]="registration.worldRegion"  #worldRegion="ngModel" required>
       <option *ngFor="let region of worldRegions | keyvalue" [ngValue]="region.key">{{ region.key }}</option>
     </select>
     <div *ngIf="worldRegion.invalid && worldRegion.touched">
@@ -212,7 +212,7 @@
   <!-- País -->
   <div *ngIf="registration.worldRegion">
     <label name="country">País:</label>
-    <select id="country" name="country" [(ngModel)]="registration.country" #country="ngModel" required (ngModelChange)="onCountryChange($event)">
+    <select id="country" name="country" [(ngModel)]="registration.country" #country="ngModel" required >
       <option *ngFor="let country of latinAmericanCountries" [ngValue]="country">{{ country }}</option>
     </select>
     <div *ngIf="country.invalid && country.touched">

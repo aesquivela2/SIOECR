@@ -4,7 +4,7 @@ import { FormService } from '../form/form.service';
 import { Sport } from '../app.component';
 import {FormComponent} from "../form/form.component";
 import {FormsModule} from "@angular/forms";
-import {NgForOf, NgIf} from "@angular/common";
+import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {SwimmingFormComponent} from "../swimming-form/swimming-form.component";
 import {PingPongFormComponent} from "../ping-pong-form/ping-pong-form.component";
 import {AthleteService} from "./athlete.service";
@@ -20,7 +20,8 @@ import {AthleteService} from "./athlete.service";
     NgForOf,
     NgIf,
     SwimmingFormComponent,
-    PingPongFormComponent
+    PingPongFormComponent,
+    NgOptimizedImage
   ]
 })
 export class AthleteFormComponent implements OnInit {
@@ -31,7 +32,8 @@ export class AthleteFormComponent implements OnInit {
   athleteData: any = {
     sportInfo: {
       disability: '',
-      sport: ''
+      sport: '',
+      laterality: ''
     }
   };
 
@@ -123,19 +125,6 @@ export class AthleteFormComponent implements OnInit {
 
 
 
-  // Control step navigation
-  nextStep() {
-    if (this.formService.currentStep === 1) {
-      this.athleteData = this.formService.getFormData();
-      // Verificar si los datos se están transfiriendo correctamente
-      console.log('Athlete Data:', this.athleteData);
-
-    }
-    if (this.formService.currentStep < 3) {
-      this.formService.currentStep++;
-    }
-  }
-
   previousStep() {
     if (this.formService.currentStep > 1) {
       this.formService.currentStep--;
@@ -143,16 +132,12 @@ export class AthleteFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.athleteService.createAthlete(this.formService.getFormData()).subscribe({
-      next: () => {
-        alert('Atleta guardado correctamente!');
-      },
-      error: (error: { field: string, errorMessage: string }) => {
-        alert('Ocurrió un error en el campo: ' + error.field + '. ' + error.errorMessage);
-      }
-    });
-  }
 
+    this.formService.setFormData({laterality: this.athleteData.laterality});
+
+    console.log("Lo que se envia ", this.formService.getFormData());
+  this.athleteService.createAthlete(this.formService.getFormData()).subscribe()
+  }
 
   onFileSelected(event: any) {
     const file = event.target.files[0];
@@ -165,5 +150,8 @@ export class AthleteFormComponent implements OnInit {
   trackBySportId(index: number, sport: Sport): number {
     return sport.id;
   }
+  }
 
-}
+
+
+
