@@ -1,0 +1,855 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5699c756-e706-4112-aba9-6b6de34749fc\" name=\"Changes\" comment=\"Registro general era mentira faltan detalles\">\r\n      <change afterPath=\"$PROJECT_DIR$/InscriptionsFront/src/app/ping-pong-form/ping-pong-form.component.css\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/InscriptionsFront/src/app/ping-pong-form/ping-pong-form.component.html\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/InscriptionsFront/src/app/ping-pong-form/ping-pong-form.component.spec.ts\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/InscriptionsFront/src/app/ping-pong-form/ping-pong-form.component.ts\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/InscriptionsFront/src/app/swimming-form/swimming-form.component.css\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/InscriptionsFront/src/app/swimming-form/swimming-form.component.html\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/InscriptionsFront/src/app/swimming-form/swimming-form.component.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/InscriptionsFront/angular.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/InscriptionsFront/angular.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/InscriptionsFront/src/app/Assets/SO_CostaRica-16.jpg\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/InscriptionsFront/src/assets/logo.jpg\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/InscriptionsFront/src/app/app.routes.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/InscriptionsFront/src/app/app.routes.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.css\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete.service.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete.service.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/InscriptionsFront/src/app/mapa/mapa.component.css\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/InscriptionsFront/src/app/mapa/mapa.component.html\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/InscriptionsFront/src/app/mapa/mapa.component.spec.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/InscriptionsFront/src/app/swimming-form/swimming-form.component.spec.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/InscriptionsFront/src/app/mapa/mapa.component.ts\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.spec.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.spec.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.ts\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"JUnit5 Test Class\" />\r\n        <option value=\"TypeScript File\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;CarlosCh31&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/aesquivela2/SIOECR.git&quot;,\r\n    &quot;accountId&quot;: &quot;7fba9835-c9fb-4de1-bbe6-9a2662f8567b&quot;\r\n  }\r\n}</component>\r\n  <component name=\"KubernetesApiPersistence\"><![CDATA[{}]]></component>\r\n  <component name=\"KubernetesApiProvider\"><![CDATA[{\r\n  \"isMigrated\": true\r\n}]]></component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;customColor&quot;: &quot;&quot;,\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2mS4w106sYyAnVEA5Oj097X7KOU\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ASKED_ADD_EXTERNAL_FILES\": \"true\",\r\n    \"JUnit.AthleteServiceImplTest.executor\": \"Run\",\r\n    \"JUnit.CantonServiceImplTest.executor\": \"Run\",\r\n    \"JUnit.PersonControllerTest.executor\": \"Run\",\r\n    \"JUnit.PersonControllerTest.testSavePerson.executor\": \"Run\",\r\n    \"JUnit.PersonServiceImplTest.executor\": \"Run\",\r\n    \"JUnit.PersonServiceImplTest.testSavePerson.executor\": \"Run\",\r\n    \"JUnit.ProvinceServiceImplTest.executor\": \"Run\",\r\n    \"JUnit.RegionServiceImplTest.executor\": \"Run\",\r\n    \"JUnit.RegionServiceImplTest.testUpdateRegion.executor\": \"Run\",\r\n    \"JUnit.SportLevelServiceImplTest.executor\": \"Run\",\r\n    \"JUnit.SportServiceImplTest.executor\": \"Run\",\r\n    \"JUnit.VolunteerServiceImplTest.executor\": \"Run\",\r\n    \"RequestMappingsPanelOrder0\": \"0\",\r\n    \"RequestMappingsPanelOrder1\": \"1\",\r\n    \"RequestMappingsPanelWidth0\": \"75\",\r\n    \"RequestMappingsPanelWidth1\": \"75\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"Spring Boot.InscriptionsBackApplication.executor\": \"Run\",\r\n    \"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary\": \"JUnit5\",\r\n    \"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5\": \"\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/aesqu/OneDrive/Universidad/Ciclo I 2024/Progamacion IV/Proyecto2/SIOECR/InscriptionsFront/public\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"ts.external.directory.path\": \"C:\\\\Users\\\\aesqu\\\\OneDrive\\\\Universidad\\\\Ciclo I 2024\\\\Progamacion IV\\\\Proyecto2\\\\SIOECR\\\\InscriptionsFront\\\\node_modules\\\\typescript\\\\lib\",\r\n    \"ts.rename.search.for.js.occurrences\": \"false\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\aesqu\\OneDrive\\Universidad\\Ciclo I 2024\\Progamacion IV\\Proyecto2\\SIOECR\\InscriptionsFront\\public\" />\r\n    </key>\r\n    <key name=\"CreateTestDialog.Recents.Supers\">\r\n      <recent name=\"\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\aesqu\\OneDrive\\Universidad\\Ciclo I 2024\\Progamacion IV\\Proyecto2\\SIOECR\\InscriptionsFront\\src\" />\r\n    </key>\r\n    <key name=\"CreateTestDialog.RecentsKey\">\r\n      <recent name=\"com.olimpiadas.inscriptionsback.Controllers\" />\r\n      <recent name=\"com.olimpiadas.inscriptionsback.Service\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Spring Boot.InscriptionsBackApplication\">\r\n    <configuration name=\"PersonControllerTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"InscriptionsBack\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.olimpiadas.inscriptionsback.Controllers.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"com.olimpiadas.inscriptionsback.Controllers\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.olimpiadas.inscriptionsback.Controllers.PersonControllerTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"PersonControllerTest.testSavePerson\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"InscriptionsBack\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.olimpiadas.inscriptionsback.Controllers.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"com.olimpiadas.inscriptionsback.Controllers\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.olimpiadas.inscriptionsback.Controllers.PersonControllerTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"testSavePerson\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"RegionServiceImplTest.testUpdateRegion\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"InscriptionsBack\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.olimpiadas.inscriptionsback.Service.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"com.olimpiadas.inscriptionsback.Service\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.olimpiadas.inscriptionsback.Service.RegionServiceImplTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"testUpdateRegion\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"SportLevelServiceImplTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"InscriptionsBack\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.olimpiadas.inscriptionsback.Service.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"com.olimpiadas.inscriptionsback.Service\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.olimpiadas.inscriptionsback.Service.SportLevelServiceImplTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"VolunteerServiceImplTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"InscriptionsBack\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.olimpiadas.inscriptionsback.Service.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"com.olimpiadas.inscriptionsback.Service\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.olimpiadas.inscriptionsback.Service.VolunteerServiceImplTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"InscriptionsBackApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <option name=\"FRAME_DEACTIVATION_UPDATE_POLICY\" value=\"UpdateClassesAndResources\" />\r\n      <module name=\"InscriptionsBack\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.olimpiadas.inscriptionsback.InscriptionsBackApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"JUnit.RegionServiceImplTest.testUpdateRegion\" />\r\n        <item itemvalue=\"JUnit.PersonControllerTest\" />\r\n        <item itemvalue=\"JUnit.PersonControllerTest.testSavePerson\" />\r\n        <item itemvalue=\"JUnit.VolunteerServiceImplTest\" />\r\n        <item itemvalue=\"JUnit.SportLevelServiceImplTest\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150\" />\r\n        <option value=\"bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5699c756-e706-4112-aba9-6b6de34749fc\" name=\"Changes\" comment=\"\" />\r\n      <created>1727056882437</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1727056882437</updated>\r\n      <workItem from=\"1727056883932\" duration=\"4090000\" />\r\n      <workItem from=\"1727457423926\" duration=\"9619000\" />\r\n      <workItem from=\"1727824710106\" duration=\"7497000\" />\r\n      <workItem from=\"1728316766869\" duration=\"37142000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Front End&#10; - Cambios unicamente visuales &#10; - Una Pagina de inicio y siempre acceso a los formularios formulario general\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727062847068</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727062847068</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Registro general\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727065745233</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727065745233</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Registro general / salvar emergencia\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727830389041</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727830389041</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Registro general 100% pulido\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1728333416764</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1728333416764</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Registro general era mentira faltan detalles\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1728336455206</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1728336455206</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"6\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"Front End&#10; - Cambios unicamente visuales &#10; - Una Pagina de inicio y siempre acceso a los formularios\" />\r\n    <MESSAGE value=\"Front End&#10; - Cambios unicamente visuales &#10; - Una Pagina de inicio y siempre acceso a los formularios formulario general\" />\r\n    <MESSAGE value=\"Registro general\" />\r\n    <MESSAGE value=\"Registro general / salvar emergencia\" />\r\n    <MESSAGE value=\"Registro general 100% pulido\" />\r\n    <MESSAGE value=\"Registro general era mentira faltan detalles\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Registro general era mentira faltan detalles\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"javascript\">\r\n          <url>file://$PROJECT_DIR$/InscriptionsFront/src/app/mapa/mapa.component.html</url>\r\n          <line>4</line>\r\n          <option name=\"timeStamp\" value=\"3\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Controllers/PersonController.java</url>\r\n          <line>50</line>\r\n          <option name=\"timeStamp\" value=\"6\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Controllers/PersonController.java</url>\r\n          <line>24</line>\r\n          <option name=\"timeStamp\" value=\"7\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 7838f2e63f7e2847d3de99104f25493de214921b)
++++ b/.idea/workspace.xml	(date 1728397503020)
+@@ -5,29 +5,13 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="Registro general era mentira faltan detalles">
+-      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/ping-pong-form/ping-pong-form.component.css" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/ping-pong-form/ping-pong-form.component.html" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/ping-pong-form/ping-pong-form.component.spec.ts" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/ping-pong-form/ping-pong-form.component.ts" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/swimming-form/swimming-form.component.css" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/swimming-form/swimming-form.component.html" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/swimming-form/swimming-form.component.ts" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/cycling-form/cycling-form.component.css" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/cycling-form/cycling-form.component.html" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/cycling-form/cycling-form.component.spec.ts" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/cycling-form/cycling-form.component.ts" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/angular.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/Assets/SO_CostaRica-16.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/assets/logo.jpg" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/app.routes.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.css" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.html" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete.service.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/mapa/mapa.component.css" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/mapa/mapa.component.html" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/mapa/mapa.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/swimming-form/swimming-form.component.spec.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/mapa/mapa.component.ts" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.html" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.spec.ts" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.ts" afterDir="false" />
+@@ -61,10 +45,10 @@
+     &quot;accountId&quot;: &quot;7fba9835-c9fb-4de1-bbe6-9a2662f8567b&quot;
+   }
+ }</component>
+-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+-  <component name="KubernetesApiProvider"><![CDATA[{
+-  "isMigrated": true
+-}]]></component>
++  <component name="KubernetesApiPersistence">{}</component>
++  <component name="KubernetesApiProvider">{
++  &quot;isMigrated&quot;: true
++}</component>
+   <component name="ProjectColorInfo">{
+   &quot;customColor&quot;: &quot;&quot;,
+   &quot;associatedIndex&quot;: 3
+@@ -77,42 +61,42 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "ASKED_ADD_EXTERNAL_FILES": "true",
+-    "JUnit.AthleteServiceImplTest.executor": "Run",
+-    "JUnit.CantonServiceImplTest.executor": "Run",
+-    "JUnit.PersonControllerTest.executor": "Run",
+-    "JUnit.PersonControllerTest.testSavePerson.executor": "Run",
+-    "JUnit.PersonServiceImplTest.executor": "Run",
+-    "JUnit.PersonServiceImplTest.testSavePerson.executor": "Run",
+-    "JUnit.ProvinceServiceImplTest.executor": "Run",
+-    "JUnit.RegionServiceImplTest.executor": "Run",
+-    "JUnit.RegionServiceImplTest.testUpdateRegion.executor": "Run",
+-    "JUnit.SportLevelServiceImplTest.executor": "Run",
+-    "JUnit.SportServiceImplTest.executor": "Run",
+-    "JUnit.VolunteerServiceImplTest.executor": "Run",
+-    "RequestMappingsPanelOrder0": "0",
+-    "RequestMappingsPanelOrder1": "1",
+-    "RequestMappingsPanelWidth0": "75",
+-    "RequestMappingsPanelWidth1": "75",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "Spring Boot.InscriptionsBackApplication.executor": "Run",
+-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+-    "git-widget-placeholder": "master",
+-    "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "C:/Users/aesqu/OneDrive/Universidad/Ciclo I 2024/Progamacion IV/Proyecto2/SIOECR/InscriptionsFront/public",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "ts.external.directory.path": "C:\\Users\\aesqu\\OneDrive\\Universidad\\Ciclo I 2024\\Progamacion IV\\Proyecto2\\SIOECR\\InscriptionsFront\\node_modules\\typescript\\lib",
+-    "ts.rename.search.for.js.occurrences": "false",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
++    &quot;JUnit.AthleteServiceImplTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.CantonServiceImplTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.PersonControllerTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.PersonControllerTest.testSavePerson.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.PersonServiceImplTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.PersonServiceImplTest.testSavePerson.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.ProvinceServiceImplTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.RegionServiceImplTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.RegionServiceImplTest.testUpdateRegion.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.SportLevelServiceImplTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.SportServiceImplTest.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.VolunteerServiceImplTest.executor&quot;: &quot;Run&quot;,
++    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
++    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
++    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
++    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;Spring Boot.InscriptionsBackApplication.executor&quot;: &quot;Run&quot;,
++    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
++    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/aesqu/OneDrive/Universidad/Ciclo I 2024/Progamacion IV/Proyecto2/SIOECR/InscriptionsFront/public&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\aesqu\\OneDrive\\Universidad\\Ciclo I 2024\\Progamacion IV\\Proyecto2\\SIOECR\\InscriptionsFront\\node_modules\\typescript\\lib&quot;,
++    &quot;ts.rename.search.for.js.occurrences&quot;: &quot;false&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="C:\Users\aesqu\OneDrive\Universidad\Ciclo I 2024\Progamacion IV\Proyecto2\SIOECR\InscriptionsFront\public" />
+@@ -243,7 +227,8 @@
+       <workItem from="1727056883932" duration="4090000" />
+       <workItem from="1727457423926" duration="9619000" />
+       <workItem from="1727824710106" duration="7497000" />
+-      <workItem from="1728316766869" duration="37142000" />
++      <workItem from="1728316766869" duration="37249000" />
++      <workItem from="1728357332540" duration="4080000" />
+     </task>
+     <task id="LOCAL-00001" summary="Front End&#10; - Cambios unicamente visuales &#10; - Una Pagina de inicio y siempre acceso a los formularios formulario general">
+       <option name="closed" value="true" />
+@@ -285,7 +270,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1728336455206</updated>
+     </task>
+-    <option name="localTasksCounter" value="6" />
++    <task id="LOCAL-00006" summary="Registro general era mentira faltan detalles">
++      <option name="closed" value="true" />
++      <created>1728357190843</created>
++      <option name="number" value="00006" />
++      <option name="presentableId" value="LOCAL-00006" />
++      <option name="project" value="LOCAL" />
++      <updated>1728357190843</updated>
++    </task>
++    <option name="localTasksCounter" value="7" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+Index: InscriptionsFront/src/app/athlete-form/athlete-form.component.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { Component, OnInit, ViewChild } from '@angular/core';\r\nimport { FormsModule, NgForm } from '@angular/forms';\r\nimport {CommonModule, NgOptimizedImage} from '@angular/common';\r\nimport { FormComponent } from '../form/form.component';\r\nimport { PingPongFormComponent } from '../ping-pong-form/ping-pong-form.component';\r\nimport { SwimmingFormComponent } from '../swimming-form/swimming-form.component';\r\n\r\n@Component({\r\n  selector: 'app-athlete-form',\r\n  standalone: true,\r\n  imports: [FormsModule, CommonModule, FormComponent, PingPongFormComponent, SwimmingFormComponent, NgOptimizedImage],\r\n  templateUrl: './athlete-form.component.html',\r\n  styleUrls: ['./athlete-form.component.css']\r\n})\r\nexport class AthleteFormComponent implements OnInit {\r\n  @ViewChild('athleteForm') athleteForm!: NgForm;\r\n  currentStep = 1;\r\n\r\n  sports = ['Natación', 'Ping Pong', 'Fútbol'];\r\n\r\n  // Centralized JSON structure for form data\r\n  athleteData: any = {\r\n    personalInfo: {},\r\n    sportInfo: {},\r\n    additionalInfo: {}\r\n  };\r\n\r\n  selectedSportComponent: any = null;\r\n\r\n  constructor() {}\r\n\r\n  ngOnInit() {}\r\n\r\n  // Handling sport change to display correct child form\r\n  onSportChange(sport: string) {\r\n    this.athleteData.sportInfo.sport = sport;\r\n  }\r\n\r\n  // Moving to the next step\r\n  nextStep() {\r\n    if (this.currentStep < 3) {\r\n      this.currentStep++;\r\n    }\r\n  }\r\n\r\n  // Moving to the previous step\r\n  previousStep() {\r\n    if (this.currentStep > 1) {\r\n      this.currentStep--;\r\n    }\r\n  }\r\n\r\n  // Handling submission\r\n  onSubmit() {\r\n    if (this.athleteForm.form.valid) {\r\n      console.log('Athlete Data JSON:', JSON.stringify(this.athleteData));\r\n    } else {\r\n      alert('Por favor, complete todos los campos.');\r\n    }\r\n  }\r\n  onFileSelected(event: any) {\r\n    const file = event.target.files[0];\r\n    if (file && file.type === 'application/pdf') {\r\n      this.athleteData.sportInfo.disabilityProof = file;\r\n    } else {\r\n      alert('Por favor, suba un archivo PDF válido.');\r\n    }\r\n  }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/InscriptionsFront/src/app/athlete-form/athlete-form.component.ts b/InscriptionsFront/src/app/athlete-form/athlete-form.component.ts
+--- a/InscriptionsFront/src/app/athlete-form/athlete-form.component.ts	(revision 7838f2e63f7e2847d3de99104f25493de214921b)
++++ b/InscriptionsFront/src/app/athlete-form/athlete-form.component.ts	(date 1728358063498)
+@@ -4,11 +4,12 @@
+ import { FormComponent } from '../form/form.component';
+ import { PingPongFormComponent } from '../ping-pong-form/ping-pong-form.component';
+ import { SwimmingFormComponent } from '../swimming-form/swimming-form.component';
++import {CyclingFormComponent} from "../cycling-form/cycling-form.component";
+ 
+ @Component({
+   selector: 'app-athlete-form',
+   standalone: true,
+-  imports: [FormsModule, CommonModule, FormComponent, PingPongFormComponent, SwimmingFormComponent, NgOptimizedImage],
++  imports: [FormsModule, CommonModule, FormComponent, PingPongFormComponent, SwimmingFormComponent, NgOptimizedImage, CyclingFormComponent],
+   templateUrl: './athlete-form.component.html',
+   styleUrls: ['./athlete-form.component.css']
+ })
+@@ -16,7 +17,7 @@
+   @ViewChild('athleteForm') athleteForm!: NgForm;
+   currentStep = 1;
+ 
+-  sports = ['Natación', 'Ping Pong', 'Fútbol'];
++  sports = ['Natación', 'Ping Pong', 'Fútbol','Ciclismo'];
+ 
+   // Centralized JSON structure for form data
+   athleteData: any = {
+Index: InscriptionsFront/src/app/volunteer-form/volunteer-form.component.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { Component, OnInit, ViewChild } from '@angular/core';\r\nimport { FormsModule, NgForm } from '@angular/forms';\r\nimport { CommonModule } from '@angular/common';\r\nimport { VolunteerService } from './volunteer.service';\r\nimport { SportService } from '../services/sport.service';\r\nimport { RegionService } from '../services/region.service';\r\nimport { ProvinceService } from '../services/province.service';\r\nimport { CantonService } from '../services/canton.service';\r\nimport { AvailableDaysService, AvailableDay } from '../services/days.service';\r\nimport { TimeService, Time } from '../services/time.service';\r\n\r\ninterface Province {\r\n  id: number;\r\n  name: string;\r\n}\r\n\r\ninterface Canton {\r\n  id: number;\r\n  name: string;\r\n  provinceId: number;\r\n}\r\n\r\n@Component({\r\n  selector: 'app-volunteer-form',\r\n  standalone: true,\r\n  imports: [FormsModule, CommonModule],\r\n  templateUrl: './volunteer-form.component.html',\r\n  styleUrls: ['./volunteer-form.component.css']\r\n})\r\nexport class VolunteerFormComponent implements OnInit {\r\n\r\n  @ViewChild('volunteerForm') volunteerForm!: NgForm;\r\n  currentStep = 1;\r\n\r\n  volunteer = {\r\n    identification: '',\r\n    name: '',\r\n    birthdate: '' as string | Date,\r\n    email: '',\r\n    phone_number: '',\r\n    nationality: '',\r\n    region: null,\r\n    province: null as Province | null,\r\n    canton: null as Canton | null,\r\n    sportExperience: [] as any[],\r\n    availableDays: [] as AvailableDay[],\r\n    availableTimes: {} as { [key: number]: Time[] }\r\n  };\r\n\r\n  regions: any[] = [];\r\n  provinces: Province[] = [];\r\n  cantons: Canton[] = [];\r\n  sports: any[] = [];\r\n  times: Time[] = [];\r\n  minDate: string = '';\r\n  maxDate: string = '';\r\n  invalidDate = false;\r\n\r\n  selectedDays: AvailableDay[] = [];\r\n\r\n  constructor(\r\n    private volunteerService: VolunteerService,\r\n    private sportService: SportService,\r\n    private regionService: RegionService,\r\n    private provinceService: ProvinceService,\r\n    private cantonService: CantonService,\r\n    private availableDaysService: AvailableDaysService,\r\n    private timeService: TimeService,\r\n  ) {}\r\n\r\n  ngOnInit() {\r\n\r\n\r\n    this.setDateConstraints();\r\n    this.loadAvailableDays();\r\n    this.loadRegions();\r\n    this.loadProvinces();\r\n    this.loadCantons();\r\n    this.loadSports();\r\n    this.loadTimes();\r\n  }\r\n\r\n  setDateConstraints() {\r\n    const today = new Date();\r\n    const minYear = today.getFullYear() - 70;\r\n    const maxYear = today.getFullYear() - 18;\r\n\r\n    this.minDate = `${minYear}-01-01`;\r\n    this.maxDate = `${maxYear}-12-31`;\r\n  }\r\n\r\n  validateBirthdate() {\r\n    const birthdate = new Date(this.volunteer.birthdate);\r\n    const minBirthdate = new Date(this.minDate);\r\n    const maxBirthdate = new Date(this.maxDate);\r\n\r\n    this.invalidDate = !(birthdate >= minBirthdate && birthdate <= maxBirthdate);\r\n  }\r\n\r\n  loadRegions() {\r\n    this.regionService.getAllRegions().subscribe(\r\n      data => { this.regions = data; },\r\n      error => { console.error('Error fetching regions:', error); }\r\n    );\r\n  }\r\n\r\n  loadProvinces() {\r\n    this.provinceService.getAllProvinces().subscribe(\r\n      data => { this.provinces = data; },\r\n      error => { console.error('Error fetching provinces:', error); }\r\n    );\r\n  }\r\n\r\n  loadCantons() {\r\n    this.cantonService.getAllCantons().subscribe(\r\n      (data: Canton[]) => {\r\n        this.cantons = data;\r\n      },\r\n      error => {\r\n        console.error('Error fetching cantons:', error);\r\n      }\r\n    );\r\n  }\r\n\r\n  loadSports() {\r\n    this.sportService.getAllSports().subscribe(\r\n      data => {\r\n        this.sports = this.removeDuplicates(data, 'name');\r\n      },\r\n      error => { console.error('Error fetching sports:', error); }\r\n    );\r\n  }\r\n\r\n  loadAvailableDays() {\r\n    this.availableDaysService.getAllAvailableDays().subscribe(\r\n      data => { this.volunteer.availableDays = data; },\r\n      error => { console.error('Error fetching available days:', error); }\r\n    );\r\n  }\r\n\r\n  loadTimes() {\r\n    this.timeService.getAllTimes().subscribe(\r\n      data => { this.times = data; },\r\n      error => { console.error('Error fetching times:', error); }\r\n    );\r\n  }\r\n\r\n  removeDuplicates(array: any[], key: string) {\r\n    return array.filter((item, index, self) =>\r\n      index === self.findIndex((t) => t[key] === item[key])\r\n    );\r\n  }\r\n\r\n  nextStep() {\r\n    if (this.currentStep < 2) {\r\n      this.currentStep++;\r\n    }\r\n  }\r\n\r\n  previousStep() {\r\n    if (this.currentStep > 1) {\r\n      this.currentStep--;\r\n    }\r\n  }\r\n\r\n  isFormComplete(): boolean {\r\n    return !!this.volunteer.identification && !!this.volunteer.name && !!this.volunteer.birthdate &&\r\n      !!this.volunteer.email && !!this.volunteer.phone_number && !!this.volunteer.nationality &&\r\n      !!this.volunteer.region && !!this.volunteer.province && !!this.volunteer.canton;\r\n  }\r\n\r\n  onSubmit() {\r\n    if (this.volunteerForm.form.valid && this.isFormComplete()) {\r\n      // Guardar los datos en el servicio antes de enviarlos\r\n      //this.formDataService.setFormData(this.volunteer);\r\n\r\n      const volunteerToSend = { ...this.volunteer };\r\n      volunteerToSend.birthdate = new Date(this.volunteer.birthdate as string);\r\n\r\n      this.volunteerService.createVolunteer(volunteerToSend).subscribe(\r\n        response => {\r\n          alert('Datos enviados correctamente.');\r\n          //this.formDataService.resetFormData(); // Limpiar los datos después de enviarlos\r\n          this.volunteerForm.resetForm();\r\n        },\r\n        error => {\r\n          console.error('Error creando voluntario:', error);\r\n          alert('Ocurrió un error al enviar los datos.');\r\n        }\r\n      );\r\n    } else {\r\n      alert('Por favor, completa todos los campos correctamente.');\r\n    }\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.ts b/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.ts
+--- a/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.ts	(revision 7838f2e63f7e2847d3de99104f25493de214921b)
++++ b/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.ts	(date 1728342894417)
+@@ -1,195 +1,0 @@
+-import { Component, OnInit, ViewChild } from '@angular/core';
+-import { FormsModule, NgForm } from '@angular/forms';
+-import { CommonModule } from '@angular/common';
+-import { VolunteerService } from './volunteer.service';
+-import { SportService } from '../services/sport.service';
+-import { RegionService } from '../services/region.service';
+-import { ProvinceService } from '../services/province.service';
+-import { CantonService } from '../services/canton.service';
+-import { AvailableDaysService, AvailableDay } from '../services/days.service';
+-import { TimeService, Time } from '../services/time.service';
+-
+-interface Province {
+-  id: number;
+-  name: string;
+-}
+-
+-interface Canton {
+-  id: number;
+-  name: string;
+-  provinceId: number;
+-}
+-
+-@Component({
+-  selector: 'app-volunteer-form',
+-  standalone: true,
+-  imports: [FormsModule, CommonModule],
+-  templateUrl: './volunteer-form.component.html',
+-  styleUrls: ['./volunteer-form.component.css']
+-})
+-export class VolunteerFormComponent implements OnInit {
+-
+-  @ViewChild('volunteerForm') volunteerForm!: NgForm;
+-  currentStep = 1;
+-
+-  volunteer = {
+-    identification: '',
+-    name: '',
+-    birthdate: '' as string | Date,
+-    email: '',
+-    phone_number: '',
+-    nationality: '',
+-    region: null,
+-    province: null as Province | null,
+-    canton: null as Canton | null,
+-    sportExperience: [] as any[],
+-    availableDays: [] as AvailableDay[],
+-    availableTimes: {} as { [key: number]: Time[] }
+-  };
+-
+-  regions: any[] = [];
+-  provinces: Province[] = [];
+-  cantons: Canton[] = [];
+-  sports: any[] = [];
+-  times: Time[] = [];
+-  minDate: string = '';
+-  maxDate: string = '';
+-  invalidDate = false;
+-
+-  selectedDays: AvailableDay[] = [];
+-
+-  constructor(
+-    private volunteerService: VolunteerService,
+-    private sportService: SportService,
+-    private regionService: RegionService,
+-    private provinceService: ProvinceService,
+-    private cantonService: CantonService,
+-    private availableDaysService: AvailableDaysService,
+-    private timeService: TimeService,
+-  ) {}
+-
+-  ngOnInit() {
+-
+-
+-    this.setDateConstraints();
+-    this.loadAvailableDays();
+-    this.loadRegions();
+-    this.loadProvinces();
+-    this.loadCantons();
+-    this.loadSports();
+-    this.loadTimes();
+-  }
+-
+-  setDateConstraints() {
+-    const today = new Date();
+-    const minYear = today.getFullYear() - 70;
+-    const maxYear = today.getFullYear() - 18;
+-
+-    this.minDate = `${minYear}-01-01`;
+-    this.maxDate = `${maxYear}-12-31`;
+-  }
+-
+-  validateBirthdate() {
+-    const birthdate = new Date(this.volunteer.birthdate);
+-    const minBirthdate = new Date(this.minDate);
+-    const maxBirthdate = new Date(this.maxDate);
+-
+-    this.invalidDate = !(birthdate >= minBirthdate && birthdate <= maxBirthdate);
+-  }
+-
+-  loadRegions() {
+-    this.regionService.getAllRegions().subscribe(
+-      data => { this.regions = data; },
+-      error => { console.error('Error fetching regions:', error); }
+-    );
+-  }
+-
+-  loadProvinces() {
+-    this.provinceService.getAllProvinces().subscribe(
+-      data => { this.provinces = data; },
+-      error => { console.error('Error fetching provinces:', error); }
+-    );
+-  }
+-
+-  loadCantons() {
+-    this.cantonService.getAllCantons().subscribe(
+-      (data: Canton[]) => {
+-        this.cantons = data;
+-      },
+-      error => {
+-        console.error('Error fetching cantons:', error);
+-      }
+-    );
+-  }
+-
+-  loadSports() {
+-    this.sportService.getAllSports().subscribe(
+-      data => {
+-        this.sports = this.removeDuplicates(data, 'name');
+-      },
+-      error => { console.error('Error fetching sports:', error); }
+-    );
+-  }
+-
+-  loadAvailableDays() {
+-    this.availableDaysService.getAllAvailableDays().subscribe(
+-      data => { this.volunteer.availableDays = data; },
+-      error => { console.error('Error fetching available days:', error); }
+-    );
+-  }
+-
+-  loadTimes() {
+-    this.timeService.getAllTimes().subscribe(
+-      data => { this.times = data; },
+-      error => { console.error('Error fetching times:', error); }
+-    );
+-  }
+-
+-  removeDuplicates(array: any[], key: string) {
+-    return array.filter((item, index, self) =>
+-      index === self.findIndex((t) => t[key] === item[key])
+-    );
+-  }
+-
+-  nextStep() {
+-    if (this.currentStep < 2) {
+-      this.currentStep++;
+-    }
+-  }
+-
+-  previousStep() {
+-    if (this.currentStep > 1) {
+-      this.currentStep--;
+-    }
+-  }
+-
+-  isFormComplete(): boolean {
+-    return !!this.volunteer.identification && !!this.volunteer.name && !!this.volunteer.birthdate &&
+-      !!this.volunteer.email && !!this.volunteer.phone_number && !!this.volunteer.nationality &&
+-      !!this.volunteer.region && !!this.volunteer.province && !!this.volunteer.canton;
+-  }
+-
+-  onSubmit() {
+-    if (this.volunteerForm.form.valid && this.isFormComplete()) {
+-      // Guardar los datos en el servicio antes de enviarlos
+-      //this.formDataService.setFormData(this.volunteer);
+-
+-      const volunteerToSend = { ...this.volunteer };
+-      volunteerToSend.birthdate = new Date(this.volunteer.birthdate as string);
+-
+-      this.volunteerService.createVolunteer(volunteerToSend).subscribe(
+-        response => {
+-          alert('Datos enviados correctamente.');
+-          //this.formDataService.resetFormData(); // Limpiar los datos después de enviarlos
+-          this.volunteerForm.resetForm();
+-        },
+-        error => {
+-          console.error('Error creando voluntario:', error);
+-          alert('Ocurrió un error al enviar los datos.');
+-        }
+-      );
+-    } else {
+-      alert('Por favor, completa todos los campos correctamente.');
+-    }
+-  }
+-}
+Index: InscriptionsFront/src/app/volunteer-form/volunteer-form.component.spec.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { ComponentFixture, TestBed } from '@angular/core/testing';\r\n\r\nimport { VolunteerFormComponent } from './volunteer-form.component';\r\n\r\ndescribe('VolunteerFormComponent', () => {\r\n  let component: VolunteerFormComponent;\r\n  let fixture: ComponentFixture<VolunteerFormComponent>;\r\n\r\n  beforeEach(async () => {\r\n    await TestBed.configureTestingModule({\r\n      imports: [VolunteerFormComponent]\r\n    })\r\n    .compileComponents();\r\n\r\n    fixture = TestBed.createComponent(VolunteerFormComponent);\r\n    component = fixture.componentInstance;\r\n    fixture.detectChanges();\r\n  });\r\n\r\n  it('should create', () => {\r\n    expect(component).toBeTruthy();\r\n  });\r\n});\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.spec.ts b/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.spec.ts
+--- a/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.spec.ts	(revision 7838f2e63f7e2847d3de99104f25493de214921b)
++++ b/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.spec.ts	(date 1728342999152)
+@@ -1,23 +1,6 @@
+ import { ComponentFixture, TestBed } from '@angular/core/testing';
+ 
+-import { VolunteerFormComponent } from './volunteer-form.component';
+ 
+ describe('VolunteerFormComponent', () => {
+-  let component: VolunteerFormComponent;
+-  let fixture: ComponentFixture<VolunteerFormComponent>;
+-
+-  beforeEach(async () => {
+-    await TestBed.configureTestingModule({
+-      imports: [VolunteerFormComponent]
+-    })
+-    .compileComponents();
+ 
+-    fixture = TestBed.createComponent(VolunteerFormComponent);
+-    component = fixture.componentInstance;
+-    fixture.detectChanges();
+-  });
+-
+-  it('should create', () => {
+-    expect(component).toBeTruthy();
+-  });
+ });
+Index: InscriptionsFront/src/app/volunteer-form/volunteer-form.component.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><head>\r\n  <link href=\"https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap\" rel=\"stylesheet\">\r\n</head>\r\n<body>\r\n<form (ngSubmit)=\"onSubmit()\" #volunteerForm=\"ngForm\" novalidate>\r\n  <!-- Primera parte del formulario -->\r\n  <div *ngIf=\"currentStep === 1\">\r\n    <div>\r\n      <label for=\"identification\">Identificación:</label>\r\n      <input type=\"text\" id=\"identification\" name=\"identification\" [(ngModel)]=\"volunteer.identification\" #identification=\"ngModel\" required pattern=\"^\\d{9,}$\">\r\n      <div *ngIf=\"identification.invalid && identification.touched\">\r\n        <small class=\"error\" *ngIf=\"identification.errors?.['required']\">La identificación es requerida.</small>\r\n        <small class=\"error\" *ngIf=\"identification.errors?.['pattern']\">La identificación debe tener al menos 9 dígitos.</small>\r\n      </div>\r\n    </div>\r\n\r\n    <div>\r\n      <label for=\"name\">Nombre:</label>\r\n      <input type=\"text\" id=\"name\" name=\"name\" [(ngModel)]=\"volunteer.name\" #name=\"ngModel\" required pattern=\"^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$\">\r\n      <div *ngIf=\"name.invalid && name.touched\">\r\n        <small class=\"error\" *ngIf=\"name.errors?.['required']\">El nombre es requerido.</small>\r\n        <small class=\"error\" *ngIf=\"name.errors?.['pattern']\">El nombre solo puede contener letras.</small>\r\n      </div>\r\n    </div>\r\n\r\n    <div>\r\n      <label for=\"birthdate\">Fecha de nacimiento:</label>\r\n      <input type=\"date\" id=\"birthdate\" name=\"birthdate\" [(ngModel)]=\"volunteer.birthdate\" #birthdate=\"ngModel\" required [min]=\"minDate\" [max]=\"maxDate\" (input)=\"validateBirthdate()\">\r\n      <div *ngIf=\"birthdate.invalid && birthdate.touched || invalidDate\">\r\n        <small class=\"error\" *ngIf=\"birthdate.errors?.['required']\">La fecha de nacimiento es requerida.</small>\r\n        <small class=\"error\" *ngIf=\"invalidDate\">La fecha de nacimiento debe estar entre {{ minDate }} y {{ maxDate }}.</small>\r\n      </div>\r\n    </div>\r\n\r\n    <div>\r\n      <label for=\"email\">Email:</label>\r\n      <input type=\"email\" id=\"email\" name=\"email\" [(ngModel)]=\"volunteer.email\" #email=\"ngModel\" required pattern=\"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\">\r\n      <div *ngIf=\"email.invalid && email.touched\">\r\n        <small class=\"error\" *ngIf=\"email.errors?.['required']\">El correo es requerido.</small>\r\n        <small class=\"error\" *ngIf=\"email.errors?.['pattern']\">Correo inválido.</small>\r\n      </div>\r\n    </div>\r\n\r\n    <div>\r\n      <label for=\"phone_number\">Número de teléfono:</label>\r\n      <input type=\"text\" id=\"phone_number\" name=\"phone_number\" [(ngModel)]=\"volunteer.phone_number\" #phone_number=\"ngModel\" required pattern=\"^[0-9]{8,10}$\">\r\n      <div *ngIf=\"phone_number.invalid && phone_number.touched\">\r\n        <small class=\"error\" *ngIf=\"phone_number.errors?.['required']\">El número de teléfono es requerido.</small>\r\n        <small class=\"error\" *ngIf=\"phone_number.errors?.['pattern']\">Número de teléfono inválido.</small>\r\n      </div>\r\n    </div>\r\n\r\n    <div>\r\n      <label for=\"nationality\">Nacionalidad:</label>\r\n      <input type=\"text\" id=\"nationality\" name=\"nationality\" [(ngModel)]=\"volunteer.nationality\" #nationality=\"ngModel\" required pattern=\"^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$\">\r\n      <div *ngIf=\"nationality.invalid && nationality.touched\">\r\n        <small class=\"error\" *ngIf=\"nationality.errors?.['required']\">La nacionalidad es requerida.</small>\r\n        <small class=\"error\" *ngIf=\"nationality.errors?.['pattern']\">La nacionalidad no puede contener números.</small>\r\n      </div>\r\n    </div>\r\n\r\n    <!-- Removed onProvinceChange and removed filtering logic -->\r\n    <div>\r\n      <label for=\"province\">Provincia:</label>\r\n      <select id=\"province\" name=\"province\" [(ngModel)]=\"volunteer.province\" #province=\"ngModel\" required>\r\n        <option *ngFor=\"let province of provinces\" [ngValue]=\"province\">{{ province.name }}</option>\r\n      </select>\r\n      <div *ngIf=\"province.invalid && province.touched\">\r\n        <small class=\"error\" *ngIf=\"province.errors?.['required']\">La provincia es requerida.</small>\r\n      </div>\r\n    </div>\r\n\r\n    <!-- Load all cantons directly -->\r\n    <div>\r\n      <label for=\"canton\">Cantón:</label>\r\n      <select id=\"canton\" name=\"canton\" [(ngModel)]=\"volunteer.canton\" #canton=\"ngModel\" required>\r\n        <option *ngFor=\"let canton of cantons\" [ngValue]=\"canton\">{{ canton.name }}</option>\r\n      </select>\r\n      <div *ngIf=\"canton.invalid && canton.touched\">\r\n        <small class=\"error\" *ngIf=\"canton.errors?.['required']\">El cantón es requerido.</small>\r\n      </div>\r\n    </div>\r\n\r\n    <div>\r\n      <label for=\"region\">Región:</label>\r\n      <select id=\"region\" name=\"region\" [(ngModel)]=\"volunteer.region\" #region=\"ngModel\" required>\r\n        <option *ngFor=\"let region of regions\" [ngValue]=\"region\">{{ region.name }}</option>\r\n      </select>\r\n      <div *ngIf=\"region.invalid && region.touched\">\r\n        <small class=\"error\" *ngIf=\"region.errors?.['required']\">La región es requerida.</small>\r\n      </div>\r\n    </div>\r\n\r\n    <button type=\"button\" (click)=\"nextStep()\">Siguiente</button>\r\n  </div>\r\n\r\n  <!-- Segunda parte del formulario -->\r\n  <div *ngIf=\"currentStep === 2\">\r\n    <div>\r\n      <label>Experiencia en deportes:</label>\r\n      <div *ngFor=\"let sport of sports\">\r\n        <input type=\"checkbox\" [value]=\"sport.id\"  />\r\n        <label>{{ sport.name }}</label>\r\n      </div>\r\n    </div>\r\n\r\n    <div>\r\n      <label>Días disponibles:</label>\r\n      <div *ngFor=\"let day of volunteer.availableDays\">\r\n        <input type=\"checkbox\" id=\"day-{{day.id}}\">\r\n        <label for=\"day-{{day.id}}\">{{ day.day_name }}</label>\r\n      </div>\r\n    </div>\r\n    <div *ngIf=\"selectedDays.length > 0\">\r\n      <label>Horas disponibles para cada día:</label>\r\n      <div *ngFor=\"let day of selectedDays\">\r\n        <div>\r\n          <label for=\"time-{{day.id}}\">Hora para {{ day.day_name }}:</label>\r\n          <select [(ngModel)]=\"volunteer.availableTimes[day.id]\" [ngModelOptions]=\"{standalone: true}\" multiple>\r\n            <option *ngFor=\"let time of times\" [ngValue]=\"time\">{{ time.hour }}:{{ time.minutes }}</option>\r\n          </select>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <button type=\"button\" (click)=\"previousStep()\">Anterior</button>\r\n    <button type=\"submit\" [disabled]=\"!volunteerForm.form.valid\">Enviar</button>\r\n  </div>\r\n</form>\r\n</body>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.html b/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.html
+--- a/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.html	(revision 7838f2e63f7e2847d3de99104f25493de214921b)
++++ b/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.html	(date 1728342965298)
+@@ -1,129 +1,1 @@
+-<head>
+-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+-</head>
+-<body>
+-<form (ngSubmit)="onSubmit()" #volunteerForm="ngForm" novalidate>
+-  <!-- Primera parte del formulario -->
+-  <div *ngIf="currentStep === 1">
+-    <div>
+-      <label for="identification">Identificación:</label>
+-      <input type="text" id="identification" name="identification" [(ngModel)]="volunteer.identification" #identification="ngModel" required pattern="^\d{9,}$">
+-      <div *ngIf="identification.invalid && identification.touched">
+-        <small class="error" *ngIf="identification.errors?.['required']">La identificación es requerida.</small>
+-        <small class="error" *ngIf="identification.errors?.['pattern']">La identificación debe tener al menos 9 dígitos.</small>
+-      </div>
+-    </div>
+-
+-    <div>
+-      <label for="name">Nombre:</label>
+-      <input type="text" id="name" name="name" [(ngModel)]="volunteer.name" #name="ngModel" required pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$">
+-      <div *ngIf="name.invalid && name.touched">
+-        <small class="error" *ngIf="name.errors?.['required']">El nombre es requerido.</small>
+-        <small class="error" *ngIf="name.errors?.['pattern']">El nombre solo puede contener letras.</small>
+-      </div>
+-    </div>
+-
+-    <div>
+-      <label for="birthdate">Fecha de nacimiento:</label>
+-      <input type="date" id="birthdate" name="birthdate" [(ngModel)]="volunteer.birthdate" #birthdate="ngModel" required [min]="minDate" [max]="maxDate" (input)="validateBirthdate()">
+-      <div *ngIf="birthdate.invalid && birthdate.touched || invalidDate">
+-        <small class="error" *ngIf="birthdate.errors?.['required']">La fecha de nacimiento es requerida.</small>
+-        <small class="error" *ngIf="invalidDate">La fecha de nacimiento debe estar entre {{ minDate }} y {{ maxDate }}.</small>
+-      </div>
+-    </div>
+-
+-    <div>
+-      <label for="email">Email:</label>
+-      <input type="email" id="email" name="email" [(ngModel)]="volunteer.email" #email="ngModel" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+-      <div *ngIf="email.invalid && email.touched">
+-        <small class="error" *ngIf="email.errors?.['required']">El correo es requerido.</small>
+-        <small class="error" *ngIf="email.errors?.['pattern']">Correo inválido.</small>
+-      </div>
+-    </div>
+-
+-    <div>
+-      <label for="phone_number">Número de teléfono:</label>
+-      <input type="text" id="phone_number" name="phone_number" [(ngModel)]="volunteer.phone_number" #phone_number="ngModel" required pattern="^[0-9]{8,10}$">
+-      <div *ngIf="phone_number.invalid && phone_number.touched">
+-        <small class="error" *ngIf="phone_number.errors?.['required']">El número de teléfono es requerido.</small>
+-        <small class="error" *ngIf="phone_number.errors?.['pattern']">Número de teléfono inválido.</small>
+-      </div>
+-    </div>
+-
+-    <div>
+-      <label for="nationality">Nacionalidad:</label>
+-      <input type="text" id="nationality" name="nationality" [(ngModel)]="volunteer.nationality" #nationality="ngModel" required pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$">
+-      <div *ngIf="nationality.invalid && nationality.touched">
+-        <small class="error" *ngIf="nationality.errors?.['required']">La nacionalidad es requerida.</small>
+-        <small class="error" *ngIf="nationality.errors?.['pattern']">La nacionalidad no puede contener números.</small>
+-      </div>
+-    </div>
+-
+-    <!-- Removed onProvinceChange and removed filtering logic -->
+-    <div>
+-      <label for="province">Provincia:</label>
+-      <select id="province" name="province" [(ngModel)]="volunteer.province" #province="ngModel" required>
+-        <option *ngFor="let province of provinces" [ngValue]="province">{{ province.name }}</option>
+-      </select>
+-      <div *ngIf="province.invalid && province.touched">
+-        <small class="error" *ngIf="province.errors?.['required']">La provincia es requerida.</small>
+-      </div>
+-    </div>
+-
+-    <!-- Load all cantons directly -->
+-    <div>
+-      <label for="canton">Cantón:</label>
+-      <select id="canton" name="canton" [(ngModel)]="volunteer.canton" #canton="ngModel" required>
+-        <option *ngFor="let canton of cantons" [ngValue]="canton">{{ canton.name }}</option>
+-      </select>
+-      <div *ngIf="canton.invalid && canton.touched">
+-        <small class="error" *ngIf="canton.errors?.['required']">El cantón es requerido.</small>
+-      </div>
+-    </div>
+-
+-    <div>
+-      <label for="region">Región:</label>
+-      <select id="region" name="region" [(ngModel)]="volunteer.region" #region="ngModel" required>
+-        <option *ngFor="let region of regions" [ngValue]="region">{{ region.name }}</option>
+-      </select>
+-      <div *ngIf="region.invalid && region.touched">
+-        <small class="error" *ngIf="region.errors?.['required']">La región es requerida.</small>
+-      </div>
+-    </div>
+-
+-    <button type="button" (click)="nextStep()">Siguiente</button>
+-  </div>
+-
+-  <!-- Segunda parte del formulario -->
+-  <div *ngIf="currentStep === 2">
+-    <div>
+-      <label>Experiencia en deportes:</label>
+-      <div *ngFor="let sport of sports">
+-        <input type="checkbox" [value]="sport.id"  />
+-        <label>{{ sport.name }}</label>
+-      </div>
+-    </div>
+-
+-    <div>
+-      <label>Días disponibles:</label>
+-      <div *ngFor="let day of volunteer.availableDays">
+-        <input type="checkbox" id="day-{{day.id}}">
+-        <label for="day-{{day.id}}">{{ day.day_name }}</label>
+-      </div>
+-    </div>
+-    <div *ngIf="selectedDays.length > 0">
+-      <label>Horas disponibles para cada día:</label>
+-      <div *ngFor="let day of selectedDays">
+-        <div>
+-          <label for="time-{{day.id}}">Hora para {{ day.day_name }}:</label>
+-          <select [(ngModel)]="volunteer.availableTimes[day.id]" [ngModelOptions]="{standalone: true}" multiple>
+-            <option *ngFor="let time of times" [ngValue]="time">{{ time.hour }}:{{ time.minutes }}</option>
+-          </select>
+-        </div>
+-      </div>
+-    </div>
+-    <button type="button" (click)="previousStep()">Anterior</button>
+-    <button type="submit" [disabled]="!volunteerForm.form.valid">Enviar</button>
+-  </div>
+-</form>
+-</body>
++<p></p>
+Index: InscriptionsFront/src/app/cycling-form/cycling-form.component.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/InscriptionsFront/src/app/cycling-form/cycling-form.component.html b/InscriptionsFront/src/app/cycling-form/cycling-form.component.html
+new file mode 100644
+--- /dev/null	(date 1728359815579)
++++ b/InscriptionsFront/src/app/cycling-form/cycling-form.component.html	(date 1728359815579)
+@@ -0,0 +1,27 @@
++<div class="container">
++  <div class="section">
++    <h2>Registro de Información - Ciclismo</h2>
++
++    <!-- Nivel de Participación -->
++    <div class="form-group">
++      <label for="nivel">Nivel en el que va a participar:</label>
++      <select id="nivel" name="nivel" [(ngModel)]="cyclingData.nivel" required>
++        <option value="">Seleccione un nivel</option>
++        <option value="nivel1">Nivel 1</option>
++        <option value="nivel2">Nivel 2</option>
++      </select>
++    </div>
++
++    <!-- Elegir Máximo dos opciones -->
++    <div class="form-group">
++        <label>Seleccione máximo dos opciones:</label>
++          <input type="checkbox" [checked]="isOptionSelected('500mts')" (change)="onOptionSelect('500mts')"> 500mts contra reloj
++          <input type="checkbox" [checked]="isOptionSelected('1km')" (change)="onOptionSelect('1km')"> 1km contra reloj
++          <input type="checkbox" [checked]="isOptionSelected('2km')" (change)="onOptionSelect('2km')"> 2km contra reloj
++      <div *ngIf="maxSelectionError" class="error">
++
++        Por favor seleccione hasta dos opciones.
++      </div>
++    </div>
++  </div>
++</div>
+Index: InscriptionsFront/src/app/cycling-form/cycling-form.component.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/InscriptionsFront/src/app/cycling-form/cycling-form.component.css b/InscriptionsFront/src/app/cycling-form/cycling-form.component.css
+new file mode 100644
+--- /dev/null	(date 1728359674718)
++++ b/InscriptionsFront/src/app/cycling-form/cycling-form.component.css	(date 1728359674718)
+@@ -0,0 +1,83 @@
++/* General container styling */
++.container {
++  max-width: 800px;
++  margin: 0 auto;
++  padding: 20px;
++  background-color: #f9f9f9;
++  border-radius: 8px;
++  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
++}
++
++/* Section header styling */
++.section h2 {
++  font-size: 24px;
++  color: #333;
++  margin-bottom: 20px;
++  text-align: center;
++}
++
++
++
++.form-group label {
++  font-size: 16px;
++  font-weight: bold;
++  display: block;
++  margin-bottom: 10px;
++}
++
++.form-group select,
++.form-group input[type="checkbox"] {
++  width: 100%;
++  padding: 10px;
++  font-size: 14px;
++  border: 1px solid #ccc;
++  border-radius: 5px;
++}
++input[type="checkbox"]:focus {
++  outline: max(2px, 0.15em) solid currentColor;
++  outline-offset: max(2px, 0.15em);
++}
++
++/* Checkbox group styling */
++.checkbox-group {
++
++  gap: 10px;
++}
++
++.checkbox-group label {
++
++  align-items: center;
++}
++
++.checkbox-group input {
++  margin-right: 2px;
++}
++
++/* Error message styling */
++.error {
++  color: red;
++  font-size: 12px;
++  margin-top: 5px;
++  display: block;
++}
++
++/* Button styling */
++button {
++  background-color: #007bff;
++  color: white;
++  padding: 10px 20px;
++  border: none;
++  border-radius: 5px;
++  font-size: 16px;
++  cursor: pointer;
++  transition: background-color 0.3s ease;
++}
++
++button:hover {
++  background-color: #0056b3;
++}
++
++button:disabled {
++  background-color: #d6d6d6;
++  cursor: not-allowed;
++}
+Index: InscriptionsFront/src/app/athlete-form/athlete-form.component.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\n<body>\r\n<header>\r\n  <h1>Registro de Atleta</h1>\r\n  <img src=\"assets/logo.jpg\" alt=\"Logo\" fill>\r\n</header>\r\n\r\n<div class=\"container\">\r\n<form #athleteForm=\"ngForm\" (ngSubmit)=\"onSubmit()\">\r\n  <!-- Step 1: Personal Information -->\r\n  <div *ngIf=\"currentStep === 1\" class=\"section\">\r\n    <h2>Información Personal</h2>\r\n    <div class=\"form-group\">\r\n      <app-form [personalData]=\"athleteData.personalInfo\"></app-form>\r\n    </div>\r\n    <div class=\"button-group\">\r\n      <button type=\"button\" (click)=\"nextStep()\">Siguiente</button>\r\n    </div>\r\n  </div>\r\n\r\n  <!-- Step 2: Athletic Information -->\r\n  <div *ngIf=\"currentStep === 2\" class=\"section\">\r\n    <h2>Información Deportiva</h2>\r\n\r\n    <div class=\"form-group\">\r\n      <label for=\"sport\">Deporte:</label>\r\n      <select id=\"sport\" name=\"sport\" [(ngModel)]=\"athleteData.sportInfo.sport\" (ngModelChange)=\"onSportChange($event)\" required>\r\n        <option value=\"\">Seleccione un deporte</option>\r\n        <option *ngFor=\"let sport of sports\" [value]=\"sport\">{{ sport }}</option>\r\n      </select>\r\n    </div>\r\n\r\n    <!-- Type of Disability -->\r\n    <div class=\"form-group\">\r\n      <label for=\"disability\">Tipo de discapacidad:</label>\r\n      <select id=\"disability\" name=\"disability\" [(ngModel)]=\"athleteData.sportInfo.disability\">\r\n        <option value=\"\">Seleccione discapacidad (opcional)</option>\r\n        <option value=\"visual\">Visual</option>\r\n        <option value=\"auditory\">Auditiva</option>\r\n        <option value=\"physical\">Física</option>\r\n        <option value=\"none\">Ninguna</option>\r\n      </select>\r\n    </div>\r\n\r\n    <!-- Upload Disability Proof -->\r\n    <div class=\"form-group\">\r\n      <label for=\"disabilityProof\">Subir comprobante de discapacidad (PDF):</label>\r\n      <input type=\"file\" id=\"disabilityProof\" name=\"disabilityProof\" (change)=\"onFileSelected($event)\" accept=\"application/pdf\">\r\n    </div>\r\n\r\n    <!-- Inject swimming form if sport is swimming -->\r\n    <app-swimming-form *ngIf=\"athleteData.sportInfo.sport === 'Natación'\"\r\n                       [swimmingData]=\"athleteData.sportInfo\"></app-swimming-form>\r\n\r\n    <!-- Inject ping pong form if sport is ping pong -->\r\n    <app-ping-pong-form *ngIf=\"athleteData.sportInfo.sport === 'Ping Pong'\"\r\n    ></app-ping-pong-form>\r\n\r\n    <div class=\"button-group\">\r\n      <button type=\"button\" (click)=\"previousStep()\">Anterior</button>\r\n      <button type=\"submit\" [disabled]=\"!athleteForm.form.valid\">Enviar</button>\r\n    </div>\r\n  </div>\r\n</form>\r\n  </div>\r\n</body>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/InscriptionsFront/src/app/athlete-form/athlete-form.component.html b/InscriptionsFront/src/app/athlete-form/athlete-form.component.html
+--- a/InscriptionsFront/src/app/athlete-form/athlete-form.component.html	(revision 7838f2e63f7e2847d3de99104f25493de214921b)
++++ b/InscriptionsFront/src/app/athlete-form/athlete-form.component.html	(date 1728359139749)
+@@ -47,15 +47,18 @@
+       <label for="disabilityProof">Subir comprobante de discapacidad (PDF):</label>
+       <input type="file" id="disabilityProof" name="disabilityProof" (change)="onFileSelected($event)" accept="application/pdf">
+     </div>
++    <div >
+ 
+     <!-- Inject swimming form if sport is swimming -->
+     <app-swimming-form *ngIf="athleteData.sportInfo.sport === 'Natación'"
+                        [swimmingData]="athleteData.sportInfo"></app-swimming-form>
++    <app-cycling-form *ngIf="athleteData.sportInfo.sport === 'Ciclismo'"
++                       [cyclingData]="athleteData.sportInfo"></app-cycling-form>
+ 
+     <!-- Inject ping pong form if sport is ping pong -->
+     <app-ping-pong-form *ngIf="athleteData.sportInfo.sport === 'Ping Pong'"
+     ></app-ping-pong-form>
+-
++    </div>
+     <div class="button-group">
+       <button type="button" (click)="previousStep()">Anterior</button>
+       <button type="submit" [disabled]="!athleteForm.form.valid">Enviar</button>
+Index: InscriptionsFront/src/app/cycling-form/cycling-form.component.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/InscriptionsFront/src/app/cycling-form/cycling-form.component.ts b/InscriptionsFront/src/app/cycling-form/cycling-form.component.ts
+new file mode 100644
+--- /dev/null	(date 1728359102888)
++++ b/InscriptionsFront/src/app/cycling-form/cycling-form.component.ts	(date 1728359102888)
+@@ -0,0 +1,74 @@
++import { Component, Input } from '@angular/core';
++import { FormsModule, NgForm } from '@angular/forms';
++import { NgIf } from "@angular/common";
++
++@Component({
++  selector: 'app-cycling-form',
++  templateUrl: './cycling-form.component.html',
++  standalone: true,
++  imports: [
++    FormsModule,
++    NgIf
++  ],
++  styleUrls: ['./cycling-form.component.css']
++})
++export class CyclingFormComponent {
++  @Input() cyclingData!: any;
++
++  maxSelectionError: boolean = false;
++
++  // Handle the selection of up to two options
++  onOptionSelect(option: string) {
++    if (!this.cyclingData.selectedOptions) {
++      this.cyclingData.selectedOptions = [];  // Initialize if not already initialized
++    }
++
++    const index = this.cyclingData.selectedOptions.indexOf(option);
++
++    if (index === -1 && this.cyclingData.selectedOptions.length < 2) {
++      this.cyclingData.selectedOptions.push(option);
++    } else if (index !== -1) {
++      this.cyclingData.selectedOptions.splice(index, 1);
++    }
++
++    this.checkMaxSelection();
++  }
++
++  isOptionSelected(option: string): boolean {
++    // Check if cyclingData and selectedOptions exist before accessing them
++    return this.cyclingData?.selectedOptions?.includes(option) || false;
++  }
++
++  checkMaxSelection() {
++    if (this.cyclingData?.selectedOptions) {
++      this.maxSelectionError = this.cyclingData.selectedOptions.length > 2;
++    }
++  }
++
++  // Handle file upload
++  onFileSelected(event: any) {
++    const file = event.target.files[0];
++    if (file && file.type === 'application/pdf') {
++      this.cyclingData.disabilityProof = file;
++    } else {
++      alert('Por favor, suba un archivo PDF válido.');
++    }
++  }
++
++  // Handle form submission
++  onSubmit(ciclismoForm: NgForm) {
++    if (ciclismoForm.valid && !this.maxSelectionError) {
++      console.log('Formulario Enviado', this.cyclingData);
++    } else {
++      alert('Por favor, complete todos los campos correctamente.');
++    }
++  }
++  parentData = {
++    nivel: '',
++    selectedOptions: [],  // Initialize as an empty array
++    lateralidad: '',
++    disability: '',
++    disabilityProof: null
++  }
++
++}
+Index: InscriptionsFront/src/app/cycling-form/cycling-form.component.spec.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/InscriptionsFront/src/app/cycling-form/cycling-form.component.spec.ts b/InscriptionsFront/src/app/cycling-form/cycling-form.component.spec.ts
+new file mode 100644
+--- /dev/null	(date 1728353972108)
++++ b/InscriptionsFront/src/app/cycling-form/cycling-form.component.spec.ts	(date 1728353972108)
+@@ -0,0 +1,23 @@
++import { ComponentFixture, TestBed } from '@angular/core/testing';
++
++import { CyclingFormComponent } from './cycling-form.component';
++
++describe('CyclingFormComponent', () => {
++  let component: CyclingFormComponent;
++  let fixture: ComponentFixture<CyclingFormComponent>;
++
++  beforeEach(async () => {
++    await TestBed.configureTestingModule({
++      imports: [CyclingFormComponent]
++    })
++    .compileComponents();
++
++    fixture = TestBed.createComponent(CyclingFormComponent);
++    component = fixture.componentInstance;
++    fixture.detectChanges();
++  });
++
++  it('should create', () => {
++    expect(component).toBeTruthy();
++  });
++});
