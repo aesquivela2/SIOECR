@@ -133,10 +133,10 @@ export class AthleteFormComponent implements OnInit {
 
   onSubmit() {
 
-    this.formService.setFormData({laterality: this.athleteData.laterality});
-
+    this.formService.setFormData({laterality: this.athleteData.laterality, sport: this.athleteData.sportInfo});
+    console.log(this.athleteData.sportInfo);
     console.log("Lo que se e nvia ", this.formService.getFormData());
-  this.athleteService.createAthlete(this.formService.getFormData()).subscribe()
+    this.athleteService.createAthlete(this.formService.getFormData()).subscribe()
   }
 
   onFileSelected(event: any) {
@@ -150,8 +150,4 @@ export class AthleteFormComponent implements OnInit {
   trackBySportId(index: number, sport: Sport): number {
     return sport.id;
   }
-  }
-
-
-
-
+}

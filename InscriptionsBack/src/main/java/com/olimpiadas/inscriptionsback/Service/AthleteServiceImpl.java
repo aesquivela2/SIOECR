@@ -50,7 +50,24 @@ public class AthleteServiceImpl implements AthleteService {
     @Override
     @Transactional // Ensures proper transaction management
     public void save(Athlete athlete) {
-        athleteRepository.save(athlete); // Database operation
+        athleteRepository.saveAthlete(
+                athlete.getIdentification(),
+                athlete.getName(),
+                athlete.getBirthdate(),
+                athlete.getRegion_id().getId(),  // O el ID correspondiente
+                athlete.getEmail(),
+                athlete.getPhone_number(),
+                athlete.getNationality(),
+                athlete.getProvince_id().getId(),  // O el ID correspondiente
+                athlete.getCanton_id().getId(),  // O el ID correspondiente
+                athlete.getLaterality(),
+                athlete.getDisability_type(),
+                athlete.getSport().getName(),  // O el valor que corresponda
+                athlete.getLevel_category(),
+                athlete.getWeight(),
+                athlete.getHeight()
+        );
+
     }
 
     // Método para manejar los errores de PostgreSQL

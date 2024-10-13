@@ -2,6 +2,8 @@ package com.olimpiadas.inscriptionsback.Controllers;
 
 import com.olimpiadas.inscriptionsback.Models.Athlete;
 import com.olimpiadas.inscriptionsback.Models.ErrorResponse;
+import com.olimpiadas.inscriptionsback.Models.Sport;
+import com.olimpiadas.inscriptionsback.Models.SportLevel;
 import com.olimpiadas.inscriptionsback.Service.AthleteService;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -23,6 +25,7 @@ public class AthleteController {
 
     @PostMapping
         public ResponseEntity<?> save(@RequestBody Athlete athlete) {
+        athlete.setSportLevel(new SportLevel(1, new Sport(), "xx"));
             // Pre-validation of name
             if (athlete.getName() == null || athlete.getName().isEmpty()) {
                 return ResponseEntity.badRequest().body(new ErrorResponse("name", "El nombre del atleta es requerido"));
@@ -37,6 +40,7 @@ public class AthleteController {
                 String errorMessage = athleteService.handlePostgreSQLError(e);
                 return ResponseEntity.badRequest().body(new ErrorResponse(athleteService.extractFieldFromError(errorMessage), errorMessage));
             } catch (Exception e) {
+                System.out.println(e);
                 // General error handling
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ErrorResponse("general", e.getMessage()));
             }

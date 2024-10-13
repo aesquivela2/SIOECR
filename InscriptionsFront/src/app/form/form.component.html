@@ -114,19 +114,19 @@
 </div>
 
 <!-- Email -->
-  <div>
-    <label name="email">Email:</label>
-    <input
-      type="email"
-      id="email"
-      name="email"
-      [(ngModel)]="registration.email"
-      required
-      pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-      autocomplete="email"
-      (ngModelChange)="onEmailChange($event)"
-    >
-  </div>
+<div>
+  <label name="email">Email:</label>
+  <input
+    type="email"
+    id="email"
+    name="email"
+    [(ngModel)]="registration.email"
+    required
+    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+    autocomplete="email"
+    (ngModelChange)="onEmailChange($event)"
+  >
+</div>
 
 
 <!-- Número de teléfono con máscara -->
@@ -201,7 +201,7 @@
 <div *ngIf="registration.citizenship === 'extranjero'">
   <div>
     <label name="worldRegion">Región Global:</label>
-    <select id="worldRegion" name="worldRegion" [(ngModel)]="registration.worldRegion"  #worldRegion="ngModel" required>
+    <select id="worldRegion" name="worldRegion" [(ngModel)]="registration.worldRegion"  #worldRegion="ngModel" required (ngModelChange)="onWorldRegionChange($event)">
       <option *ngFor="let region of worldRegions | keyvalue" [ngValue]="region.key">{{ region.key }}</option>
     </select>
     <div *ngIf="worldRegion.invalid && worldRegion.touched">
@@ -221,7 +221,7 @@
   </div>
 </div>
 <form #registrationForm="ngForm">
-<div class="button-group">
-  <button type="button" (click)="collectFormData()">Siguiente</button>
-</div>
+  <div class="button-group">
+    <button type="button" (click)="collectFormData()">Siguiente</button>
+  </div>
 </form>

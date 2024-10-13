@@ -123,7 +123,7 @@ export class FormComponent implements OnInit {
     private fb: FormBuilder
 
 
-) {}
+  ) {}
 
   ngOnInit() {
     this.populateYears();
@@ -439,11 +439,11 @@ export class FormComponent implements OnInit {
   }
 
   onProvinceChange(province: Province | null) {
-    this.registration.province = province; 
-    this.filterCantonsByProvince(province ? province.id : null); 
-    this.registration.canton = null; 
+    this.registration.province = province;
+    this.filterCantonsByProvince(province ? province.id : null);
+    this.registration.canton = null;
   }
-  
+
 
   onRegionChange($event: any) {
     if (this.registration.worldRegion) {
@@ -458,7 +458,7 @@ export class FormComponent implements OnInit {
   loadProvinces() {
     this.formService.getProvinces().subscribe(
       data => {
-        this.provinces = data;  
+        this.provinces = data;
 
         if (this.registration.province) {
           this.formService.setFormData({ province: this.registration.province });
@@ -473,7 +473,7 @@ export class FormComponent implements OnInit {
   loadCantons() {
     this.formService.getCantons().subscribe(
       data => {
-        this.cantons = data;  
+        this.cantons = data;
 
         if (this.registration.canton) {
           this.formService.setFormData({ canton: this.registration.canton });
@@ -488,7 +488,7 @@ export class FormComponent implements OnInit {
   loadRegions() {
     this.formService.getRegions().subscribe(
       data => {
-        this.regions = data; 
+        this.regions = data;
       },
       error => {
         console.error('Error al cargar las regiones:', error);
@@ -530,9 +530,9 @@ export class FormComponent implements OnInit {
         email: this.registration.email,
         phone_number: this.registration.phone_number,
         citizenship: this.registration.citizenship,
-        province: this.registration.province,
-        canton: this.registration.canton,
-        region: this.registration.region,
+        province_id: this.registration.province,
+        canton_id: this.registration.canton,
+        region_id: this.registration.region,
         worldRegion: this.registration.worldRegion,
         country: this.registration.country
       });
@@ -562,7 +562,9 @@ export class FormComponent implements OnInit {
     this.selectedYear = $event;
     this.updateBirthdate();
   }
-
+  onWorldRegionChange($event: any) {
+    this.formDataService.setFormData({ worldRegion: this.registration.worldRegion });
+  }
   updateBirthdate() {
     if (this.selectedDay && this.selectedMonth && this.selectedYear) {
       this.registration.birthdate = new Date(this.selectedYear, this.selectedMonth - 1, this.selectedDay);
@@ -589,7 +591,6 @@ export class FormComponent implements OnInit {
       );
     }
   }
-  
+
 
 }
-

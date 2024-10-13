@@ -1,4 +1,3 @@
-
 <body>
 <header>
   <div class="header-content">
@@ -7,7 +6,7 @@
   </div>
 </header>
 <div class="header-container" *ngIf="formService.currentStep === 2" >
-    <h2 class="header-form">Hola {{ formService.getFormData().name }}, ¿A qué deporte te quieres inscribir?</h2>
+  <h2 class="header-form">Hola {{ formService.getFormData().name }}, ¿A qué deporte te quieres inscribir?</h2>
 
 </div>
 <div class="container">
@@ -31,22 +30,22 @@
         </select>
       </div>
       <div>
-      <!-- Mostrar un mensaje de error si no se selecciona un deporte -->
-      <div *ngIf="selectedSport === null">
-        <small class="error">El deporte es requerido.</small>
-      </div>
+        <!-- Mostrar un mensaje de error si no se selecciona un deporte -->
+        <div *ngIf="selectedSport === null">
+          <small class="error">El deporte es requerido.</small>
+        </div>
       </div>
       <!-- Type of Disability -->
       <div class="form-group">
         <label for="disability">Tipo de discapacidad:</label>
         <div>
-        <select id="disability" name="disability" [(ngModel)]="athleteData.sportInfo.disability">
-          <option value="">Seleccione discapacidad (opcional)</option>
-          <option value="visual">Visual</option>
-          <option value="auditory">Auditiva</option>
-          <option value="physical">Física</option>
-          <option value="none">Ninguna</option>
-        </select>
+          <select id="disability" name="disability" [(ngModel)]="athleteData.sportInfo.disability">
+            <option value="">Seleccione discapacidad (opcional)</option>
+            <option value="visual">Visual</option>
+            <option value="auditory">Auditiva</option>
+            <option value="physical">Física</option>
+            <option value="none">Ninguna</option>
+          </select>
         </div>
       </div>
       <div>
@@ -65,25 +64,25 @@
 
 
         <!-- Upload Disability Proof -->
-      <div class="form-group">
-        <label for="disabilityProof">Subir comprobante de discapacidad (PDF):</label>
-        <input type="file" id="disabilityProof" name="disabilityProof" (change)="onFileSelected($event)" accept="application/pdf">
+        <div class="form-group">
+          <label for="disabilityProof">Subir comprobante de discapacidad (PDF):</label>
+          <input type="file" id="disabilityProof" name="disabilityProof" (change)="onFileSelected($event)" accept="application/pdf">
+        </div>
+
+        <!-- Ping Pong form for specific sports -->
+        <app-ping-pong-form *ngIf="selectedSport?.sport.name === 'Soccer'"></app-ping-pong-form>
+
+        <!-- Buttons -->
+        <div class="button-group">
+          <div>
+            <button  class="btn-secondary" type="button" (click)="previousStep()">Anterior</button>
+          </div>
+          <div>
+            <button  type="submit" [disabled]="!athleteForm.form.valid">Enviar</button>
+          </div>
+        </div>
+
       </div>
-
-      <!-- Ping Pong form for specific sports -->
-      <app-ping-pong-form *ngIf="selectedSport?.sport.name === 'Soccer'"></app-ping-pong-form>
-
-      <!-- Buttons -->
-      <div class="button-group">
-        <div>
-        <button  class="btn-secondary" type="button" (click)="previousStep()">Anterior</button>
-        </div>
-        <div>
-          <button  type="submit" [disabled]="!athleteForm.form.valid">Enviar</button>
-        </div>
-        </div>
-
-    </div>
     </div>
   </form>
 </div>

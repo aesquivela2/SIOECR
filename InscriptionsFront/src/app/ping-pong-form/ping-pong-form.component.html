@@ -5,7 +5,7 @@
     <!-- Nivel de equipo -->
 
     <label for="level">Nivel del Equipo:</label>
-    <select id="level" [(ngModel)]="athleteData.level" name="level" (ngModelChange)="onChangeNivel($event)" required>
+    <select id="level" [(ngModel)]="athleteData.level" name="level"  required>
       <option value="" disabled selected>Seleccione un nivel</option>
       <option *ngFor="let level of levels" [value]="level">{{ level }}</option>
     </select>
@@ -13,7 +13,7 @@
     <!-- Tipo de prueba (solo tenis de mesa y tenis de campo) -->
     <div>
     <label for="testType">Tipo de Prueba :</label>
-    <select id="testType" [(ngModel)]="athleteData.testType" name="testType" (ngModelChange)="onTestType($event)"  required >
+    <select id="testType" [(ngModel)]="athleteData.testType" name="testType"   required >
       <option value="" disabled selected>Seleccione un tipo de prueba</option>
       <option *ngFor="let testType of testTypes" [value]="testType">{{ testType }}</option>
     </select>

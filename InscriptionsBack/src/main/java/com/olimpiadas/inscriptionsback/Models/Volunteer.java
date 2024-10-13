@@ -131,12 +131,12 @@ public class Volunteer extends Person {
         this.nationality = nationality;
     }
 
-    public Region getRegion() {
+    public Region getRegion_id() {
         return region;
     }
 
-    public void setRegion(Region region) {
-        this.region = region;
+    public void setRegion_id(Region region_id) {
+        this.region = region_id;
     }
 
     public Province getProvince() {

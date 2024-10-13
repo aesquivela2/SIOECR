@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {NgForOf, NgIf} from "@angular/common";
 import { FormService } from '../form/form.service';
-import {AthleteService} from "../athlete-form/athlete.service";
 
 
 @Component({
@@ -23,8 +22,7 @@ export class PingPongFormComponent {
 
 
   constructor(
-    private formService : FormService,
-    private athleteService: AthleteService,
+    private formService : FormService
 ){}
 
   disabilities = ['Discapacidad Visual', 'Discapacidad Auditiva', 'Discapacidad Física', 'Discapacidad Intelectual'];
@@ -62,7 +60,5 @@ export class PingPongFormComponent {
       this.formService.currentStep--;
     }
   }
-  onTestType($event: any) {
-    //this.formService.setFormData({level: this.athleteData.testType});
-  }
+
 }

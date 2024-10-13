@@ -5,6 +5,7 @@ import { TimeService, Time } from '../services/time.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FormComponent } from '../form/form.component';
+import {VolunteerService} from "./volunteer.service";
 
 @Component({
   selector: 'app-volunteer-form',
@@ -23,7 +24,7 @@ export class VolunteerFormComponent implements OnInit {
   // Arrays for available days and times
   availableDays: AvailableDay[] = [];
   availableTimes: Time[] = [];
-  
+
   // Selected days and times for each day
   selectedDays: number[] = [];
   selectedTimes: { [dayId: number]: number[] } = {};  // Dictionary to store times per day
@@ -31,7 +32,8 @@ export class VolunteerFormComponent implements OnInit {
   constructor(
     public formService: FormService,
     private availableDaysService: AvailableDaysService,
-    private timeService: TimeService
+    private timeService: TimeService,
+    private volunteerService: VolunteerService
   ) {}
 
   ngOnInit(): void {
@@ -112,7 +114,7 @@ export class VolunteerFormComponent implements OnInit {
   // onSubmit method to handle form submission
   onSubmit() {
     console.log(this.formService.getFormData());  // Log form data to check the selected days and hours
-    this.formService.createAthlete(this.formService.getFormData()).subscribe(
+    this.volunteerService.createVolunteer(this.formService.getFormData()).subscribe(
       response => {
         console.log('Volunteer registration submitted:', response);
       },

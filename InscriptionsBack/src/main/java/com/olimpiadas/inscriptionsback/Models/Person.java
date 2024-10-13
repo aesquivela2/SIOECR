@@ -34,15 +34,15 @@ public class Person {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "region_id", nullable = false)
-    private Region region;
+    private Region region_id;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "province_id", nullable = false)
-    private Province province;
+    private Province province_id;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "canton_id", nullable = false)
-    private Canton canton;
+    private Canton canton_id;
 
 
     public Person() {
@@ -56,9 +56,9 @@ public class Person {
         this.email = email;
         this.phone_number = phone_number;
         this.nationality = nationality;
-        this.region = region;
-        this.province = province;
-        this.canton = canton;
+        this.region_id = region;
+        this.province_id = province;
+        this.canton_id = canton;
     }
 
     // Getters and setters
@@ -118,27 +118,27 @@ public class Person {
         this.nationality = nationality;
     }
 
-    public Region getRegion() {
-        return region;
+    public Region getRegion_id() {
+        return region_id;
     }
 
-    public void setRegion(Region region) {
-        this.region = region;
+    public void setRegion_id(Region region_id) {
+        this.region_id = region_id;
     }
 
-    public Province getProvince() {
-        return province;
+    public Province getProvince_id() {
+        return province_id;
     }
 
-    public void setProvince(Province province) {
-        this.province = province;
+    public void setProvince_id(Province province) {
+        this.province_id = province;
     }
 
-    public Canton getCanton() {
-        return canton;
+    public Canton getCanton_id() {
+        return canton_id;
     }
 
-    public void setCanton(Canton canton) {
-        this.canton = canton;
+    public void setCanton_id(Canton canton) {
+        this.canton_id = canton;
     }
 }

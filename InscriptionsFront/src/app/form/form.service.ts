@@ -21,6 +21,7 @@ export class FormService {
 
 
   getFormData() {
+    console.log(this.formData)
     return this.formData;
   }
 
