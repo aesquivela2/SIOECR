@@ -166,7 +166,7 @@
   <!-- Provincia -->
   <div>
     <label name="province">Provincia:</label>
-    <select id="province" name="province" [(ngModel)]="registration.province" #province="ngModel" required >
+    <select id="province" name="province" [(ngModel)]="registration.province" (ngModelChange)="onProvinceChange($event)" #province="ngModel" required>
       <option *ngFor="let province of provinces" [ngValue]="province">{{ province.name }}</option>
     </select>
     <div *ngIf="province.invalid && province.touched">
@@ -177,7 +177,7 @@
   <!-- Cantón -->
   <div>
     <label name="canton">Cantón:</label>
-    <select id="canton" name="canton" [(ngModel)]="registration.canton" #canton="ngModel" required >
+    <select id="canton" name="canton" [(ngModel)]="registration.canton" #canton="ngModel" required [disabled]="!registration.province || cantons.length === 0">
       <option *ngFor="let canton of cantons" [ngValue]="canton">{{ canton.name }}</option>
     </select>
     <div *ngIf="canton.invalid && canton.touched">

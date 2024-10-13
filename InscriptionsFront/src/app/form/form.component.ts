@@ -18,6 +18,7 @@ interface Province {
 interface Canton {
   id: number;
   name: string;
+  provinceId: number;
 }
 interface Region {
   id: number;
@@ -437,9 +438,12 @@ export class FormComponent implements OnInit {
     this.formDataService.setFormData({ nationality: this.registration.nationality });
   }
 
-  onProvinceChange($event: any) {
-    this.formDataService.setFormData({ province: this.registration.province });
+  onProvinceChange(province: Province | null) {
+    this.registration.province = province; 
+    this.filterCantonsByProvince(province ? province.id : null); 
+    this.registration.canton = null; 
   }
+  
 
   onRegionChange($event: any) {
     if (this.registration.worldRegion) {
@@ -451,15 +455,11 @@ export class FormComponent implements OnInit {
 
   }
 
-
-
-  // Cargar provincias, cantones, etc. desde los servicios correspondientes
   loadProvinces() {
     this.formService.getProvinces().subscribe(
       data => {
-        this.provinces = data;  // Almacena las provincias en la variable
+        this.provinces = data;  
 
-        // Si tienes una provincia seleccionada, guárdala en el servicio
         if (this.registration.province) {
           this.formService.setFormData({ province: this.registration.province });
         }
@@ -470,14 +470,11 @@ export class FormComponent implements OnInit {
     );
   }
 
-
-  // Método para cargar cantones
   loadCantons() {
     this.formService.getCantons().subscribe(
       data => {
-        this.cantons = data;  // Almacena los cantones en la variable
+        this.cantons = data;  
 
-        // Si tienes un cantón seleccionado, guárdalo en el servicio
         if (this.registration.canton) {
           this.formService.setFormData({ canton: this.registration.canton });
         }
@@ -488,12 +485,10 @@ export class FormComponent implements OnInit {
     );
   }
 
-
-  // Método para cargar regiones
   loadRegions() {
     this.formService.getRegions().subscribe(
       data => {
-        this.regions = data;  // Almacena las regiones en la variable
+        this.regions = data; 
       },
       error => {
         console.error('Error al cargar las regiones:', error);
@@ -575,6 +570,26 @@ export class FormComponent implements OnInit {
       console.log("Fecha de nacimiento actualizada:", this.registration.birthdate);
     }
   }
+
+
+  filterCantonsByProvince(provinceId: number | null) {
+    if (provinceId === null || provinceId === undefined) {
+      // Si no se ha seleccionado una provincia, vacía la lista de cantones
+      this.cantons = [];
+    } else {
+      // Usar el servicio para obtener los cantones desde la API
+      this.formService.getCantons().subscribe(
+        (cantons: Canton[]) => {
+          // Filtra los cantones por la provincia seleccionada
+          this.cantons = cantons.filter(canton => canton.provinceId === provinceId);
+        },
+        error => {
+          console.error('Error al cargar los cantones:', error);
+        }
+      );
+    }
+  }
+  
 
 }
 
