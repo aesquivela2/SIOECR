@@ -43,8 +43,7 @@
     <li>
       <a (click)="toggleSubmenu('soporte')">Soporte ▼</a>
       <ul [class.is_submenu_active]="activeSubmenu === 'soporte'" class="submenu">
-        <li><a routerLink="/soporte1">Soporte 1</a></li>
-        <li><a routerLink="/soporte2">Soporte 2</a></li>
+        <li><a (click)="navigateTo('soporte')">Obtener Soporte</a></li>
       </ul>
     </li>
   </ul>
