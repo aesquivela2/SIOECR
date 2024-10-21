@@ -10,6 +10,7 @@ import axios from 'axios';
 import {ConfirmationDialogComponent} from "../confirmation-dialog/confirmation-dialog.component";
 import {FormDataService} from "../services/form-data.service";
 
+
 // Interfaces for province, canton, and region
 interface Province {
   id: number;
@@ -68,7 +69,7 @@ export class FormComponent implements OnInit {
   cantons: Canton[] = [];
   regions: Region[] = [];
   provinces: Province[] = [];
-  latinAmericanCountries: string[] = []; // Added latinAmericanCountries array
+  Countries: string[] = []; // Added latinAmericanCountries array
   districts: any[] = []; // Add districts array definition
 
 
@@ -428,7 +429,7 @@ export class FormComponent implements OnInit {
 
   onRegionChange($event: any) {
     if (this.registration.worldRegion) {
-      this.latinAmericanCountries = this.worldRegions[this.registration.worldRegion] || [];
+      this.Countries = this.worldRegions[this.registration.worldRegion] || [];
       this.registration.country = null;
 
     }
@@ -529,9 +530,7 @@ export class FormComponent implements OnInit {
     this.selectedYear = $event;
     this.updateBirthdate();
   }
-  onWorldRegionChange($event: any) {
-    this.formDataService.setFormData({ worldRegion: this.registration.worldRegion });
-  }
+
   updateBirthdate() {
     if (this.selectedDay && this.selectedMonth && this.selectedYear) {
       this.registration.birthdate = new Date(this.selectedYear, this.selectedMonth - 1, this.selectedDay);
@@ -638,6 +637,17 @@ export class FormComponent implements OnInit {
     // Retroceder al paso anterior
     if (this.formService.currentStep > 1) {
       this.formService.currentStep--;
+    }
+  }
+
+  onWorldRegionChange($event: any) {
+    if (this.registration.worldRegion) {
+      // Actualiza la lista de países con base en la región mundial seleccionada
+      this.Countries = this.worldRegions[this.registration.worldRegion] || [];
+      this.registration.country = null;  // Limpia el país seleccionado
+    } else {
+      this.Countries = [];  // Si no hay región seleccionada, limpia la lista de países
+      this.registration.country = null;
     }
   }
 

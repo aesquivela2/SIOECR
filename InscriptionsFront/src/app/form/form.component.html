@@ -212,7 +212,7 @@
   <div *ngIf="registration.worldRegion">
     <label name="country">País:</label>
     <select id="country" name="country" [(ngModel)]="registration.country" #country="ngModel" required >
-      <option *ngFor="let country of latinAmericanCountries" [ngValue]="country">{{ country }}</option>
+      <option *ngFor="let country of Countries" [ngValue]="country">{{ country }}</option>
     </select>
     <div *ngIf="country.invalid && country.touched">
       <small class="error">El país es requerido.</small>
