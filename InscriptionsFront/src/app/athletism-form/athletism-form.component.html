@@ -1,0 +1,30 @@
+<div class="athletism-form">
+  <h2>Formulario de Atletismo</h2>
+
+  <form>
+    <div class="form-group">
+      <label for="nivel">Seleccione el nivel del atleta:</label>
+      <select id="nivel" [(ngModel)]="selectedLevel" name="nivel" (change)="onLevelChange($event)">
+        <option value="" disabled selected>Seleccione un nivel</option>
+        <option value="1">Nivel 1</option>
+        <option value="2">Nivel 2</option>
+        <option value="3">Nivel 3</option>
+        <option value="4">Nivel 4</option>
+        <option value="5">Nivel 5 (silla de ruedas)</option>
+      </select>
+    </div>
+
+    <!-- Si el nivel está seleccionado, muestra las categorías -->
+    <div id= 'categoria' class="form-group" *ngIf="categories.length > 0">
+      <label for="categoria">Seleccione hasta 2 opciones:</label>
+      <div *ngFor="let category of categories; let i = index">
+        <input type="checkbox" [id]="'category' + i" [value]="category" (change)="onCategoryChange($event)" [disabled]="isDisabled(category)">
+        <label [for]="'category' + i">{{ category }}</label>
+      </div>
+    </div>
+
+    <button type="submit" class="btn-athletism-form" [disabled]="selectedCategories.length > 2">Enviar</button>
+  </form>
+</div>
+
+
