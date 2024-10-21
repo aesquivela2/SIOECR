@@ -1,5 +1,6 @@
 package com.olimpiadas.inscriptionsback.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -11,8 +12,10 @@ public class SportLevel {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "sport_id", nullable = false, referencedColumnName = "id")
+    @JoinColumn(name = "sport_id")
+    @JsonBackReference
     private Sport sport;
+
 
     @Column(name = "description", nullable = false)
     private String description;

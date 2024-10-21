@@ -8,6 +8,8 @@ import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {SwimmingFormComponent} from "../swimming-form/swimming-form.component";
 import {PingPongFormComponent} from "../ping-pong-form/ping-pong-form.component";
 import {AthleteService} from "./athlete.service";
+import {CyclingFormComponent} from "../cycling-form/cycling-form.component";
+import {AthletismFormComponent} from "../athletism-form/athletism-form.component";
 
 @Component({
   selector: 'app-athlete-form',
@@ -21,7 +23,9 @@ import {AthleteService} from "./athlete.service";
     NgIf,
     SwimmingFormComponent,
     PingPongFormComponent,
-    NgOptimizedImage
+    NgOptimizedImage,
+    CyclingFormComponent,
+    AthletismFormComponent
   ]
 })
 export class AthleteFormComponent implements OnInit {
@@ -54,7 +58,7 @@ export class AthleteFormComponent implements OnInit {
       this.fillComboBox();  // Llama a la función para llenar el combo box
     } else {
       // Si no está disponible, esperamos 100 ms y verificamos nuevamente
-      setTimeout(() => this.checkAndFillComboBox(), 100);
+      setTimeout(() => this.checkAndFillComboBox(), 1000);
     }
   }
 
@@ -94,7 +98,7 @@ export class AthleteFormComponent implements OnInit {
 
     // Rellenar las opciones accediendo a la propiedad anidada 'sport'
     this.sports.forEach((item) => {
-      const sport = item.sport;  // Accede a la propiedad anidada 'sport'
+      const sport = item;  // Accede a la propiedad anidada 'sport'
 
       // Verifica que 'sport' tenga las propiedades 'id' y 'name' (u otra propiedad que desees usar)
       if (sport && sport.id && sport.name) {
@@ -148,6 +152,7 @@ export class AthleteFormComponent implements OnInit {
     }
   }
   trackBySportId(index: number, sport: Sport): number {
+    console.log(sport.name);
     return sport.id;
   }
 }
