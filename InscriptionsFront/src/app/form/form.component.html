@@ -15,20 +15,19 @@
     <small class="error">El tipo de identificación es requerido.</small>
   </div>
 </div>
-
 <!-- Identificación -->
 <div>
-  <label name="identification">Identificación:</label>
+  <label for="identification">Identificación:</label>
   <input
     type="text"
     id="identification"
     name="identification"
     [(ngModel)]="registration.identification"
+    (ngModelChange)="applyIdentificationFormat()"
     #identification="ngModel"
     required
     [pattern]="getIdentificationPattern()"
     [placeholder]="getIdentificationPlaceholder()"
-    (ngModelChange)="applyIdentificationFormat()"
     (blur)="searchByCedula()"
     autocomplete="off"
   >
