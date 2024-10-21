@@ -70,7 +70,11 @@
         </div>
 
         <!-- Ping Pong form for specific sports -->
-        <app-ping-pong-form *ngIf="selectedSport?.sport.name === 'Soccer'"></app-ping-pong-form>
+        <app-ping-pong-form *ngIf="selectedSport?.sport.name === 'Ping Pong'"></app-ping-pong-form>
+        <app-athletism-form *ngIf="selectedSport?.sport.name === 'Atletismo'"></app-athletism-form>
+        <app-cycling-form *ngIf="selectedSport?.sport.name === 'Ciclismo'"></app-cycling-form>
+        <app-swimming-form *ngIf="selectedSport?.sport.name === 'Natacion'"></app-swimming-form>
+
 
         <!-- Buttons -->
         <div class="button-group">

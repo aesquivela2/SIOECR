@@ -4,25 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="que pinga">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="se guardan atletas (peguenme un balacit)">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_8_2024_8_25_AM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_8_2024_8_25_AM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Controllers/AthleteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Controllers/AthleteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Models/Athlete.java" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Models/Athlete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Models/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Models/Volunteer.java" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Models/Volunteer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Repositories/AthleteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Repositories/AthleteRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Service/AthleteServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Service/AthleteServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsBack/src/test/java/com/olimpiadas/inscriptionsback/Service/AthleteServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsBack/src/test/java/com/olimpiadas/inscriptionsback/Service/AthleteServiceImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/ping-pong-form/ping-pong-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/ping-pong-form/ping-pong-form.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/ping-pong-form/ping-pong-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/ping-pong-form/ping-pong-form.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/soporte/soporte.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/soporte/soporte.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/soporte/soporte.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/soporte/soporte.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/soporte/soporte.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/soporte/soporte.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +245,10 @@
       <workItem from="1728569116856" duration="14445000" />
       <workItem from="1728706599973" duration="5923000" />
       <workItem from="1728713348092" duration="2369000" />
-      <workItem from="1728767075322" duration="8833000" />
+      <workItem from="1728767075322" duration="9121000" />
+      <workItem from="1729443566715" duration="609000" />
+      <workItem from="1729456223709" duration="5195000" />
+      <workItem from="1729481292140" duration="2208000" />
     </task>
     <task id="LOCAL-00001" summary="Front End&#10; - Cambios unicamente visuales &#10; - Una Pagina de inicio y siempre acceso a los formularios formulario general">
       <option name="closed" value="true" />
@@ -335,7 +330,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728712163996</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="se guardan atletas (peguenme un balacit)">
+      <option name="closed" value="true" />
+      <created>1728786934995</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1728786934995</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,7 +367,8 @@
     <MESSAGE value="Me voy a morir elevado a la 2" />
     <MESSAGE value="Morado - y punto" />
     <MESSAGE value="que pinga" />
-    <option name="LAST_COMMIT_MESSAGE" value="que pinga" />
+    <MESSAGE value="se guardan atletas (peguenme un balacit)" />
+    <option name="LAST_COMMIT_MESSAGE" value="se guardan atletas (peguenme un balacit)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

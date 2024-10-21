@@ -8,6 +8,7 @@ import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {SwimmingFormComponent} from "../swimming-form/swimming-form.component";
 import {PingPongFormComponent} from "../ping-pong-form/ping-pong-form.component";
 import {AthleteService} from "./athlete.service";
+import {CyclingFormComponent} from "../cycling-form/cycling-form.component";
 
 @Component({
   selector: 'app-athlete-form',
@@ -21,7 +22,8 @@ import {AthleteService} from "./athlete.service";
     NgIf,
     SwimmingFormComponent,
     PingPongFormComponent,
-    NgOptimizedImage
+    NgOptimizedImage,
+    CyclingFormComponent
   ]
 })
 export class AthleteFormComponent implements OnInit {
