@@ -126,19 +126,23 @@ export class FormComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // Llenar los campos del formulario con los datos guardados en el servicio
+    const formData = this.formService.getFormData();
+    if (formData) {
+      this.registration = {
+        ...this.registration,
+        ...formData // Combina los datos existentes con los guardados
+      };
+    }
+
     this.populateYears();
     this.populateDays();
     this.validateBirthdate();
     this.loadProvinces();
     this.loadCantons();
     this.loadRegions();
-    this.loadLatinAmericanCountries();
-
-    // Si ya tienes un valor de identificación, aplícale el formato correcto
-    if (this.registration.identification) {
-      this.updateIdentification(this.registration.identification);
-    }
   }
+
 
   // Populate years for the range 18-70 years ago
   populateYears() {
@@ -169,9 +173,7 @@ export class FormComponent implements OnInit {
   }
 
 
-  loadLatinAmericanCountries() {
-    this.latinAmericanCountries = this.worldRegions['Latin America'];
-  }
+
 
   validateBirthdate() {
     // Verificar si el usuario ha seleccionado todos los campos (día, mes, año)
@@ -254,28 +256,7 @@ export class FormComponent implements OnInit {
     }
   }
 
-  applyIdentificationFormat() {
-    const idType = this.registration.idType;
-    let value = this.registration.identification.replace(/\D/g, '');
-    this.formService.setFormData({dType: this.registration.idType});
-    if (idType === 'física' && value.length === 9) {
-      this.registration.identification = `${value.slice(0, 1)}-${value.slice(1, 5)}-${value.slice(5, 9)}`;
-    } else if (idType === 'dimex' && (value.length === 11 || value.length === 12)) {
-      if (value.length === 11) {
-        this.registration.identification = `${value.slice(0, 4)}-${value.slice(4, 10)}-${value.slice(10)}`;
-      } else if (value.length === 12) {
-        this.registration.identification = `${value.slice(0, 4)}-${value.slice(4, 10)}-${value.slice(10, 12)}`;
-      }
-    } else if (idType === 'pasaporte' && value.length >= 5 && value.length <= 10) {
-      this.registration.identification = value.toUpperCase();
-    }
-    if (idType === 'juridica' && value.length === 10) {
-      this.registration.identification = `${value.slice(0, 1)}-${value.slice(1, 4)}-${value.slice(4, 10)}`;
-    } else if (idType === 'juridica' && value.length === 10) {
-      this.registration.identification = `${value.slice(0, 1)}-${value.slice(1, 4)}-${value.slice(4)}`;
-    }
 
-  }
   updateIdentification(value: string) {
     this.registration.identification = this.removeIdentificationFormat(value);
     this.applyIdentificationFormat();
@@ -496,20 +477,6 @@ export class FormComponent implements OnInit {
     );
   }
 
-  nextStep() {
-    if (this.formService.currentStep === 1) {
-
-    }
-    if (this.formService.currentStep < 3) {
-      this.formService.currentStep++;
-    }
-  }
-
-  previousStep() {
-    if (this.formService.currentStep > 1) {
-      this.formService.currentStep--;
-    }
-  }
 
   collectFormData() {
     // Verifica si registrationForm está inicializado antes de continuar
@@ -592,5 +559,86 @@ export class FormComponent implements OnInit {
     }
   }
 
+
+  applyIdentificationFormat() {
+    const idType = this.registration.idType;
+    let value = this.registration.identification.replace(/\D/g, ''); // Remover todo lo que no sea dígito
+
+    // Aplicar el formato de identificación según el tipo
+    if (idType === 'física' && value.length > 0) {
+      // Formato de cédula física: 1-XXXX-XXXX
+      this.registration.identification = value
+        .replace(/^(\d{1})(\d{0,4})(\d{0,4})$/, (_, g1, g2, g3) => {
+          return `${g1}${g2 ? '-' + g2 : ''}${g3 ? '-' + g3 : ''}`;
+        });
+    } else if (idType === 'dimex' && value.length > 0) {
+      // Formato DIMEX: XXXX-XXXXXX-XX
+      this.registration.identification = value
+        .replace(/^(\d{4})(\d{0,6})(\d{0,2})$/, (_, g1, g2, g3) => {
+          return `${g1}${g2 ? '-' + g2 : ''}${g3 ? '-' + g3 : ''}`;
+        });
+    } else if (idType === 'juridica' && value.length > 0) {
+      // Formato cédula jurídica: X-XXX-XXXXXX
+      this.registration.identification = value
+        .replace(/^(\d{1})(\d{0,3})(\d{0,6})$/, (_, g1, g2, g3) => {
+          return `${g1}${g2 ? '-' + g2 : ''}${g3 ? '-' + g3 : ''}`;
+        });
+    } else if (idType === 'pasaporte') {
+      // Para pasaporte, solo convertir a mayúsculas
+      this.registration.identification = this.registration.identification.toUpperCase();
+    }
+  }
+  onIdentificationInput(value: string) {
+    this.registration.identification = value;
+    this.applyIdentificationFormat(); // Aplicar la máscara mientras el usuario escribe
+  }
+
+  nextStep() {
+    // Guardar la información actual en el servicio antes de cambiar de paso
+    this.formService.setFormData({
+      identification: this.registration.identification,
+      idType: this.registration.idType,
+      name: this.registration.name,
+      lastname: this.registration.lastname,
+      birthdate: this.registration.birthdate,
+      email: this.registration.email,
+      phone_number: this.registration.phone_number,
+      citizenship: this.registration.citizenship,
+      province: this.registration.province,
+      canton: this.registration.canton,
+      region: this.registration.region,
+      worldRegion: this.registration.worldRegion,
+      country: this.registration.country
+    });
+
+    // Avanzar al siguiente paso
+    if (this.formService.currentStep < 3) {
+      this.formService.currentStep++;
+    }
+  }
+
+  previousStep() {
+    // Guardar la información actual antes de retroceder
+    this.formService.setFormData({
+      identification: this.registration.identification,
+      idType: this.registration.idType,
+      name: this.registration.name,
+      lastname: this.registration.lastname,
+      birthdate: this.registration.birthdate,
+      email: this.registration.email,
+      phone_number: this.registration.phone_number,
+      citizenship: this.registration.citizenship,
+      province: this.registration.province,
+      canton: this.registration.canton,
+      region: this.registration.region,
+      worldRegion: this.registration.worldRegion,
+      country: this.registration.country
+    });
+
+    // Retroceder al paso anterior
+    if (this.formService.currentStep > 1) {
+      this.formService.currentStep--;
+    }
+  }
 
 }
