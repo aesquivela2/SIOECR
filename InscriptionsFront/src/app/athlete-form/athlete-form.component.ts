@@ -122,7 +122,7 @@ export class AthleteFormComponent implements OnInit {
     const selectedId = parseInt(sportId, 10);  // Convertir string a número
 
     // Buscando el deporte en la lista
-    this.selectedSport = this.sports.find(sport => sport.sport.id === selectedId ) || null;
+    this.selectedSport = this.sports.find(sport => sport.id === selectedId ) || null;
 
     console.log("Deporte encontrado: ", this.selectedSport);
   }
