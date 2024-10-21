@@ -31,11 +31,9 @@ class AthleteServiceImplTest {
     void testSaveAthlete() {
         Athlete athlete = new Athlete();
         athlete.setId(1);
-        //doNothing().when(athleteRepository).saveAthlete(athlete);
 
         athleteService.save(athlete);
 
-        //verify(athleteRepository, times(1)).saveAthlete(athlete);
     }
 
     @Test
