@@ -12,9 +12,10 @@
 </div>
 <div class="container">
   <form #athleteForm="ngForm" (ngSubmit)="onSubmit()">
+    <h2>   - Registro de Atleta - </h2>
     <!-- Step 1: Personal Information -->
     <div *ngIf="formService.currentStep === 1" class="section">
-      <h2>Información Personal</h2>
+
       <div class="form-group">
         <app-form></app-form>
       </div>

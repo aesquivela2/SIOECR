@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="cambios a form normal">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/header/header.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/header/header.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/header/header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/navbar/navbar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/navbar/navbar.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/navbar/navbar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/navbar/navbar.component.ts" afterDir="false" />
+    <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="Cambios de vista">
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -329,7 +319,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729487080672</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Cambios de vista">
+      <option name="closed" value="true" />
+      <created>1729489636140</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1729489636140</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,7 +357,8 @@
     <MESSAGE value="Morado - y punto" />
     <MESSAGE value="que pinga" />
     <MESSAGE value="cambios a form normal" />
-    <option name="LAST_COMMIT_MESSAGE" value="cambios a form normal" />
+    <MESSAGE value="Cambios de vista" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios de vista" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
