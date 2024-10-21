@@ -11,7 +11,7 @@ export class AthleteService {
   constructor(private http: HttpClient) {}
 
 
-  createAthlete(athlete: any): Observable<any> {
+  createAthlete(athlete: any, p: { responseType: string }): Observable<any> {
     return this.http.post(this.apiUrl, athlete);
   }
 
