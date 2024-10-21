@@ -75,7 +75,11 @@
          selectedSport?.name === 'Baloncesto' ||
          selectedSport?.name === 'Tennis' ||
          selectedSport?.name === 'Tenis de Mesa' ||
-         selectedSport?.name === 'Futbol'">
+         selectedSport?.name === 'Futbol' ||
+         selectedSport?.name === 'Softball' ||
+         selectedSport?.name === 'Bochas' ||
+         selectedSport?.name === 'Voleibol Playa'
+">
         </app-ping-pong-form>
         <app-athletism-form *ngIf="selectedSport?.name === 'Atletismo'"></app-athletism-form>
         <app-cycling-form *ngIf="selectedSport?.name === 'Ciclismo'"></app-cycling-form>
