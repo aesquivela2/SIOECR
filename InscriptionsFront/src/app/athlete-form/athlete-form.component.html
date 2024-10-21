@@ -88,18 +88,30 @@
         <app-swimming-form *ngIf="selectedSport?.name === 'Natación'"></app-swimming-form>
 
 
-        <!-- Buttons -->
-        <div class="button-group">
-          <div>
-            <button  class="btn-secondary" type="button" (click)="previousStep()">Anterior</button>
+
+        <!-- Mensaje de éxito o error -->
+        <div *ngIf="showMessage" class="alert" [ngClass]="{'success': success, 'error': !success}">
+          <div *ngIf="success">
+            <span class="checkmark">✔</span> Envío exitoso.
           </div>
-          <div>
-            <button  type="submit" [disabled]="!athleteForm.form.valid">Enviar</button>
+          <div *ngIf="!success">
+            <span class="error-mark">✘</span> Hubo un error en el envío.
           </div>
         </div>
-
+        <!-- Botones -->
+        <div class="button-group">
+          <div>
+            <button class="btn-secondary" type="button" (click)="previousStep()">Anterior</button>
+          </div>
+          <div>
+            <button type="submit" [disabled]="!athleteForm.form.valid">Enviar</button>
+          </div>
+        </div>
       </div>
     </div>
   </form>
 </div>
+
+
+
 </body>

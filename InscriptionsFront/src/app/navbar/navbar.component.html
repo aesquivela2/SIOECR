@@ -29,8 +29,9 @@
     <li>
       <a (click)="toggleSubmenu('programas')">Programas ▼</a>
       <ul [class.is_submenu_active]="activeSubmenu === 'programas'" class="submenu">
-        <li><a routerLink="/programa1">Programa 1</a></li>
-        <li><a routerLink="/programa2">Programa 2</a></li>
+        <li><a (click)="navigateTo('volunteer-form')">Familia</a></li>
+        <li><a (click)="navigateTo('volunteer-form')">Salud</a></li>
+        <li><a (click)="navigateTo('volunteer-form')">Educación</a></li>
       </ul>
     </li>
     <li>
@@ -43,7 +44,8 @@
     <li>
       <a (click)="toggleSubmenu('soporte')">Soporte ▼</a>
       <ul [class.is_submenu_active]="activeSubmenu === 'soporte'" class="submenu">
-        <li><a (click)="navigateTo('soporte')">Obtener Soporte</a></li>
+        <li><a (click)="navigateTo('soporte')">Contactos</a></li>
+
       </ul>
     </li>
   </ul>

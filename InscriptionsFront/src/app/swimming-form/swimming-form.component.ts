@@ -1,6 +1,6 @@
-import {Component, Input, ViewChild} from "@angular/core";
+import { Component, Input, ViewChild } from "@angular/core";
 import { FormsModule, NgForm } from "@angular/forms";
-import {NgForOf, NgIf} from "@angular/common";
+import { NgForOf, NgIf } from "@angular/common";
 import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
@@ -13,12 +13,16 @@ import { ChangeDetectorRef } from '@angular/core';
 export class SwimmingFormComponent {
 
   @ViewChild('athleteForm') athleteForm!: NgForm;
-  @Input() swimmingData: any = {};
+  @Input() swimmingData: any = {
+    swimMeters: '',
+    lateralidad: '',
+    category: '',
+    categorySelections: {}
+  };
 
   constructor(private cdr: ChangeDetectorRef) {}
 
   // Athlete data model
-
 
   // Boolean for whether the user selected "Yes" or "No"
   isSwimmer: boolean = false;
@@ -32,7 +36,7 @@ export class SwimmingFormComponent {
     { id: '5', name: 'Categoría 5', options: ['800mts libre', '1500mts libre', '1500mts abiertas', '1500mts abiertas unificado'] }
   ];
 
-  selectedCategory: string  = '';
+  selectedCategory: string = '';
   selectedCategoryOptions: string[] = [];
   minSelectionError: boolean = false;
 

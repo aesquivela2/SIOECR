@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import {NgForOf} from "@angular/common";
 
 
 
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css'],
   standalone: true,
   imports: [
+    NgForOf
 
 
   ],

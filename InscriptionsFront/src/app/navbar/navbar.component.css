@@ -134,3 +134,74 @@ body {
   font-family: 'Ubuntu', sans-serif;
   background-color: #f4f4f4;
 }
+@media (min-width: 768px) {
+  .hamburger {
+    display: none; /* Oculta el menú hamburguesa en pantallas grandes */
+  }
+
+  .menuppal {
+    position: relative;
+    transform: none; /* Evita el desplazamiento fuera de la pantalla */
+    height: auto;
+    width: 100%;
+    background-color: #ff0808;
+    flex-direction: row; /* Menu horizontal */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .menuppal ul {
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .menuppal ul li {
+    position: relative;
+    margin: 0 20px;
+  }
+
+  .menuppal ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    display: block;
+  }
+
+  .menuppal ul li a:hover {
+    color: #ffcccc;
+  }
+
+  /* Submenú en pantallas grandes */
+  .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 1000;
+    white-space: nowrap;
+  }
+
+  .menuppal ul li:hover .submenu {
+    display: block; /* Mostrar submenú al hacer hover */
+  }
+
+  .submenu li a {
+    color: black;
+    font-size: 1rem;
+    padding: 5px 10px;
+  }
+
+  .submenu li a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #ff0808;
+  }
+}

@@ -4,7 +4,7 @@ import { FormService } from '../form/form.service';
 import { Sport } from '../app.component';
 import {FormComponent} from "../form/form.component";
 import {FormsModule} from "@angular/forms";
-import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
+import {NgClass, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {SwimmingFormComponent} from "../swimming-form/swimming-form.component";
 import {PingPongFormComponent} from "../ping-pong-form/ping-pong-form.component";
 import {AthleteService} from "./athlete.service";
@@ -25,7 +25,8 @@ import {AthletismFormComponent} from "../athletism-form/athletism-form.component
     PingPongFormComponent,
     NgOptimizedImage,
     CyclingFormComponent,
-    AthletismFormComponent
+    AthletismFormComponent,
+    NgClass
   ]
 })
 export class AthleteFormComponent implements OnInit {
@@ -41,12 +42,20 @@ export class AthleteFormComponent implements OnInit {
     }
   };
 
+
   constructor(
     protected formService: FormService,
     private sportService: SportService,
     private cdRef: ChangeDetectorRef,
     private athleteService: AthleteService,
+
   ) {}
+
+  showMessage: boolean = false;
+  success: boolean = false;
+
+
+
 
   ngOnInit() {
 
@@ -136,12 +145,24 @@ export class AthleteFormComponent implements OnInit {
   }
 
   onSubmit() {
-
     this.formService.setFormData({laterality: this.athleteData.laterality, sport: this.athleteData.sportInfo});
     console.log(this.athleteData.sportInfo);
-    console.log("Lo que se e nvia ", this.formService.getFormData());
-    this.athleteService.createAthlete(this.formService.getFormData()).subscribe()
+
+    // Simulación de llamada al servicio
+    this.athleteService.createAthlete(this.formService.getFormData()).subscribe(
+      (response) => {
+        // Si el envío es exitoso
+        this.success = true;
+        this.showMessage = true;
+      },
+      (error) => {
+        // Si ocurre un error
+        this.success = false;
+        this.showMessage = true;
+      }
+    );
   }
+
 
   onFileSelected(event: any) {
     const file = event.target.files[0];
