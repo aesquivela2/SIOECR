@@ -5,11 +5,18 @@ body {
   background-color: #f4f4f4;
 }
 
+.image-container {
+  width: 100%;
+  height: auto; /* Deja que la altura sea automática */
+  max-height: 50vh; /* La imagen nunca será más alta que la pantalla */
+  position: relative; /* Necesario para el posicionamiento relativo */
+  overflow: hidden; /* Oculta cualquier parte que se salga del contenedor */
+}
+
 .banner {
-  display: flex; /* Flexbox to align text and form horizontally */
-  margin: auto;
-  width: 100% ;
-  max-height: 400px;
+  width: 100%;
+  object-fit: cover; /* Asegura que la imagen mantenga proporciones */
+  object-position: center; /* Ajusta la imagen para que se vea desde arriba */
 }
 
 .banner-text {
