@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="cambios de vista">
+    <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="Cambios menu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/navbar/navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athletism-form/athletism-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athletism-form/athletism-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athletism-form/athletism-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athletism-form/athletism-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/navbar/navbar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/navbar/navbar.component.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +108,9 @@
     ]
   }
 }]]></component>
+  <component name="Push.Settings">
+    <option name="SHOW_DETAILS_PANEL" value="false" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\aesqu\OneDrive\Universidad\Ciclo I 2024\Progamacion IV\Proyecto2\SIOECR\InscriptionsFront\src\assets" />
@@ -367,7 +372,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729494843975</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Cambios menu">
+      <option name="closed" value="true" />
+      <created>1729496770627</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1729496770627</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -378,7 +391,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/Bayron" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -401,7 +426,8 @@
     <MESSAGE value="descenso a la locura parte 2" />
     <MESSAGE value="Cambios de vista" />
     <MESSAGE value="cambios de vista" />
-    <option name="LAST_COMMIT_MESSAGE" value="cambios de vista" />
+    <MESSAGE value="Cambios menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios menu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

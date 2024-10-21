@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {NgForOf, NgIf} from "@angular/common";
+import {NgForOf, NgIf,CommonModule} from "@angular/common";
 
 @Component({
   selector: 'app-athletism-form',
@@ -30,6 +30,7 @@ export class AthletismFormComponent {
 
   onLevelChange(event: any) {
     const level = +event.target.value;
+    console.log("Nivel seleccionado:", level);
     this.categories = this.levelCategories[level] || [];
     this.selectedCategories = [];
   }

@@ -1,7 +1,4 @@
-<div class="athletism-form">
-  <h2>Formulario de Atletismo</h2>
 
-  <form>
     <div class="form-group">
       <label for="nivel">Seleccione el nivel del atleta:</label>
       <select id="nivel" [(ngModel)]="selectedLevel" name="nivel" (change)="onLevelChange($event)">
@@ -23,9 +20,5 @@
       </div>
     </div>
 
-
-    <button type="submit" class="btn-athletism-form" [disabled]="selectedCategories.length > 2">Enviar</button>
-  </form>
-</div>
 
 
