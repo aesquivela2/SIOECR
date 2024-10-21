@@ -2,6 +2,7 @@ package com.olimpiadas.inscriptionsback.Models;
 
 import jakarta.persistence.*;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @PrimaryKeyJoinColumn
@@ -20,7 +21,9 @@ public class Sport extends Activity {
     private String level;
 
     @OneToMany(mappedBy = "sport", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<SportLevel> sportLevels;
+
 
     public Sport() {
     }

@@ -26,7 +26,7 @@
         <label for="sport">Deporte:</label>
         <select #sportComboBox id="sport" name="sport" required (change)="onSportChange($event)">
           <option value="" disabled selected> Seleccione un deporte</option>
-          <option *ngFor="let sport of sports; trackBy: trackBySportId" [value]="sport.id">{{ sport.sport.name }}</option>
+          <option *ngFor="let sport of sports; trackBy: trackBySportId" [value]="sport.id">{{ sport.name }}</option>
         </select>
       </div>
       <div>
@@ -70,10 +70,10 @@
         </div>
 
         <!-- Ping Pong form for specific sports -->
-        <app-ping-pong-form *ngIf="selectedSport?.sport.name === 'Ping Pong'"></app-ping-pong-form>
+        <app-ping-pong-form *ngIf="selectedSport?.name === 'Ping Pong'"></app-ping-pong-form>
         <app-athletism-form *ngIf="selectedSport?.sport.name === 'Atletismo'"></app-athletism-form>
         <app-cycling-form *ngIf="selectedSport?.sport.name === 'Ciclismo'"></app-cycling-form>
-        <app-swimming-form *ngIf="selectedSport?.sport.name === 'Natacion'"></app-swimming-form>
+        <app-swimming-form *ngIf="selectedSport?.sport.name === 'Natación'"></app-swimming-form>
 
 
         <!-- Buttons -->

@@ -42,7 +42,9 @@ public class Activity {
 
     @ManyToOne
     @JoinColumn(name = "administrator_id", insertable = false, updatable = false)
+    @JsonBackReference
     private Administrator administrator;
+
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "administrator_id", nullable = false)
