@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 
 
 
@@ -10,7 +10,8 @@ import {NgForOf} from "@angular/common";
   styleUrls: ['./home.component.css'],
   standalone: true,
   imports: [
-    NgForOf
+    NgForOf,
+    NgIf
 
 
   ],
@@ -33,8 +34,20 @@ export class HomeComponent {
     this.currentYear = today.getFullYear();
   }
 
+  successMessage: string | null = null;
+
   ngOnInit(): void {
-    this.generateCalendar();
+    // Leer el mensaje de éxito desde localStorage
+    this.successMessage = localStorage.getItem('successMessage');
+
+    // Si hay un mensaje, mostrarlo y luego eliminarlo de localStorage
+    if (this.successMessage) {
+      setTimeout(() => {
+        // Elimina el mensaje después de mostrarlo
+        localStorage.removeItem('successMessage');
+        this.successMessage = null;
+      }, 5000); // El mensaje se muestra durante 5 segundos
+    }
   }
 
   generateCalendar() {

@@ -10,6 +10,7 @@ import {PingPongFormComponent} from "../ping-pong-form/ping-pong-form.component"
 import {AthleteService} from "./athlete.service";
 import {CyclingFormComponent} from "../cycling-form/cycling-form.component";
 import {AthletismFormComponent} from "../athletism-form/athletism-form.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-athlete-form',
@@ -41,6 +42,7 @@ export class AthleteFormComponent implements OnInit {
       laterality: ''
     }
   };
+  private errorMessage: string = '';
 
 
   constructor(
@@ -48,6 +50,7 @@ export class AthleteFormComponent implements OnInit {
     private sportService: SportService,
     private cdRef: ChangeDetectorRef,
     private athleteService: AthleteService,
+    private router: Router
 
   ) {}
 
@@ -145,23 +148,65 @@ export class AthleteFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.formService.setFormData({laterality: this.athleteData.laterality, sport: this.athleteData.sportInfo});
+    // Validación de los campos antes de enviar
+    if (!this.athleteData.laterality || !this.athleteData.sportInfo) {
+      this.success = false;
+      this.showMessage = true;
+      this.errorMessage = 'Por favor, completa todos los campos obligatorios.';
+      return;
+    }
+
+    // Setear los datos en el servicio del formulario
+    this.formService.setFormData({
+      laterality: this.athleteData.laterality,
+      sport: this.athleteData.sportInfo
+    });
+
     console.log(this.athleteData.sportInfo);
 
-    // Simulación de llamada al servicio
-    this.athleteService.createAthlete(this.formService.getFormData()).subscribe(
+    // Forzar el tipo de respuesta como 'text'
+    this.athleteService.createAthlete(this.formService.getFormData(), { responseType: 'text' }).subscribe(
       (response) => {
-        // Si el envío es exitoso
+        // Si el envío es exitoso (aunque la respuesta sea texto), procesamos el éxito
+        console.log('Respuesta del servidor:', response);
         this.success = true;
         this.showMessage = true;
+        this.errorMessage = ''; // Limpia los mensajes de error
+
+        // Guardar mensaje de éxito en localStorage
+        localStorage.setItem('successMessage', 'El atleta fue registrado correctamente.');
+
+        // Redirigir a la página de inicio
+        this.router.navigate(['/inicio']);
       },
       (error) => {
-        // Si ocurre un error
-        this.success = false;
-        this.showMessage = true;
+        // Si ocurre un error, revisamos si tiene estado 200, pero con error de parsing
+        if (error.status === 200) {
+          console.log('El atleta fue guardado, pero hubo un error al parsear la respuesta.');
+          this.success = true;
+          this.showMessage = true;
+          this.errorMessage = 'Atleta guardado correctamente, pero hubo un problema al procesar la respuesta.';
+
+          // Guardar mensaje de éxito en localStorage
+          localStorage.setItem('successMessage', 'El atleta fue registrado correctamente.');
+
+          // Redirigir a la página de inicio
+          this.router.navigate(['/inicio']);
+        } else {
+          // Otros errores se manejan normalmente
+          this.success = false;
+          this.showMessage = true;
+          this.errorMessage = 'Ocurrió un error inesperado. Intenta nuevamente más tarde.';
+        }
+
+        console.error('Error en el envío del formulario:', error);
       }
     );
   }
+
+
+
+
 
 
   onFileSelected(event: any) {
