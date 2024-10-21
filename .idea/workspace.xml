@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="que pinga">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_8_2024_8_25_AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_8_2024_8_25_AM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="cambios a form normal">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/header/header.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/header/header.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/navbar/navbar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/navbar/navbar.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/navbar/navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/navbar/navbar.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -317,7 +321,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728712163996</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="cambios a form normal">
+      <option name="closed" value="true" />
+      <created>1729487080672</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1729487080672</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +358,8 @@
     <MESSAGE value="Me voy a morir elevado a la 2" />
     <MESSAGE value="Morado - y punto" />
     <MESSAGE value="que pinga" />
-    <option name="LAST_COMMIT_MESSAGE" value="que pinga" />
+    <MESSAGE value="cambios a form normal" />
+    <option name="LAST_COMMIT_MESSAGE" value="cambios a form normal" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
