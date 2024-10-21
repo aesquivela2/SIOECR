@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="descenso a la locura parte 4">
+    <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="descenso a la locura parte 5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athletism-form/athletism-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athletism-form/athletism-form.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athletism-form/athletism-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athletism-form/athletism-form.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,7 +245,7 @@
       <workItem from="1728767075322" duration="9121000" />
       <workItem from="1729443566715" duration="609000" />
       <workItem from="1729456223709" duration="5195000" />
-      <workItem from="1729481292140" duration="10064000" />
+      <workItem from="1729481292140" duration="11143000" />
     </task>
     <task id="LOCAL-00001" summary="Front End&#10; - Cambios unicamente visuales &#10; - Una Pagina de inicio y siempre acceso a los formularios formulario general">
       <option name="closed" value="true" />
@@ -369,7 +367,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729491370201</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="descenso a la locura parte 5">
+      <option name="closed" value="true" />
+      <created>1729492492383</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1729492492383</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,7 +409,8 @@
     <MESSAGE value="descenso a la locura parte 2" />
     <MESSAGE value="descenso a la locura parte 3" />
     <MESSAGE value="descenso a la locura parte 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="descenso a la locura parte 4" />
+    <MESSAGE value="descenso a la locura parte 5" />
+    <option name="LAST_COMMIT_MESSAGE" value="descenso a la locura parte 5" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
