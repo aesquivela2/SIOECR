@@ -19,13 +19,11 @@ import {VolunteerService} from "./volunteer.service";
   ]
 })
 export class VolunteerFormComponent implements OnInit {
-  isVolunteer = true;  // Set this flag to true for volunteer registration
+  isVolunteer = true;  
 
-  // Arrays for available days and times
   availableDays: AvailableDay[] = [];
   availableTimes: Time[] = [];
 
-  // Selected days and times for each day
   selectedDays: number[] = [];
   selectedTimes: { [dayId: number]: number[] } = {};  // Dictionary to store times per day
 
@@ -37,19 +35,16 @@ export class VolunteerFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Set form data to track that this is a volunteer registration
     this.formService.setFormData({
       role: 'volunteer',
       availableDays: [],
       availableHours: {}
     });
 
-    // Load available days and times from the services
     this.loadAvailableDays();
     this.loadAvailableTimes();
   }
 
-  // Load available days
   loadAvailableDays() {
     this.availableDaysService.getAllAvailableDays().subscribe(
       (days: AvailableDay[]) => {
@@ -61,7 +56,6 @@ export class VolunteerFormComponent implements OnInit {
     );
   }
 
-  // Load available times
   loadAvailableTimes() {
     this.timeService.getAllTimes().subscribe(
       (times: Time[]) => {
@@ -73,47 +67,40 @@ export class VolunteerFormComponent implements OnInit {
     );
   }
 
-  // Handle day selection change
   onDayChange(dayId: number, event: Event) {
-    const isChecked = (event.target as HTMLInputElement).checked;  // Cast to HTMLInputElement to access `checked`
+    const isChecked = (event.target as HTMLInputElement).checked;  
     if (isChecked) {
       // Add selected day
       this.selectedDays.push(dayId);
-      this.selectedTimes[dayId] = [];  // Initialize an empty array for selected times for this day
+      this.selectedTimes[dayId] = [];  
     } else {
       // Remove unselected day
       this.selectedDays = this.selectedDays.filter(id => id !== dayId);
-      delete this.selectedTimes[dayId];  // Remove times associated with this day
+      delete this.selectedTimes[dayId];  
     }
     this.formService.setFormData({ availableDays: this.selectedDays });
   }
 
-  // Handle time selection change for a specific day
   onTimeChange(dayId: number, timeId: number, event: Event) {
-    const isChecked = (event.target as HTMLInputElement).checked;  // Cast to HTMLInputElement to access `checked`
+    const isChecked = (event.target as HTMLInputElement).checked;  
     if (isChecked) {
-      // Add selected time for the specific day
       this.selectedTimes[dayId].push(timeId);
     } else {
-      // Remove unselected time for the specific day
       this.selectedTimes[dayId] = this.selectedTimes[dayId].filter(id => id !== timeId);
     }
     this.formService.setFormData({ availableHours: this.selectedTimes });
   }
 
-  // Method to move to the next step
   nextStep() {
     this.formService.currentStep++;
   }
 
-  // Method to move to the previous step
   previousStep() {
     this.formService.currentStep--;
   }
 
-  // onSubmit method to handle form submission
   onSubmit() {
-    console.log(this.formService.getFormData());  // Log form data to check the selected days and hours
+    console.log(this.formService.getFormData());  
     this.volunteerService.createVolunteer(this.formService.getFormData()).subscribe(
       response => {
         console.log('Volunteer registration submitted:', response);

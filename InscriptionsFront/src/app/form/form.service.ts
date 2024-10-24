@@ -16,9 +16,8 @@ export class FormService {
    // Métodos para manejar el formData
   setFormData(data: any) {
     console.log('Guardando datos en formData:', data);
-    this.formData = { ...this.formData, ...data };  // Mezcla los nuevos datos con los existentes
+    this.formData = { ...this.formData, ...data };  
   }
-
 
   getFormData() {
     console.log(this.formData)
@@ -29,29 +28,24 @@ export class FormService {
     this.formData = {};
   }
 
-  // Método para buscar por cédula
   searchByCedula(cedula: string, tipoCedula: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/${cedula}?tipoCedula=${tipoCedula}`);
   }
 
-  // Método para crear un atleta (ejemplo)
   createAthlete(athlete: any): Observable<any> {
     return this.http.post(this.apiUrl, athlete);
   }
 
-  // Nuevo método para obtener provincias
   getProvinces(): Observable<any> {
-    return this.http.get('http://localhost:8080/api/provinces');  // Ruta de tu API para provincias
+    return this.http.get('http://localhost:8080/api/provinces'); 
   }
 
-  // Nuevo método para obtener cantones
   getCantons(): Observable<any> {
-    return this.http.get('http://localhost:8080/api/cantons');  // Ruta de tu API para cantones
+    return this.http.get('http://localhost:8080/api/cantons');  
   }
 
-  // Nuevo método para obtener regiones
   getRegions(): Observable<any> {
-    return this.http.get('http://localhost:8080/api/regions');  // Ruta de tu API para regiones
+    return this.http.get('http://localhost:8080/api/regions');  
   }
 
 }

@@ -1,4 +1,3 @@
-/* Hamburger Menu */
 .hamburger {
   position: fixed;
   top: 20px;
@@ -16,7 +15,6 @@
   width: 28px;
   height: 4px;
   transition: all 0.3s ease;
-
 }
 
 .hamburger.is-active .-top {
@@ -31,7 +29,6 @@
   transform: translateY(-10px) rotate(-45deg);
 }
 
-/* Navigation Menu */
 .menuppal {
   position: fixed;
   top: 0;
@@ -47,7 +44,6 @@
   flex-direction: column;
   align-items: center;
   font-family: 'Ubuntu', sans-serif;
-
 }
 
 .menuppal.is_active {
@@ -62,7 +58,6 @@
   margin: auto;
   max-width: 20%;
   font-family: 'Ubuntu', sans-serif;
-
 }
 
 .menuppal ul {
@@ -71,7 +66,6 @@
   text-align: center;
   width: 100%;
   font-family: 'Ubuntu', sans-serif;
-
 }
 
 .menuppal ul li {
@@ -81,7 +75,6 @@
   color: white;
   position: relative;
   font-family: 'Ubuntu', sans-serif;
-
 }
 
 .menuppal ul li a {
@@ -90,16 +83,13 @@
   display: block;
   padding: 10px;
   font-family: 'Ubuntu', sans-serif;
-
 }
 
 .menuppal ul li a:hover {
   color: #ffcccc;
   font-family: 'Ubuntu', sans-serif;
-
 }
 
-/* Submenu */
 .submenu {
   display: none;
   margin-top: 10px;
@@ -113,7 +103,6 @@
   margin: 10px 0;
   font-size: 1.2rem;
   font-family: 'Ubuntu', sans-serif;
-
 }
 
 .submenu li a {
@@ -122,13 +111,13 @@
   display: block;
   background-color: rgba(255, 255, 255, 0.2);
   font-family: 'Ubuntu', sans-serif;
-
 }
 
 .submenu li a:hover {
   background-color: rgba(255, 255, 255, 0.4);
   font-family: 'Ubuntu', sans-serif;
 }
+
 body {
   margin: 0;
   font-family: 'Ubuntu', sans-serif;

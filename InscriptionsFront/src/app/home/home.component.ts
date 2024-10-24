@@ -2,25 +2,20 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {NgForOf, NgIf} from "@angular/common";
 
-
-
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',   // Path to the HTML file
+  templateUrl: './home.component.html',   
   styleUrls: ['./home.component.css'],
   standalone: true,
   imports: [
     NgForOf,
     NgIf
-
-
   ],
-  // Path to the CSS file
 })
 export class HomeComponent {
 
   navigateTo(path: string) {
-    this.router.navigate([`/${path}`]); // Navigate to the desired route
+    this.router.navigate([`/${path}`]); 
   }
 
   currentMonth: number;
@@ -37,16 +32,13 @@ export class HomeComponent {
   successMessage: string | null = null;
 
   ngOnInit(): void {
-    // Leer el mensaje de éxito desde localStorage
     this.successMessage = localStorage.getItem('successMessage');
 
-    // Si hay un mensaje, mostrarlo y luego eliminarlo de localStorage
     if (this.successMessage) {
       setTimeout(() => {
-        // Elimina el mensaje después de mostrarlo
         localStorage.removeItem('successMessage');
         this.successMessage = null;
-      }, 5000); // El mensaje se muestra durante 5 segundos
+      }, 5000); 
     }
   }
 
@@ -57,7 +49,6 @@ export class HomeComponent {
 
     this.calendarDays = [];
 
-    // Add days from previous month to fill empty slots
     for (let i = firstDayOfMonth - 1; i >= 0; i--) {
       this.calendarDays.push({
         date: new Date(this.currentYear, this.currentMonth - 1, daysInPrevMonth - i),
@@ -66,7 +57,6 @@ export class HomeComponent {
       });
     }
 
-    // Add current month days
     for (let i = 1; i <= daysInMonth; i++) {
       const today = new Date();
       this.calendarDays.push({
@@ -76,7 +66,6 @@ export class HomeComponent {
       });
     }
 
-    // Add days from next month to fill remaining slots
     const remainingSlots = 42 - this.calendarDays.length;
     for (let i = 1; i <= remainingSlots; i++) {
       this.calendarDays.push({

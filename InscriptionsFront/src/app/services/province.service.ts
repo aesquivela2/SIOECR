@@ -11,11 +11,11 @@ export interface Province {
   providedIn: 'root'
 })
 export class ProvinceService {
-  private apiUrl = 'http://localhost:8080/api/provinces';  // URL para el endpoint de Province
+  private apiUrl = 'http://localhost:8080/api/provinces';  
 
   constructor(private http: HttpClient) {}
 
   getAllProvinces(): Observable<Province[]> {
-    return this.http.get<Province[]>(this.apiUrl);  // Use the proper HttpClient instance
+    return this.http.get<Province[]>(this.apiUrl);  
   }
 }

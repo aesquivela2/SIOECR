@@ -1,0 +1,22 @@
+Imagen de fondo. 
+Boton de regreso.
+Quitar juridica cedula
+correo validaciones 
+eliminar el campo ninguna de discapacidad
+y borrar
+sabe nadar? queitar por metros
+boton de informacion para explicar las categorias 
+estilo de los botoess 
+Aguas abiertas 
+categoria 2 falta el 50 mariposa
+porque nombre en voluntario 
+validación voluntario
+
+
+Que no se pueda modificar el apellido y nombre despues de aceptar 
+
+Si falta algo que no se de la opcion de enviar 
+
+Eliminar el 506
+
+Agregar rango en voluntario para las horas 

@@ -11,7 +11,7 @@ export interface Region {
   providedIn: 'root'
 })
 export class RegionService {
-  private apiUrl = 'http://localhost:8080/api/regions';  // URL para el endpoint de Region
+  private apiUrl = 'http://localhost:8080/api/regions';  
 
   constructor(private http: HttpClient) {}
 

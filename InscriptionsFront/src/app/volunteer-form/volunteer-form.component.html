@@ -2,11 +2,9 @@
     <header>
       <div class="header-content">
         <img src="assets/logo.jpg" alt="Logo" class="logo">
-        <!-- Saludo personalizado -->
       </div>
     </header>
 
-    <!-- Header that changes based on registration type -->
     <div class="header-container" *ngIf="formService.currentStep === 2">
       <h2 class="header-form">
         Hola {{ formService.getFormData().name }},
@@ -14,29 +12,24 @@
       </h2>
     </div>
 
-    <!-- Form section -->
     <div class="container">
       <form #volunteerForm="ngForm" (ngSubmit)="onSubmit()">
-        <!-- Step 1: Personal Information, same for both athlete and volunteer -->
         <div *ngIf="formService.currentStep === 1" class="section">
           <h2> -Registro Personal</h2>
           <div class="form-group">
-            <app-form></app-form>  <!-- Reuse the FormComponent for both -->
+            <app-form></app-form>  
           </div>
         </div>
 
-        <!-- Step 2: Specific information for volunteer -->
         <div *ngIf="isVolunteer && formService.currentStep === 2" class="section">
           <h2>Información Adicional para Voluntarios</h2>
 
-          <!-- Days of availability with checkboxes -->
           <div id= 'days' class="checkbox-group">
             <label for="days">Días de Disponibilidad</label>
             <div *ngFor="let day of availableDays">
               <input type="checkbox" [value]="day.id" (change)="onDayChange(day.id, $event)">
               <label>{{ day.day_name }}</label>
 
-              <!-- Display hours only if the day is selected -->
               <div *ngIf="selectedDays.includes(day.id)" class="hours-selection">
                 <label>Horas de Disponibilidad para {{ day.day_name }}</label>
                 <div *ngFor="let time of availableTimes">
@@ -47,7 +40,6 @@
             </div>
           </div>
 
-          <!-- Submit button here, only in the second step -->
           <div class="button-group">
             <div>
             <button  class="btn-secondary" type="button" (click)="previousStep()">Anterior</button>

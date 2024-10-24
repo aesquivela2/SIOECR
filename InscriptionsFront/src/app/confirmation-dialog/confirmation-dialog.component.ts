@@ -9,12 +9,12 @@ import {CommonModule} from "@angular/common";
   styleUrl: './confirmation-dialog.component.css'
 })
 export class ConfirmationDialogComponent {
-  @Input() message!: string;  // El mensaje de confirmación que se mostrará
-  @Output() confirmed = new EventEmitter<boolean>();  // Emite el resultado (sí o no)
+  @Input() message!: string;  
+  @Output() confirmed = new EventEmitter<boolean>();  
   showDialog: boolean = true;
 
   confirm(result: boolean) {
-    this.confirmed.emit(result);  // Emitir el resultado de la confirmación
+    this.confirmed.emit(result); 
   }
   closeModal() {
     this.showDialog = false;
