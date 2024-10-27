@@ -288,3 +288,32 @@ input[type="file"]::file-selector-button:active {
   justify-content: space-between; /* Align buttons on opposite sides */
   margin-top: 20px;
 }
+.alert {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.checkmark, .error-mark {
+  font-size: 2rem;
+  margin-right: 10px;
+}
+
+.checkmark {
+  color: green;
+}
+
+.error-mark {
+  color: red;
+}

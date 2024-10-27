@@ -1,4 +1,3 @@
-/* General container styling */
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -8,7 +7,6 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Section header styling */
 .section h2 {
   font-size: 24px;
   color: #333;
@@ -16,7 +14,9 @@
   text-align: center;
 }
 
-
+.form-group {
+  margin-bottom: 25px; 
+}
 
 .form-group label {
   font-size: 16px;
@@ -25,43 +25,47 @@
   margin-bottom: 10px;
 }
 
-.form-group select,
-.form-group input[type="checkbox"] {
+.form-group select {
   width: 100%;
   padding: 10px;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-input[type="checkbox"]:focus {
-  outline: max(2px, 0.15em) solid currentColor;
-  outline-offset: max(2px, 0.15em);
-}
 
-/* Checkbox group styling */
 .checkbox-group {
-
+  display: flex;
+  flex-direction: column;
   gap: 10px;
+  margin-top: 10px;
 }
 
-.checkbox-group label {
-
+.checkbox-option {
+  display: flex;
   align-items: center;
 }
 
-.checkbox-group input {
-  margin-right: 2px;
+.checkbox-option input[type="checkbox"] {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
-/* Error message styling */
+.checkbox-option input[type="checkbox"]:hover {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.checkbox-option input[type="checkbox"]:checked {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.8);
+}
+
 .error {
   color: red;
   font-size: 12px;
   margin-top: 5px;
-  display: block;
 }
 
-/* Button styling */
 button {
   background-color: #007bff;
   color: white;

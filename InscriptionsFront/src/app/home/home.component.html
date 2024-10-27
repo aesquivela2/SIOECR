@@ -1,19 +1,13 @@
 <body>
+<div *ngIf="successMessage" class="success-message">
+  {{ successMessage }}
+</div>
 
 <!-- Banner Image and Form Section -->
 <section>
   <div>
-    <!-- Text on the left -->
-    <img class= "banner" src="assets/running.jpg" >
-
+    <img class="banner" src="assets/running.jpg" alt="Banner">
   </div>
-</section>
-
-<!-- Calendario Section -->
-<section class="calendario">
-  <h2>Calendario</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed diam nonummy eirmod tempor invidunt ut labore et dolore magna.</p>
-  <button class="btn-ver-mas">Ver más</button>
 </section>
 
 <!-- Registro Section -->
@@ -32,13 +26,32 @@
   </div>
 </section>
 
+<!-- Calendario Section -->
+<section class="calendario">
+  <h2>Calendario</h2>
+  <section class="calendar-container">
+    <div class="calendar-header">
+      <button (click)="prevMonth()" class="calendar-nav">&#10094;</button>
+      <div class="calendar-title">{{ monthName }} {{ currentYear }}</div>
+      <button (click)="nextMonth()" class="calendar-nav">&#10095;</button>
+    </div>
+    <div class="calendar-body">
+      <div class="calendar-days">
+        <div class="day" *ngFor="let day of daysOfWeek">{{ day }}</div>
+      </div>
+      <div class="calendar-grid">
+        <div class="calendar-date" *ngFor="let day of calendarDays" [class.today]="day.isToday" [class.other-month]="!day.isCurrentMonth" (click)="selectDate(day.date)">
+          {{ day.date.getDate() }}
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
 <!-- Soporte Section -->
 <section class="soporte">
   <h2>Soporte</h2>
   <p>¿Tienes alguna pregunta? Contáctanos para obtener más información.</p>
   <button class="btn-soporte" (click)="navigateTo('soporte')">Obtener soporte</button>
-
-
 </section>
-
 </body>

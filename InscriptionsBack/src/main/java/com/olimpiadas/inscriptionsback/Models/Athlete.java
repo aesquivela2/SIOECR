@@ -10,7 +10,7 @@ public class Athlete extends Person {
 
     // Relación con Sport
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "sport", nullable = false)
+    @JoinColumn(name = "sport", nullable = true)
     @NotNull(message = "Sport is mandatory") // Asegurarse de que este campo no sea nulo
     private Sport sport;
 

@@ -1,6 +1,6 @@
-import {Component, Input, ViewChild} from "@angular/core";
+import { Component, Input, ViewChild } from "@angular/core";
 import { FormsModule, NgForm } from "@angular/forms";
-import {NgForOf, NgIf} from "@angular/common";
+import { NgForOf, NgIf } from "@angular/common";
 import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
@@ -13,17 +13,18 @@ import { ChangeDetectorRef } from '@angular/core';
 export class SwimmingFormComponent {
 
   @ViewChild('athleteForm') athleteForm!: NgForm;
-  @Input() swimmingData: any = {};
+  @Input() swimmingData: any = {
+    swimMeters: '',
+    lateralidad: '',
+    category: '',
+    categorySelections: {}
+  };
+  @Input() sportName: string = 'Natación';
 
   constructor(private cdr: ChangeDetectorRef) {}
 
-  // Athlete data model
-
-
-  // Boolean for whether the user selected "Yes" or "No"
   isSwimmer: boolean = false;
 
-  // Categories and their respective options
   categories = [
     { id: '1', name: 'Categoría 1', options: ['25mts libre', '25mts dorso', '25mts pecho', '25mts mariposa'] },
     { id: '2', name: 'Categoría 2', options: ['50mts libre', '50mts dorso', '50mts pecho'] },
@@ -32,20 +33,19 @@ export class SwimmingFormComponent {
     { id: '5', name: 'Categoría 5', options: ['800mts libre', '1500mts libre', '1500mts abiertas', '1500mts abiertas unificado'] }
   ];
 
-  selectedCategory: string  = '';
+  selectedCategory: string = '';
   selectedCategoryOptions: string[] = [];
   minSelectionError: boolean = false;
 
-  // Method to handle swimMeters selection
-  onSwimMetersChange(value: string) {
-    this.isSwimmer = value === 'yes';
-    if (!this.isSwimmer) {
-      this.swimmingData.categorySelections = {};  // Clear selections
-    }
-    this.cdr.detectChanges();  // Trigger UI update
+onSwimMetersChange(value: string) {
+  this.isSwimmer = value === 'yes'; 
+  if (!this.isSwimmer) {
+    this.swimmingData.categorySelections = {}; 
+    this.selectedCategoryOptions = []; 
   }
+  this.cdr.detectChanges();  
+}
 
-  // Handle category selection
   onCategoryChange(categoryId: string) {
     this.selectedCategory = categoryId;
     const category = this.categories.find(cat => cat.id === categoryId);
@@ -55,7 +55,6 @@ export class SwimmingFormComponent {
     this.cdr.detectChanges();
   }
 
-  // Handle selection of category options
   onCategoryOptionSelect(option: string) {
     const categoryId = this.selectedCategory;
 
@@ -75,12 +74,10 @@ export class SwimmingFormComponent {
     this.checkMinSelection(categoryId);
   }
 
-  // Check if the minimum number of category options (2) are selected
   checkMinSelection(categoryId: string) {
     this.minSelectionError = this.swimmingData.categorySelections[categoryId]?.length < 2;
   }
 
-  // Handle form submission with validation
   onSubmit() {
     if (this.minSelectionError) {
       console.log('Please select at least two options.');

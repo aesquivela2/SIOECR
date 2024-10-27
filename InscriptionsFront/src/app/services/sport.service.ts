@@ -13,7 +13,7 @@ export class SportService {
 
 
   getAllSports(): Observable<any> {
-    return this.http.get('http://localhost:8080/api/sports');  // Ruta de tu API para cantones
+    return this.http.get('http://localhost:8080/api/sports');  
   }
 
 }
