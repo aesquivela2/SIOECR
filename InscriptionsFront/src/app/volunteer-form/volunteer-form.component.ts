@@ -19,7 +19,7 @@ import {VolunteerService} from "./volunteer.service";
   ]
 })
 export class VolunteerFormComponent implements OnInit {
-  isVolunteer = true;  
+  isVolunteer = true;
 
   availableDays: AvailableDay[] = [];
   availableTimes: Time[] = [];
@@ -68,21 +68,21 @@ export class VolunteerFormComponent implements OnInit {
   }
 
   onDayChange(dayId: number, event: Event) {
-    const isChecked = (event.target as HTMLInputElement).checked;  
+    const isChecked = (event.target as HTMLInputElement).checked;
     if (isChecked) {
       // Add selected day
       this.selectedDays.push(dayId);
-      this.selectedTimes[dayId] = [];  
+      this.selectedTimes[dayId] = [];
     } else {
       // Remove unselected day
       this.selectedDays = this.selectedDays.filter(id => id !== dayId);
-      delete this.selectedTimes[dayId];  
+      delete this.selectedTimes[dayId];
     }
     this.formService.setFormData({ availableDays: this.selectedDays });
   }
 
   onTimeChange(dayId: number, timeId: number, event: Event) {
-    const isChecked = (event.target as HTMLInputElement).checked;  
+    const isChecked = (event.target as HTMLInputElement).checked;
     if (isChecked) {
       this.selectedTimes[dayId].push(timeId);
     } else {
@@ -100,7 +100,37 @@ export class VolunteerFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.formService.getFormData());  
+    const personalData= this.formService.getFormData();
+    // Construye el arreglo completo de días disponibles, cada uno con la estructura completa
+    const availableDays = this.selectedDays.map(dayId => ({
+      availableDay: {
+        id: dayId,
+        day_name: this.availableDays.find(day => day.id === dayId)?.day_name || ''
+      },
+      volunteer: { id: this.formService.getFormData().id }
+    }));
+
+    // Construye el arreglo completo de horas seleccionadas para cada día
+    const availableHours = Object.entries(this.selectedTimes).map(([dayId, times]) => ({
+      availableDay: {
+        id: parseInt(dayId, 10),
+        day_name: this.availableDays.find(day => day.id === parseInt(dayId, 10))?.day_name || ''
+      },
+      times: times.map(timeId => ({
+        id: timeId,
+        hour: this.availableTimes.find(time => time.id === timeId)?.hour || '',
+        minutes: this.availableTimes.find(time => time.id === timeId)?.minutes || ''
+      })),
+      volunteer: { id: this.formService.getFormData().id }
+    }));
+
+    // Preparar el objeto completo con toda la información
+    this.formService.setFormData({
+      availableDays: this.availableDays,
+      availableHours: this.availableTimes
+    });
+
+    // Envía el formulario completo al backend
     this.volunteerService.createVolunteer(this.formService.getFormData()).subscribe(
       response => {
         console.log('Volunteer registration submitted:', response);
@@ -110,4 +140,7 @@ export class VolunteerFormComponent implements OnInit {
       }
     );
   }
+
+
+
 }

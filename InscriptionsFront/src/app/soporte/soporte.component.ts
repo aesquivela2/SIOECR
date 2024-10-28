@@ -9,9 +9,9 @@ import { Component } from '@angular/core';
 })
 export class SoporteComponent {
   contactos = [
-    { region: 'Región Central', email: 'hola@olimpiadasespeciales.cr', telefono: '+506 2224 0000', horario: 'Lunes a Viernes, 9:00 AM - 5:00 PM' },
-    { region: 'Región Chorotega', email: 'hola@olimpiadasespeciales.cr', telefono: '+506 2224 0000', horario: 'Lunes a Viernes, 9:00 AM - 5:00 PM' },
-    { region: 'Región Brunca', email: 'hola@olimpiadasespeciales.cr', telefono: '+506 2224 0000', horario: 'Lunes a Viernes, 9:00 AM - 5:00 PM' },
-    { region: 'Región Caribe', email: 'hola@olimpiadasespeciales.cr', telefono: '+506 2224 0000', horario: 'Lunes a Viernes, 9:00 AM - 5:00 PM' }
+    { region_id: 'Región Central', email: 'hola@olimpiadasespeciales.cr', telefono: '+506 2224 0000', horario: 'Lunes a Viernes, 9:00 AM - 5:00 PM' },
+    { region_id: 'Región Chorotega', email: 'hola@olimpiadasespeciales.cr', telefono: '+506 2224 0000', horario: 'Lunes a Viernes, 9:00 AM - 5:00 PM' },
+    { region_id: 'Región Brunca', email: 'hola@olimpiadasespeciales.cr', telefono: '+506 2224 0000', horario: 'Lunes a Viernes, 9:00 AM - 5:00 PM' },
+    { region_id: 'Región Caribe', email: 'hola@olimpiadasespeciales.cr', telefono: '+506 2224 0000', horario: 'Lunes a Viernes, 9:00 AM - 5:00 PM' }
   ];
 }

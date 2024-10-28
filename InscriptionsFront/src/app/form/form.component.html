@@ -1,9 +1,9 @@
-<head>  
+<head>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <form #registrationForm="ngForm" (ngSubmit)="collectFormData()" novalidate>
-  
+
   <div class="form-group" *ngIf="currentStep === 1">
     <label name="idType">Tipo de Identificación:</label>
     <select id="idType" name="idType" [(ngModel)]="registration.idType" #idType="ngModel" required>
@@ -13,7 +13,7 @@
     </select>
     <div *ngIf="idType.invalid && (idType.touched || registrationForm.submitted)">
       <small class="error">El tipo de identificación es requerido.</small>
-    </div>    
+    </div>
   </div>
 
   <div class="form-group">
@@ -21,7 +21,7 @@
     <input
       type="text"
       id="identification"
-      name="identification" 
+      name="identification"
       [(ngModel)]="registration.identification"
       (ngModelChange)="applyIdentificationFormat()"
       #identification="ngModel"
@@ -50,7 +50,7 @@
       [disabled]="loading"
       (ngModelChange)="onNameChange($event)"
     />
-    
+
     <div *ngIf="name.invalid && (name.touched || registrationForm.submitted)">
       <small class="error" *ngIf="name.errors?.['required']">El nombre es requerido.</small>
     </div>
@@ -77,7 +77,7 @@
       required
       (ngModelChange)="onLastNameChange($event)"
     />
-   
+
     <div *ngIf="lastname.invalid && (lastname.touched || registrationForm.submitted)">
       <small class="error" *ngIf="lastname.errors?.['required']">Los apellidos son requeridos.</small>
     </div>
@@ -86,7 +86,7 @@
   <div class="form-group">
     <label name="birthdate-day">Fecha de Nacimiento:</label>
     <div class="container-birthdate">
-      
+
       <span>
         <label name="birthdate-day"> Día </label>
         <select id="birthdate-day" name="birthdate-day" [(ngModel)]="selectedDay" (ngModelChange)="onDayChange($event)" #birthdateDay="ngModel" required>
@@ -94,7 +94,7 @@
           <option *ngFor="let day of days" [value]="day">{{ day }}</option>
         </select>
         <div *ngIf="birthdateDay.invalid && (birthdateDay.touched || registrationForm.submitted)">
-          <small class="error">El día es requerido.</small> 
+          <small class="error">El día es requerido.</small>
         </div>
       </span>
 
@@ -105,7 +105,7 @@
           <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
         </select>
         <div *ngIf="birthdateMonth.invalid && (birthdateMonth.touched || registrationForm.submitted)">
-          <small class="error">El mes es requerido.</small> 
+          <small class="error">El mes es requerido.</small>
         </div>
       </span>
 
@@ -116,7 +116,7 @@
           <option *ngFor="let year of years" [value]="year">{{ year }}</option>
         </select>
         <div *ngIf="birthdateYear.invalid && (birthdateYear.touched || registrationForm.submitted)">
-          <small class="error">El año es requerido.</small> 
+          <small class="error">El año es requerido.</small>
         </div>
       </span>
 
@@ -150,7 +150,7 @@
     <input
       type="text"
       id="phone_number"
-      name="phone_number" 
+      name="phone_number"
       [(ngModel)]="registration.phone_number"
       (input)="applyPhoneNumberMask()"
       #phone_number="ngModel"
@@ -178,7 +178,7 @@
   <div *ngIf="registration.citizenship === 'nacional'">
     <div class="form-group">
       <label name="province">Provincia:</label>
-      <select id="province" name="province" [(ngModel)]="registration.province" (ngModelChange)="onProvinceChange($event)" #province="ngModel" required>
+      <select id="province" name="province" [(ngModel)]="registration.province_id" (ngModelChange)="onProvinceChange($event)" #province="ngModel" required>
         <option value="" disabled selected>Seleccione una provincia</option>
         <option *ngFor="let province of provinces" [ngValue]="province">{{ province.name }}</option>
       </select>
@@ -189,7 +189,7 @@
 
     <div class="form-group">
       <label name="canton">Cantón:</label>
-      <select id="canton" name="canton" [(ngModel)]="registration.canton" #canton="ngModel" required [disabled]="!registration.province || cantons.length === 0">
+      <select id="canton" name="canton" [(ngModel)]="registration.canton_id" #canton="ngModel" required [disabled]="!registration.province_id || cantons.length === 0">
         <option value="" disabled selected>Seleccione un cantón</option>
         <option *ngFor="let canton of cantons" [ngValue]="canton">{{ canton.name }}</option>
       </select>
@@ -200,7 +200,7 @@
 
     <div class="form-group">
       <label name="region">Región:</label>
-      <select id="region" name="region" [(ngModel)]="registration.region" #region="ngModel" required>
+      <select id="region" name="region" [(ngModel)]="registration.region_id" #region="ngModel" required>
         <option *ngFor="let region of regions" [ngValue]="region">{{ region.name }}</option>
       </select>
       <div *ngIf="region.invalid && (region.touched || registrationForm.submitted)">
@@ -241,5 +241,6 @@
 
   <div class="button-group">
     <button type="submit">Siguiente</button>
+    <button type="button" (click)="navigateToHome()">Regresar a Página Principal</button>
   </div>
 </form>
