@@ -1,15 +1,10 @@
-body {
-  margin: 0;
-  font-family: 'Ubuntu', sans-serif;
-  background-color: #f4f4f4;
-}
-
 .contact-section {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 40px 20px;
   background-color: white;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .region {

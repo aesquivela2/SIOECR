@@ -145,6 +145,7 @@ button:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
+
 #button-group-regreso {
   display: flex;
   justify-content: space-between;
@@ -162,13 +163,13 @@ button:hover {
 }
 
 #button-group-regreso button[type="submit"] {
-  background-color: #4CAF50;
+  background-color: red;
   color: white;
-  border-color: #4CAF50;
+  border-color: black;
 }
 
 #button-group-regreso button[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: darkred;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
 
