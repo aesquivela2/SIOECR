@@ -41,7 +41,8 @@ export class AthleteFormComponent implements OnInit {
     sportInfo: {
       disability: '',
       sport: '',
-      laterality: ''
+      laterality: '',
+      disabilityProof: null
     }
   };
 
@@ -156,6 +157,12 @@ export class AthleteFormComponent implements OnInit {
       return;
     }
 
+    if(!this.athleteData.sportInfo.disabilityProof) {
+      this.showMessage = true;
+      this.errorMessage = 'Por favor, suba el comprobante de discapacidad';
+      return;
+    }
+
     const athleteDataToSubmit = {
       ...personalData,
       sport: this.selectedSport ? this.selectedSport : null,
@@ -191,8 +198,8 @@ export class AthleteFormComponent implements OnInit {
     );
   }
 
-  onFileSelected(event: any) {
-    const file = event.target.files[0];
+  onFileSelected(event: Event) {
+    const file = (event.target as HTMLInputElement).files?.[0];
     if (file && file.type === 'application/pdf') {
       this.athleteData.sportInfo.disabilityProof = file;
       this.formService.setFormData({ disabilityProof: file });
