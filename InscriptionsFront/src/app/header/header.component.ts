@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {NgOptimizedImage} from "@angular/common";
+import { Router } from '@angular/router';
+import { NgOptimizedImage } from "@angular/common";
 
 @Component({
   selector: 'app-header',
@@ -8,8 +9,13 @@ import {NgOptimizedImage} from "@angular/common";
     NgOptimizedImage
   ],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  constructor(private router: Router) {}
 
+  navigateTo(path: string) {
+    this.router.navigate([`/${path}`]);
+  }
 }
+
