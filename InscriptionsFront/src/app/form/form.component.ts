@@ -49,14 +49,14 @@ export class FormComponent implements OnInit {
     identification: '',
     name: '',
     birthdate: '' as string | Date,
-    canton: null as Canton | null | undefined,
+    canton_id: null as Canton | null | undefined,
     citizenship: undefined as string | undefined,
     email: '',
     idType: 'física',
     nationality: null as string | null,
     phone_number: '',
-    province: null as Province | null | undefined,
-    region: null as Region | null | undefined,
+    province_id: null as Province | null | undefined,
+    region_id: null as Region | null | undefined,
     worldRegion: null as string | null | undefined,
     country: undefined as string | null | undefined,
     lastname: ''
@@ -381,9 +381,9 @@ export class FormComponent implements OnInit {
   }
 
   onProvinceChange(province: Province | null) {
-    this.registration.province = province;
+    this.registration.province_id = province;
     this.filterCantonsByProvince(province ? province.id : null);
-    this.registration.canton = null;
+    this.registration.canton_id = null;
   }
 
   onRegionChange($event: any) {
@@ -397,14 +397,15 @@ export class FormComponent implements OnInit {
     this.formService.getProvinces().subscribe(
       data => {
         this.provinces = data;
-
-        if (this.registration.province) {
-          this.registration.province = this.provinces.find(
-            (province) => province.id === this.registration.province?.id
+        // Establecer provincia seleccionada previamente
+        if (this.registration.province_id) {
+          this.registration.province_id = this.provinces.find(
+            (province) => province.id === this.registration.province_id?.id
           ) || null;
 
-          if (this.registration.province) {
-            this.filterCantonsByProvince(this.registration.province.id);
+          // Cargar cantones solo si ya hay una provincia seleccionada
+          if (this.registration.province_id) {
+            this.filterCantonsByProvince(this.registration.province_id.id);
           }
         }
       },
@@ -416,11 +417,14 @@ export class FormComponent implements OnInit {
 
   loadCantons() {
     this.formService.getCantons().subscribe(
-      data => {
-        this.cantons = data;
+      (data: Canton[]) => { // especificamos el tipo de 'data'
+        this.cantons = data.filter((canton: Canton) => canton.provinceId === this.registration.province_id?.id); // especificamos el tipo de 'canton'
 
-        if (this.registration.canton) {
-          this.formService.setFormData({ canton: this.registration.canton });
+        // Establecer cantón previamente seleccionado
+        if (this.registration.canton_id) {
+          this.registration.canton_id = this.cantons.find(
+            (canton: Canton) => canton.id === this.registration.canton_id?.id
+          ) || null;
         }
       },
       error => {
@@ -429,13 +433,14 @@ export class FormComponent implements OnInit {
     );
   }
 
+
   loadRegions() {
     this.formService.getRegions().subscribe(
       data => {
         this.regions = data;
-
-        if (this.registration.region) {
-          this.registration.region = this.regions.find(region => region.id === this.registration.region?.id) || null;
+        // Establecer región seleccionada previamente
+        if (this.registration.region_id) {
+          this.registration.region_id = this.regions.find(region => region.id === this.registration.region_id?.id) || null;
         }
       },
       error => {
@@ -443,6 +448,7 @@ export class FormComponent implements OnInit {
       }
     );
   }
+
 
   collectFormData() {
     if (!this.registrationForm) {
@@ -462,9 +468,9 @@ export class FormComponent implements OnInit {
         email: this.registration.email || null,
         phone_number: this.registration.phone_number || null,
         citizenship: this.registration.citizenship || null,
-        province_id: this.registration.province ? this.registration.province : null,
-        canton_id: this.registration.canton ? this.registration.canton : null,
-        region_id: this.registration.region ? this.registration.region : null,
+        province_id: this.registration.province_id ? this.registration.province_id : null,
+        canton_id: this.registration.canton_id ? this.registration.canton_id : null,
+        region_id: this.registration.region_id ? this.registration.region_id : null,
         nationality: this.registration.nationality || null
       };
       this.formService.setFormData(personalDataToStore);
@@ -536,8 +542,8 @@ export class FormComponent implements OnInit {
       this.formService.getCantons().subscribe(
         (cantons: Canton[]) => {
           this.cantons = cantons.filter(canton => canton.provinceId === provinceId);
-          if (this.registration.canton) {
-            this.registration.canton = this.cantons.find(canton => canton.id === this.registration.canton?.id) || null;
+          if (this.registration.canton_id) {
+            this.registration.canton_id = this.cantons.find(canton => canton.id === this.registration.canton_id?.id) || null;
           }
         },
         error => {
@@ -577,7 +583,7 @@ export class FormComponent implements OnInit {
 
   nextStep() {
     this.formService.setFormData({
-      identification: this.registration.identification,
+    identification: this.registration.identification,
     idType: this.registration.idType,
     name: this.registration.name,
     lastname: this.registration.lastname,
@@ -585,9 +591,9 @@ export class FormComponent implements OnInit {
     email: this.registration.email,
     phone_number: this.registration.phone_number,
     citizenship: this.registration.citizenship,
-    province_id: this.registration.province,
-    canton_id: this.registration.canton,
-    region_id: this.registration.region,
+    province_id: this.registration.province_id,
+    canton_id: this.registration.canton_id,
+    region_id: this.registration.region_id,
     worldRegion: this.registration.worldRegion,
     country: this.registration.country,
     selectedDay: this.selectedDay,
@@ -601,29 +607,41 @@ export class FormComponent implements OnInit {
   }
 
   previousStep() {
+    // Almacenar datos actuales en el servicio
     this.formService.setFormData({
       identification: this.registration.identification,
-    idType: this.registration.idType,
-    name: this.registration.name,
-    lastname: this.registration.lastname,
-    birthdate: this.registration.birthdate,
-    email: this.registration.email,
-    phone_number: this.registration.phone_number,
-    citizenship: this.registration.citizenship,
-    province: this.registration.province,
-    canton: this.registration.canton,
-    region: this.registration.region,
-    worldRegion: this.registration.worldRegion,
-    country: this.registration.country,
-    selectedDay: this.selectedDay,
-    selectedMonth: this.selectedMonth,
-    selectedYear: this.selectedYear
+      idType: this.registration.idType,
+      name: this.registration.name,
+      lastname: this.registration.lastname,
+      birthdate: this.registration.birthdate,
+      email: this.registration.email,
+      phone_number: this.registration.phone_number,
+      citizenship: this.registration.citizenship,
+      province_id: this.registration.province_id,
+      canton_id: this.registration.canton_id,
+      region_id: this.registration.region_id,
+      worldRegion: this.registration.worldRegion,
+      country: this.registration.country,
+      selectedDay: this.selectedDay,
+      selectedMonth: this.selectedMonth,
+      selectedYear: this.selectedYear
     });
 
+    // Cambiar de paso y repoblar datos guardados si existen
     if (this.formService.currentStep > 1) {
       this.formService.currentStep--;
+
+      // Cargar provincias y, si hay una seleccionada, cargar cantones y región según corresponda
+      this.loadProvinces();
+      if (this.registration.province_id) {
+        this.filterCantonsByProvince(this.registration.province_id.id);
+      }
+      if (this.registration.region_id) {
+        this.loadRegions();
+      }
     }
   }
+
 
   submitForm() {
     const personalData = {
@@ -634,9 +652,9 @@ export class FormComponent implements OnInit {
         email: this.registration.email,
         phone_number: this.registration.phone_number,
         citizenship: this.registration.citizenship,
-        province_id: this.registration.province ? this.registration.province : null,
-        canton_id: this.registration.canton ? this.registration.canton : null,
-        region_id: this.registration.region ? this.registration.region : null,
+        province_id: this.registration.province_id ? this.registration.province_id : null,
+        canton_id: this.registration.canton_id ? this.registration.canton_id : null,
+        region_id: this.registration.region_id ? this.registration.region_id : null,
         nationality: this.registration.nationality
     };
     this.formService.createAthlete(personalData).subscribe(response => {
