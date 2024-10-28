@@ -50,8 +50,8 @@
   transform: translateX(0);
 }
 
-.menu-logo img {
-  max-width: 150px;
+.logo {
+  max-width: 200px;
   margin: 40px 0;
 }
 .banner {
