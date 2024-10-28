@@ -33,8 +33,8 @@ import {Router} from "@angular/router";
 
 export class AthleteFormComponent implements OnInit {
   @ViewChild('sportComboBox', { static: false }) sportComboBox!: ElementRef;
-  sports: Sport[] = []; 
-  selectedSport: Sport | null = null; 
+  sports: Sport[] = [];
+  selectedSport: Sport | null = null;
   selectedSportId: number | null = null;
   loading = false;
   athleteData: any = {
@@ -60,14 +60,14 @@ export class AthleteFormComponent implements OnInit {
   success: boolean = false;
 
   ngOnInit() {
-    this.loadSports(); 
-  
+    this.loadSports();
+
     const storedData = this.formService.getFormData();
     if (storedData.disabilityProof) {
-      this.athleteData.sportInfo.disabilityProof = storedData.disabilityProof; 
+      this.athleteData.sportInfo.disabilityProof = storedData.disabilityProof;
     }
   }
-  
+
   checkAndFillComboBox() {
     if (this.sportComboBox && this.sportComboBox.nativeElement) {
       this.fillComboBox();
@@ -80,14 +80,14 @@ export class AthleteFormComponent implements OnInit {
     this.loading = true;
     this.sportService.getAllSports().subscribe(
       (response: any) => {
-        console.log('Datos recibidos:', response);  
+        console.log('Datos recibidos:', response);
 
         if (Array.isArray(response)) {
           this.sports = response;
         } else if (response && typeof response === 'object') {
-          this.sports = [response];  
+          this.sports = [response];
         }
-        this.loading = false; 
+        this.loading = false;
         this.checkAndFillComboBox();
       },
       (error) => {
@@ -110,7 +110,7 @@ export class AthleteFormComponent implements OnInit {
       if (sport && sport.id && sport.name) {
         const option = document.createElement('option');
         option.value = sport.id.toString();
-        option.text = sport.name;  
+        option.text = sport.name;
         selectElement.appendChild(option);
       } else {
         console.error('El objeto sport no tiene las propiedades adecuadas:', sport);
@@ -118,35 +118,36 @@ export class AthleteFormComponent implements OnInit {
     });
   }
 
-  onSportChange(selectedSport: Sport | null) {
-    this.selectedSport = selectedSport;
-  
-    if (this.selectedSport) {
-      this.athleteData.sportInfo.sport = this.selectedSport.name; 
-      this.formService.setFormData({ sport: this.selectedSport.name, sportId: this.selectedSport.id });
-    } else {
-      this.athleteData.sportInfo.sport = null;
-      this.formService.setFormData({ sport: null, sportId: null });
-    }
-  
-    console.log('Deporte seleccionado:', this.selectedSport);
+  onSportChange(event: Event) {
+    const selectElement = event.target as HTMLSelectElement;
+    const sportId = selectElement.value;  // Obtener el valor seleccionado
+
+    console.log("Elemento seleccionado: ", selectElement);
+    console.log("ID del deporte seleccionado: ", sportId);
+
+    const selectedId = parseInt(sportId, 10);  // Convertir string a número
+
+    // Buscando el deporte en la lista
+    this.selectedSport = this.sports.find(sport => sport.id === selectedId ) || null;
+
+    console.log("Deporte encontrado: ", this.selectedSport);
   }
 
   previousStep() {
     this.formService.setFormData({
       laterality: this.athleteData.laterality,
       sport: this.athleteData.sportInfo.sport,
-      disabilityProof: this.athleteData.sportInfo.disabilityProof 
+      disabilityProof: this.athleteData.sportInfo.disabilityProof
     });
-  
+
     if (this.formService.currentStep > 1) {
       this.formService.currentStep--;
     }
   }
-  
+
   onSubmit() {
     const personalData = this.formService.getFormData();
-  
+
     if (!personalData.identification || !personalData.name || !personalData.nationality) {
       console.log("Datos incompletos en el primer formulario:", personalData);
       this.success = false;
@@ -154,21 +155,21 @@ export class AthleteFormComponent implements OnInit {
       this.errorMessage = 'Por favor, completa los campos obligatorios del primer formulario.';
       return;
     }
-  
+
     const athleteDataToSubmit = {
-      ...personalData,  
-      sport: this.selectedSport ? this.selectedSport.name : null,   
+      ...personalData,
+      sport: this.selectedSport ? this.selectedSport : null,
       laterality: this.athleteData.laterality || null,
       disability: this.athleteData.sportInfo.disability || null,
       disabilityProof: this.athleteData.sportInfo.disabilityProof || null
     };
-  
+
     this.athleteService.createAthlete(athleteDataToSubmit, { responseType: 'text' }).subscribe(
       (response) => {
         console.log('Atleta creado exitosamente:', response);
         this.success = true;
         this.showMessage = true;
-        this.errorMessage = ''; 
+        this.errorMessage = '';
         localStorage.setItem('successMessage', 'El atleta fue registrado correctamente.');
         this.router.navigate(['/inicio']);
       },
@@ -189,7 +190,7 @@ export class AthleteFormComponent implements OnInit {
       }
     );
   }
-   
+
   onFileSelected(event: any) {
     const file = event.target.files[0];
     if (file && file.type === 'application/pdf') {

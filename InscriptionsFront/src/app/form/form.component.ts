@@ -38,11 +38,11 @@ export interface Sport {
 })
 
 export class FormComponent implements OnInit {
- 
+
   @ViewChild('registrationForm', { static: false }) registrationForm!: NgForm;
 
   currentStep = 1;
-  sports: Sport[] = []; 
+  sports: Sport[] = [];
 
   // Form model with initial values
   registration = {
@@ -61,15 +61,15 @@ export class FormComponent implements OnInit {
     country: undefined as string | null | undefined,
     lastname: ''
   };
-  selectedSport: Sport | null = null; 
-  laterality: string | null = null; 
-  disability: string | null = null; 
-  disabilityProof: File | null = null; 
+  selectedSport: Sport | null = null;
+  laterality: string | null = null;
+  disability: string | null = null;
+  disabilityProof: File | null = null;
   loading = false;
-  showConfirmation = false; 
-  confirmationMessage = ''; 
-  showFormValidationDialog: boolean = false; 
-  confirmationMessageForm = ''; 
+  showConfirmation = false;
+  confirmationMessage = '';
+  showFormValidationDialog: boolean = false;
+  confirmationMessageForm = '';
 
   birthdateError: any;
 
@@ -135,17 +135,17 @@ export class FormComponent implements OnInit {
     if (formData) {
       this.registration = {
         ...this.registration,
-        ...formData 
+        ...formData
       };
 
       this.selectedDay = formData.selectedDay || null;
       this.selectedMonth = formData.selectedMonth || null;
       this.selectedYear = formData.selectedYear || null;
-      
+
       if (this.selectedDay && this.selectedMonth && this.selectedYear) {
         this.registration.birthdate = new Date(this.selectedYear, this.selectedMonth - 1, this.selectedDay);
       }
-      
+
     }
     this.loadProvinces();
     this.populateYears();
@@ -180,19 +180,19 @@ export class FormComponent implements OnInit {
     if (this.selectedDay && this.selectedMonth && this.selectedYear) {
       const selectedDate = new Date(this.selectedYear, this.selectedMonth - 1, this.selectedDay);
       const currentDate = new Date();
-      const minDate = new Date(currentDate.getFullYear() - 70, 0, 1);  
-      const maxDate = new Date(currentDate.getFullYear() - 18, 11, 31); 
-      
+      const minDate = new Date(currentDate.getFullYear() - 70, 0, 1);
+      const maxDate = new Date(currentDate.getFullYear() - 18, 11, 31);
+
       if (selectedDate >= minDate && selectedDate <= maxDate && !isNaN(selectedDate.getTime())) {
         this.invalidDate = false;
-        this.birthdateError = null;  
+        this.birthdateError = null;
       } else {
         this.invalidDate = true;
-        this.birthdateError = 'La fecha debe estar entre hace 70 y 18 años.';  
+        this.birthdateError = 'La fecha debe estar entre hace 70 y 18 años.';
       }
     } else {
       this.invalidDate = false;
-      this.birthdateError = null; 
+      this.birthdateError = null;
     }
   }
 
@@ -200,7 +200,7 @@ export class FormComponent implements OnInit {
     this.registration.nationality = this.registration.citizenship === 'nacional' ? 'Costarricense' : null;
     this.formDataService.setFormData({ nationality: this.registration.nationality });
   }
-  
+
 
   getIdentificationPattern() {
     switch (this.registration.idType) {
@@ -317,7 +317,7 @@ export class FormComponent implements OnInit {
         }
       );
     }
-  }  
+  }
 
   applyPhoneNumberMask() {
     let value = this.registration.phone_number.replace(/\D/g, '');
@@ -340,12 +340,12 @@ export class FormComponent implements OnInit {
   }
 
   private showErrorDialog(message: string) {
-    alert(message); 
+    alert(message);
   }
 
   private showConfirmationDialog(message: string): Promise<boolean> {
     return new Promise((resolve) => {
-      const confirmed = confirm(message); 
+      const confirmed = confirm(message);
       resolve(confirmed);
     });
   }
@@ -379,13 +379,13 @@ export class FormComponent implements OnInit {
     this.registration.nationality = this.registration.citizenship === 'nacional' ? 'Costarricense' : null;
     this.formDataService.setFormData({ nationality: this.registration.nationality });
   }
-  
+
   onProvinceChange(province: Province | null) {
     this.registration.province = province;
     this.filterCantonsByProvince(province ? province.id : null);
     this.registration.canton = null;
   }
-  
+
   onRegionChange($event: any) {
     if (this.registration.worldRegion) {
       this.latinAmericanCountries = this.worldRegions[this.registration.worldRegion] || [];
@@ -397,12 +397,12 @@ export class FormComponent implements OnInit {
     this.formService.getProvinces().subscribe(
       data => {
         this.provinces = data;
-  
+
         if (this.registration.province) {
           this.registration.province = this.provinces.find(
             (province) => province.id === this.registration.province?.id
           ) || null;
-  
+
           if (this.registration.province) {
             this.filterCantonsByProvince(this.registration.province.id);
           }
@@ -413,7 +413,7 @@ export class FormComponent implements OnInit {
       }
     );
   }
-  
+
   loadCantons() {
     this.formService.getCantons().subscribe(
       data => {
@@ -433,7 +433,7 @@ export class FormComponent implements OnInit {
     this.formService.getRegions().subscribe(
       data => {
         this.regions = data;
-  
+
         if (this.registration.region) {
           this.registration.region = this.regions.find(region => region.id === this.registration.region?.id) || null;
         }
@@ -443,7 +443,7 @@ export class FormComponent implements OnInit {
       }
     );
   }
-  
+
   collectFormData() {
     if (!this.registrationForm) {
       console.error('Formulario no inicializado');
@@ -462,18 +462,18 @@ export class FormComponent implements OnInit {
         email: this.registration.email || null,
         phone_number: this.registration.phone_number || null,
         citizenship: this.registration.citizenship || null,
-        province_id: this.registration.province ? this.registration.province.id : null,
-        canton_id: this.registration.canton ? this.registration.canton.id : null,
-        region_id: this.registration.region ? this.registration.region.id : null,
+        province_id: this.registration.province ? this.registration.province : null,
+        canton_id: this.registration.canton ? this.registration.canton : null,
+        region_id: this.registration.region ? this.registration.region : null,
         nationality: this.registration.nationality || null
       };
       this.formService.setFormData(personalDataToStore);
       console.log("Datos personales guardados temporalmente:", personalDataToStore);
-  
-      this.nextStep();  
+
+      this.nextStep();
     }
   }
-  
+
   onDayChange(day: string) {
     const parsedDay = parseInt(day, 10);
     if (!isNaN(parsedDay)) {
@@ -483,7 +483,7 @@ export class FormComponent implements OnInit {
       }
     }
   }
-  
+
   onMonthChange(month: string) {
     const parsedMonth = parseInt(month, 10);
     if (!isNaN(parsedMonth)) {
@@ -493,7 +493,7 @@ export class FormComponent implements OnInit {
       }
     }
   }
-  
+
   onYearChange(year: string) {
     const parsedYear = parseInt(year, 10);
     if (!isNaN(parsedYear)) {
@@ -503,29 +503,32 @@ export class FormComponent implements OnInit {
       }
     }
   }
-    
+
   onWorldRegionChange($event: any) {
     if (this.registration.worldRegion) {
       this.latinAmericanCountries = this.worldRegions[this.registration.worldRegion] || [];
       this.registration.country = null;
     }
   }
-  
+
   updateBirthdate() {
     if (this.selectedDay && this.selectedMonth && this.selectedYear) {
       const birthdate = new Date(this.selectedYear, this.selectedMonth - 1, this.selectedDay);
       const year = birthdate.getFullYear();
       const month = String(birthdate.getMonth() + 1).padStart(2, '0');
       const day = String(birthdate.getDate()).padStart(2, '0');
-      this.registration.birthdate = `${year}-${month}-${day} 00:00:00`;
-  
+
+      // Formatear la fecha solo con año, mes y día
+      this.registration.birthdate = `${year}-${month}-${day}`;
+
       this.formService.setFormData({ birthdate: this.registration.birthdate });
       console.log("Fecha de nacimiento actualizada:", this.registration.birthdate);
     } else {
       console.error("Faltan campos para la fecha.");
     }
   }
-  
+
+
   filterCantonsByProvince(provinceId: number | null) {
     if (provinceId === null || provinceId === undefined) {
       this.cantons = [];
@@ -546,7 +549,7 @@ export class FormComponent implements OnInit {
 
   applyIdentificationFormat() {
     const idType = this.registration.idType;
-    let value = this.registration.identification.replace(/\D/g, ''); 
+    let value = this.registration.identification.replace(/\D/g, '');
     if (idType === 'física' && value.length > 0) {
       this.registration.identification = value
         .replace(/^(\d{1})(\d{0,4})(\d{0,4})$/, (_, g1, g2, g3) => {
@@ -569,7 +572,7 @@ export class FormComponent implements OnInit {
 
   onIdentificationInput(value: string) {
     this.registration.identification = value;
-    this.applyIdentificationFormat(); 
+    this.applyIdentificationFormat();
   }
 
   nextStep() {
@@ -582,14 +585,14 @@ export class FormComponent implements OnInit {
     email: this.registration.email,
     phone_number: this.registration.phone_number,
     citizenship: this.registration.citizenship,
-    province: this.registration.province,
-    canton: this.registration.canton,
-    region: this.registration.region,
+    province_id: this.registration.province,
+    canton_id: this.registration.canton,
+    region_id: this.registration.region,
     worldRegion: this.registration.worldRegion,
     country: this.registration.country,
-    selectedDay: this.selectedDay,  
-    selectedMonth: this.selectedMonth,  
-    selectedYear: this.selectedYear  
+    selectedDay: this.selectedDay,
+    selectedMonth: this.selectedMonth,
+    selectedYear: this.selectedYear
     });
 
     if (this.formService.currentStep < 3) {
@@ -612,9 +615,9 @@ export class FormComponent implements OnInit {
     region: this.registration.region,
     worldRegion: this.registration.worldRegion,
     country: this.registration.country,
-    selectedDay: this.selectedDay,  
-    selectedMonth: this.selectedMonth,  
-    selectedYear: this.selectedYear  
+    selectedDay: this.selectedDay,
+    selectedMonth: this.selectedMonth,
+    selectedYear: this.selectedYear
     });
 
     if (this.formService.currentStep > 1) {
@@ -631,21 +634,21 @@ export class FormComponent implements OnInit {
         email: this.registration.email,
         phone_number: this.registration.phone_number,
         citizenship: this.registration.citizenship,
-        province_id: this.registration.province ? this.registration.province.id : null,
-        canton_id: this.registration.canton ? this.registration.canton.id : null,
-        region_id: this.registration.region ? this.registration.region.id : null,
+        province_id: this.registration.province ? this.registration.province : null,
+        canton_id: this.registration.canton ? this.registration.canton : null,
+        region_id: this.registration.region ? this.registration.region : null,
         nationality: this.registration.nationality
     };
     this.formService.createAthlete(personalData).subscribe(response => {
         console.log('Formulario enviado correctamente:', personalData);
-        this.nextStep();  
+        this.nextStep();
     }, error => {
         console.error('Error al enviar el formulario:', error);
     });
 }
 
 onConfirmation(confirmed: boolean) {
-  this.showConfirmation = false;  
+  this.showConfirmation = false;
 
   if (!confirmed) {
     console.log('Name confirmed');
