@@ -6,7 +6,7 @@
 
   <div class="form-group" *ngIf="currentStep === 1">
     <label name="idType">Tipo de Identificación:</label>
-    <select id="idType" name="idType" [(ngModel)]="registration.idType" #idType="ngModel" required>
+    <select id="idType" name="idType" [(ngModel)]="registration.idType" #idType="ngModel" required placeholder="Seleccione su tipo de identificación">
       <option value="física">Cédula Física</option>
       <option value="dimex">DIMEX</option>
       <option value="pasaporte">Pasaporte</option>
@@ -27,7 +27,7 @@
       #identification="ngModel"
       required
       [pattern]="getIdentificationPattern()"
-      [placeholder]="getIdentificationPlaceholder()"
+      placeholder="Escriba su identificación aquí."
       (blur)="searchByCedula()"
       autocomplete="off"
     >
@@ -46,6 +46,7 @@
       name="name"
       [(ngModel)]="registration.name"
       #name="ngModel"
+      placeholder="Escriba su nombre aquí."
       required
       [disabled]="loading"
       (ngModelChange)="onNameChange($event)"
@@ -74,6 +75,7 @@
       name="lastname"
       [(ngModel)]="registration.lastname"
       #lastname="ngModel"
+      placeholder="Escriba sus apellidos aquí."
       required
       (ngModelChange)="onLastNameChange($event)"
     />
@@ -134,6 +136,7 @@
       name="email"
       [(ngModel)]="registration.email"
       #email="ngModel"
+      placeholder="Escriba su correo electronico aqui"
       required
       pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
       autocomplete="email"
@@ -155,7 +158,7 @@
       (input)="applyPhoneNumberMask()"
       #phone_number="ngModel"
       required
-      placeholder="+506 8XXX-XXXX"
+      placeholder="Digite su numero de telefono (+506 XXXX XXXX)"
       autocomplete="tel"
     >
     <div *ngIf="phone_number.invalid && (phone_number.touched || registrationForm.submitted)">
@@ -178,7 +181,7 @@
   <div *ngIf="registration.citizenship === 'nacional'">
     <div class="form-group">
       <label name="province">Provincia:</label>
-      <select id="province" name="province" [(ngModel)]="registration.province_id" (ngModelChange)="onProvinceChange($event)" #province="ngModel" required>
+      <select id="province" name="province" [(ngModel)]="registration.province_id" (ngModelChange)="onProvinceChange($event)" #province="ngModel" required placeholder="Seleccione una provincia">
         <option value="" disabled selected>Seleccione una provincia</option>
         <option *ngFor="let province of provinces" [ngValue]="province">{{ province.name }}</option>
       </select>
@@ -189,7 +192,7 @@
 
     <div class="form-group">
       <label name="canton">Cantón:</label>
-      <select id="canton" name="canton" [(ngModel)]="registration.canton_id" #canton="ngModel" required [disabled]="!registration.province_id || cantons.length === 0">
+      <select id="canton" name="canton" [(ngModel)]="registration.canton_id" #canton="ngModel" required [disabled]="!registration.province_id || cantons.length === 0" placeholder="Seleccione un canton">
         <option value="" disabled selected>Seleccione un cantón</option>
         <option *ngFor="let canton of cantons" [ngValue]="canton">{{ canton.name }}</option>
       </select>
@@ -200,7 +203,7 @@
 
     <div class="form-group">
       <label name="region">Región:</label>
-      <select id="region" name="region" [(ngModel)]="registration.region_id" #region="ngModel" required>
+      <select id="region" name="region" [(ngModel)]="registration.region_id" #region="ngModel" required placeholder="Seleccione una region">
         <option *ngFor="let region of regions" [ngValue]="region">{{ region.name }}</option>
       </select>
       <div *ngIf="region.invalid && (region.touched || registrationForm.submitted)">

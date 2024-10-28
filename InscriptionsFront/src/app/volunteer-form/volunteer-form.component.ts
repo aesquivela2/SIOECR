@@ -5,7 +5,8 @@ import { TimeService, Time } from '../services/time.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FormComponent } from '../form/form.component';
-import {VolunteerService} from "./volunteer.service";
+import { VolunteerService } from "./volunteer.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-volunteer-form',
@@ -20,18 +21,21 @@ import {VolunteerService} from "./volunteer.service";
 })
 export class VolunteerFormComponent implements OnInit {
   isVolunteer = true;
-
   availableDays: AvailableDay[] = [];
   availableTimes: Time[] = [];
-
   selectedDays: number[] = [];
-  selectedTimes: { [dayId: number]: number[] } = {};  // Dictionary to store times per day
+  selectedTimes: { [dayId: number]: number[] } = {}; // Dictionary to store times per day
+
+  showValidationError = false;
+  successMessage: string | null = null;
+  errorMessage: string | null = null;
 
   constructor(
     public formService: FormService,
     private availableDaysService: AvailableDaysService,
     private timeService: TimeService,
-    private volunteerService: VolunteerService
+    private volunteerService: VolunteerService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -91,6 +95,10 @@ export class VolunteerFormComponent implements OnInit {
     this.formService.setFormData({ availableHours: this.selectedTimes });
   }
 
+  isSelectionValid(): boolean {
+    return this.selectedDays.length > 0 && Object.values(this.selectedTimes).some(times => times.length > 0);
+  }
+
   nextStep() {
     this.formService.currentStep++;
   }
@@ -100,17 +108,26 @@ export class VolunteerFormComponent implements OnInit {
   }
 
   onSubmit() {
-    const personalData= this.formService.getFormData();
-    // Construye el arreglo completo de días disponibles, cada uno con la estructura completa
+    // Validación de selección de día y hora
+    if (!this.isSelectionValid()) {
+      this.showValidationError = true;
+      this.successMessage = null;
+      this.errorMessage = null;
+      return;
+    }
+
+    // Ocultar el mensaje de error de validación si se cumple la selección
+    this.showValidationError = false;
+
+    const personalData = this.formService.getFormData();
     const availableDays = this.selectedDays.map(dayId => ({
       availableDay: {
         id: dayId,
         day_name: this.availableDays.find(day => day.id === dayId)?.day_name || ''
       },
-      volunteer: { id: this.formService.getFormData().id }
+      volunteer: { id: personalData.id }
     }));
 
-    // Construye el arreglo completo de horas seleccionadas para cada día
     const availableHours = Object.entries(this.selectedTimes).map(([dayId, times]) => ({
       availableDay: {
         id: parseInt(dayId, 10),
@@ -121,26 +138,27 @@ export class VolunteerFormComponent implements OnInit {
         hour: this.availableTimes.find(time => time.id === timeId)?.hour || '',
         minutes: this.availableTimes.find(time => time.id === timeId)?.minutes || ''
       })),
-      volunteer: { id: this.formService.getFormData().id }
+      volunteer: { id: personalData.id }
     }));
 
-    // Preparar el objeto completo con toda la información
     this.formService.setFormData({
-      availableDays: this.availableDays,
-      availableHours: this.availableTimes
+      availableDays: availableDays,
+      availableHours: availableHours
     });
 
-    // Envía el formulario completo al backend
+    // Enviar formulario al backend
     this.volunteerService.createVolunteer(this.formService.getFormData()).subscribe(
       response => {
-        console.log('Volunteer registration submitted:', response);
+        this.successMessage = 'Registro de voluntario enviado exitosamente.';
+        this.errorMessage = null;
+        localStorage.setItem('successMessage', 'El voluntario fue registrado correctamente.');
+        this.router.navigate(['/inicio']);
       },
       error => {
+        this.successMessage = null;
+        this.errorMessage = 'Hubo un error al enviar el registro. Intente de nuevo.';
         console.error('Error submitting registration:', error);
       }
     );
   }
-
-
-
 }
