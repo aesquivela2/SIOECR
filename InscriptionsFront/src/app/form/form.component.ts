@@ -127,7 +127,8 @@ export class FormComponent implements OnInit {
     private provinceService: ProvinceService,
     private cantonService: CantonService,
     private formDataService: FormDataService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -152,6 +153,10 @@ export class FormComponent implements OnInit {
     this.populateDays();
     this.validateBirthdate();
     this.loadRegions();
+  }
+
+  navigateToHome() {
+    this.router.navigate(['/']); // Ajusta la ruta según tus necesidades
   }
 
   populateYears() {
@@ -684,3 +689,7 @@ onConfirmation(confirmed: boolean) {
     }
   }
 }
+
+
+
+
