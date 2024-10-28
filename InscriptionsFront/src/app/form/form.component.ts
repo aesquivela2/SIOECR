@@ -445,7 +445,7 @@ export class FormComponent implements OnInit {
         this.regions = data;
         // Establecer región seleccionada previamente
         if (this.registration.region_id) {
-          this.registration.region_id = this.regions.find(region => region.id === this.registration.region_id?.id) || null;
+          this.registration.region_id = this.regions.find(region_id => region_id.id === this.registration.region_id?.id) || null;
         }
       },
       error => {
@@ -467,7 +467,7 @@ export class FormComponent implements OnInit {
       const personalDataToStore = {
         identification: this.registration.identification,
         idType: this.registration.idType,
-        name: this.registration.name,
+        name: this.registration.name + ' ' + this.registration.lastname,
         lastname: this.registration.lastname || null,
         birthdate: this.registration.birthdate || null,
         email: this.registration.email || null,
@@ -590,7 +590,7 @@ export class FormComponent implements OnInit {
     this.formService.setFormData({
     identification: this.registration.identification,
     idType: this.registration.idType,
-    name: this.registration.name,
+    name: this.registration.name + ' ' + this.registration.lastname,
     lastname: this.registration.lastname,
     birthdate: this.registration.birthdate,
     email: this.registration.email,

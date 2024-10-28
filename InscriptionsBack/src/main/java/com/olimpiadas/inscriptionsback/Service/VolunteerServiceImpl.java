@@ -23,7 +23,16 @@ public class VolunteerServiceImpl implements VolunteerService {
 
     @Override
     public void saveVolunteer(Volunteer volunteer) {
-        volunteerRepository.saveVolunteer(volunteer);
+        volunteerRepository.saveVolunteer(
+                volunteer.getId(),
+                volunteer.getIdentification(),
+                volunteer.getName(),
+                volunteer.getBirthdate(),
+                volunteer.getRegion_id().getId(),  // Asegúrate de obtener `region_id` correctamente
+                volunteer.getEmail(),
+                volunteer.getPhone_number(),
+                volunteer.getNationality()
+        );
     }
 
     @Override
