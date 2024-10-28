@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="descenso a la locura parte 5">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_20_2024_10_34_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_20_2024_10_34_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +87,7 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "Maria",
+    "git-widget-placeholder": "Bayron",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Inge/SIOECR",
     "node.js.detected.package.eslint": "true",
@@ -96,7 +96,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "spring.configuration.checksum": "c513b7076ffc50aa501ca91be51d3f50",
-    "ts.external.directory.path": "D:\\Inge\\SIOECR\\InscriptionsFront\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Users\\PC\\Desktop\\IngenieriaEnSistemas\\Ciclo-2-2024\\Inge 2\\SIOECR\\InscriptionsFront\\node_modules\\typescript\\lib",
     "ts.rename.search.for.js.occurrences": "false",
     "vue.rearranger.settings.migration": "true"
   },
