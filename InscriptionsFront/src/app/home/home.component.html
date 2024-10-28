@@ -1,12 +1,14 @@
 <body>
+<div *ngIf="successMessage" class="success-message">
+  {{ successMessage }}
+</div>
+
 <!-- Banner Image and Form Section -->
 <section>
   <div>
     <img class="banner" src="assets/running.jpg" alt="Banner">
   </div>
 </section>
-
-
 
 <!-- Registro Section -->
 <section class="registro">
@@ -23,6 +25,7 @@
     </div>
   </div>
 </section>
+
 <!-- Calendario Section -->
 <section class="calendario">
   <h2>Calendario</h2>
@@ -43,8 +46,8 @@
       </div>
     </div>
   </section>
-
 </section>
+
 <!-- Soporte Section -->
 <section class="soporte">
   <h2>Soporte</h2>

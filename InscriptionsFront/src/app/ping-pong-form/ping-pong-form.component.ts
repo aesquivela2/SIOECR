@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {NgForOf, NgIf} from "@angular/common";
 import { FormService } from '../form/form.service';
-
 
 @Component({
   selector: 'app-ping-pong-form',
@@ -16,10 +15,10 @@ import { FormService } from '../form/form.service';
   styleUrl: './ping-pong-form.component.css'
 })
 export class PingPongFormComponent {
+  @Input() sportName: string = '';
   PingPongForm: any;
   athlete: any;
   levels = ['Alto', 'Medio', 'Bajo'];
-
 
   constructor(
     private formService : FormService
@@ -43,10 +42,10 @@ export class PingPongFormComponent {
     }
   }
 
-
   onChangeNivel($event: any) {
     this.formService.setFormData({level: this.athleteData.level});
   }
+ 
   nextStep() {
     if (this.formService.currentStep === 1) {
 
@@ -55,6 +54,7 @@ export class PingPongFormComponent {
       this.formService.currentStep++;
     }
   }
+  
   previousStep() {
     if (this.formService.currentStep > 1) {
       this.formService.currentStep--;

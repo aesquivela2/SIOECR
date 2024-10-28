@@ -1,3 +1,26 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section {
+  background-color: #f9f9f9;
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.section h2 {
+  font-size: 24px;
+  color: #333;
+  margin: 0;
+}
+
 .form-group {
   margin-bottom: 15px;
 }
@@ -32,17 +55,42 @@ button {
 button:hover {
   background-color: #a51d1d;
 }
+
 .error {
   color: red;
   font-size: 14px;
   margin-top: 10px;
 }
-label {
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.checkbox-option {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
 
 input[type="checkbox"] {
-  margin-right: 20px;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #54156e;
+  transition: box-shadow 0.3s ease;
+}
+
+input[type="checkbox"]:hover {
+  box-shadow: 0 0 5px rgba(84, 21, 110, 0.5);
+}
+
+input[type="checkbox"]:checked {
+  box-shadow: 0 0 5px rgba(84, 21, 110, 0.8);
+}
+
+.option-label {
+  display: inline-block;
 }

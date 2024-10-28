@@ -1,50 +1,96 @@
-.athletism-form {
-  background-color: white;
-  text-align: center;
-  padding: 40px 20px;
-  border-radius: 10px;
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  margin: 20px auto;
 }
 
-.athletism-form h2 {
-  font-size: 32px;
+.section {
+  background-color: #f9f9f9; 
+  text-align: center; 
+  padding: 20px;
+  border-radius: 8px;
   margin-bottom: 20px;
-  color: #b22222;
+}
+
+.section h2 {
+  font-size: 24px;
+  color: #333;
+  margin: 0;
 }
 
 .form-group {
-  margin-bottom: 20px;
-  text-align: left;
+  margin-bottom: 15px;
 }
 
-.form-group label {
+label {
+  font-weight: bold;
   display: block;
-  font-size: 16px;
-  margin-bottom: 10px;
-  color: #333;
+  margin-bottom: 5px;
 }
 
-.form-group select {
+input, select {
   width: 100%;
   padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ddd;
+  margin-top: 5px;
+  border: 1px solid #ccc;
   border-radius: 5px;
+  background-color: #f9f9f9;
 }
 
-.btn-athletism-form {
+button {
   background-color: #b22222;
   color: white;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
+  font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.btn-athletism-form:hover {
+button:hover {
   background-color: #a51d1d;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #54156e;
+  transition: box-shadow 0.3s ease;
+}
+
+input[type="checkbox"]:hover {
+  box-shadow: 0 0 5px rgba(84, 21, 110, 0.5);
+}
+
+input[type="checkbox"]:checked {
+  box-shadow: 0 0 5px rgba(84, 21, 110, 0.8);
+}
+
+.option-label {
+  display: inline-block;
 }

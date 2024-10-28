@@ -12,7 +12,7 @@ export interface Time {
   providedIn: 'root'
 })
 export class TimeService {
-  private apiUrl = 'http://localhost:8080/api/time';  // URL para el endpoint de Time
+  private apiUrl = 'http://localhost:8080/api/time';  
 
   constructor(private http: HttpClient) {}
 

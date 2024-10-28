@@ -14,13 +14,13 @@ import { NgIf } from "@angular/common";
 })
 export class CyclingFormComponent {
   @Input() cyclingData!: any;
+  @Input() sportName: string = 'Ciclismo';
 
   maxSelectionError: boolean = false;
 
-  // Handle the selection of up to two options
   onOptionSelect(option: string) {
     if (!this.cyclingData.selectedOptions) {
-      this.cyclingData.selectedOptions = [];  // Initialize if not already initialized
+      this.cyclingData.selectedOptions = [];  
     }
 
     const index = this.cyclingData.selectedOptions.indexOf(option);
@@ -35,7 +35,6 @@ export class CyclingFormComponent {
   }
 
   isOptionSelected(option: string): boolean {
-    // Check if cyclingData and selectedOptions exist before accessing them
     return this.cyclingData?.selectedOptions?.includes(option) || false;
   }
 
@@ -45,7 +44,6 @@ export class CyclingFormComponent {
     }
   }
 
-  // Handle file upload
   onFileSelected(event: any) {
     const file = event.target.files[0];
     if (file && file.type === 'application/pdf') {
@@ -55,7 +53,6 @@ export class CyclingFormComponent {
     }
   }
 
-  // Handle form submission
   onSubmit(ciclismoForm: NgForm) {
     if (ciclismoForm.valid && !this.maxSelectionError) {
       console.log('Formulario Enviado', this.cyclingData);
@@ -65,7 +62,7 @@ export class CyclingFormComponent {
   }
   parentData = {
     nivel: '',
-    selectedOptions: [],  // Initialize as an empty array
+    selectedOptions: [],  
     lateralidad: '',
     disability: '',
     disabilityProof: null

@@ -1,4 +1,3 @@
-/* Hamburger Menu */
 .hamburger {
   position: fixed;
   top: 20px;
@@ -16,7 +15,6 @@
   width: 28px;
   height: 4px;
   transition: all 0.3s ease;
-
 }
 
 .hamburger.is-active .-top {
@@ -31,7 +29,6 @@
   transform: translateY(-10px) rotate(-45deg);
 }
 
-/* Navigation Menu */
 .menuppal {
   position: fixed;
   top: 0;
@@ -47,7 +44,6 @@
   flex-direction: column;
   align-items: center;
   font-family: 'Ubuntu', sans-serif;
-
 }
 
 .menuppal.is_active {
@@ -62,7 +58,6 @@
   margin: auto;
   max-width: 20%;
   font-family: 'Ubuntu', sans-serif;
-
 }
 
 .menuppal ul {
@@ -71,7 +66,6 @@
   text-align: center;
   width: 100%;
   font-family: 'Ubuntu', sans-serif;
-
 }
 
 .menuppal ul li {
@@ -81,7 +75,6 @@
   color: white;
   position: relative;
   font-family: 'Ubuntu', sans-serif;
-
 }
 
 .menuppal ul li a {
@@ -90,16 +83,13 @@
   display: block;
   padding: 10px;
   font-family: 'Ubuntu', sans-serif;
-
 }
 
 .menuppal ul li a:hover {
   color: #ffcccc;
   font-family: 'Ubuntu', sans-serif;
-
 }
 
-/* Submenu */
 .submenu {
   display: none;
   margin-top: 10px;
@@ -113,7 +103,6 @@
   margin: 10px 0;
   font-size: 1.2rem;
   font-family: 'Ubuntu', sans-serif;
-
 }
 
 .submenu li a {
@@ -122,86 +111,17 @@
   display: block;
   background-color: rgba(255, 255, 255, 0.2);
   font-family: 'Ubuntu', sans-serif;
-
 }
 
 .submenu li a:hover {
   background-color: rgba(255, 255, 255, 0.4);
   font-family: 'Ubuntu', sans-serif;
 }
+
 body {
   margin: 0;
   font-family: 'Ubuntu', sans-serif;
   background-color: #f4f4f4;
 }
-@media (min-width: 768px) {
-  .hamburger {
-    display: none; /* Oculta el menú hamburguesa en pantallas grandes */
-  }
 
-  .menuppal {
-    position: relative;
-    transform: none; /* Evita el desplazamiento fuera de la pantalla */
-    height: auto;
-    width: 100%;
-    background-color: #ff0808;
-    flex-direction: row; /* Menu horizontal */
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-  }
 
-  .menuppal ul {
-    display: flex;
-    justify-content: space-around;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .menuppal ul li {
-    position: relative;
-    margin: 0 20px;
-  }
-
-  .menuppal ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 10px 15px;
-    display: block;
-  }
-
-  .menuppal ul li a:hover {
-    color: #ffcccc;
-  }
-
-  /* Submenú en pantallas grandes */
-  .submenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    z-index: 1000;
-    white-space: nowrap;
-  }
-
-  .menuppal ul li:hover .submenu {
-    display: block; /* Mostrar submenú al hacer hover */
-  }
-
-  .submenu li a {
-    color: black;
-    font-size: 1rem;
-    padding: 5px 10px;
-  }
-
-  .submenu li a:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-    color: #ff0808;
-  }
-}

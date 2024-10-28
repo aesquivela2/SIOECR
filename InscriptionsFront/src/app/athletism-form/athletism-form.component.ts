@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {NgForOf, NgIf,CommonModule} from "@angular/common";
 
@@ -14,12 +14,13 @@ import {NgForOf, NgIf,CommonModule} from "@angular/common";
   styleUrls: ['./athletism-form.component.css']
 
 })
+
 export class AthletismFormComponent {
   selectedLevel: number = 0;
   selectedCategories: string[] = [];
   categories: string[] = [];
+  @Input() sportName: string = 'Atletismo';
 
-  // Categorías para cada nivel con firma de índice
   levelCategories: { [key: number]: string[] } = {
     1: ['25mts', '50mts', 'Lanzamiento de pelota de softball', 'Salto largo con impulso'],
     2: ['100mts', '200mts', 'Lanzamiento de bala', 'Salto largo con impulso'],

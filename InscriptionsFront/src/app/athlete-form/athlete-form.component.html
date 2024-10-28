@@ -1,8 +1,7 @@
 <body>
 <header>
-  <img src="assets/logo.jpg" alt="Logo" class="logo" >
   <div class="header-content">
-
+    <img ngSrc="assets/logo.jpg" alt="Logo" class="logo" height="303" width="990">
     <!-- Saludo personalizado -->
   </div>
 </header>
@@ -12,10 +11,9 @@
 </div>
 <div class="container">
   <form #athleteForm="ngForm" (ngSubmit)="onSubmit()">
-    <h2>   - Registro de Atleta - </h2>
     <!-- Step 1: Personal Information -->
     <div *ngIf="formService.currentStep === 1" class="section">
-
+      <h2>Información Personal</h2>
       <div class="form-group">
         <app-form></app-form>
       </div>
@@ -88,30 +86,18 @@
         <app-swimming-form *ngIf="selectedSport?.name === 'Natación'"></app-swimming-form>
 
 
-
-        <!-- Mensaje de éxito o error -->
-        <div *ngIf="showMessage" class="alert" [ngClass]="{'success': success, 'error': !success}">
-          <div *ngIf="success">
-            <span class="checkmark">✔</span> Envío exitoso.
-          </div>
-          <div *ngIf="!success">
-            <span class="error-mark">✘</span> Hubo un error en el envío.
-          </div>
-        </div>
-        <!-- Botones -->
+        <!-- Buttons -->
         <div class="button-group">
           <div>
-            <button class="btn-secondary" type="button" (click)="previousStep()">Anterior</button>
+            <button  class="btn-secondary" type="button" (click)="previousStep()">Anterior</button>
           </div>
           <div>
-            <button type="submit" [disabled]="!athleteForm.form.valid">Enviar</button>
+            <button  type="submit" [disabled]="!athleteForm.form.valid">Enviar</button>
           </div>
         </div>
+
       </div>
     </div>
   </form>
 </div>
-
-
-
 </body>
