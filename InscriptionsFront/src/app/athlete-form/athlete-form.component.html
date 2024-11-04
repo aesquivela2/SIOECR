@@ -38,29 +38,24 @@
       <!-- Type of Disability -->
       <div class="form-group">
         <label for="disability">Tipo de discapacidad:</label>
-        <div>
-          <select id="disability" name="disability" [(ngModel)]="athleteData.sportInfo.disability">
-            <option value="">Seleccione discapacidad (opcional)</option>
-            <option value="visual">Visual</option>
-            <option value="auditory">Auditiva</option>
-            <option value="physical">Física</option>
-            <option value="none">Ninguna</option>
-          </select>
-        </div>
+        <select id="disability" name="disability" [(ngModel)]="athleteData.sportInfo.disability">
+          <option value="">Seleccione discapacidad (opcional)</option>
+          <option *ngFor="let type of disabilityTypes" [value]="type.id">{{ type.description }}</option>
+        </select>
       </div>
       <div>
         <!-- Lateralidad -->
-        <div>
-          <label for="laterality">Lateralidad:</label>
-          <select id="laterality" name="laterality" [(ngModel)]="athleteData.laterality" #laterality="ngModel" required>
-            <option value="right">Diestro</option>
-            <option value="left">Zurdo</option>
-            <option value="ambidextrous">Ambidiestro</option>
+        <div class="form-group">
+          <label name="laterality">Lateralidad:</label>
+          <select id="laterality" name="laterality" [(ngModel)]="registration.laterality" #laterality="ngModel" required>
+            <option value="" disabled selected>Seleccione su lateralidad</option>
+            <option *ngFor="let option of lateralityOptions" [value]="option.id">{{ option.name }}</option>
           </select>
-          <div *ngIf="laterality.invalid && laterality.touched">
-            <small class="error" *ngIf="laterality.errors?.['required']">La lateralidad es requerida.</small>
+          <div *ngIf="laterality.invalid && (laterality.touched || athleteForm.submitted)">
+            <small class="error">La lateralidad es requerida.</small>
           </div>
         </div>
+
 
 
         <!-- Upload Disability Proof -->

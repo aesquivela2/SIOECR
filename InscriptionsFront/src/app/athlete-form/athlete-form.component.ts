@@ -11,6 +11,8 @@ import {AthleteService} from "./athlete.service";
 import {CyclingFormComponent} from "../cycling-form/cycling-form.component";
 import {AthletismFormComponent} from "../athletism-form/athletism-form.component";
 import {Router} from "@angular/router";
+import { LateralityService } from '../services/laterality.service';
+import { DisabilityTypeService } from '../services/disability-type.service';
 
 @Component({
   selector: 'app-athlete-form',
@@ -34,6 +36,11 @@ import {Router} from "@angular/router";
 export class AthleteFormComponent implements OnInit {
   @ViewChild('sportComboBox', { static: false }) sportComboBox!: ElementRef;
   sports: Sport[] = [];
+  lateralityOptions: any[] = [];
+  disabilityTypes: any[] = [];
+  registration = {
+    laterality: null // Dato de lateralidad enlazado al formulario
+  };
   selectedSport: Sport | null = null;
   selectedSportId: number | null = null;
   loading = false;
@@ -48,12 +55,13 @@ export class AthleteFormComponent implements OnInit {
   private errorMessage: string = '';
 
   constructor(
+    private lateralityService: LateralityService,
     protected formService: FormService,
     private sportService: SportService,
     private cdRef: ChangeDetectorRef,
     private athleteService: AthleteService,
-    private router: Router
-
+    private router: Router,
+    private disabilityTypeService: DisabilityTypeService
   ) {}
 
   showMessage: boolean = false;
@@ -61,11 +69,34 @@ export class AthleteFormComponent implements OnInit {
 
   ngOnInit() {
     this.loadSports();
-
+    this.loadLateralityOptions();
+    this.loadDisabilityTypes();
     const storedData = this.formService.getFormData();
     if (storedData.disabilityProof) {
       this.athleteData.sportInfo.disabilityProof = storedData.disabilityProof;
     }
+  }
+  loadDisabilityTypes() {
+    this.disabilityTypeService.getDisabilityTypes().subscribe(
+      data => {
+        this.disabilityTypes = data;
+        console.log("discapacidades obtenidas"+ this.disabilityTypes);
+      },
+      error => {
+        console.error('Error al cargar tipos de discapacidad:', error);
+      }
+    );
+  }
+  loadLateralityOptions() {
+    this.lateralityService.getLateralityOptions().subscribe(
+      (data) => {
+        this.lateralityOptions = data;
+        console.log('Lateralidades obtenidas:' + this.lateralityOptions);
+      },
+      (error) => {
+        console.error('Error loading lateralities:', error);
+      }
+    );
   }
 
   checkAndFillComboBox() {

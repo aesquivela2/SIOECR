@@ -9,6 +9,8 @@ import { FormService } from './form.service';
 import axios from 'axios';
 import { ConfirmationDialogComponent } from "../confirmation-dialog/confirmation-dialog.component";
 import { FormDataService } from "../services/form-data.service";
+import { GlobalRegionService } from '../services/global-region.service';
+import { CountryService } from '../services/country.service';
 
 // Interfaces for province, canton, and region
 interface Province {
@@ -43,6 +45,8 @@ export class FormComponent implements OnInit {
 
   currentStep = 1;
   sports: Sport[] = [];
+  globalRegions: any[] = [];
+  countries: any[] = [];
 
   // Form model with initial values
   registration = {
@@ -57,8 +61,8 @@ export class FormComponent implements OnInit {
     phone_number: '',
     province_id: null as Province | null | undefined,
     region_id: null as Region | null | undefined,
-    worldRegion: null as string | null | undefined,
-    country: undefined as string | null | undefined,
+    worldRegion: null,
+    country: null,
     lastname: ''
   };
   selectedSport: Sport | null = null;
@@ -74,30 +78,13 @@ export class FormComponent implements OnInit {
   birthdateError: any;
 
   cantons: Canton[] = [];
+  filteredCountries: any[] = [];
   regions: Region[] = [];
   provinces: Province[] = [];
   latinAmericanCountries: string[] = [];
   districts: any[] = [];
 
   // World regions and countries
-  worldRegions: { [key: string]: string[] } = {
-    "América del Norte": ["Estados Unidos", "Canadá", "México"],
-    "América Latina": [
-      "Costa Rica", "Argentina", "Brasil", "México", "Chile", "Colombia",
-      "Ecuador", "Perú", "Venezuela", "Uruguay", "Paraguay", "Bolivia",
-      "Panamá", "Cuba", "República Dominicana", "El Salvador", "Guatemala",
-      "Honduras", "Nicaragua"
-    ],
-    "Europa": [
-      "Reino Unido", "Alemania", "Francia", "Italia", "España", "Portugal",
-      "Países Bajos", "Bélgica", "Suiza", "Austria", "Suecia",
-      "Noruega", "Dinamarca", "Finlandia"
-    ],
-    "Asia": ["China", "Japón", "Corea del Sur", "India", "Tailandia", "Vietnam", "Filipinas", "Malasia", "Indonesia", "Singapur"],
-    "África": ["Nigeria", "Sudáfrica", "Kenia", "Egipto", "Marruecos", "Ghana", "Etiopía", "Tanzania", "Uganda", "Argelia"],
-    "Oceanía": ["Australia", "Nueva Zelanda", "Fiyi", "Papúa Nueva Guinea", "Samoa", "Tonga", "Vanuatu"],
-    "Oriente Medio": ["Arabia Saudita", "Emiratos Árabes Unidos", "Catar", "Kuwait", "Omán", "Jordania", "Líbano", "Israel", "Turquía"]
-};
 
   days: number[] = [];
   months = [
@@ -128,7 +115,9 @@ export class FormComponent implements OnInit {
     private cantonService: CantonService,
     private formDataService: FormDataService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private globalRegionService: GlobalRegionService,
+    private countryService: CountryService
   ) {}
 
   ngOnInit() {
@@ -148,12 +137,43 @@ export class FormComponent implements OnInit {
       }
 
     }
+    this.loadGlobalRegions();
     this.loadProvinces();
     this.populateYears();
     this.populateDays();
     this.validateBirthdate();
     this.loadRegions();
+    this.loadCountries();
   }
+  loadCountries() {
+    this.countryService.getAllCountries().subscribe(
+        data => {
+          this.countries = data;
+          console.log('PAISES OBTENIDOS: ' + this.countries.map(console.log));
+        },
+        error => {
+          console.error('Error al cargar los países:', error);
+        }
+    );
+  }
+
+  onWorldRegionChange(regionId: number) {
+    console.log('region mundial seleccionada: ' + regionId);
+    this.filteredCountries = this.countries.filter(country => country.region.id == regionId);
+    console.log('Paises Filtrados: '+ this.filteredCountries);
+  }
+
+  loadGlobalRegions() {
+    this.globalRegionService.getGlobalRegions().subscribe(
+      data => {
+        this.globalRegions = data;
+      },
+      error => {
+        console.error('Error al cargar las regiones globales:', error);
+      }
+    );
+  }
+
 
   navigateToHome() {
     this.router.navigate(['/']); // Ajusta la ruta según tus necesidades
@@ -391,12 +411,6 @@ export class FormComponent implements OnInit {
     this.registration.canton_id = null;
   }
 
-  onRegionChange($event: any) {
-    if (this.registration.worldRegion) {
-      this.latinAmericanCountries = this.worldRegions[this.registration.worldRegion] || [];
-      this.registration.country = null;
-    }
-  }
 
   loadProvinces() {
     this.formService.getProvinces().subscribe(
@@ -512,13 +526,6 @@ export class FormComponent implements OnInit {
       if (this.selectedDay && this.selectedMonth) {
         this.updateBirthdate();
       }
-    }
-  }
-
-  onWorldRegionChange($event: any) {
-    if (this.registration.worldRegion) {
-      this.latinAmericanCountries = this.worldRegions[this.registration.worldRegion] || [];
-      this.registration.country = null;
     }
   }
 

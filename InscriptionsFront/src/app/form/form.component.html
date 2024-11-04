@@ -215,9 +215,16 @@
   <div *ngIf="registration.citizenship === 'extranjero'">
     <div class="form-group">
       <label name="worldRegion">Región Global:</label>
-      <select id="worldRegion" name="worldRegion" [(ngModel)]="registration.worldRegion" #worldRegion="ngModel" required (ngModelChange)="onWorldRegionChange($event)">
+      <select
+              id="worldRegion"
+              name="worldRegion"
+              [(ngModel)]="registration.worldRegion"
+              #worldRegion="ngModel"
+              required
+              (ngModelChange)="registration.worldRegion !== null && onWorldRegionChange(registration.worldRegion)"
+      >
         <option value="" disabled selected>Seleccione una región</option>
-        <option *ngFor="let region of worldRegions | keyvalue" [ngValue]="region.key">{{ region.key }}</option>
+        <option *ngFor="let region of globalRegions" [value]="region.id">{{ region.name }}</option>
       </select>
       <div *ngIf="worldRegion.invalid && (worldRegion.touched || registrationForm.submitted)">
         <small class="error">La región es requerida.</small>
@@ -228,12 +235,13 @@
       <label name="country">País:</label>
       <select id="country" name="country" [(ngModel)]="registration.country" #country="ngModel" required>
         <option value="" disabled selected>Seleccione un país</option>
-        <option *ngFor="let country of latinAmericanCountries" [ngValue]="country">{{ country }}</option>
+        <option *ngFor="let country of filteredCountries" [value]="country.id">{{ country.name }}</option>
       </select>
       <div *ngIf="country.invalid && (country.touched || registrationForm.submitted)">
         <small class="error">El país es requerido.</small>
       </div>
     </div>
+
   </div>
 
   <app-confirmation-dialog
