@@ -1,35 +1,29 @@
-<div class="container">
-  <div class="section">
-    <h2>Registro de Información - {{ sportName }}</h2>
 
-    <div class="form-group">
-      <label for="nivel">Nivel en el que va a participar:</label>
-      <select id="nivel" name="nivel" [(ngModel)]="cyclingData.nivel" required>
-        <option value="">Seleccione un nivel</option>
-        <option value="nivel1">Nivel 1</option>
-        <option value="nivel2">Nivel 2</option>
-      </select>
-    </div>
+    <div class="container">
+      <div class="section">
+        <h2>Registro de Información - {{ sportName }}</h2>
 
-    <div class="form-group">
-      <label>Seleccione máximo dos opciones:</label>
-      <div class="checkbox-group">
-        <div class="checkbox-option">
-          <input type="checkbox" [checked]="isOptionSelected('500mts')" (change)="onOptionSelect('500mts')" id="500mts">
-          <label for="500mts">500mts contra reloj</label>
+        <div class="form-group">
+          <label for="nivel">Nivel en el que va a participar:</label>
+          <select id="nivel" name="nivel" [(ngModel)]="cyclingData" required>
+            <option value="">Seleccione un nivel</option>
+            <option *ngFor="let level of levels" [value]="level.name">{{ level.name }}</option>
+          </select>
         </div>
-        <div class="checkbox-option">
-          <input type="checkbox" [checked]="isOptionSelected('1km')" (change)="onOptionSelect('1km')" id="1km">
-          <label for="1km">1km contra reloj</label>
-        </div>
-        <div class="checkbox-option">
-          <input type="checkbox" [checked]="isOptionSelected('2km')" (change)="onOptionSelect('2km')" id="2km">
-          <label for="2km">2km contra reloj</label>
+
+
+        <div class="form-group">
+          <label>Seleccione máximo dos opciones:</label>
+          <div class="checkbox-group">
+            <div class="checkbox-option" *ngFor="let event of events">
+              <input type="checkbox" [checked]="isOptionSelected(event.name)"
+                     (change)="onOptionSelect(event.name)" [id]="event.name">
+              <label [for]="event.name">{{ event.name }}</label>
+            </div>
+          </div>
+          <div *ngIf="maxSelectionError" class="error">
+            Por favor seleccione hasta dos opciones.
+          </div>
         </div>
       </div>
-      <div *ngIf="maxSelectionError" class="error">
-        Por favor seleccione hasta dos opciones.
-      </div>
     </div>
-  </div>
-</div>

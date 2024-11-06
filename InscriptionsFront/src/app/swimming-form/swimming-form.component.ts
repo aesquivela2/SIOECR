@@ -1,16 +1,17 @@
-import { Component, Input, ViewChild } from "@angular/core";
-import { FormsModule, NgForm } from "@angular/forms";
-import { NgForOf, NgIf } from "@angular/common";
+import { Component, Input, OnInit, ViewChild } from "@angular/core";
+import { NgForm, FormsModule } from "@angular/forms";
+import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef } from '@angular/core';
+import { SwimmingService } from '../services/swimming.service';
 
 @Component({
   selector: 'app-swimming-form',
-  standalone: true,
-  imports: [FormsModule, NgIf, NgForOf],
   templateUrl: './swimming-form.component.html',
-  styleUrls: ['./swimming-form.component.css']
+  styleUrls: ['./swimming-form.component.css'],
+  standalone: true,
+  imports: [FormsModule, CommonModule] // Asegúrate de incluir FormsModule y CommonModule
 })
-export class SwimmingFormComponent {
+export class SwimmingFormComponent implements OnInit {
 
   @ViewChild('athleteForm') athleteForm!: NgForm;
   @Input() swimmingData: any = {
@@ -21,36 +22,33 @@ export class SwimmingFormComponent {
   };
   @Input() sportName: string = 'Natación';
 
-  constructor(private cdr: ChangeDetectorRef) {}
-
   isSwimmer: boolean = false;
 
-  categories = [
-    { id: '1', name: 'Categoría 1', options: ['25mts libre', '25mts dorso', '25mts pecho', '25mts mariposa'] },
-    { id: '2', name: 'Categoría 2', options: ['50mts libre', '50mts dorso', '50mts pecho'] },
-    { id: '3', name: 'Categoría 3', options: ['100mts libre', '100mts dorso', '100mts pecho', '100mts mariposa', '100mts combinado'] },
-    { id: '4', name: 'Categoría 4', options: ['200mts libre', '200mts dorso', '200mts pecho', '200mts mariposa', '400mts libre'] },
-    { id: '5', name: 'Categoría 5', options: ['800mts libre', '1500mts libre', '1500mts abiertas', '1500mts abiertas unificado'] }
-  ];
-
-  selectedCategory: string = '';
+  categories: any[] = [];
   selectedCategoryOptions: string[] = [];
   minSelectionError: boolean = false;
+  selectedCategory: string = '';
 
-onSwimMetersChange(value: string) {
-  this.isSwimmer = value === 'yes'; 
-  if (!this.isSwimmer) {
-    this.swimmingData.categorySelections = {}; 
-    this.selectedCategoryOptions = []; 
+  constructor(private cdr: ChangeDetectorRef, private swimmingService: SwimmingService) {}
+
+  ngOnInit(): void {
+    this.swimmingService.getCategories().subscribe(data => this.categories = data);
   }
-  this.cdr.detectChanges();  
-}
+
+  onSwimMetersChange(value: string) {
+    this.isSwimmer = value === 'yes';
+    if (!this.isSwimmer) {
+      this.swimmingData.categorySelections = {};
+      this.selectedCategoryOptions = [];
+    }
+    this.cdr.detectChanges();
+  }
 
   onCategoryChange(categoryId: string) {
     this.selectedCategory = categoryId;
     const category = this.categories.find(cat => cat.id === categoryId);
     if (category) {
-      this.selectedCategoryOptions = category.options;
+      this.selectedCategoryOptions = category.options.map((option: any) => option.name); // Agrega el tipo 'any' explícito
     }
     this.cdr.detectChanges();
   }

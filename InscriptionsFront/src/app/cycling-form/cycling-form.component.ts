@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core'; // Asegúrate de que `OnInit` esté importado
 import { FormsModule, NgForm } from '@angular/forms';
-import { NgIf } from "@angular/common";
+import {CommonModule, NgForOf, NgIf} from "@angular/common";
+import { CyclingService } from '../services/cycling.service';
 
 @Component({
   selector: 'app-cycling-form',
@@ -8,19 +9,34 @@ import { NgIf } from "@angular/common";
   standalone: true,
   imports: [
     FormsModule,
-    NgIf
+    NgIf,
+    NgForOf,
+    CommonModule
   ],
   styleUrls: ['./cycling-form.component.css']
 })
-export class CyclingFormComponent {
+export class CyclingFormComponent implements OnInit { // Implementa OnInit en la clase
   @Input() cyclingData!: any;
   @Input() sportName: string = 'Ciclismo';
 
+  levels: any[] = []; // Almacenará los niveles obtenidos de la base de datos
+  events: any[] = []; // Almacenará los eventos obtenidos de la base de datos
+
   maxSelectionError: boolean = false;
+
+  constructor(private cyclingService: CyclingService) {} // Inyecta el servicio CyclingService
+
+  ngOnInit(): void { // Implementa el método ngOnInit
+    // Llama al servicio para obtener los niveles desde la base de datos al cargar el componente
+    this.cyclingService.getLevels().subscribe(data => this.levels = data);
+
+    // Llama al servicio para obtener los eventos desde la base de datos al cargar el componente
+    this.cyclingService.getEvents().subscribe(data => this.events = data);
+  }
 
   onOptionSelect(option: string) {
     if (!this.cyclingData.selectedOptions) {
-      this.cyclingData.selectedOptions = [];  
+      this.cyclingData.selectedOptions = [];
     }
 
     const index = this.cyclingData.selectedOptions.indexOf(option);
@@ -60,12 +76,4 @@ export class CyclingFormComponent {
       alert('Por favor, complete todos los campos correctamente.');
     }
   }
-  parentData = {
-    nivel: '',
-    selectedOptions: [],  
-    lateralidad: '',
-    disability: '',
-    disabilityProof: null
-  }
-
 }
