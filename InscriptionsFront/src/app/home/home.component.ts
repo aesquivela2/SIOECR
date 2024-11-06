@@ -4,7 +4,7 @@ import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',   
+  templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   standalone: true,
   imports: [
@@ -15,7 +15,7 @@ import {NgForOf, NgIf} from "@angular/common";
 export class HomeComponent {
 
   navigateTo(path: string) {
-    this.router.navigate([`/${path}`]); 
+    this.router.navigate([`/${path}`]);
   }
 
   currentMonth: number;
@@ -32,13 +32,14 @@ export class HomeComponent {
   successMessage: string | null = null;
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.successMessage = localStorage.getItem('successMessage');
 
     if (this.successMessage) {
       setTimeout(() => {
         localStorage.removeItem('successMessage');
         this.successMessage = null;
-      }, 5000); 
+      }, 5000);
     }
   }
 

@@ -39,8 +39,19 @@ export class VolunteerFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
+    if (this.formService.getFormData().role !== 'volunteer') {
+      this.formService.resetFormData();
+      this.formService.setFormData({ role: 'volunteer' });
+    }
+
+    const storedVolunteerData = this.formService.getVolunteerData();
+    if (storedVolunteerData) {
+      this.selectedDays = storedVolunteerData.availableDays || [];
+      this.selectedTimes = storedVolunteerData.availableHours || {};
+    }
+
     this.formService.setFormData({
-      role: 'volunteer',
       availableDays: [],
       availableHours: {}
     });
@@ -82,6 +93,7 @@ export class VolunteerFormComponent implements OnInit {
       this.selectedDays = this.selectedDays.filter(id => id !== dayId);
       delete this.selectedTimes[dayId];
     }
+    this.formService.setVolunteerData({ availableDays: this.selectedDays });
     this.formService.setFormData({ availableDays: this.selectedDays });
   }
 
@@ -92,6 +104,7 @@ export class VolunteerFormComponent implements OnInit {
     } else {
       this.selectedTimes[dayId] = this.selectedTimes[dayId].filter(id => id !== timeId);
     }
+    this.formService.setVolunteerData({ availableHours: this.selectedTimes });
     this.formService.setFormData({ availableHours: this.selectedTimes });
   }
 
@@ -104,7 +117,14 @@ export class VolunteerFormComponent implements OnInit {
   }
 
   previousStep() {
-    this.formService.currentStep--;
+    this.formService.setVolunteerData({
+      availableDays: this.selectedDays,
+      availableHours: this.selectedTimes
+    });
+
+    if (this.formService.currentStep > 1) {
+      this.formService.currentStep--;
+    }
   }
 
   onSubmit() {

@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="descenso a la locura parte 6">
+    <list default="true" id="5699c756-e706-4112-aba9-6b6de34749fc" name="Changes" comment="tobogan hacia la demencia 2 (se trae todo de la BD)">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_20_2024_10_34_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_20_2024_10_34_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/athlete-form/athlete-form.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/form/form.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/InscriptionsFront/src/app/volunteer-form/volunteer-form.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,6 +254,9 @@
       <workItem from="1729481292140" duration="11881000" />
       <workItem from="1729611385737" duration="753000" />
       <workItem from="1730070088034" duration="538000" />
+      <workItem from="1730678312580" duration="17062000" />
+      <workItem from="1730729348358" duration="985000" />
+      <workItem from="1730866730357" duration="4425000" />
     </task>
     <task id="LOCAL-00001" summary="Front End&#10; - Cambios unicamente visuales &#10; - Una Pagina de inicio y siempre acceso a los formularios formulario general">
       <option name="closed" value="true" />
@@ -386,7 +394,63 @@
       <option name="project" value="LOCAL" />
       <updated>1729495527822</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="cambios con violencia">
+      <option name="closed" value="true" />
+      <created>1730073840762</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1730073840762</updated>
+    </task>
+    <task id="LOCAL-00019" summary="cambios con violencia parte 2 (se mantienen guardadas las provincias, cantones, regiones)">
+      <option name="closed" value="true" />
+      <created>1730082404042</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1730082404042</updated>
+    </task>
+    <task id="LOCAL-00020" summary="cambios con violencia parte 3 (boton de regreso a pagina principal)">
+      <option name="closed" value="true" />
+      <created>1730083222972</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1730083222972</updated>
+    </task>
+    <task id="LOCAL-00021" summary="cambios con violencia parte 4 (erreglo de voluntario y guardado del nombre completo en la base de datos)">
+      <option name="closed" value="true" />
+      <created>1730092804935</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1730092804935</updated>
+    </task>
+    <task id="LOCAL-00022" summary="cambios con violencia parte 5 (placeholders de registro general y mensajes y validaciones en voluntario)">
+      <option name="closed" value="true" />
+      <created>1730098437386</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1730098437386</updated>
+    </task>
+    <task id="LOCAL-00023" summary="tobogan hacia la demencia (se trae todo de la BD)">
+      <option name="closed" value="true" />
+      <created>1730701902822</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1730701902822</updated>
+    </task>
+    <task id="LOCAL-00024" summary="tobogan hacia la demencia 2 (se trae todo de la BD)">
+      <option name="closed" value="true" />
+      <created>1730701929215</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1730701929215</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,7 +486,14 @@
     <MESSAGE value="descenso a la locura parte 4" />
     <MESSAGE value="descenso a la locura parte 5" />
     <MESSAGE value="descenso a la locura parte 6" />
-    <option name="LAST_COMMIT_MESSAGE" value="descenso a la locura parte 6" />
+    <MESSAGE value="cambios con violencia" />
+    <MESSAGE value="cambios con violencia parte 2 (se mantienen guardadas las provincias, cantones, regiones)" />
+    <MESSAGE value="cambios con violencia parte 3 (boton de regreso a pagina principal)" />
+    <MESSAGE value="cambios con violencia parte 4 (erreglo de voluntario y guardado del nombre completo en la base de datos)" />
+    <MESSAGE value="cambios con violencia parte 5 (placeholders de registro general y mensajes y validaciones en voluntario)" />
+    <MESSAGE value="tobogan hacia la demencia (se trae todo de la BD)" />
+    <MESSAGE value="tobogan hacia la demencia 2 (se trae todo de la BD)" />
+    <option name="LAST_COMMIT_MESSAGE" value="tobogan hacia la demencia 2 (se trae todo de la BD)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -441,11 +512,6 @@
           <url>file://$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Controllers/AthleteController.java</url>
           <line>28</line>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Service/SportServiceImpl.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/InscriptionsBack/src/main/java/com/olimpiadas/inscriptionsback/Service/SportServiceImpl.java</url>

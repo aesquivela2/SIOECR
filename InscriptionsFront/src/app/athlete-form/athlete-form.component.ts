@@ -68,14 +68,26 @@ export class AthleteFormComponent implements OnInit {
   success: boolean = false;
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.loadSports();
-    this.loadLateralityOptions();
     this.loadDisabilityTypes();
-    const storedData = this.formService.getFormData();
-    if (storedData.disabilityProof) {
-      this.athleteData.sportInfo.disabilityProof = storedData.disabilityProof;
+    this.loadLateralityOptions();
+
+    const storedPersonalData = this.formService.getPersonalData();
+    const storedAthleteData = this.formService.getAthleteData();
+
+    // Rellenar datos personales y específicos de atleta
+    if (storedPersonalData) {
+      this.formService.setPersonalData(storedPersonalData);
+    }
+    if (storedAthleteData) {
+      this.athleteData.sportInfo = storedAthleteData.sportInfo || {};
+      this.athleteData.laterality = storedAthleteData.laterality || '';
+      this.selectedSport = this.sports.find(sport => sport.id === storedAthleteData.sport?.id) || null;
+      this.athleteData.sportInfo.disabilityProof = storedAthleteData.sportInfo?.disabilityProof || null;
     }
   }
+
   loadDisabilityTypes() {
     this.disabilityTypeService.getDisabilityTypes().subscribe(
       data => {
@@ -160,15 +172,15 @@ export class AthleteFormComponent implements OnInit {
 
     // Buscando el deporte en la lista
     this.selectedSport = this.sports.find(sport => sport.id === selectedId ) || null;
-
+    this.formService.setAthleteData({ sport: this.selectedSport });
     console.log("Deporte encontrado: ", this.selectedSport);
   }
 
   previousStep() {
-    this.formService.setFormData({
+    this.formService.setAthleteData({
+      sportInfo: this.athleteData.sportInfo,
       laterality: this.athleteData.laterality,
-      sport: this.athleteData.sportInfo.sport,
-      disabilityProof: this.athleteData.sportInfo.disabilityProof
+      sport: this.selectedSport
     });
 
     if (this.formService.currentStep > 1) {
@@ -177,6 +189,7 @@ export class AthleteFormComponent implements OnInit {
   }
 
   onSubmit() {
+    this.formService.setAthleteData(this.athleteData);
     const personalData = this.formService.getFormData();
 
     if (!personalData.identification || !personalData.name || !personalData.nationality) {
@@ -227,6 +240,7 @@ export class AthleteFormComponent implements OnInit {
     if (file && file.type === 'application/pdf') {
       this.athleteData.sportInfo.disabilityProof = file;
       this.formService.setFormData({ disabilityProof: file });
+      this.formService.setAthleteData({ disabilityProof: file });
     } else {
       alert('Por favor, suba un archivo PDF válido.');
     }

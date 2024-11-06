@@ -43,6 +43,7 @@ export class FormComponent implements OnInit {
 
   @ViewChild('registrationForm', { static: false }) registrationForm!: NgForm;
 
+  roleType: 'atleta' | 'voluntario' = 'atleta';
   currentStep = 1;
   sports: Sport[] = [];
   globalRegions: any[] = [];
@@ -52,6 +53,7 @@ export class FormComponent implements OnInit {
   registration = {
     identification: '',
     name: '',
+    nameAux: '',
     birthdate: '' as string | Date,
     canton_id: null as Canton | null | undefined,
     citizenship: undefined as string | undefined,
@@ -481,7 +483,7 @@ export class FormComponent implements OnInit {
       const personalDataToStore = {
         identification: this.registration.identification,
         idType: this.registration.idType,
-        name: this.registration.name + ' ' + this.registration.lastname,
+        name: this.registration.name,
         lastname: this.registration.lastname || null,
         birthdate: this.registration.birthdate || null,
         email: this.registration.email || null,
@@ -597,7 +599,8 @@ export class FormComponent implements OnInit {
     this.formService.setFormData({
     identification: this.registration.identification,
     idType: this.registration.idType,
-    name: this.registration.name + ' ' + this.registration.lastname,
+    fullName: this.registration.name + this.registration.lastname,
+    name: this.registration.name,
     lastname: this.registration.lastname,
     birthdate: this.registration.birthdate,
     email: this.registration.email,
@@ -623,7 +626,7 @@ export class FormComponent implements OnInit {
     this.formService.setFormData({
       identification: this.registration.identification,
       idType: this.registration.idType,
-      name: this.registration.name,
+      name: this.registration.nameAux,
       lastname: this.registration.lastname,
       birthdate: this.registration.birthdate,
       email: this.registration.email,
