@@ -34,11 +34,11 @@
         <label for="disability">Tipo de discapacidad:</label>
         <div>
           <select id="disability" name="disability" [(ngModel)]="athleteData.sportInfo.disability">
-            <option value="">Seleccione discapacidad (opcional)</option>
+            <option value="">Seleccione discapacidad</option>
             <option value="visual">Visual</option>
             <option value="auditory">Auditiva</option>
-            <option value="physical">Física</option>
-            <option value="none">Ninguna</option>
+            <option value="cognitiva">Cognitiva</option>
+            <option value="otro">Otro</option>
           </select>
         </div>
       </div>
@@ -47,9 +47,9 @@
         <div>
           <label for="laterality">Lateralidad:</label>
           <select id="laterality" name="laterality" [(ngModel)]="athleteData.laterality" #laterality="ngModel" required>
-            <option value="right">Diestro</option>
-            <option value="left">Zurdo</option>
-            <option value="ambidextrous">Ambidiestro</option>
+            <option value="right">Derecho</option>
+            <option value="left">Izquierdo</option>
+            <option value="ambidextrous">Ambos</option>
           </select>
           <div *ngIf="laterality.invalid && laterality.touched">
             <small class="error" *ngIf="laterality.errors?.['required']">La lateralidad es requerida.</small>
